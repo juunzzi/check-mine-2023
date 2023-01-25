@@ -4,7 +4,7 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ['react-app', 'react-app/jest', 'airbnb', 'prettier'],
+  extends: ['react-app', 'react-app/jest', 'prettier'],
   plugins: ['react', 'react-hooks', 'prettier'],
   rules: {
     'max-depth': ['error', 2],
