@@ -1,0 +1,22 @@
+#!/bin/sh
+
+COMMIT_EDITMSG=$1
+
+addBranchNumber() {
+  NAME=$(git branch | grep '*' | sed 's/* //' | sed 's/^.*#//') 
+  DESCRIPTION=$(git config branch."$NAME".description)
+  echo "[#$NAME] $(cat $COMMIT_EDITMSG)" > $COMMIT_EDITMSG
+
+  if [ -n "$DESCRIPTION" ] 
+  then
+     echo "" >> $COMMIT_EDITMSG
+     echo $DESCRIPTION >> $COMMIT_EDITMSG
+  fi 
+}
+
+
+MERGE=$(cat $COMMIT_EDITMSG|grep -i 'merge'|wc -l)
+
+if [ $MERGE -eq 0 ] ; then
+  addBranchNumber
+fi
