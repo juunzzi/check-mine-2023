@@ -25,11 +25,13 @@
     "postinstall": "husky install",
     "lint-staged": "lint-staged",
     "prepack": "pinst --disable",
-    "postpack": "pinst --enable"
+    "postpack": "pinst --enable",
+    "prettier": "prettier --check \"./**/*.{js,ts,tsx,json}\"",
+    "prettier:fix": "prettier --write \"./**/*.{js,ts,tsx,json}\""
   },
   "lint-staged": {
     "**/*.{ts,tsx}": [
-      "eslint --fix"
+      "eslint --fix && yarn prettier:fix"
     ]
   }
 }
