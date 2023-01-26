@@ -17,8 +17,8 @@
     "scripts": {
         "postinstall": "husky install",
         "lint-staged": "lint-staged",
-        "prettier": "prettier --check \"./**/*.{ts,tsx,json}\"",
-        "prettier:fix": "prettier --write \"./**/*.{ts,tsx,json}\""
+        "prettier": "prettier --check \"./**/*.{ts,tsx,json,md}\"",
+        "prettier:fix": "prettier --write \"./**/*.{ts,tsx,json,md}\""
     },
     "lint-staged": {
         "**/*.{ts,tsx}": [
