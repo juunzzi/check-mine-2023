@@ -40,9 +40,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@financial/eslint-config-fe", "npm:1.5.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40financial%2Feslint-config-fe%2F-%2F%40financial%2Feslint-config-fe-1.5.0.tgz"],\
             ["eslint", "npm:8.32.0"],\
-            ["husky", "npm:8.0.3"],\
+            ["husky", "npm:8.0.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fhusky%2F-%2Fhusky-8.0.3.tgz"],\
             ["lint-staged", "npm:13.1.0"],\
-            ["pinst", "npm:3.0.0"],\
             ["prettier", "npm:2.8.3"],\
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"]\
           ],\
@@ -10931,10 +10930,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["husky", [\
-        ["npm:8.0.3", {\
-          "packageLocation": "./.yarn/cache/husky-npm-8.0.3-b0b59c5127-837bc7e441.zip/node_modules/husky/",\
+        ["npm:8.0.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fhusky%2F-%2Fhusky-8.0.3.tgz", {\
+          "packageLocation": "./.yarn/cache/husky-npm-8.0.3-1e4b1a62b2-837bc7e441.zip/node_modules/husky/",\
           "packageDependencies": [\
-            ["husky", "npm:8.0.3"]\
+            ["husky", "npm:8.0.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fhusky%2F-%2Fhusky-8.0.3.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -14057,9 +14056,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["payment_root", "workspace:."],\
             ["@financial/eslint-config-fe", "npm:1.5.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40financial%2Feslint-config-fe%2F-%2F%40financial%2Feslint-config-fe-1.5.0.tgz"],\
             ["eslint", "npm:8.32.0"],\
-            ["husky", "npm:8.0.3"],\
+            ["husky", "npm:8.0.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fhusky%2F-%2Fhusky-8.0.3.tgz"],\
             ["lint-staged", "npm:13.1.0"],\
-            ["pinst", "npm:3.0.0"],\
             ["prettier", "npm:2.8.3"],\
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"]\
           ],\
@@ -14132,15 +14130,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/pify-npm-2.3.0-8b63310934-9503aaeaf4.zip/node_modules/pify/",\
           "packageDependencies": [\
             ["pify", "npm:2.3.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["pinst", [\
-        ["npm:3.0.0", {\
-          "packageLocation": "./.yarn/cache/pinst-npm-3.0.0-5d2b6c1dda-4ae48a6a60.zip/node_modules/pinst/",\
-          "packageDependencies": [\
-            ["pinst", "npm:3.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
