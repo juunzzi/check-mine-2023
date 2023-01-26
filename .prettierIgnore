@@ -2,4 +2,3 @@ build
 .yarn
 .vscode
 dist
-*.md
