@@ -3003,6 +3003,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/koa-logger@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "@types/koa-logger@npm:3.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa-logger%2F-%2Fkoa-logger-3.1.2.tgz"
+  dependencies:
+    "@types/koa": "*"
+  checksum: 8e4cfcdb2491052bbff35c8f0a1f0bf839e966c3903afcf39656bf21bd3089b1a50945ce6a92bea430a83c9341d714c968360953d3a52a5cc10cdb3fb0af4218
+  languageName: node
+  linkType: hard
+
 "@types/koa@npm:*, @types/koa@npm:^2.13.5":
   version: 2.13.5
   resolution: "@types/koa@npm:2.13.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa%2F-%2Fkoa-2.13.5.tgz"
@@ -4471,6 +4480,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bytes@npm:^3.1.0":
+  version: 3.1.2
+  resolution: "bytes@npm:3.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fbytes%2F-%2Fbytes-3.1.2.tgz"
+  checksum: e4bcd3948d289c5127591fbedf10c0b639ccbf00243504e4e127374a15c3bc8eed0d28d4aaab08ff6f1cf2abc0cce6ba3085ed32f4f90e82a5683ce0014e1b6e
+  languageName: node
+  linkType: hard
+
 "cacache@npm:^16.1.0":
   version: 16.1.3
   resolution: "cacache@npm:16.1.3"
@@ -4584,6 +4600,17 @@ __metadata:
 "chalk@npm:^2.0.0, chalk@npm:^2.4.1":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
+  dependencies:
+    ansi-styles: ^3.2.1
+    escape-string-regexp: ^1.0.5
+    supports-color: ^5.3.0
+  checksum: ec3661d38fe77f681200f878edbd9448821924e0f93a9cefc0e26a33b145f1027a2084bf19967160d11e1f03bfe4eaffcabf5493b89098b2782c3fe0b03d80c2
+  languageName: node
+  linkType: hard
+
+"chalk@npm:^2.4.2":
+  version: 2.4.2
+  resolution: "chalk@npm:2.4.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fchalk%2F-%2Fchalk-2.4.2.tgz"
   dependencies:
     ansi-styles: ^3.2.1
     escape-string-regexp: ^1.0.5
@@ -7739,6 +7766,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"humanize-number@npm:0.0.2":
+  version: 0.0.2
+  resolution: "humanize-number@npm:0.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fhumanize-number%2F-%2Fhumanize-number-0.0.2.tgz"
+  checksum: 9c98c9d06b0f3d801960be3957199232a5df52377e2502acae92e4f71de633fa62c315a83f24bf96bef76f47b2e3e0e1e4f4157c891e27074fd3272cad6724bb
+  languageName: node
+  linkType: hard
+
 "husky@npm:^8.0.0":
   version: 8.0.3
   resolution: "husky@npm:8.0.3"
@@ -9225,6 +9259,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"koa-logger@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "koa-logger@npm:3.2.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa-logger%2F-%2Fkoa-logger-3.2.1.tgz"
+  dependencies:
+    bytes: ^3.1.0
+    chalk: ^2.4.2
+    humanize-number: 0.0.2
+    passthrough-counter: ^1.0.0
+  checksum: b29ba25eb433452bfda48e51acd5d206128411966acc09bb13ce3a0cec9192f78bb27e23efd615d0e7f46eeb2588ee8d2541d72665a4aa18d27a177e78dca909
+  languageName: node
+  linkType: hard
+
 "koa@npm:^2.14.1":
   version: 2.14.1
   resolution: "koa@npm:2.14.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa%2F-%2Fkoa-2.14.1.tgz"
@@ -10430,6 +10476,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"passthrough-counter@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "passthrough-counter@npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fpassthrough-counter%2F-%2Fpassthrough-counter-1.0.0.tgz"
+  checksum: 942a0addeb677e24ddb154b04cc29ce1c5720032efc268689446420f9350d47e94f2f1f76d469686bc87c1543c2f2165f2d004d265fe1b81465c76e02d272c63
+  languageName: node
+  linkType: hard
+
 "path-exists@npm:^3.0.0":
   version: 3.0.0
   resolution: "path-exists@npm:3.0.0"
@@ -10524,8 +10577,10 @@ __metadata:
   resolution: "payment_server@workspace:packages/server"
   dependencies:
     "@types/koa": ^2.13.5
+    "@types/koa-logger": ^3.1.2
     "@types/node": ^18.11.18
     koa: ^2.14.1
+    koa-logger: ^3.2.1
     nodemon: ^2.0.20
     ts-node: ^10.9.1
     tsconfig-paths: ^4.1.2

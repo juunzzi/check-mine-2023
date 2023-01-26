@@ -4848,6 +4848,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@types/koa-logger", [\
+        ["npm:3.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa-logger%2F-%2Fkoa-logger-3.1.2.tgz", {\
+          "packageLocation": "./.yarn/cache/@types-koa-logger-npm-3.1.2-9583c2fff2-8e4cfcdb24.zip/node_modules/@types/koa-logger/",\
+          "packageDependencies": [\
+            ["@types/koa-logger", "npm:3.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa-logger%2F-%2Fkoa-logger-3.1.2.tgz"],\
+            ["@types/koa", "npm:2.13.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa%2F-%2Fkoa-2.13.5.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/mime", [\
         ["npm:3.0.1", {\
           "packageLocation": "./.yarn/cache/@types-mime-npm-3.0.1-dec03536dc-4040fac73f.zip/node_modules/@types/mime/",\
@@ -6804,6 +6814,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["bytes", "npm:3.1.2"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:3.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fbytes%2F-%2Fbytes-3.1.2.tgz", {\
+          "packageLocation": "./.yarn/cache/bytes-npm-3.1.2-30bbb3aed2-e4bcd3948d.zip/node_modules/bytes/",\
+          "packageDependencies": [\
+            ["bytes", "npm:3.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fbytes%2F-%2Fbytes-3.1.2.tgz"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["cacache", [\
@@ -6936,6 +6953,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/chalk-npm-2.4.2-3ea16dd91e-ec3661d38f.zip/node_modules/chalk/",\
           "packageDependencies": [\
             ["chalk", "npm:2.4.2"],\
+            ["ansi-styles", "npm:3.2.1"],\
+            ["escape-string-regexp", "npm:1.0.5"],\
+            ["supports-color", "npm:5.5.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:2.4.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fchalk%2F-%2Fchalk-2.4.2.tgz", {\
+          "packageLocation": "./.yarn/cache/chalk-npm-2.4.2-57699ee309-ec3661d38f.zip/node_modules/chalk/",\
+          "packageDependencies": [\
+            ["chalk", "npm:2.4.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fchalk%2F-%2Fchalk-2.4.2.tgz"],\
             ["ansi-styles", "npm:3.2.1"],\
             ["escape-string-regexp", "npm:1.0.5"],\
             ["supports-color", "npm:5.5.0"]\
@@ -10894,6 +10921,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["humanize-number", [\
+        ["npm:0.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fhumanize-number%2F-%2Fhumanize-number-0.0.2.tgz", {\
+          "packageLocation": "./.yarn/cache/humanize-number-npm-0.0.2-a92ffffc54-9c98c9d06b.zip/node_modules/humanize-number/",\
+          "packageDependencies": [\
+            ["humanize-number", "npm:0.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fhumanize-number%2F-%2Fhumanize-number-0.0.2.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["husky", [\
         ["npm:8.0.3", {\
           "packageLocation": "./.yarn/cache/husky-npm-8.0.3-b0b59c5127-837bc7e441.zip/node_modules/husky/",\
@@ -12600,6 +12636,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["koa-logger", [\
+        ["npm:3.2.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa-logger%2F-%2Fkoa-logger-3.2.1.tgz", {\
+          "packageLocation": "./.yarn/cache/koa-logger-npm-3.2.1-1425c10bee-b29ba25eb4.zip/node_modules/koa-logger/",\
+          "packageDependencies": [\
+            ["koa-logger", "npm:3.2.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa-logger%2F-%2Fkoa-logger-3.2.1.tgz"],\
+            ["bytes", "npm:3.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fbytes%2F-%2Fbytes-3.1.2.tgz"],\
+            ["chalk", "npm:2.4.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fchalk%2F-%2Fchalk-2.4.2.tgz"],\
+            ["humanize-number", "npm:0.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fhumanize-number%2F-%2Fhumanize-number-0.0.2.tgz"],\
+            ["passthrough-counter", "npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fpassthrough-counter%2F-%2Fpassthrough-counter-1.0.0.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["language-subtag-registry", [\
         ["npm:0.3.22", {\
           "packageLocation": "./.yarn/cache/language-subtag-registry-npm-0.3.22-e9f79fe04e-8ab70a7e0e.zip/node_modules/language-subtag-registry/",\
@@ -13903,6 +13952,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["passthrough-counter", [\
+        ["npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fpassthrough-counter%2F-%2Fpassthrough-counter-1.0.0.tgz", {\
+          "packageLocation": "./.yarn/cache/passthrough-counter-npm-1.0.0-2493f0c416-942a0addeb.zip/node_modules/passthrough-counter/",\
+          "packageDependencies": [\
+            ["passthrough-counter", "npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fpassthrough-counter%2F-%2Fpassthrough-counter-1.0.0.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["path-exists", [\
         ["npm:3.0.0", {\
           "packageLocation": "./.yarn/cache/path-exists-npm-3.0.0-e80371aa68-96e92643aa.zip/node_modules/path-exists/",\
@@ -14014,8 +14072,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["payment_server", "workspace:packages/server"],\
             ["@types/koa", "npm:2.13.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa%2F-%2Fkoa-2.13.5.tgz"],\
+            ["@types/koa-logger", "npm:3.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa-logger%2F-%2Fkoa-logger-3.1.2.tgz"],\
             ["@types/node", "npm:18.11.18::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fnode%2F-%2Fnode-18.11.18.tgz"],\
             ["koa", "npm:2.14.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa%2F-%2Fkoa-2.14.1.tgz"],\
+            ["koa-logger", "npm:3.2.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa-logger%2F-%2Fkoa-logger-3.2.1.tgz"],\
             ["nodemon", "npm:2.0.20::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnodemon%2F-%2Fnodemon-2.0.20.tgz"],\
             ["ts-node", "virtual:4d54fc2fb5bf057f6fde15b28801161b9e33712c0eaf98f1559323e77933eab1ad64ed9752b87b7c80e5c0f494d71c6599488988d8d308ecb90998491c09b4d9#npm:10.9.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fts-node%2F-%2Fts-node-10.9.1.tgz"],\
             ["tsconfig-paths", "npm:4.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Ftsconfig-paths%2F-%2Ftsconfig-paths-4.1.2.tgz"],\

@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "target": "es5",
-        "module": "ESNext",
+        "module": "CommonJS",
         "sourceMap": true,
         "outDir": "dist",
         "noImplicitAny": true,
@@ -16,9 +16,6 @@
         "paths": {
             "@/*": ["src/*"]
         }
-    },
-    "ts-node": {
-        "esm": true
     },
     "include": ["src"]
 }
