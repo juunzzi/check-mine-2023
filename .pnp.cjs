@@ -18,13 +18,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {\
         "name": "payment_client",\
         "reference": "workspace:packages/client"\
+      },\
+      {\
+        "name": "payment_server",\
+        "reference": "workspace:packages/server"\
       }\
     ],\
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
       ["payment_client", ["workspace:packages/client"]],\
-      ["payment_root", ["workspace:."]]\
+      ["payment_root", ["workspace:."]],\
+      ["payment_server", ["workspace:packages/server"]]\
     ],\
     "fallbackPool": [\
     ],\
@@ -3005,6 +3010,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@cspotcode/source-map-support", [\
+        ["npm:0.8.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40cspotcode%2Fsource-map-support%2F-%2Fsource-map-support-0.8.1.tgz", {\
+          "packageLocation": "./.yarn/cache/@cspotcode-source-map-support-npm-0.8.1-0b4af053a4-5718f26708.zip/node_modules/@cspotcode/source-map-support/",\
+          "packageDependencies": [\
+            ["@cspotcode/source-map-support", "npm:0.8.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40cspotcode%2Fsource-map-support%2F-%2Fsource-map-support-0.8.1.tgz"],\
+            ["@jridgewell/trace-mapping", "npm:0.3.9::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40jridgewell%2Ftrace-mapping%2F-%2Ftrace-mapping-0.3.9.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@csstools/normalize.css", [\
         ["npm:12.0.0", {\
           "packageLocation": "./.yarn/cache/@csstools-normalize.css-npm-12.0.0-b25d07810f-fbef0f7fe4.zip/node_modules/@csstools/normalize.css/",\
@@ -3837,6 +3852,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@jridgewell/resolve-uri", "npm:3.1.0"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:3.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40jridgewell%2Fresolve-uri%2F-%2Fresolve-uri-3.1.0.tgz", {\
+          "packageLocation": "./.yarn/cache/@jridgewell-resolve-uri-npm-3.1.0-da97dcb7d9-b5ceaaf9a1.zip/node_modules/@jridgewell/resolve-uri/",\
+          "packageDependencies": [\
+            ["@jridgewell/resolve-uri", "npm:3.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40jridgewell%2Fresolve-uri%2F-%2Fresolve-uri-3.1.0.tgz"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@jridgewell/set-array", [\
@@ -3874,6 +3896,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@jridgewell/trace-mapping", "npm:0.3.17"],\
             ["@jridgewell/resolve-uri", "npm:3.1.0"],\
+            ["@jridgewell/sourcemap-codec", "npm:1.4.14"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:0.3.9::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40jridgewell%2Ftrace-mapping%2F-%2Ftrace-mapping-0.3.9.tgz", {\
+          "packageLocation": "./.yarn/cache/@jridgewell-trace-mapping-npm-0.3.9-90ce872b82-d89597752f.zip/node_modules/@jridgewell/trace-mapping/",\
+          "packageDependencies": [\
+            ["@jridgewell/trace-mapping", "npm:0.3.9::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40jridgewell%2Ftrace-mapping%2F-%2Ftrace-mapping-0.3.9.tgz"],\
+            ["@jridgewell/resolve-uri", "npm:3.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40jridgewell%2Fresolve-uri%2F-%2Fresolve-uri-3.1.0.tgz"],\
             ["@jridgewell/sourcemap-codec", "npm:1.4.14"]\
           ],\
           "linkType": "HARD"\
@@ -4433,6 +4464,52 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@tsconfig/node10", [\
+        ["npm:1.0.9::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40tsconfig%2Fnode10%2F-%2Fnode10-1.0.9.tgz", {\
+          "packageLocation": "./.yarn/cache/@tsconfig-node10-npm-1.0.9-796cfcbcba-a33ae4dc2a.zip/node_modules/@tsconfig/node10/",\
+          "packageDependencies": [\
+            ["@tsconfig/node10", "npm:1.0.9::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40tsconfig%2Fnode10%2F-%2Fnode10-1.0.9.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@tsconfig/node12", [\
+        ["npm:1.0.11::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40tsconfig%2Fnode12%2F-%2Fnode12-1.0.11.tgz", {\
+          "packageLocation": "./.yarn/cache/@tsconfig-node12-npm-1.0.11-636240630d-5ce29a41b1.zip/node_modules/@tsconfig/node12/",\
+          "packageDependencies": [\
+            ["@tsconfig/node12", "npm:1.0.11::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40tsconfig%2Fnode12%2F-%2Fnode12-1.0.11.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@tsconfig/node14", [\
+        ["npm:1.0.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40tsconfig%2Fnode14%2F-%2Fnode14-1.0.3.tgz", {\
+          "packageLocation": "./.yarn/cache/@tsconfig-node14-npm-1.0.3-b1855ce53b-19275fe80c.zip/node_modules/@tsconfig/node14/",\
+          "packageDependencies": [\
+            ["@tsconfig/node14", "npm:1.0.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40tsconfig%2Fnode14%2F-%2Fnode14-1.0.3.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@tsconfig/node16", [\
+        ["npm:1.0.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40tsconfig%2Fnode16%2F-%2Fnode16-1.0.3.tgz", {\
+          "packageLocation": "./.yarn/cache/@tsconfig-node16-npm-1.0.3-836daeeb50-3a8b657dd0.zip/node_modules/@tsconfig/node16/",\
+          "packageDependencies": [\
+            ["@tsconfig/node16", "npm:1.0.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40tsconfig%2Fnode16%2F-%2Fnode16-1.0.3.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/accepts", [\
+        ["npm:1.3.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Faccepts%2F-%2Faccepts-1.3.5.tgz", {\
+          "packageLocation": "./.yarn/cache/@types-accepts-npm-1.3.5-02d470759f-590b758057.zip/node_modules/@types/accepts/",\
+          "packageDependencies": [\
+            ["@types/accepts", "npm:1.3.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Faccepts%2F-%2Faccepts-1.3.5.tgz"],\
+            ["@types/node", "npm:18.11.18"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/aria-query", [\
         ["npm:5.0.1", {\
           "packageLocation": "./.yarn/cache/@types-aria-query-npm-5.0.1-5c01a56741-69fd7cceb6.zip/node_modules/@types/aria-query/",\
@@ -4529,6 +4606,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@types/content-disposition", [\
+        ["npm:0.5.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fcontent-disposition%2F-%2Fcontent-disposition-0.5.5.tgz", {\
+          "packageLocation": "./.yarn/cache/@types-content-disposition-npm-0.5.5-d336f9f4b9-fdf7379db1.zip/node_modules/@types/content-disposition/",\
+          "packageDependencies": [\
+            ["@types/content-disposition", "npm:0.5.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fcontent-disposition%2F-%2Fcontent-disposition-0.5.5.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/cookies", [\
+        ["npm:0.7.7::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fcookies%2F-%2Fcookies-0.7.7.tgz", {\
+          "packageLocation": "./.yarn/cache/@types-cookies-npm-0.7.7-120aced732-d3759efc11.zip/node_modules/@types/cookies/",\
+          "packageDependencies": [\
+            ["@types/cookies", "npm:0.7.7::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fcookies%2F-%2Fcookies-0.7.7.tgz"],\
+            ["@types/connect", "npm:3.4.35"],\
+            ["@types/express", "npm:4.17.16"],\
+            ["@types/keygrip", "npm:1.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkeygrip%2F-%2Fkeygrip-1.0.2.tgz"],\
+            ["@types/node", "npm:18.11.18"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/eslint", [\
         ["npm:8.4.10", {\
           "packageLocation": "./.yarn/cache/@types-eslint-npm-8.4.10-9df5f4bc78-21e009ed9e.zip/node_modules/@types/eslint/",\
@@ -4618,6 +4717,24 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@types/http-assert", [\
+        ["npm:1.5.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fhttp-assert%2F-%2Fhttp-assert-1.5.3.tgz", {\
+          "packageLocation": "./.yarn/cache/@types-http-assert-npm-1.5.3-8e8b7a7f3a-9553e5a0b8.zip/node_modules/@types/http-assert/",\
+          "packageDependencies": [\
+            ["@types/http-assert", "npm:1.5.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fhttp-assert%2F-%2Fhttp-assert-1.5.3.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/http-errors", [\
+        ["npm:2.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fhttp-errors%2F-%2Fhttp-errors-2.0.1.tgz", {\
+          "packageLocation": "./.yarn/cache/@types-http-errors-npm-2.0.1-5b8b99a68c-3bb0c50b0a.zip/node_modules/@types/http-errors/",\
+          "packageDependencies": [\
+            ["@types/http-errors", "npm:2.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fhttp-errors%2F-%2Fhttp-errors-2.0.1.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/http-proxy", [\
         ["npm:1.17.9", {\
           "packageLocation": "./.yarn/cache/@types-http-proxy-npm-1.17.9-fa2f5ce316-7a6746d007.zip/node_modules/@types/http-proxy/",\
@@ -4695,6 +4812,42 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@types/keygrip", [\
+        ["npm:1.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkeygrip%2F-%2Fkeygrip-1.0.2.tgz", {\
+          "packageLocation": "./.yarn/cache/@types-keygrip-npm-1.0.2-5aad6200e3-60bc2738a4.zip/node_modules/@types/keygrip/",\
+          "packageDependencies": [\
+            ["@types/keygrip", "npm:1.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkeygrip%2F-%2Fkeygrip-1.0.2.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/koa", [\
+        ["npm:2.13.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa%2F-%2Fkoa-2.13.5.tgz", {\
+          "packageLocation": "./.yarn/cache/@types-koa-npm-2.13.5-67bdb5b76d-e3b634d934.zip/node_modules/@types/koa/",\
+          "packageDependencies": [\
+            ["@types/koa", "npm:2.13.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa%2F-%2Fkoa-2.13.5.tgz"],\
+            ["@types/accepts", "npm:1.3.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Faccepts%2F-%2Faccepts-1.3.5.tgz"],\
+            ["@types/content-disposition", "npm:0.5.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fcontent-disposition%2F-%2Fcontent-disposition-0.5.5.tgz"],\
+            ["@types/cookies", "npm:0.7.7::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fcookies%2F-%2Fcookies-0.7.7.tgz"],\
+            ["@types/http-assert", "npm:1.5.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fhttp-assert%2F-%2Fhttp-assert-1.5.3.tgz"],\
+            ["@types/http-errors", "npm:2.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fhttp-errors%2F-%2Fhttp-errors-2.0.1.tgz"],\
+            ["@types/keygrip", "npm:1.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkeygrip%2F-%2Fkeygrip-1.0.2.tgz"],\
+            ["@types/koa-compose", "npm:3.2.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa-compose%2F-%2Fkoa-compose-3.2.5.tgz"],\
+            ["@types/node", "npm:18.11.18"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/koa-compose", [\
+        ["npm:3.2.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa-compose%2F-%2Fkoa-compose-3.2.5.tgz", {\
+          "packageLocation": "./.yarn/cache/@types-koa-compose-npm-3.2.5-261d6d6494-5d1147c4b0.zip/node_modules/@types/koa-compose/",\
+          "packageDependencies": [\
+            ["@types/koa-compose", "npm:3.2.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa-compose%2F-%2Fkoa-compose-3.2.5.tgz"],\
+            ["@types/koa", "npm:2.13.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa%2F-%2Fkoa-2.13.5.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/mime", [\
         ["npm:3.0.1", {\
           "packageLocation": "./.yarn/cache/@types-mime-npm-3.0.1-dec03536dc-4040fac73f.zip/node_modules/@types/mime/",\
@@ -4716,6 +4869,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-node-npm-18.11.18-d61e8a4a20-03f17f9480.zip/node_modules/@types/node/",\
           "packageDependencies": [\
             ["@types/node", "npm:18.11.18"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:18.11.18::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fnode%2F-%2Fnode-18.11.18.tgz", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-18.11.18-a21a4a3084-03f17f9480.zip/node_modules/@types/node/",\
+          "packageDependencies": [\
+            ["@types/node", "npm:18.11.18::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fnode%2F-%2Fnode-18.11.18.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -5473,6 +5633,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["abbrev", "npm:1.1.1"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:1.1.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fabbrev%2F-%2Fabbrev-1.1.1.tgz", {\
+          "packageLocation": "./.yarn/cache/abbrev-npm-1.1.1-5c12cb624a-a4a97ec07d.zip/node_modules/abbrev/",\
+          "packageDependencies": [\
+            ["abbrev", "npm:1.1.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fabbrev%2F-%2Fabbrev-1.1.1.tgz"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["accepts", [\
@@ -5480,6 +5647,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/accepts-npm-1.3.8-9a812371c9-50c43d32e7.zip/node_modules/accepts/",\
           "packageDependencies": [\
             ["accepts", "npm:1.3.8"],\
+            ["mime-types", "npm:2.1.35"],\
+            ["negotiator", "npm:0.6.3"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:1.3.8::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Faccepts%2F-%2Faccepts-1.3.8.tgz", {\
+          "packageLocation": "./.yarn/cache/accepts-npm-1.3.8-02a60bab09-50c43d32e7.zip/node_modules/accepts/",\
+          "packageDependencies": [\
+            ["accepts", "npm:1.3.8::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Faccepts%2F-%2Faccepts-1.3.8.tgz"],\
             ["mime-types", "npm:2.1.35"],\
             ["negotiator", "npm:0.6.3"]\
           ],\
@@ -5505,6 +5681,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/acorn-npm-8.8.2-9d518fd7d3-f790b99a1b.zip/node_modules/acorn/",\
           "packageDependencies": [\
             ["acorn", "npm:8.8.2"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:8.8.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Facorn%2F-%2Facorn-8.8.2.tgz", {\
+          "packageLocation": "./.yarn/cache/acorn-npm-8.8.2-47db4fd7e4-f790b99a1b.zip/node_modules/acorn/",\
+          "packageDependencies": [\
+            ["acorn", "npm:8.8.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Facorn%2F-%2Facorn-8.8.2.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -5601,6 +5784,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/acorn-walk-npm-7.2.0-5f8b515308-9252158a79.zip/node_modules/acorn-walk/",\
           "packageDependencies": [\
             ["acorn-walk", "npm:7.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:8.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Facorn-walk%2F-%2Facorn-walk-8.2.0.tgz", {\
+          "packageLocation": "./.yarn/cache/acorn-walk-npm-8.2.0-a11bd836f1-1715e76c01.zip/node_modules/acorn-walk/",\
+          "packageDependencies": [\
+            ["acorn-walk", "npm:8.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Facorn-walk%2F-%2Facorn-walk-8.2.0.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -5866,6 +6056,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["arg", [\
+        ["npm:4.1.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Farg%2F-%2Farg-4.1.3.tgz", {\
+          "packageLocation": "./.yarn/cache/arg-npm-4.1.3-61c10f661d-544af8dd3f.zip/node_modules/arg/",\
+          "packageDependencies": [\
+            ["arg", "npm:4.1.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Farg%2F-%2Farg-4.1.3.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:5.0.2", {\
           "packageLocation": "./.yarn/cache/arg-npm-5.0.2-2f5805a547-6c69ada1a9.zip/node_modules/arg/",\
           "packageDependencies": [\
@@ -6636,6 +6833,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["cache-content-type", [\
+        ["npm:1.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fcache-content-type%2F-%2Fcache-content-type-1.0.1.tgz", {\
+          "packageLocation": "./.yarn/cache/cache-content-type-npm-1.0.1-7955b59bbf-18db4d5945.zip/node_modules/cache-content-type/",\
+          "packageDependencies": [\
+            ["cache-content-type", "npm:1.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fcache-content-type%2F-%2Fcache-content-type-1.0.1.tgz"],\
+            ["mime-types", "npm:2.1.35::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fmime-types%2F-%2Fmime-types-2.1.35.tgz"],\
+            ["ylru", "npm:1.3.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fylru%2F-%2Fylru-1.3.2.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["call-bind", [\
         ["npm:1.0.2", {\
           "packageLocation": "./.yarn/cache/call-bind-npm-1.0.2-c957124861-f8e31de9d1.zip/node_modules/call-bind/",\
@@ -6783,6 +6991,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/chokidar-npm-3.5.3-c5f9b0a56a-b49fcde401.zip/node_modules/chokidar/",\
           "packageDependencies": [\
             ["chokidar", "npm:3.5.3"],\
+            ["anymatch", "npm:3.1.3"],\
+            ["braces", "npm:3.0.2"],\
+            ["fsevents", "patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"],\
+            ["glob-parent", "npm:5.1.2"],\
+            ["is-binary-path", "npm:2.1.0"],\
+            ["is-glob", "npm:4.0.3"],\
+            ["normalize-path", "npm:3.0.0"],\
+            ["readdirp", "npm:3.6.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:3.5.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fchokidar%2F-%2Fchokidar-3.5.3.tgz", {\
+          "packageLocation": "./.yarn/cache/chokidar-npm-3.5.3-b2bb09b735-b49fcde401.zip/node_modules/chokidar/",\
+          "packageDependencies": [\
+            ["chokidar", "npm:3.5.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fchokidar%2F-%2Fchokidar-3.5.3.tgz"],\
             ["anymatch", "npm:3.1.3"],\
             ["braces", "npm:3.0.2"],\
             ["fsevents", "patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"],\
@@ -7120,6 +7343,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["safe-buffer", "npm:5.2.1"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:0.5.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fcontent-disposition%2F-%2Fcontent-disposition-0.5.4.tgz", {\
+          "packageLocation": "./.yarn/cache/content-disposition-npm-0.5.4-cb52d9f7fd-afb9d545e2.zip/node_modules/content-disposition/",\
+          "packageDependencies": [\
+            ["content-disposition", "npm:0.5.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fcontent-disposition%2F-%2Fcontent-disposition-0.5.4.tgz"],\
+            ["safe-buffer", "npm:5.2.1"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["content-type", [\
@@ -7127,6 +7358,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/content-type-npm-1.0.4-3b1a5ca16b-3d93585fda.zip/node_modules/content-type/",\
           "packageDependencies": [\
             ["content-type", "npm:1.0.4"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:1.0.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fcontent-type%2F-%2Fcontent-type-1.0.4.tgz", {\
+          "packageLocation": "./.yarn/cache/content-type-npm-1.0.4-de20138e79-3d93585fda.zip/node_modules/content-type/",\
+          "packageDependencies": [\
+            ["content-type", "npm:1.0.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fcontent-type%2F-%2Fcontent-type-1.0.4.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -7154,6 +7392,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/cookie-signature-npm-1.0.6-93f325f7f0-f4e1b0a98a.zip/node_modules/cookie-signature/",\
           "packageDependencies": [\
             ["cookie-signature", "npm:1.0.6"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["cookies", [\
+        ["npm:0.8.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fcookies%2F-%2Fcookies-0.8.0.tgz", {\
+          "packageLocation": "./.yarn/cache/cookies-npm-0.8.0-a6187b2bfd-806055a44f.zip/node_modules/cookies/",\
+          "packageDependencies": [\
+            ["cookies", "npm:0.8.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fcookies%2F-%2Fcookies-0.8.0.tgz"],\
+            ["depd", "npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fdepd%2F-%2Fdepd-2.0.0.tgz"],\
+            ["keygrip", "npm:1.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkeygrip%2F-%2Fkeygrip-1.1.0.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -7217,6 +7466,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["parse-json", "npm:5.2.0"],\
             ["path-type", "npm:4.0.0"],\
             ["yaml", "npm:1.10.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["create-require", [\
+        ["npm:1.1.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fcreate-require%2F-%2Fcreate-require-1.1.1.tgz", {\
+          "packageLocation": "./.yarn/cache/create-require-npm-1.1.1-f77123e9ac-a9a1503d43.zip/node_modules/create-require/",\
+          "packageDependencies": [\
+            ["create-require", "npm:1.1.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fcreate-require%2F-%2Fcreate-require-1.1.1.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -7738,6 +7996,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
+        ["virtual:a40aea025ae48b152a657bb8fc7c0f6508a408a16df252778962623becb8cc6f5f085392c7b583e0942446883a7ef8b3e38138dcd6e36a1503b7c77498dbd4a4#npm:3.2.7", {\
+          "packageLocation": "./.yarn/__virtual__/debug-virtual-1c3171fee4/0/cache/debug-npm-3.2.7-754e818c7a-b3d8c59407.zip/node_modules/debug/",\
+          "packageDependencies": [\
+            ["debug", "virtual:a40aea025ae48b152a657bb8fc7c0f6508a408a16df252778962623becb8cc6f5f085392c7b583e0942446883a7ef8b3e38138dcd6e36a1503b7c77498dbd4a4#npm:3.2.7"],\
+            ["@types/supports-color", null],\
+            ["ms", "npm:2.1.3"],\
+            ["supports-color", "npm:5.5.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fsupports-color%2F-%2Fsupports-color-5.5.0.tgz"]\
+          ],\
+          "packagePeers": [\
+            "@types/supports-color",\
+            "supports-color"\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["virtual:fc8b89786c9464e9270779a1e737b72f3e9afe51211faa5657bd9d7bf40b5ad1b2b1f8a51343aae8848addc6a297633836c237afd2c068748bfccd7d29496649#npm:4.3.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fdebug%2F-%2Fdebug-4.3.4.tgz", {\
           "packageLocation": "./.yarn/__virtual__/debug-virtual-106b887f3f/0/cache/debug-npm-4.3.4-f72f5be155-3dbad3f94e.zip/node_modules/debug/",\
           "packageDependencies": [\
@@ -7772,6 +8044,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["deep-equal", [\
+        ["npm:1.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fdeep-equal%2F-%2Fdeep-equal-1.0.1.tgz", {\
+          "packageLocation": "./.yarn/cache/deep-equal-npm-1.0.1-e1340f4ed9-5af8cbfceb.zip/node_modules/deep-equal/",\
+          "packageDependencies": [\
+            ["deep-equal", "npm:1.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fdeep-equal%2F-%2Fdeep-equal-1.0.1.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:2.2.0", {\
           "packageLocation": "./.yarn/cache/deep-equal-npm-2.2.0-d9712e0040-46a34509d2.zip/node_modules/deep-equal/",\
           "packageDependencies": [\
@@ -7886,6 +8165,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["depd", "npm:2.0.0"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fdepd%2F-%2Fdepd-2.0.0.tgz", {\
+          "packageLocation": "./.yarn/cache/depd-npm-2.0.0-2285bdd3a5-abbe19c768.zip/node_modules/depd/",\
+          "packageDependencies": [\
+            ["depd", "npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fdepd%2F-%2Fdepd-2.0.0.tgz"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["destroy", [\
@@ -7893,6 +8179,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/destroy-npm-1.2.0-6a511802e2-0acb300b74.zip/node_modules/destroy/",\
           "packageDependencies": [\
             ["destroy", "npm:1.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:1.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fdestroy%2F-%2Fdestroy-1.2.0.tgz", {\
+          "packageLocation": "./.yarn/cache/destroy-npm-1.2.0-ed470f9f33-0acb300b74.zip/node_modules/destroy/",\
+          "packageDependencies": [\
+            ["destroy", "npm:1.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fdestroy%2F-%2Fdestroy-1.2.0.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -7943,6 +8236,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/didyoumean-npm-1.2.2-fd568ec571-d5d98719d5.zip/node_modules/didyoumean/",\
           "packageDependencies": [\
             ["didyoumean", "npm:1.2.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["diff", [\
+        ["npm:4.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fdiff%2F-%2Fdiff-4.0.2.tgz", {\
+          "packageLocation": "./.yarn/cache/diff-npm-4.0.2-e9d7fddbb5-f2c09b0ce4.zip/node_modules/diff/",\
+          "packageDependencies": [\
+            ["diff", "npm:4.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fdiff%2F-%2Fdiff-4.0.2.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -8239,6 +8541,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["encodeurl", "npm:1.0.2"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:1.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fencodeurl%2F-%2Fencodeurl-1.0.2.tgz", {\
+          "packageLocation": "./.yarn/cache/encodeurl-npm-1.0.2-ea5fd68f32-e50e3d508c.zip/node_modules/encodeurl/",\
+          "packageDependencies": [\
+            ["encodeurl", "npm:1.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fencodeurl%2F-%2Fencodeurl-1.0.2.tgz"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["encoding", [\
@@ -8445,6 +8754,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/escape-html-npm-1.0.3-376c22ee74-6213ca9ae0.zip/node_modules/escape-html/",\
           "packageDependencies": [\
             ["escape-html", "npm:1.0.3"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:1.0.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fescape-html%2F-%2Fescape-html-1.0.3.tgz", {\
+          "packageLocation": "./.yarn/cache/escape-html-npm-1.0.3-48d66340c9-6213ca9ae0.zip/node_modules/escape-html/",\
+          "packageDependencies": [\
+            ["escape-html", "npm:1.0.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fescape-html%2F-%2Fescape-html-1.0.3.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -9833,6 +10149,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["fresh", "npm:0.5.2"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:0.5.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Ffresh%2F-%2Ffresh-0.5.2.tgz", {\
+          "packageLocation": "./.yarn/cache/fresh-npm-0.5.2-e7201a0b60-13ea8b08f9.zip/node_modules/fresh/",\
+          "packageDependencies": [\
+            ["fresh", "npm:0.5.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Ffresh%2F-%2Ffresh-0.5.2.tgz"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["fs-extra", [\
@@ -10400,6 +10723,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["http-assert", [\
+        ["npm:1.5.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fhttp-assert%2F-%2Fhttp-assert-1.5.0.tgz", {\
+          "packageLocation": "./.yarn/cache/http-assert-npm-1.5.0-8f792faec4-69c9b3c14c.zip/node_modules/http-assert/",\
+          "packageDependencies": [\
+            ["http-assert", "npm:1.5.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fhttp-assert%2F-%2Fhttp-assert-1.5.0.tgz"],\
+            ["deep-equal", "npm:1.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fdeep-equal%2F-%2Fdeep-equal-1.0.1.tgz"],\
+            ["http-errors", "npm:1.8.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fhttp-errors%2F-%2Fhttp-errors-1.8.1.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["http-cache-semantics", [\
         ["npm:4.1.0", {\
           "packageLocation": "./.yarn/cache/http-cache-semantics-npm-4.1.0-860520a31f-974de94a81.zip/node_modules/http-cache-semantics/",\
@@ -10427,6 +10761,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["inherits", "npm:2.0.3"],\
             ["setprototypeof", "npm:1.1.0"],\
             ["statuses", "npm:1.5.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:1.8.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fhttp-errors%2F-%2Fhttp-errors-1.8.1.tgz", {\
+          "packageLocation": "./.yarn/cache/http-errors-npm-1.8.1-c9ee3bbc91-d3c7e7e776.zip/node_modules/http-errors/",\
+          "packageDependencies": [\
+            ["http-errors", "npm:1.8.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fhttp-errors%2F-%2Fhttp-errors-1.8.1.tgz"],\
+            ["depd", "npm:1.1.2"],\
+            ["inherits", "npm:2.0.4"],\
+            ["setprototypeof", "npm:1.2.0"],\
+            ["statuses", "npm:1.5.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fstatuses%2F-%2Fstatuses-1.5.0.tgz"],\
+            ["toidentifier", "npm:1.0.1"]\
           ],\
           "linkType": "HARD"\
         }],\
@@ -10635,6 +10981,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/ignore-npm-5.2.4-a7796548ea-3d4c309c60.zip/node_modules/ignore/",\
           "packageDependencies": [\
             ["ignore", "npm:5.2.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fignore%2F-%2Fignore-5.2.4.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["ignore-by-default", [\
+        ["npm:1.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fignore-by-default%2F-%2Fignore-by-default-1.0.1.tgz", {\
+          "packageLocation": "./.yarn/cache/ignore-by-default-npm-1.0.1-8162f44a01-441509147b.zip/node_modules/ignore-by-default/",\
+          "packageDependencies": [\
+            ["ignore-by-default", "npm:1.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fignore-by-default%2F-%2Fignore-by-default-1.0.1.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -10901,6 +11256,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/is-generator-fn-npm-2.1.0-37895c2d2b-a6ad5492cf.zip/node_modules/is-generator-fn/",\
           "packageDependencies": [\
             ["is-generator-fn", "npm:2.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["is-generator-function", [\
+        ["npm:1.0.10::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fis-generator-function%2F-%2Fis-generator-function-1.0.10.tgz", {\
+          "packageLocation": "./.yarn/cache/is-generator-function-npm-1.0.10-3a49b7d210-d54644e7db.zip/node_modules/is-generator-function/",\
+          "packageDependencies": [\
+            ["is-generator-function", "npm:1.0.10::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fis-generator-function%2F-%2Fis-generator-function-1.0.10.tgz"],\
+            ["has-tostringtag", "npm:1.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -12146,6 +12511,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["keygrip", [\
+        ["npm:1.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkeygrip%2F-%2Fkeygrip-1.1.0.tgz", {\
+          "packageLocation": "./.yarn/cache/keygrip-npm-1.1.0-bb54859a7a-078cd16a46.zip/node_modules/keygrip/",\
+          "packageDependencies": [\
+            ["keygrip", "npm:1.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkeygrip%2F-%2Fkeygrip-1.1.0.tgz"],\
+            ["tsscmp", "npm:1.0.6::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Ftsscmp%2F-%2Ftsscmp-1.0.6.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["kind-of", [\
         ["npm:6.0.3", {\
           "packageLocation": "./.yarn/cache/kind-of-npm-6.0.3-ab15f36220-3ab01e7b1d.zip/node_modules/kind-of/",\
@@ -12169,6 +12544,58 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/klona-npm-2.0.6-bc83268fb1-ac9ee3732e.zip/node_modules/klona/",\
           "packageDependencies": [\
             ["klona", "npm:2.0.6"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["koa", [\
+        ["npm:2.14.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa%2F-%2Fkoa-2.14.1.tgz", {\
+          "packageLocation": "./.yarn/cache/koa-npm-2.14.1-e63fe1ed07-84cfce48d7.zip/node_modules/koa/",\
+          "packageDependencies": [\
+            ["koa", "npm:2.14.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa%2F-%2Fkoa-2.14.1.tgz"],\
+            ["accepts", "npm:1.3.8::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Faccepts%2F-%2Faccepts-1.3.8.tgz"],\
+            ["cache-content-type", "npm:1.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fcache-content-type%2F-%2Fcache-content-type-1.0.1.tgz"],\
+            ["content-disposition", "npm:0.5.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fcontent-disposition%2F-%2Fcontent-disposition-0.5.4.tgz"],\
+            ["content-type", "npm:1.0.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fcontent-type%2F-%2Fcontent-type-1.0.4.tgz"],\
+            ["cookies", "npm:0.8.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fcookies%2F-%2Fcookies-0.8.0.tgz"],\
+            ["debug", "virtual:1eb3a4b7acf39cc06579ce173dfc189db60be09511a857cde17cd58b8e2d244d4d50cb2c180dd19733a7495da9bca01fbe9bd6534c33688ce8846c8c32165184#npm:4.3.4"],\
+            ["delegates", "npm:1.0.0"],\
+            ["depd", "npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fdepd%2F-%2Fdepd-2.0.0.tgz"],\
+            ["destroy", "npm:1.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fdestroy%2F-%2Fdestroy-1.2.0.tgz"],\
+            ["encodeurl", "npm:1.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fencodeurl%2F-%2Fencodeurl-1.0.2.tgz"],\
+            ["escape-html", "npm:1.0.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fescape-html%2F-%2Fescape-html-1.0.3.tgz"],\
+            ["fresh", "npm:0.5.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Ffresh%2F-%2Ffresh-0.5.2.tgz"],\
+            ["http-assert", "npm:1.5.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fhttp-assert%2F-%2Fhttp-assert-1.5.0.tgz"],\
+            ["http-errors", "npm:1.8.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fhttp-errors%2F-%2Fhttp-errors-1.8.1.tgz"],\
+            ["is-generator-function", "npm:1.0.10::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fis-generator-function%2F-%2Fis-generator-function-1.0.10.tgz"],\
+            ["koa-compose", "npm:4.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa-compose%2F-%2Fkoa-compose-4.1.0.tgz"],\
+            ["koa-convert", "npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa-convert%2F-%2Fkoa-convert-2.0.0.tgz"],\
+            ["on-finished", "npm:2.4.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fon-finished%2F-%2Fon-finished-2.4.1.tgz"],\
+            ["only", "npm:0.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fonly%2F-%2Fonly-0.0.2.tgz"],\
+            ["parseurl", "npm:1.3.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fparseurl%2F-%2Fparseurl-1.3.3.tgz"],\
+            ["statuses", "npm:1.5.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fstatuses%2F-%2Fstatuses-1.5.0.tgz"],\
+            ["type-is", "npm:1.6.18::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Ftype-is%2F-%2Ftype-is-1.6.18.tgz"],\
+            ["vary", "npm:1.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fvary%2F-%2Fvary-1.1.2.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["koa-compose", [\
+        ["npm:4.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa-compose%2F-%2Fkoa-compose-4.1.0.tgz", {\
+          "packageLocation": "./.yarn/cache/koa-compose-npm-4.1.0-cfdaae4492-46cb16792d.zip/node_modules/koa-compose/",\
+          "packageDependencies": [\
+            ["koa-compose", "npm:4.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa-compose%2F-%2Fkoa-compose-4.1.0.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["koa-convert", [\
+        ["npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa-convert%2F-%2Fkoa-convert-2.0.0.tgz", {\
+          "packageLocation": "./.yarn/cache/koa-convert-npm-2.0.0-b9578a9ba1-7385b33919.zip/node_modules/koa-convert/",\
+          "packageDependencies": [\
+            ["koa-convert", "npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa-convert%2F-%2Fkoa-convert-2.0.0.tgz"],\
+            ["co", "npm:4.6.0"],\
+            ["koa-compose", "npm:4.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa-compose%2F-%2Fkoa-compose-4.1.0.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -12496,6 +12923,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["make-error", [\
+        ["npm:1.3.6::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fmake-error%2F-%2Fmake-error-1.3.6.tgz", {\
+          "packageLocation": "./.yarn/cache/make-error-npm-1.3.6-3575601304-b86e5e0e25.zip/node_modules/make-error/",\
+          "packageDependencies": [\
+            ["make-error", "npm:1.3.6::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fmake-error%2F-%2Fmake-error-1.3.6.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["make-fetch-happen", [\
         ["npm:10.2.1", {\
           "packageLocation": "./.yarn/cache/make-fetch-happen-npm-10.2.1-f1cc7cd2df-2332eb9a8e.zip/node_modules/make-fetch-happen/",\
@@ -12636,6 +13072,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/mime-types-npm-2.1.35-dd9ea9f3e2-89a5b7f1de.zip/node_modules/mime-types/",\
           "packageDependencies": [\
             ["mime-types", "npm:2.1.35"],\
+            ["mime-db", "npm:1.52.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:2.1.35::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fmime-types%2F-%2Fmime-types-2.1.35.tgz", {\
+          "packageLocation": "./.yarn/cache/mime-types-npm-2.1.35-28cb3476cf-89a5b7f1de.zip/node_modules/mime-types/",\
+          "packageDependencies": [\
+            ["mime-types", "npm:2.1.35::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fmime-types%2F-%2Fmime-types-2.1.35.tgz"],\
             ["mime-db", "npm:1.52.0"]\
           ],\
           "linkType": "HARD"\
@@ -12960,7 +13404,34 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["nodemon", [\
+        ["npm:2.0.20::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnodemon%2F-%2Fnodemon-2.0.20.tgz", {\
+          "packageLocation": "./.yarn/unplugged/nodemon-npm-2.0.20-a40aea025a/node_modules/nodemon/",\
+          "packageDependencies": [\
+            ["nodemon", "npm:2.0.20::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnodemon%2F-%2Fnodemon-2.0.20.tgz"],\
+            ["chokidar", "npm:3.5.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fchokidar%2F-%2Fchokidar-3.5.3.tgz"],\
+            ["debug", "virtual:a40aea025ae48b152a657bb8fc7c0f6508a408a16df252778962623becb8cc6f5f085392c7b583e0942446883a7ef8b3e38138dcd6e36a1503b7c77498dbd4a4#npm:3.2.7"],\
+            ["ignore-by-default", "npm:1.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fignore-by-default%2F-%2Fignore-by-default-1.0.1.tgz"],\
+            ["minimatch", "npm:3.1.2"],\
+            ["pstree.remy", "npm:1.1.8::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fpstree.remy%2F-%2Fpstree.remy-1.1.8.tgz"],\
+            ["semver", "npm:5.7.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fsemver%2F-%2Fsemver-5.7.1.tgz"],\
+            ["simple-update-notifier", "npm:1.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fsimple-update-notifier%2F-%2Fsimple-update-notifier-1.1.0.tgz"],\
+            ["supports-color", "npm:5.5.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fsupports-color%2F-%2Fsupports-color-5.5.0.tgz"],\
+            ["touch", "npm:3.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Ftouch%2F-%2Ftouch-3.1.0.tgz"],\
+            ["undefsafe", "npm:2.0.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fundefsafe%2F-%2Fundefsafe-2.0.5.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["nopt", [\
+        ["npm:1.0.10::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnopt%2F-%2Fnopt-1.0.10.tgz", {\
+          "packageLocation": "./.yarn/cache/nopt-npm-1.0.10-47747207d2-f62575acea.zip/node_modules/nopt/",\
+          "packageDependencies": [\
+            ["nopt", "npm:1.0.10::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnopt%2F-%2Fnopt-1.0.10.tgz"],\
+            ["abbrev", "npm:1.1.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fabbrev%2F-%2Fabbrev-1.1.1.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:6.0.0", {\
           "packageLocation": "./.yarn/cache/nopt-npm-6.0.0-5ea8050815-82149371f8.zip/node_modules/nopt/",\
           "packageDependencies": [\
@@ -13192,6 +13663,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ee-first", "npm:1.1.1"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:2.4.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fon-finished%2F-%2Fon-finished-2.4.1.tgz", {\
+          "packageLocation": "./.yarn/cache/on-finished-npm-2.4.1-6975a54fb8-d20929a25e.zip/node_modules/on-finished/",\
+          "packageDependencies": [\
+            ["on-finished", "npm:2.4.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fon-finished%2F-%2Fon-finished-2.4.1.tgz"],\
+            ["ee-first", "npm:1.1.1"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["on-headers", [\
@@ -13227,6 +13706,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["onetime", "npm:6.0.0"],\
             ["mimic-fn", "npm:4.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["only", [\
+        ["npm:0.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fonly%2F-%2Fonly-0.0.2.tgz", {\
+          "packageLocation": "./.yarn/cache/only-npm-0.0.2-deeef4096b-d399710db8.zip/node_modules/only/",\
+          "packageDependencies": [\
+            ["only", "npm:0.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fonly%2F-%2Fonly-0.0.2.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -13395,6 +13883,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["parseurl", "npm:1.3.3"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:1.3.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fparseurl%2F-%2Fparseurl-1.3.3.tgz", {\
+          "packageLocation": "./.yarn/cache/parseurl-npm-1.3.3-c212f84e63-407cee8e0a.zip/node_modules/parseurl/",\
+          "packageDependencies": [\
+            ["parseurl", "npm:1.3.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fparseurl%2F-%2Fparseurl-1.3.3.tgz"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["pascal-case", [\
@@ -13508,6 +14003,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:13.1.0"],\
             ["pinst", "npm:3.0.0"],\
             ["prettier", "npm:2.8.3"],\
+            ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["payment_server", [\
+        ["workspace:packages/server", {\
+          "packageLocation": "./packages/server/",\
+          "packageDependencies": [\
+            ["payment_server", "workspace:packages/server"],\
+            ["@types/koa", "npm:2.13.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa%2F-%2Fkoa-2.13.5.tgz"],\
+            ["@types/node", "npm:18.11.18::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fnode%2F-%2Fnode-18.11.18.tgz"],\
+            ["koa", "npm:2.14.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa%2F-%2Fkoa-2.14.1.tgz"],\
+            ["nodemon", "npm:2.0.20::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnodemon%2F-%2Fnodemon-2.0.20.tgz"],\
+            ["ts-node", "virtual:4d54fc2fb5bf057f6fde15b28801161b9e33712c0eaf98f1559323e77933eab1ad64ed9752b87b7c80e5c0f494d71c6599488988d8d308ecb90998491c09b4d9#npm:10.9.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fts-node%2F-%2Fts-node-10.9.1.tgz"],\
+            ["tsconfig-paths", "npm:4.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Ftsconfig-paths%2F-%2Ftsconfig-paths-4.1.2.tgz"],\
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"]\
           ],\
           "linkType": "SOFT"\
@@ -15485,6 +15996,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["pstree.remy", [\
+        ["npm:1.1.8::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fpstree.remy%2F-%2Fpstree.remy-1.1.8.tgz", {\
+          "packageLocation": "./.yarn/cache/pstree.remy-npm-1.1.8-231db83102-5cb53698d6.zip/node_modules/pstree.remy/",\
+          "packageDependencies": [\
+            ["pstree.remy", "npm:1.1.8::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fpstree.remy%2F-%2Fpstree.remy-1.1.8.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["punycode", [\
         ["npm:2.3.0", {\
           "packageLocation": "./.yarn/cache/punycode-npm-2.3.0-df4bdce06b-39f760e09a.zip/node_modules/punycode/",\
@@ -16411,6 +16931,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["semver", [\
+        ["npm:5.7.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fsemver%2F-%2Fsemver-5.7.1.tgz", {\
+          "packageLocation": "./.yarn/cache/semver-npm-5.7.1-0c52ad1f89-57fd0acfd0.zip/node_modules/semver/",\
+          "packageDependencies": [\
+            ["semver", "npm:5.7.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fsemver%2F-%2Fsemver-5.7.1.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:6.3.0", {\
           "packageLocation": "./.yarn/cache/semver-npm-6.3.0-b3eace8bfd-1b26ecf6db.zip/node_modules/semver/",\
           "packageDependencies": [\
@@ -16422,6 +16949,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/semver-npm-6.3.0-5487eb0ff5-1b26ecf6db.zip/node_modules/semver/",\
           "packageDependencies": [\
             ["semver", "npm:6.3.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fsemver%2F-%2Fsemver-6.3.0.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:7.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fsemver%2F-%2Fsemver-7.0.0.tgz", {\
+          "packageLocation": "./.yarn/cache/semver-npm-7.0.0-68412d8749-272c11bf8d.zip/node_modules/semver/",\
+          "packageDependencies": [\
+            ["semver", "npm:7.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fsemver%2F-%2Fsemver-7.0.0.tgz"]\
           ],\
           "linkType": "HARD"\
         }],\
@@ -16581,6 +17115,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/signal-exit-npm-3.0.7-bd270458a3-a2f098f247.zip/node_modules/signal-exit/",\
           "packageDependencies": [\
             ["signal-exit", "npm:3.0.7"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["simple-update-notifier", [\
+        ["npm:1.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fsimple-update-notifier%2F-%2Fsimple-update-notifier-1.1.0.tgz", {\
+          "packageLocation": "./.yarn/cache/simple-update-notifier-npm-1.1.0-d0bd6ddf2d-1012e9b6c5.zip/node_modules/simple-update-notifier/",\
+          "packageDependencies": [\
+            ["simple-update-notifier", "npm:1.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fsimple-update-notifier%2F-%2Fsimple-update-notifier-1.1.0.tgz"],\
+            ["semver", "npm:7.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fsemver%2F-%2Fsemver-7.0.0.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -16853,6 +17397,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/statuses-npm-1.5.0-f88f91b2e9-c469b9519d.zip/node_modules/statuses/",\
           "packageDependencies": [\
             ["statuses", "npm:1.5.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:1.5.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fstatuses%2F-%2Fstatuses-1.5.0.tgz", {\
+          "packageLocation": "./.yarn/cache/statuses-npm-1.5.0-521a67b8be-c469b9519d.zip/node_modules/statuses/",\
+          "packageDependencies": [\
+            ["statuses", "npm:1.5.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fstatuses%2F-%2Fstatuses-1.5.0.tgz"]\
           ],\
           "linkType": "HARD"\
         }],\
@@ -17134,6 +17685,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/supports-color-npm-5.5.0-183ac537bc-95f6f4ba5a.zip/node_modules/supports-color/",\
           "packageDependencies": [\
             ["supports-color", "npm:5.5.0"],\
+            ["has-flag", "npm:3.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:5.5.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fsupports-color%2F-%2Fsupports-color-5.5.0.tgz", {\
+          "packageLocation": "./.yarn/cache/supports-color-npm-5.5.0-1d71d182c5-95f6f4ba5a.zip/node_modules/supports-color/",\
+          "packageDependencies": [\
+            ["supports-color", "npm:5.5.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fsupports-color%2F-%2Fsupports-color-5.5.0.tgz"],\
             ["has-flag", "npm:3.0.0"]\
           ],\
           "linkType": "HARD"\
@@ -17488,6 +18047,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["touch", [\
+        ["npm:3.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Ftouch%2F-%2Ftouch-3.1.0.tgz", {\
+          "packageLocation": "./.yarn/cache/touch-npm-3.1.0-3e1c886377-e0be589cb5.zip/node_modules/touch/",\
+          "packageDependencies": [\
+            ["touch", "npm:3.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Ftouch%2F-%2Ftouch-3.1.0.tgz"],\
+            ["nopt", "npm:1.0.10::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnopt%2F-%2Fnopt-1.0.10.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["tough-cookie", [\
         ["npm:4.1.2", {\
           "packageLocation": "./.yarn/cache/tough-cookie-npm-4.1.2-09068826e1-a7359e9a3e.zip/node_modules/tough-cookie/",\
@@ -17528,6 +18097,51 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["ts-node", [\
+        ["npm:10.9.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fts-node%2F-%2Fts-node-10.9.1.tgz", {\
+          "packageLocation": "./.yarn/cache/ts-node-npm-10.9.1-12be3911d0-090adff130.zip/node_modules/ts-node/",\
+          "packageDependencies": [\
+            ["ts-node", "npm:10.9.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fts-node%2F-%2Fts-node-10.9.1.tgz"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:4d54fc2fb5bf057f6fde15b28801161b9e33712c0eaf98f1559323e77933eab1ad64ed9752b87b7c80e5c0f494d71c6599488988d8d308ecb90998491c09b4d9#npm:10.9.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fts-node%2F-%2Fts-node-10.9.1.tgz", {\
+          "packageLocation": "./.yarn/__virtual__/ts-node-virtual-c7aa9bfd89/0/cache/ts-node-npm-10.9.1-12be3911d0-090adff130.zip/node_modules/ts-node/",\
+          "packageDependencies": [\
+            ["ts-node", "virtual:4d54fc2fb5bf057f6fde15b28801161b9e33712c0eaf98f1559323e77933eab1ad64ed9752b87b7c80e5c0f494d71c6599488988d8d308ecb90998491c09b4d9#npm:10.9.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fts-node%2F-%2Fts-node-10.9.1.tgz"],\
+            ["@cspotcode/source-map-support", "npm:0.8.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40cspotcode%2Fsource-map-support%2F-%2Fsource-map-support-0.8.1.tgz"],\
+            ["@swc/core", null],\
+            ["@swc/wasm", null],\
+            ["@tsconfig/node10", "npm:1.0.9::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40tsconfig%2Fnode10%2F-%2Fnode10-1.0.9.tgz"],\
+            ["@tsconfig/node12", "npm:1.0.11::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40tsconfig%2Fnode12%2F-%2Fnode12-1.0.11.tgz"],\
+            ["@tsconfig/node14", "npm:1.0.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40tsconfig%2Fnode14%2F-%2Fnode14-1.0.3.tgz"],\
+            ["@tsconfig/node16", "npm:1.0.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40tsconfig%2Fnode16%2F-%2Fnode16-1.0.3.tgz"],\
+            ["@types/node", "npm:18.11.18::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fnode%2F-%2Fnode-18.11.18.tgz"],\
+            ["@types/swc__core", null],\
+            ["@types/swc__wasm", null],\
+            ["@types/typescript", null],\
+            ["acorn", "npm:8.8.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Facorn%2F-%2Facorn-8.8.2.tgz"],\
+            ["acorn-walk", "npm:8.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Facorn-walk%2F-%2Facorn-walk-8.2.0.tgz"],\
+            ["arg", "npm:4.1.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Farg%2F-%2Farg-4.1.3.tgz"],\
+            ["create-require", "npm:1.1.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fcreate-require%2F-%2Fcreate-require-1.1.1.tgz"],\
+            ["diff", "npm:4.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fdiff%2F-%2Fdiff-4.0.2.tgz"],\
+            ["make-error", "npm:1.3.6::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fmake-error%2F-%2Fmake-error-1.3.6.tgz"],\
+            ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
+            ["v8-compile-cache-lib", "npm:3.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fv8-compile-cache-lib%2F-%2Fv8-compile-cache-lib-3.0.1.tgz"],\
+            ["yn", "npm:3.1.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fyn%2F-%2Fyn-3.1.1.tgz"]\
+          ],\
+          "packagePeers": [\
+            "@swc/core",\
+            "@swc/wasm",\
+            "@types/node",\
+            "@types/swc__core",\
+            "@types/swc__wasm",\
+            "@types/typescript",\
+            "typescript"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["tsconfig-paths", [\
         ["npm:3.14.1", {\
           "packageLocation": "./.yarn/cache/tsconfig-paths-npm-3.14.1-17a815b5c5-8afa01c673.zip/node_modules/tsconfig-paths/",\
@@ -17535,6 +18149,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["tsconfig-paths", "npm:3.14.1"],\
             ["@types/json5", "npm:0.0.29"],\
             ["json5", "npm:1.0.2"],\
+            ["minimist", "npm:1.2.7"],\
+            ["strip-bom", "npm:3.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:4.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Ftsconfig-paths%2F-%2Ftsconfig-paths-4.1.2.tgz", {\
+          "packageLocation": "./.yarn/cache/tsconfig-paths-npm-4.1.2-4b6674a52d-3d9151ecea.zip/node_modules/tsconfig-paths/",\
+          "packageDependencies": [\
+            ["tsconfig-paths", "npm:4.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Ftsconfig-paths%2F-%2Ftsconfig-paths-4.1.2.tgz"],\
+            ["json5", "npm:2.2.3"],\
             ["minimist", "npm:1.2.7"],\
             ["strip-bom", "npm:3.0.0"]\
           ],\
@@ -17553,6 +18177,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/tslib-npm-2.4.1-36f0ed04db-19480d6e03.zip/node_modules/tslib/",\
           "packageDependencies": [\
             ["tslib", "npm:2.4.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["tsscmp", [\
+        ["npm:1.0.6::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Ftsscmp%2F-%2Ftsscmp-1.0.6.tgz", {\
+          "packageLocation": "./.yarn/cache/tsscmp-npm-1.0.6-da54c96c18-1512384def.zip/node_modules/tsscmp/",\
+          "packageDependencies": [\
+            ["tsscmp", "npm:1.0.6::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Ftsscmp%2F-%2Ftsscmp-1.0.6.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -17653,6 +18286,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["mime-types", "npm:2.1.35"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:1.6.18::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Ftype-is%2F-%2Ftype-is-1.6.18.tgz", {\
+          "packageLocation": "./.yarn/cache/type-is-npm-1.6.18-b8f2afcf20-2c8e47675d.zip/node_modules/type-is/",\
+          "packageDependencies": [\
+            ["type-is", "npm:1.6.18::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Ftype-is%2F-%2Ftype-is-1.6.18.tgz"],\
+            ["media-typer", "npm:0.3.0"],\
+            ["mime-types", "npm:2.1.35"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["typed-array-length", [\
@@ -17695,6 +18337,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["has-bigints", "npm:1.0.2"],\
             ["has-symbols", "npm:1.0.3"],\
             ["which-boxed-primitive", "npm:1.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["undefsafe", [\
+        ["npm:2.0.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fundefsafe%2F-%2Fundefsafe-2.0.5.tgz", {\
+          "packageLocation": "./.yarn/cache/undefsafe-npm-2.0.5-6e81805ee6-f42ab3b577.zip/node_modules/undefsafe/",\
+          "packageDependencies": [\
+            ["undefsafe", "npm:2.0.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fundefsafe%2F-%2Fundefsafe-2.0.5.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -17913,6 +18564,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["v8-compile-cache-lib", [\
+        ["npm:3.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fv8-compile-cache-lib%2F-%2Fv8-compile-cache-lib-3.0.1.tgz", {\
+          "packageLocation": "./.yarn/cache/v8-compile-cache-lib-npm-3.0.1-7d1a63058f-78089ad549.zip/node_modules/v8-compile-cache-lib/",\
+          "packageDependencies": [\
+            ["v8-compile-cache-lib", "npm:3.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fv8-compile-cache-lib%2F-%2Fv8-compile-cache-lib-3.0.1.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["v8-to-istanbul", [\
         ["npm:8.1.1", {\
           "packageLocation": "./.yarn/cache/v8-to-istanbul-npm-8.1.1-15c031b361-54ce92bec2.zip/node_modules/v8-to-istanbul/",\
@@ -17930,6 +18590,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/vary-npm-1.1.2-b49f70ae63-ae0123222c.zip/node_modules/vary/",\
           "packageDependencies": [\
             ["vary", "npm:1.1.2"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:1.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fvary%2F-%2Fvary-1.1.2.tgz", {\
+          "packageLocation": "./.yarn/cache/vary-npm-1.1.2-43c43ab5f2-ae0123222c.zip/node_modules/vary/",\
+          "packageDependencies": [\
+            ["vary", "npm:1.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fvary%2F-%2Fvary-1.1.2.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -18764,6 +19431,24 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/yargs-parser-npm-20.2.9-a1d19e598d-8bb69015f2.zip/node_modules/yargs-parser/",\
           "packageDependencies": [\
             ["yargs-parser", "npm:20.2.9"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["ylru", [\
+        ["npm:1.3.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fylru%2F-%2Fylru-1.3.2.tgz", {\
+          "packageLocation": "./.yarn/cache/ylru-npm-1.3.2-35af92ab80-b6bb393114.zip/node_modules/ylru/",\
+          "packageDependencies": [\
+            ["ylru", "npm:1.3.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fylru%2F-%2Fylru-1.3.2.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["yn", [\
+        ["npm:3.1.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fyn%2F-%2Fyn-3.1.1.tgz", {\
+          "packageLocation": "./.yarn/cache/yn-npm-3.1.1-54b1f4e211-2c487b0e14.zip/node_modules/yn/",\
+          "packageDependencies": [\
+            ["yn", "npm:3.1.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fyn%2F-%2Fyn-3.1.1.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
