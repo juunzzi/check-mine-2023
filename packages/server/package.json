@@ -2,9 +2,8 @@
     "name": "payment_server",
     "packageManager": "yarn@3.3.1",
     "scripts": {
-        "dev": "nodemon --exec yarn ts-node -r tsconfig-paths/register src -e js,json,ts",
-        "build": "yarn tsc",
-        "start": "yarn node dist/app.js"
+        "start": "nodemon --exec yarn ts-node -r tsconfig-paths/register src -e js,json,ts",
+        "build": "yarn tsc"
     },
     "dependencies": {
         "koa": "^2.14.1",

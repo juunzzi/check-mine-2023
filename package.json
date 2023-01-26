@@ -27,7 +27,9 @@
         "postinstall": "husky install",
         "lint-staged": "lint-staged",
         "prettier": "prettier --check \"./**/*.{ts,tsx,json,md}\"",
-        "prettier:fix": "prettier --write \"./**/*.{ts,tsx,json,md}\""
+        "prettier:fix": "prettier --write \"./**/*.{ts,tsx,json,md}\"",
+        "server": "yarn workspace payment_server",
+        "client": "yarn workspace payment_client"
     },
     "lint-staged": {
         "**/*.{ts,tsx}": [
