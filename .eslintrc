@@ -1,6 +1,7 @@
 {
     "extends": ["@financial/eslint-config-fe/typescript"],
     "rules": {
+        "no-console": "warn",
         "max-depth": ["error", 2],
         "react/react-in-jsx-scope": "off",
         "react/self-closing-comp": [
