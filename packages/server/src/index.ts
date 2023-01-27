@@ -1,10 +1,7 @@
-import './env'
+import 'src/env'
 
 import Koa from 'koa'
 import koaLogger from 'koa-logger'
-import pool from 'src/db'
-
-console.log(pool)
 
 const app = new Koa()
 

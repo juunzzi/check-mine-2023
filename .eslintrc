@@ -5,14 +5,7 @@
         "import/order": [
             "error",
             {
-                "groups": ["builtin", "external", ["parent", "sibling"], "index"],
-                "pathGroups": [
-                    {
-                        "pattern": "src",
-                        "group": "internal",
-                        "position": "before"
-                    }
-                ],
+                "groups": ["external", "builtin", ["parent", "sibling"]],
                 "alphabetize": {
                     "order": "asc",
                     "caseInsensitive": true
