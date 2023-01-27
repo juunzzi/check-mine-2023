@@ -2,6 +2,24 @@
     "extends": ["@financial/eslint-config-fe/typescript"],
     "rules": {
         "no-console": "warn",
+        "import/order": [
+            "error",
+            {
+                "groups": ["builtin", "external", ["parent", "sibling"], "index"],
+                "pathGroups": [
+                    {
+                        "pattern": "src",
+                        "group": "internal",
+                        "position": "before"
+                    }
+                ],
+                "alphabetize": {
+                    "order": "asc",
+                    "caseInsensitive": true
+                },
+                "newlines-between": "always"
+            }
+        ],
         "max-depth": ["error", 2],
         "react/react-in-jsx-scope": "off",
         "react/self-closing-comp": [
