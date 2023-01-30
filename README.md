@@ -50,6 +50,6 @@ yarn client start // 클라이언트(리액트 웹 어플리케이션)를 시작
     2. 연동된 사용자의 계좌가 없다면 결제 실패 피드백을 준다.
 4. 사용자, 점원에게 결제 피드백이 간다.
 
-### 디자인
+## 5. 디자인
 
 [링크](https://www.figma.com/file/Ugz9cPI4BV06I1bTQnVt9v/NFP?node-id=0%3A1&t=MckBLduyv7ixmEaP-0)에 와이어프레임을 작성해두었습니다.
