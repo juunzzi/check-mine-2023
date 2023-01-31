@@ -4725,6 +4725,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@types/jsonwebtoken", [\
+        ["npm:9.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fjsonwebtoken%2F-%2Fjsonwebtoken-9.0.1.tgz", {\
+          "packageLocation": "./.yarn/cache/@types-jsonwebtoken-npm-9.0.1-af88579a06-a7f0925e9a.zip/node_modules/@types/jsonwebtoken/",\
+          "packageDependencies": [\
+            ["@types/jsonwebtoken", "npm:9.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fjsonwebtoken%2F-%2Fjsonwebtoken-9.0.1.tgz"],\
+            ["@types/node", "npm:18.11.18::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fnode%2F-%2Fnode-18.11.18.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/keygrip", [\
         ["npm:1.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkeygrip%2F-%2Fkeygrip-1.0.2.tgz", {\
           "packageLocation": "./.yarn/cache/@types-keygrip-npm-1.0.2-5aad6200e3-60bc2738a4.zip/node_modules/@types/keygrip/",\
@@ -6714,6 +6724,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["buffer-equal-constant-time", [\
+        ["npm:1.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fbuffer-equal-constant-time%2F-%2Fbuffer-equal-constant-time-1.0.1.tgz", {\
+          "packageLocation": "./.yarn/cache/buffer-equal-constant-time-npm-1.0.1-759dfa30ae-80bb945f5d.zip/node_modules/buffer-equal-constant-time/",\
+          "packageDependencies": [\
+            ["buffer-equal-constant-time", "npm:1.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fbuffer-equal-constant-time%2F-%2Fbuffer-equal-constant-time-1.0.1.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["buffer-from", [\
         ["npm:1.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fbuffer-from%2F-%2Fbuffer-from-1.1.2.tgz", {\
           "packageLocation": "./.yarn/cache/buffer-from-npm-1.1.2-ae8b70e947-0448524a56.zip/node_modules/buffer-from/",\
@@ -8387,6 +8406,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/eastasianwidth-npm-0.2.0-17d555a871-7d00d7cd8e.zip/node_modules/eastasianwidth/",\
           "packageDependencies": [\
             ["eastasianwidth", "npm:0.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Feastasianwidth%2F-%2Feastasianwidth-0.2.0.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["ecdsa-sig-formatter", [\
+        ["npm:1.0.11::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fecdsa-sig-formatter%2F-%2Fecdsa-sig-formatter-1.0.11.tgz", {\
+          "packageLocation": "./.yarn/cache/ecdsa-sig-formatter-npm-1.0.11-c06871dfba-207f9ab1c2.zip/node_modules/ecdsa-sig-formatter/",\
+          "packageDependencies": [\
+            ["ecdsa-sig-formatter", "npm:1.0.11::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fecdsa-sig-formatter%2F-%2Fecdsa-sig-formatter-1.0.11.tgz"],\
+            ["safe-buffer", "npm:5.2.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fsafe-buffer%2F-%2Fsafe-buffer-5.2.1.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -12529,6 +12558,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["jsonwebtoken", [\
+        ["npm:9.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fjsonwebtoken%2F-%2Fjsonwebtoken-9.0.0.tgz", {\
+          "packageLocation": "./.yarn/cache/jsonwebtoken-npm-9.0.0-f4344dad5f-b9181cecf9.zip/node_modules/jsonwebtoken/",\
+          "packageDependencies": [\
+            ["jsonwebtoken", "npm:9.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fjsonwebtoken%2F-%2Fjsonwebtoken-9.0.0.tgz"],\
+            ["jws", "npm:3.2.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fjws%2F-%2Fjws-3.2.2.tgz"],\
+            ["lodash", "npm:4.17.21::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Flodash%2F-%2Flodash-4.17.21.tgz"],\
+            ["ms", "npm:2.1.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fms%2F-%2Fms-2.1.3.tgz"],\
+            ["semver", "npm:7.3.8::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fsemver%2F-%2Fsemver-7.3.8.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["jsx-ast-utils", [\
         ["npm:3.3.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fjsx-ast-utils%2F-%2Fjsx-ast-utils-3.3.3.tgz", {\
           "packageLocation": "./.yarn/cache/jsx-ast-utils-npm-3.3.3-54e9283e8c-a2ed78cac4.zip/node_modules/jsx-ast-utils/",\
@@ -12536,6 +12578,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jsx-ast-utils", "npm:3.3.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fjsx-ast-utils%2F-%2Fjsx-ast-utils-3.3.3.tgz"],\
             ["array-includes", "npm:3.1.6::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Farray-includes%2F-%2Farray-includes-3.1.6.tgz"],\
             ["object.assign", "npm:4.1.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fobject.assign%2F-%2Fobject.assign-4.1.4.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["jwa", [\
+        ["npm:1.4.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fjwa%2F-%2Fjwa-1.4.1.tgz", {\
+          "packageLocation": "./.yarn/cache/jwa-npm-1.4.1-3174bbf51c-ff30ea7c2d.zip/node_modules/jwa/",\
+          "packageDependencies": [\
+            ["jwa", "npm:1.4.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fjwa%2F-%2Fjwa-1.4.1.tgz"],\
+            ["buffer-equal-constant-time", "npm:1.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fbuffer-equal-constant-time%2F-%2Fbuffer-equal-constant-time-1.0.1.tgz"],\
+            ["ecdsa-sig-formatter", "npm:1.0.11::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fecdsa-sig-formatter%2F-%2Fecdsa-sig-formatter-1.0.11.tgz"],\
+            ["safe-buffer", "npm:5.2.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fsafe-buffer%2F-%2Fsafe-buffer-5.2.1.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["jws", [\
+        ["npm:3.2.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fjws%2F-%2Fjws-3.2.2.tgz", {\
+          "packageLocation": "./.yarn/cache/jws-npm-3.2.2-ee7a112e5e-f0213fe5b7.zip/node_modules/jws/",\
+          "packageDependencies": [\
+            ["jws", "npm:3.2.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fjws%2F-%2Fjws-3.2.2.tgz"],\
+            ["jwa", "npm:1.4.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fjwa%2F-%2Fjwa-1.4.1.tgz"],\
+            ["safe-buffer", "npm:5.2.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fsafe-buffer%2F-%2Fsafe-buffer-5.2.1.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -14171,12 +14236,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["payment_server", "workspace:packages/server"],\
             ["@types/bcrypt", "npm:5.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fbcrypt%2F-%2Fbcrypt-5.0.0.tgz"],\
+            ["@types/jsonwebtoken", "npm:9.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fjsonwebtoken%2F-%2Fjsonwebtoken-9.0.1.tgz"],\
             ["@types/koa", "npm:2.13.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa%2F-%2Fkoa-2.13.5.tgz"],\
             ["@types/koa-logger", "npm:3.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa-logger%2F-%2Fkoa-logger-3.1.2.tgz"],\
             ["@types/koa-router", "npm:7.4.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa-router%2F-%2Fkoa-router-7.4.4.tgz"],\
             ["@types/node", "npm:18.11.18::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fnode%2F-%2Fnode-18.11.18.tgz"],\
             ["bcrypt", "npm:5.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fbcrypt%2F-%2Fbcrypt-5.1.0.tgz"],\
             ["dotenv", "npm:16.0.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fdotenv%2F-%2Fdotenv-16.0.3.tgz"],\
+            ["jsonwebtoken", "npm:9.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fjsonwebtoken%2F-%2Fjsonwebtoken-9.0.0.tgz"],\
             ["koa", "npm:2.14.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa%2F-%2Fkoa-2.14.1.tgz"],\
             ["koa-body", "npm:6.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa-body%2F-%2Fkoa-body-6.0.1.tgz"],\
             ["koa-logger", "npm:3.2.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa-logger%2F-%2Fkoa-logger-3.2.1.tgz"],\
