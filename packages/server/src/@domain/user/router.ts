@@ -1,13 +1,33 @@
 import {koaBody} from 'koa-body'
 import Router from 'koa-router'
-import {checkAlreadyLogin} from 'src/@domain/user/modules/middleware'
-import {createUser, loginUser} from 'src/@domain/user/service'
-import {isJoinRequestBodyType, isLoginRequestBodyType} from 'src/@domain/user/type'
+import {checkAlreadyLogin, authenticateAccessToken} from 'src/@domain/user/modules/middleware'
+import {createUser, getMe, loginUser} from 'src/@domain/user/service'
+import {isJoinRequestBodyType, isLoginRequestBodyType, isMeRequestBodyType} from 'src/@domain/user/type'
 
 const userRouter = new Router()
 
-userRouter.get('/me', async (ctx) => {
-    ctx.status = 200
+userRouter.get('/me', authenticateAccessToken(), async (ctx) => {
+    const {
+        request: {body},
+    } = ctx
+
+    if (!isMeRequestBodyType(body)) {
+        ctx.status = 400
+        return
+    }
+
+    const {id} = body
+
+    try {
+        const {email, accountId, name, payPoint} = await getMe(id)
+
+        ctx.status = 200
+        ctx.body = {
+            data: {id, email, accountId, name, payPoint},
+        }
+    } catch (error) {
+        ctx.status = 401
+    }
 })
 
 userRouter.put('/me', koaBody(), async (ctx) => {
@@ -30,7 +50,7 @@ userRouter.post('/login', koaBody(), checkAlreadyLogin(), async (ctx) => {
         const accessToken = await loginUser(email, password)
 
         ctx.status = 200
-        ctx.body = {accessToken}
+        ctx.body = {data: {accessToken}}
     } catch (error) {
         ctx.status = 400
     }

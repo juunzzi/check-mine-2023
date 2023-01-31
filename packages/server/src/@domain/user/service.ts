@@ -1,8 +1,20 @@
 import bcrypt from 'bcrypt'
 import {generateAccessToken} from 'src/@domain/user/modules/jwt'
-import {findUserByEmailQuery, insertUserQuery} from 'src/@domain/user/modules/query'
+import {findUserByEmailQuery, findUserById, insertUserQuery} from 'src/@domain/user/modules/query'
 import {isValidUserInput} from 'src/@domain/user/modules/validation'
 import {User} from 'src/@domain/user/type'
+
+export const getMe = async (id: number) => {
+    const user = await findUserById(id)
+
+    if (!user) {
+        throw new Error('인증 정보가 존재하지 않습니다.')
+    }
+
+    /** Account 개발 시 account 객체도 함께 넘겨줄 것 */
+
+    return user
+}
 
 export const createUser = async (userInput: User) => {
     const {email, password} = userInput

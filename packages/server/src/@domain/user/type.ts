@@ -24,3 +24,9 @@ export type LoginRequestBody = Pick<User, 'email' | 'password'>
 export const isLoginRequestBodyType = (body: any): body is LoginRequestBody => {
     return body && typeof body.email === 'string' && typeof body.password === 'string'
 }
+
+export type MeRequestBody = Pick<User, 'id'>
+
+export const isMeRequestBodyType = (body: any): body is MeRequestBody => {
+    return body && typeof body.id === 'number'
+}
