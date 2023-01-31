@@ -1,7 +1,8 @@
 import {koaBody} from 'koa-body'
 import Router from 'koa-router'
-import {createUser} from 'src/@domain/user/service'
-import {isJoinRequestBodyType} from 'src/@domain/user/type'
+import {checkAlreadyLogin} from 'src/@domain/user/modules/middleware'
+import {createUser, loginUser} from 'src/@domain/user/service'
+import {isJoinRequestBodyType, isLoginRequestBodyType} from 'src/@domain/user/type'
 
 const userRouter = new Router()
 
@@ -13,8 +14,26 @@ userRouter.put('/me', koaBody(), async (ctx) => {
     ctx.status = 200
 })
 
-userRouter.post('/login', koaBody(), async (ctx) => {
-    ctx.status = 200
+userRouter.post('/login', koaBody(), checkAlreadyLogin(), async (ctx) => {
+    const {
+        request: {body},
+    } = ctx
+
+    if (!isLoginRequestBodyType(body)) {
+        ctx.status = 400
+        return
+    }
+
+    try {
+        const {email, password} = body
+
+        const accessToken = await loginUser(email, password)
+
+        ctx.status = 200
+        ctx.body = {accessToken}
+    } catch (error) {
+        ctx.status = 400
+    }
 })
 
 userRouter.post('/join', koaBody(), async (ctx) => {
