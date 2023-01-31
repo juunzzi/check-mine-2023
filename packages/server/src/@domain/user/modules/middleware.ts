@@ -24,7 +24,10 @@ export const authenticateAccessToken = (): Middleware => async (ctx, next) => {
             }),
         )
 
-        ctx.request.body = {decoded: resolvedDecoded, ...(ctx.request.body ?? {})}
+        ctx.request.body = {
+            authenticationInfo: resolvedDecoded,
+            ...(ctx.request.body ?? {}),
+        }
 
         await next()
     } catch (error) {

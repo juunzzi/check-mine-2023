@@ -23,7 +23,7 @@ userRouter.get('/me', authenticateAccessToken(), async (ctx) => {
 
     try {
         const {
-            decoded: {id},
+            authenticationInfo: {id},
         } = body
 
         const {email, accountId, name, payPoint} = await getUser(id)
