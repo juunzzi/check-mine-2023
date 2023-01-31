@@ -4722,6 +4722,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@types/koa-router", [\
+        ["npm:7.4.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa-router%2F-%2Fkoa-router-7.4.4.tgz", {\
+          "packageLocation": "./.yarn/cache/@types-koa-router-npm-7.4.4-9d91072d7f-23ff5b725d.zip/node_modules/@types/koa-router/",\
+          "packageDependencies": [\
+            ["@types/koa-router", "npm:7.4.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa-router%2F-%2Fkoa-router-7.4.4.tgz"],\
+            ["@types/koa", "npm:2.13.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa%2F-%2Fkoa-2.13.5.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/mime", [\
         ["npm:3.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fmime%2F-%2Fmime-3.0.1.tgz", {\
           "packageLocation": "./.yarn/cache/@types-mime-npm-3.0.1-d09ff31ce5-4040fac73f.zip/node_modules/@types/mime/",\
@@ -12483,6 +12493,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["koa-router", [\
+        ["npm:12.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa-router%2F-%2Fkoa-router-12.0.0.tgz", {\
+          "packageLocation": "./.yarn/cache/koa-router-npm-12.0.0-af1a695b59-29b02fd969.zip/node_modules/koa-router/",\
+          "packageDependencies": [\
+            ["koa-router", "npm:12.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa-router%2F-%2Fkoa-router-12.0.0.tgz"],\
+            ["http-errors", "npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fhttp-errors%2F-%2Fhttp-errors-2.0.0.tgz"],\
+            ["koa-compose", "npm:4.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa-compose%2F-%2Fkoa-compose-4.1.0.tgz"],\
+            ["methods", "npm:1.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fmethods%2F-%2Fmethods-1.1.2.tgz"],\
+            ["path-to-regexp", "npm:6.2.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fpath-to-regexp%2F-%2Fpath-to-regexp-6.2.1.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["language-subtag-registry", [\
         ["npm:0.3.22::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Flanguage-subtag-registry%2F-%2Flanguage-subtag-registry-0.3.22.tgz", {\
           "packageLocation": "./.yarn/cache/language-subtag-registry-npm-0.3.22-9b7da4c1a0-8ab70a7e0e.zip/node_modules/language-subtag-registry/",\
@@ -13863,6 +13886,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["path-to-regexp", "npm:0.1.7::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fpath-to-regexp%2F-%2Fpath-to-regexp-0.1.7.tgz"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:6.2.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fpath-to-regexp%2F-%2Fpath-to-regexp-6.2.1.tgz", {\
+          "packageLocation": "./.yarn/cache/path-to-regexp-npm-6.2.1-3add97004d-f0227af828.zip/node_modules/path-to-regexp/",\
+          "packageDependencies": [\
+            ["path-to-regexp", "npm:6.2.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fpath-to-regexp%2F-%2Fpath-to-regexp-6.2.1.tgz"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["path-type", [\
@@ -13926,10 +13956,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["payment_server", "workspace:packages/server"],\
             ["@types/koa", "npm:2.13.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa%2F-%2Fkoa-2.13.5.tgz"],\
             ["@types/koa-logger", "npm:3.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa-logger%2F-%2Fkoa-logger-3.1.2.tgz"],\
+            ["@types/koa-router", "npm:7.4.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa-router%2F-%2Fkoa-router-7.4.4.tgz"],\
             ["@types/node", "npm:18.11.18::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fnode%2F-%2Fnode-18.11.18.tgz"],\
             ["dotenv", "npm:16.0.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fdotenv%2F-%2Fdotenv-16.0.3.tgz"],\
             ["koa", "npm:2.14.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa%2F-%2Fkoa-2.14.1.tgz"],\
             ["koa-logger", "npm:3.2.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa-logger%2F-%2Fkoa-logger-3.2.1.tgz"],\
+            ["koa-router", "npm:12.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa-router%2F-%2Fkoa-router-12.0.0.tgz"],\
             ["mariadb", "npm:3.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fmariadb%2F-%2Fmariadb-3.0.2.tgz"],\
             ["nodemon", "npm:2.0.20::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnodemon%2F-%2Fnodemon-2.0.20.tgz"],\
             ["ts-node", "virtual:4d54fc2fb5bf057f6fde15b28801161b9e33712c0eaf98f1559323e77933eab1ad64ed9752b87b7c80e5c0f494d71c6599488988d8d308ecb90998491c09b4d9#npm:10.9.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fts-node%2F-%2Fts-node-10.9.1.tgz"],\
