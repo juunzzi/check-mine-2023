@@ -25,7 +25,9 @@ export const insertUserQuery = (userInput: User) => {
     const {name, email, password, payPoint, accountId} = userInput
 
     return pool.query(
-        `INSERT INTO payment.user (name, email, password, pay_point, account_id) VALUES ('${name}', '${email}', '${password}', ${payPoint}, ${accountId})`,
+        `INSERT INTO payment.user (name, email, password, pay_point, account_id)
+         VALUES (?,?,?,?,?)`,
+        [name, email, password, payPoint, accountId],
     )
 }
 
