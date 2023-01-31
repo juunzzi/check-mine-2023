@@ -28,7 +28,7 @@ export const authenticateAccessToken = (): Middleware => async (ctx, next) => {
 
         await next()
     } catch (error) {
-        ctx.status = 403
+        ctx.status = 401
     }
 }
 
