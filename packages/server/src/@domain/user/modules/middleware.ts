@@ -12,7 +12,7 @@ export const authenticateAccessToken = (): Middleware => async (ctx, next) => {
             return
         }
 
-        const payload = await new Promise((resolve, reject) =>
+        const resolvedDecoded = await new Promise((resolve, reject) =>
             decodeAccessToken(token, (error, decoded) => {
                 if (error) {
                     reject(error)
@@ -24,7 +24,7 @@ export const authenticateAccessToken = (): Middleware => async (ctx, next) => {
             }),
         )
 
-        ctx.request.body = payload
+        ctx.request.body = {decoded: resolvedDecoded, ...(ctx.request.body ?? {})}
 
         await next()
     } catch (error) {

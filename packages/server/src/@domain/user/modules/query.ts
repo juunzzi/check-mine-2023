@@ -1,4 +1,4 @@
-import {User} from 'src/@domain/user/type'
+import {EditMeRequestBodyType, User} from 'src/@domain/user/type'
 import pool from 'src/db'
 
 export interface UserTableRow {
@@ -48,7 +48,7 @@ export const findUserByEmailQuery = async (email: string) => {
     }
 }
 
-export const findUserById = async (id: number) => {
+export const findUserByIdQuery = async (id: number) => {
     const user = await pool.query(`SELECT * FROM USER WHERE id='${id}'`)
 
     if (!user[0] || !isUserTableRowType(user[0])) {
@@ -59,8 +59,17 @@ export const findUserById = async (id: number) => {
         id: user[0].id,
         name: user[0].name,
         email: user[0].email,
-        password: user[0].password,
         payPoint: user[0].pay_point,
         accountId: user[0].account_id,
     }
+}
+
+export const updateUserQuery = async (newUser: EditMeRequestBodyType) => {
+    const {id, name, email, payPoint, accountId} = newUser
+
+    await pool.query(
+        `UPDATE USER 
+         SET name=?, email=?, pay_point=?, account_id=? WHERE id=?`,
+        [name, email, payPoint, accountId, id],
+    )
 }

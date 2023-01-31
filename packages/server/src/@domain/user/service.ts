@@ -1,19 +1,25 @@
 import bcrypt from 'bcrypt'
 import {generateAccessToken} from 'src/@domain/user/modules/jwt'
-import {findUserByEmailQuery, findUserById, insertUserQuery} from 'src/@domain/user/modules/query'
-import {isValidUserInput} from 'src/@domain/user/modules/validation'
-import {User} from 'src/@domain/user/type'
+import {findUserByEmailQuery, findUserByIdQuery, insertUserQuery, updateUserQuery} from 'src/@domain/user/modules/query'
+import {isValidEditUserInput, isValidUserInput} from 'src/@domain/user/modules/validation'
+import {EditMeRequestBodyType, User} from 'src/@domain/user/type'
 
-export const getMe = async (id: number) => {
-    const user = await findUserById(id)
+export const getUser = async (id: number) => {
+    const user = await findUserByIdQuery(id)
 
     if (!user) {
         throw new Error('인증 정보가 존재하지 않습니다.')
     }
 
-    /** Account 개발 시 account 객체도 함께 넘겨줄 것 */
-
     return user
+}
+
+export const editUser = async (newUser: EditMeRequestBodyType) => {
+    if (!isValidEditUserInput(newUser)) {
+        throw new Error('입력 값을 확인해주세요.')
+    }
+
+    return updateUserQuery(newUser)
 }
 
 export const createUser = async (userInput: User) => {
