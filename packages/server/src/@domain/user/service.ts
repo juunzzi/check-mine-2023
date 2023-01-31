@@ -9,7 +9,7 @@ export const createUser = async (userInput: User) => {
 
     const user = await findUserByEmailQuery(email)
 
-    const hashedPassword = bcrypt.hashSync(password, 10)
+    const hashedPassword = await bcrypt.hash(password, 10)
 
     if (!isValidUserInput(userInput)) {
         throw new Error('입력 값을 확인해주세요.')
@@ -25,7 +25,9 @@ export const createUser = async (userInput: User) => {
 export const loginUser = async (email: string, password: string) => {
     const user = await findUserByEmailQuery(email)
 
-    if (!user || !bcrypt.compareSync(password, user.password)) {
+    const isMatch = await bcrypt.compare(password, user.password)
+
+    if (!user || !isMatch) {
         throw new Error('아이디 혹은 비밀번호가 일치하지 않습니다.')
     }
 
