@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt'
 import {generateAccessToken} from 'src/@domain/user/modules/jwt'
 import {findUserByEmailQuery, findUserByIdQuery, insertUserQuery, updateUserQuery} from 'src/@domain/user/modules/query'
-import {isValidEditUserInput, isValidUserInput} from 'src/@domain/user/modules/validation'
+import {isValidEditUserInput, isValidCreateUserInput} from 'src/@domain/user/modules/validation'
 import {EditMeRequestBodyType, User} from 'src/@domain/user/type'
 
 export const getUser = async (id: number) => {
@@ -29,7 +29,7 @@ export const createUser = async (userInput: User) => {
 
     const hashedPassword = await bcrypt.hash(password, 10)
 
-    if (!isValidUserInput(userInput)) {
+    if (!isValidCreateUserInput(userInput)) {
         throw new Error('입력 값을 확인해주세요.')
     }
 

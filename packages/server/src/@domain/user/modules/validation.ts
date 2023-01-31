@@ -24,7 +24,7 @@ export const isValidUserPayPoint = (payPoint: number) => {
     return !isNaN(payPoint) && payPoint >= 0
 }
 
-export const isValidUserInput = (userInput: User) => {
+export const isValidCreateUserInput = (userInput: User) => {
     const {name, email, password, payPoint} = userInput
 
     return (
