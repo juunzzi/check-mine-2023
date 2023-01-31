@@ -3774,6 +3774,24 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@mapbox/node-pre-gyp", [\
+        ["npm:1.0.10::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40mapbox%2Fnode-pre-gyp%2F-%2Fnode-pre-gyp-1.0.10.tgz", {\
+          "packageLocation": "./.yarn/cache/@mapbox-node-pre-gyp-npm-1.0.10-35bb6b27fc-1a98db05d9.zip/node_modules/@mapbox/node-pre-gyp/",\
+          "packageDependencies": [\
+            ["@mapbox/node-pre-gyp", "npm:1.0.10::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40mapbox%2Fnode-pre-gyp%2F-%2Fnode-pre-gyp-1.0.10.tgz"],\
+            ["detect-libc", "npm:2.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fdetect-libc%2F-%2Fdetect-libc-2.0.1.tgz"],\
+            ["https-proxy-agent", "npm:5.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fhttps-proxy-agent%2F-%2Fhttps-proxy-agent-5.0.1.tgz"],\
+            ["make-dir", "npm:3.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fmake-dir%2F-%2Fmake-dir-3.1.0.tgz"],\
+            ["node-fetch", "virtual:35bb6b27fcc04959a5015566b0791196959e12aeb0d81b7c4f3bd82b3900bd8da66bd46cbbe80891b721c497fd0f9b8e56584b67337f907723405cf2d0848e5b#npm:2.6.9::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnode-fetch%2F-%2Fnode-fetch-2.6.9.tgz"],\
+            ["nopt", "npm:5.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnopt%2F-%2Fnopt-5.0.0.tgz"],\
+            ["npmlog", "npm:5.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnpmlog%2F-%2Fnpmlog-5.0.1.tgz"],\
+            ["rimraf", "npm:3.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Frimraf%2F-%2Frimraf-3.0.2.tgz"],\
+            ["semver", "npm:7.3.8::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fsemver%2F-%2Fsemver-7.3.8.tgz"],\
+            ["tar", "npm:6.1.13::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Ftar%2F-%2Ftar-6.1.13.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@nicolo-ribaudo/eslint-scope-5-internals", [\
         ["npm:5.1.1-v1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40nicolo-ribaudo%2Feslint-scope-5-internals%2F-%2Feslint-scope-5-internals-5.1.1-v1.tgz", {\
           "packageLocation": "./.yarn/cache/@nicolo-ribaudo-eslint-scope-5-internals-npm-5.1.1-v1-9c64ba6040-f2e3b2d6a6.zip/node_modules/@nicolo-ribaudo/eslint-scope-5-internals/",\
@@ -4415,6 +4433,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@types/babel__traverse", "npm:7.18.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fbabel__traverse%2F-%2Fbabel__traverse-7.18.3.tgz"],\
             ["@babel/types", "npm:7.20.7::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40babel%2Ftypes%2F-%2Ftypes-7.20.7.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/bcrypt", [\
+        ["npm:5.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fbcrypt%2F-%2Fbcrypt-5.0.0.tgz", {\
+          "packageLocation": "./.yarn/cache/@types-bcrypt-npm-5.0.0-63cddda2f3-063c32c7a5.zip/node_modules/@types/bcrypt/",\
+          "packageDependencies": [\
+            ["@types/bcrypt", "npm:5.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fbcrypt%2F-%2Fbcrypt-5.0.0.tgz"],\
+            ["@types/node", "npm:18.11.18::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fnode%2F-%2Fnode-18.11.18.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -5939,6 +5967,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["are-we-there-yet", [\
+        ["npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fare-we-there-yet%2F-%2Fare-we-there-yet-2.0.0.tgz", {\
+          "packageLocation": "./.yarn/cache/are-we-there-yet-npm-2.0.0-58f6043174-6c80b4fd04.zip/node_modules/are-we-there-yet/",\
+          "packageDependencies": [\
+            ["are-we-there-yet", "npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fare-we-there-yet%2F-%2Fare-we-there-yet-2.0.0.tgz"],\
+            ["delegates", "npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fdelegates%2F-%2Fdelegates-1.0.0.tgz"],\
+            ["readable-stream", "npm:3.6.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Freadable-stream%2F-%2Freadable-stream-3.6.0.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:3.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fare-we-there-yet%2F-%2Fare-we-there-yet-3.0.1.tgz", {\
           "packageLocation": "./.yarn/cache/are-we-there-yet-npm-3.0.1-bd0f1d94b1-52590c2486.zip/node_modules/are-we-there-yet/",\
           "packageDependencies": [\
@@ -6518,6 +6555,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/batch-npm-0.6.1-c026ae3e87-61f9934c73.zip/node_modules/batch/",\
           "packageDependencies": [\
             ["batch", "npm:0.6.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fbatch%2F-%2Fbatch-0.6.1.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["bcrypt", [\
+        ["npm:5.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fbcrypt%2F-%2Fbcrypt-5.1.0.tgz", {\
+          "packageLocation": "./.yarn/unplugged/bcrypt-npm-5.1.0-73bb29f796/node_modules/bcrypt/",\
+          "packageDependencies": [\
+            ["bcrypt", "npm:5.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fbcrypt%2F-%2Fbcrypt-5.1.0.tgz"],\
+            ["@mapbox/node-pre-gyp", "npm:1.0.10::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40mapbox%2Fnode-pre-gyp%2F-%2Fnode-pre-gyp-1.0.10.tgz"],\
+            ["node-addon-api", "npm:5.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnode-addon-api%2F-%2Fnode-addon-api-5.1.0.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -8037,6 +8085,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/destroy-npm-1.2.0-ed470f9f33-0acb300b74.zip/node_modules/destroy/",\
           "packageDependencies": [\
             ["destroy", "npm:1.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fdestroy%2F-%2Fdestroy-1.2.0.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["detect-libc", [\
+        ["npm:2.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fdetect-libc%2F-%2Fdetect-libc-2.0.1.tgz", {\
+          "packageLocation": "./.yarn/cache/detect-libc-npm-2.0.1-86564e25a9-ccb05fcabb.zip/node_modules/detect-libc/",\
+          "packageDependencies": [\
+            ["detect-libc", "npm:2.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fdetect-libc%2F-%2Fdetect-libc-2.0.1.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -10204,6 +10261,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["gauge", [\
+        ["npm:3.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fgauge%2F-%2Fgauge-3.0.2.tgz", {\
+          "packageLocation": "./.yarn/cache/gauge-npm-3.0.2-49f5600f41-81296c00c7.zip/node_modules/gauge/",\
+          "packageDependencies": [\
+            ["gauge", "npm:3.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fgauge%2F-%2Fgauge-3.0.2.tgz"],\
+            ["aproba", "npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Faproba%2F-%2Faproba-2.0.0.tgz"],\
+            ["color-support", "npm:1.1.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fcolor-support%2F-%2Fcolor-support-1.1.3.tgz"],\
+            ["console-control-strings", "npm:1.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fconsole-control-strings%2F-%2Fconsole-control-strings-1.1.0.tgz"],\
+            ["has-unicode", "npm:2.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fhas-unicode%2F-%2Fhas-unicode-2.0.1.tgz"],\
+            ["object-assign", "npm:4.1.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fobject-assign%2F-%2Fobject-assign-4.1.1.tgz"],\
+            ["signal-exit", "npm:3.0.7::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fsignal-exit%2F-%2Fsignal-exit-3.0.7.tgz"],\
+            ["string-width", "npm:4.2.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fstring-width%2F-%2Fstring-width-4.2.3.tgz"],\
+            ["strip-ansi", "npm:6.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fstrip-ansi%2F-%2Fstrip-ansi-6.0.1.tgz"],\
+            ["wide-align", "npm:1.1.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fwide-align%2F-%2Fwide-align-1.1.5.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:4.0.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fgauge%2F-%2Fgauge-4.0.4.tgz", {\
           "packageLocation": "./.yarn/cache/gauge-npm-4.0.4-311832ecf3-788b6bfe52.zip/node_modules/gauge/",\
           "packageDependencies": [\
@@ -13381,6 +13454,39 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["node-addon-api", [\
+        ["npm:5.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnode-addon-api%2F-%2Fnode-addon-api-5.1.0.tgz", {\
+          "packageLocation": "./.yarn/unplugged/node-addon-api-npm-5.1.0-0ad09cfffe/node_modules/node-addon-api/",\
+          "packageDependencies": [\
+            ["node-addon-api", "npm:5.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnode-addon-api%2F-%2Fnode-addon-api-5.1.0.tgz"],\
+            ["node-gyp", "npm:9.3.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnode-gyp%2F-%2Fnode-gyp-9.3.1.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["node-fetch", [\
+        ["npm:2.6.9::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnode-fetch%2F-%2Fnode-fetch-2.6.9.tgz", {\
+          "packageLocation": "./.yarn/cache/node-fetch-npm-2.6.9-9aa2547d71-acb04f9ce7.zip/node_modules/node-fetch/",\
+          "packageDependencies": [\
+            ["node-fetch", "npm:2.6.9::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnode-fetch%2F-%2Fnode-fetch-2.6.9.tgz"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:35bb6b27fcc04959a5015566b0791196959e12aeb0d81b7c4f3bd82b3900bd8da66bd46cbbe80891b721c497fd0f9b8e56584b67337f907723405cf2d0848e5b#npm:2.6.9::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnode-fetch%2F-%2Fnode-fetch-2.6.9.tgz", {\
+          "packageLocation": "./.yarn/__virtual__/node-fetch-virtual-4c6b319a05/0/cache/node-fetch-npm-2.6.9-9aa2547d71-acb04f9ce7.zip/node_modules/node-fetch/",\
+          "packageDependencies": [\
+            ["node-fetch", "virtual:35bb6b27fcc04959a5015566b0791196959e12aeb0d81b7c4f3bd82b3900bd8da66bd46cbbe80891b721c497fd0f9b8e56584b67337f907723405cf2d0848e5b#npm:2.6.9::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnode-fetch%2F-%2Fnode-fetch-2.6.9.tgz"],\
+            ["@types/encoding", null],\
+            ["encoding", null],\
+            ["whatwg-url", "npm:5.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fwhatwg-url%2F-%2Fwhatwg-url-5.0.0.tgz"]\
+          ],\
+          "packagePeers": [\
+            "@types/encoding",\
+            "encoding"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["node-forge", [\
         ["npm:1.3.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnode-forge%2F-%2Fnode-forge-1.3.1.tgz", {\
           "packageLocation": "./.yarn/cache/node-forge-npm-1.3.1-a346bbc8f1-08fb072d3d.zip/node_modules/node-forge/",\
@@ -13455,6 +13561,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
+        ["npm:5.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnopt%2F-%2Fnopt-5.0.0.tgz", {\
+          "packageLocation": "./.yarn/cache/nopt-npm-5.0.0-da8c9be3ef-d35fdec187.zip/node_modules/nopt/",\
+          "packageDependencies": [\
+            ["nopt", "npm:5.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnopt%2F-%2Fnopt-5.0.0.tgz"],\
+            ["abbrev", "npm:1.1.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fabbrev%2F-%2Fabbrev-1.1.1.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:6.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnopt%2F-%2Fnopt-6.0.0.tgz", {\
           "packageLocation": "./.yarn/cache/nopt-npm-6.0.0-71af3d931c-82149371f8.zip/node_modules/nopt/",\
           "packageDependencies": [\
@@ -13510,6 +13624,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["npmlog", [\
+        ["npm:5.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnpmlog%2F-%2Fnpmlog-5.0.1.tgz", {\
+          "packageLocation": "./.yarn/cache/npmlog-npm-5.0.1-9943b44c00-516b266302.zip/node_modules/npmlog/",\
+          "packageDependencies": [\
+            ["npmlog", "npm:5.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnpmlog%2F-%2Fnpmlog-5.0.1.tgz"],\
+            ["are-we-there-yet", "npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fare-we-there-yet%2F-%2Fare-we-there-yet-2.0.0.tgz"],\
+            ["console-control-strings", "npm:1.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fconsole-control-strings%2F-%2Fconsole-control-strings-1.1.0.tgz"],\
+            ["gauge", "npm:3.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fgauge%2F-%2Fgauge-3.0.2.tgz"],\
+            ["set-blocking", "npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fset-blocking%2F-%2Fset-blocking-2.0.0.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:6.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnpmlog%2F-%2Fnpmlog-6.0.2.tgz", {\
           "packageLocation": "./.yarn/cache/npmlog-npm-6.0.2-6fcd71b97e-ae238cd264.zip/node_modules/npmlog/",\
           "packageDependencies": [\
@@ -14045,10 +14170,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/server/",\
           "packageDependencies": [\
             ["payment_server", "workspace:packages/server"],\
+            ["@types/bcrypt", "npm:5.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fbcrypt%2F-%2Fbcrypt-5.0.0.tgz"],\
             ["@types/koa", "npm:2.13.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa%2F-%2Fkoa-2.13.5.tgz"],\
             ["@types/koa-logger", "npm:3.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa-logger%2F-%2Fkoa-logger-3.1.2.tgz"],\
             ["@types/koa-router", "npm:7.4.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa-router%2F-%2Fkoa-router-7.4.4.tgz"],\
             ["@types/node", "npm:18.11.18::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fnode%2F-%2Fnode-18.11.18.tgz"],\
+            ["bcrypt", "npm:5.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fbcrypt%2F-%2Fbcrypt-5.1.0.tgz"],\
             ["dotenv", "npm:16.0.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fdotenv%2F-%2Fdotenv-16.0.3.tgz"],\
             ["koa", "npm:2.14.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa%2F-%2Fkoa-2.14.1.tgz"],\
             ["koa-body", "npm:6.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa-body%2F-%2Fkoa-body-6.0.1.tgz"],\
@@ -18047,6 +18174,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["tr46", [\
+        ["npm:0.0.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Ftr46%2F-%2Ftr46-0.0.3.tgz", {\
+          "packageLocation": "./.yarn/cache/tr46-npm-0.0.3-1917466ceb-726321c5ea.zip/node_modules/tr46/",\
+          "packageDependencies": [\
+            ["tr46", "npm:0.0.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Ftr46%2F-%2Ftr46-0.0.3.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:1.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Ftr46%2F-%2Ftr46-1.0.1.tgz", {\
           "packageLocation": "./.yarn/cache/tr46-npm-1.0.1-76cd4a273d-96d4ed46bc.zip/node_modules/tr46/",\
           "packageDependencies": [\
@@ -18622,6 +18756,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["webidl-conversions", [\
+        ["npm:3.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fwebidl-conversions%2F-%2Fwebidl-conversions-3.0.1.tgz", {\
+          "packageLocation": "./.yarn/cache/webidl-conversions-npm-3.0.1-1cb21213bd-c92a0a6ab9.zip/node_modules/webidl-conversions/",\
+          "packageDependencies": [\
+            ["webidl-conversions", "npm:3.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fwebidl-conversions%2F-%2Fwebidl-conversions-3.0.1.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:4.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fwebidl-conversions%2F-%2Fwebidl-conversions-4.0.2.tgz", {\
           "packageLocation": "./.yarn/cache/webidl-conversions-npm-4.0.2-785d0cc831-c93d8dfe90.zip/node_modules/webidl-conversions/",\
           "packageDependencies": [\
@@ -18873,6 +19014,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["whatwg-url", [\
+        ["npm:5.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fwhatwg-url%2F-%2Fwhatwg-url-5.0.0.tgz", {\
+          "packageLocation": "./.yarn/cache/whatwg-url-npm-5.0.0-1c733338e2-b8daed4ad3.zip/node_modules/whatwg-url/",\
+          "packageDependencies": [\
+            ["whatwg-url", "npm:5.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fwhatwg-url%2F-%2Fwhatwg-url-5.0.0.tgz"],\
+            ["tr46", "npm:0.0.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Ftr46%2F-%2Ftr46-0.0.3.tgz"],\
+            ["webidl-conversions", "npm:3.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fwebidl-conversions%2F-%2Fwebidl-conversions-3.0.1.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:7.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fwhatwg-url%2F-%2Fwhatwg-url-7.1.0.tgz", {\
           "packageLocation": "./.yarn/cache/whatwg-url-npm-7.1.0-8d4165dfe5-fecb07c872.zip/node_modules/whatwg-url/",\
           "packageDependencies": [\
