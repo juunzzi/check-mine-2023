@@ -1,6 +1,6 @@
 import {CreateAccountInput} from 'src/@domain/account/service'
 import {BANK, Bank} from 'src/@domain/account/type'
-import {isInsertQueryResult} from 'src/common/db.query'
+import {isInsertQueryResult} from 'src/common/types/query'
 import pool from 'src/db'
 
 export interface AccountTableRow {
