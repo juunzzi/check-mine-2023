@@ -25,13 +25,13 @@ export const editUser = async (newUser: EditMeRequestBodyType) => {
 export const createUser = async (userInput: User) => {
     const {email, password} = userInput
 
-    const user = await DB.findUserByEmail(email)
-
-    const hashedPassword = await bcrypt.hash(password, 10)
-
     if (!isValidCreateUserInput(userInput)) {
         throw new Error('입력 값을 확인해주세요.')
     }
+
+    const user = await DB.findUserByEmail(email)
+
+    const hashedPassword = await bcrypt.hash(password, 10)
 
     if (user) {
         throw new Error('중복된 이메일입니다.')
