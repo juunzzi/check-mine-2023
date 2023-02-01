@@ -9,6 +9,7 @@ export const authenticateAccessToken = (): Middleware => async (ctx, next) => {
 
         if (!token) {
             ctx.status = 401
+
             return
         }
 

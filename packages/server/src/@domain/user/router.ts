@@ -18,6 +18,7 @@ userRouter.get('/me', authenticateAccessToken(), async (ctx) => {
 
     if (!isMeRequestBodyType(body)) {
         ctx.status = 400
+
         return
     }
 
@@ -44,6 +45,7 @@ userRouter.put('/me', koaBody(), authenticateAccessToken(), async (ctx) => {
 
     if (!isEditMeRequestBodyType(body)) {
         ctx.status = 400
+
         return
     }
 
@@ -63,6 +65,7 @@ userRouter.post('/login', koaBody(), checkAlreadyLogin(), async (ctx) => {
 
     if (!isLoginRequestBodyType(body)) {
         ctx.status = 400
+
         return
     }
 
@@ -85,6 +88,7 @@ userRouter.post('/join', koaBody(), async (ctx) => {
 
     if (!isJoinRequestBodyType(body)) {
         ctx.status = 400
+
         return
     }
 
