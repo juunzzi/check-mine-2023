@@ -21,7 +21,7 @@ export const isUserTableRowType = (userQueryResponse: any): userQueryResponse is
     )
 }
 
-export const insertUserQuery = (userInput: User) => {
+export const insertUser = (userInput: User) => {
     const {name, email, password, payPoint, accountId} = userInput
 
     return pool.query(
@@ -31,7 +31,7 @@ export const insertUserQuery = (userInput: User) => {
     )
 }
 
-export const findUserByEmailQuery = async (email: string) => {
+export const findUserByEmail = async (email: string) => {
     const user = await pool.query(`SELECT * FROM USER WHERE email='${email}'`)
 
     if (!user[0] || !isUserTableRowType(user[0])) {
@@ -48,7 +48,7 @@ export const findUserByEmailQuery = async (email: string) => {
     }
 }
 
-export const findUserByIdQuery = async (id: number) => {
+export const findUserById = async (id: number) => {
     const user = await pool.query(`SELECT * FROM USER WHERE id='${id}'`)
 
     if (!user[0] || !isUserTableRowType(user[0])) {
@@ -65,7 +65,7 @@ export const findUserByIdQuery = async (id: number) => {
     }
 }
 
-export const updateUserQuery = async (newUser: EditMeRequestBodyType) => {
+export const updateUser = async (newUser: EditMeRequestBodyType) => {
     const {id, name, email, payPoint, accountId} = newUser
 
     await pool.query(
