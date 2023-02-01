@@ -12,6 +12,7 @@ accountRouter.get('/', authenticateAccessToken(), async (ctx) => {
 
     if (!isAccountRequestBody(body)) {
         ctx.status = 400
+
         return
     }
 
