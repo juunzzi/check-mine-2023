@@ -1,5 +1,6 @@
+import {isValidBankName} from 'src/@domain/account/modules/validation'
 import {CreateAccountInput} from 'src/@domain/account/service'
-import {BANK, Bank} from 'src/@domain/account/type'
+import {Bank} from 'src/@domain/account/type'
 import {isInsertQueryResult} from 'src/common/types/query'
 import pool from 'src/db'
 
@@ -18,7 +19,7 @@ export const isAccountTableRow = (accountQueryResult: any): accountQueryResult i
         typeof accountQueryResult.number === 'string' &&
         typeof accountQueryResult.amount === 'number' &&
         typeof accountQueryResult.user_id === 'number' &&
-        BANK.includes(accountQueryResult.bank_name)
+        isValidBankName(accountQueryResult.bank_name)
     )
 }
 

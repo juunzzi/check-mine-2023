@@ -1,3 +1,4 @@
+import {isValidBankName} from 'src/@domain/account/modules/validation'
 import {AuthenticationInfo, isAuthenticationInfo} from 'src/@domain/user/type'
 
 export const BANK = ['국민은행', '신한은행', '토스뱅크'] as const
@@ -28,7 +29,7 @@ export const isCreateAccountBody = (body: any): body is CreateAccountRequestBody
         body &&
         typeof body.number === 'string' &&
         typeof body.amount === 'number' &&
-        BANK.includes(body.bankName) &&
+        isValidBankName(body.bankName) &&
         isAuthenticationInfo(body.authenticationInfo)
     )
 }
