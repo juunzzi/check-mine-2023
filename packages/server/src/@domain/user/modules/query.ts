@@ -10,14 +10,14 @@ export interface UserTableRow {
     ['account_id']: null
 }
 
-export const isUserTableRowType = (userQueryResponse: any): userQueryResponse is UserTableRow => {
+export const isUserTableRowType = (userQueryResult: any): userQueryResult is UserTableRow => {
     return (
-        userQueryResponse &&
-        userQueryResponse['account_id'] === null &&
-        typeof userQueryResponse.name === 'string' &&
-        typeof userQueryResponse.email === 'string' &&
-        typeof userQueryResponse.password === 'string' &&
-        typeof userQueryResponse['pay_point'] === 'number'
+        userQueryResult &&
+        userQueryResult['account_id'] === null &&
+        typeof userQueryResult.name === 'string' &&
+        typeof userQueryResult.email === 'string' &&
+        typeof userQueryResult.password === 'string' &&
+        typeof userQueryResult['pay_point'] === 'number'
     )
 }
 
@@ -32,36 +32,36 @@ export const insertUser = (userInput: User) => {
 }
 
 export const findUserByEmail = async (email: string) => {
-    const user = await pool.query(`SELECT * FROM USER WHERE email='${email}'`)
+    const userQueryResult = await pool.query(`SELECT * FROM USER WHERE email='${email}'`)
 
-    if (!user[0] || !isUserTableRowType(user[0])) {
+    if (!userQueryResult[0] || !isUserTableRowType(userQueryResult[0])) {
         return
     }
 
     return {
-        id: user[0].id,
-        name: user[0].name,
-        email: user[0].email,
-        password: user[0].password,
-        payPoint: user[0].pay_point,
-        accountId: user[0].account_id,
+        id: userQueryResult[0].id,
+        name: userQueryResult[0].name,
+        email: userQueryResult[0].email,
+        password: userQueryResult[0].password,
+        payPoint: userQueryResult[0].pay_point,
+        accountId: userQueryResult[0].account_id,
     }
 }
 
 export const findUserById = async (id: number) => {
-    const user = await pool.query(`SELECT * FROM USER WHERE id='${id}'`)
+    const userQueryResult = await pool.query(`SELECT * FROM USER WHERE id='${id}'`)
 
-    if (!user[0] || !isUserTableRowType(user[0])) {
+    if (!userQueryResult[0] || !isUserTableRowType(userQueryResult[0])) {
         return
     }
 
     return {
-        id: user[0].id,
-        name: user[0].name,
-        email: user[0].email,
-        password: user[0].password,
-        payPoint: user[0].pay_point,
-        accountId: user[0].account_id,
+        id: userQueryResult[0].id,
+        name: userQueryResult[0].name,
+        email: userQueryResult[0].email,
+        password: userQueryResult[0].password,
+        payPoint: userQueryResult[0].pay_point,
+        accountId: userQueryResult[0].account_id,
     }
 }
 
