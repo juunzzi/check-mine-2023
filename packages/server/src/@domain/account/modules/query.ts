@@ -1,7 +1,7 @@
 import {isValidBankName} from 'src/@domain/account/modules/validation'
 import {CreateAccountInput} from 'src/@domain/account/service'
 import {Bank} from 'src/@domain/account/type'
-import {isInsertQueryResult} from 'src/common/types/query'
+import {isInsertQueryResult} from 'src/common/db/type'
 import pool from 'src/db'
 
 export interface AccountTableRow {
@@ -42,21 +42,33 @@ export const findAccountByUserId = async (id: number) => {
 export const insertAccount = async (accountInput: CreateAccountInput) => {
     const {bankName, number, amount, userId} = accountInput
 
-    const accountQueryResult = await pool.query(
-        `INSERT INTO ACCOUNT (bank_name, number, amount, user_id)
-         VALUES (?,?,?,?)`,
-        [bankName, number, amount, userId],
-    )
+    const connection = await pool.getConnection()
 
-    if (!isInsertQueryResult(accountQueryResult)) {
-        return
+    try {
+        await connection.beginTransaction()
+
+        const accountQueryResult = await connection.query(
+            `INSERT INTO ACCOUNT (bank_name, number, amount, user_id)
+             VALUES (?,?,?,?)`,
+            [bankName, number, amount, userId],
+        )
+
+        if (!isInsertQueryResult(accountQueryResult)) {
+            return
+        }
+
+        const insertId = Number(accountQueryResult.insertId.toString())
+
+        await connection.query(
+            `UPDATE USER
+             SET account_id=? WHERE id=?`,
+            [insertId, userId],
+        )
+
+        await connection.commit()
+    } catch (error) {
+        await connection.rollback()
+
+        throw error
     }
-
-    const insertId = Number(accountQueryResult.insertId.toString())
-
-    await pool.query(
-        `UPDATE USER
-         SET account_id=? WHERE id=?`,
-        [insertId, userId],
-    )
 }
