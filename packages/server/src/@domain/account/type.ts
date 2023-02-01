@@ -18,3 +18,17 @@ export interface AccountRequestBody {
 export const isAccountRequestBody = (body: any): body is AccountRequestBody => {
     return body && isAuthenticationInfo(body.authenticationInfo)
 }
+
+export interface CreateAccountBody extends Omit<Account, 'id' | 'userId'> {
+    authenticationInfo: AuthenticationInfo
+}
+
+export const isCreateAccountBody = (body: any): body is CreateAccountBody => {
+    return (
+        body &&
+        typeof body.number === 'string' &&
+        typeof body.amount === 'number' &&
+        BANK.includes(body.bankName) &&
+        isAuthenticationInfo(body.authenticationInfo)
+    )
+}

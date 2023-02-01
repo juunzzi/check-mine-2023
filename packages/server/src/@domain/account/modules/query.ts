@@ -1,4 +1,6 @@
+import {CreateAccountInput} from 'src/@domain/account/service'
 import {BANK, Bank} from 'src/@domain/account/type'
+import {isInsertQueryResult} from 'src/common/db.query'
 import pool from 'src/db'
 
 export interface AccountTableRow {
@@ -34,4 +36,26 @@ export const findAccountByUserId = async (id: number) => {
         number: accountQueryResult[0].number,
         userId: accountQueryResult[0].user_id,
     }
+}
+
+export const insertAccount = async (accountInput: CreateAccountInput) => {
+    const {bankName, number, amount, userId} = accountInput
+
+    const accountQueryResult = await pool.query(
+        `INSERT INTO ACCOUNT (bank_name, number, amount, user_id)
+         VALUES (?,?,?,?)`,
+        [bankName, number, amount, userId],
+    )
+
+    if (!isInsertQueryResult(accountQueryResult)) {
+        return
+    }
+
+    const insertId = Number(accountQueryResult.insertId.toString())
+
+    await pool.query(
+        `UPDATE USER
+         SET account_id=? WHERE id=?`,
+        [insertId, userId],
+    )
 }
