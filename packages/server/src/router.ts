@@ -7,6 +7,6 @@ const router = new Router()
 
 router.use('/api/users', userRouter.routes())
 router.use('/api/products', productRouter.routes())
-router.use('/accounts', accountRouter.routes())
+router.use('/api/accounts', accountRouter.routes())
 
 export default router
