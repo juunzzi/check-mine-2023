@@ -28,7 +28,7 @@ accountRouter.get('/', authenticateAccessToken(), async (ctx) => {
             data: account,
         }
     } catch (error) {
-        ctx.status = 401
+        ctx.status = 400
     }
 })
 
