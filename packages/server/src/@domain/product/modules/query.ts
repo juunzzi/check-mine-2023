@@ -3,24 +3,24 @@ import pool from 'src/db'
 
 export type ProductTableRow = Product
 
-export const isProductTableRowType = (productQueryResponse: any): productQueryResponse is ProductTableRow => {
+export const isProductTableRowType = (productQuertResult: any): productQuertResult is ProductTableRow => {
     return (
-        productQueryResponse &&
-        typeof productQueryResponse.id === 'number' &&
-        typeof productQueryResponse.name === 'string' &&
-        typeof productQueryResponse.price === 'number' &&
-        typeof productQueryResponse.stock === 'number'
+        productQuertResult &&
+        typeof productQuertResult.id === 'number' &&
+        typeof productQuertResult.name === 'string' &&
+        typeof productQuertResult.price === 'number' &&
+        typeof productQuertResult.stock === 'number'
     )
 }
 
 export const findProducts = async () => {
-    const productsQueryResponse = await pool.query(`SELECT * FROM PRODUCT`)
+    const productQueryResult = await pool.query(`SELECT * FROM PRODUCT`)
 
-    if (!productsQueryResponse) {
+    if (!productQueryResult) {
         return
     }
 
-    const products = productsQueryResponse.filter((product: any) => isProductTableRowType(product))
+    const products = productQueryResult.filter((product: any) => isProductTableRowType(product))
 
     return products
 }
