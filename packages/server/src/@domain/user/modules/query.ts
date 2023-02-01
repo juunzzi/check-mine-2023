@@ -59,6 +59,7 @@ export const findUserByIdQuery = async (id: number) => {
         id: user[0].id,
         name: user[0].name,
         email: user[0].email,
+        password: user[0].password,
         payPoint: user[0].pay_point,
         accountId: user[0].account_id,
     }
