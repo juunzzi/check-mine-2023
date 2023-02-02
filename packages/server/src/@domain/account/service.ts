@@ -8,9 +8,9 @@ export const getAccount = (userId: number) => {
 
 export type CreateAccountInput = Omit<Account, 'id'>
 
-export const createAccount = (createAccountInput: CreateAccountInput) => {
+export const createAccount = async (createAccountInput: CreateAccountInput) => {
     if (!isValidCreateAccountInput(createAccountInput)) {
-        throw new Error('계좌 입력 값을 확인해주세요.')
+        return null
     }
 
     return DB.insertAccount(createAccountInput)

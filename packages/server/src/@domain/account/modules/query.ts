@@ -26,8 +26,8 @@ export const isAccountTableRow = (accountQueryResult: any): accountQueryResult i
 export const findAccountByUserId = async (id: number) => {
     const accountQueryResult = await pool.query(`SELECT * FROM ACCOUNT WHERE user_id=?`, [id])
 
-    if (!accountQueryResult[0] || !isAccountTableRow(accountQueryResult[0])) {
-        return
+    if (!isAccountTableRow(accountQueryResult[0])) {
+        return null
     }
 
     return {
@@ -54,18 +54,20 @@ export const insertAccount = async (accountInput: CreateAccountInput) => {
         )
 
         if (!isInsertQueryResult(accountQueryResult)) {
-            return
+            return null
         }
 
         const insertId = Number(accountQueryResult.insertId.toString())
 
-        await connection.query(
+        const updateQueryResult = await connection.query(
             `UPDATE USER
              SET account_id=? WHERE id=?`,
             [insertId, userId],
         )
 
         await connection.commit()
+
+        return updateQueryResult
     } catch (error) {
         await connection.rollback()
 
