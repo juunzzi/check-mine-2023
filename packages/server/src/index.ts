@@ -2,6 +2,7 @@ import 'src/env'
 
 import Koa from 'koa'
 import koaLogger from 'koa-logger'
+import Logger from 'src/common/logger/winston'
 import router from 'src/router'
 
 const app = new Koa()
@@ -12,7 +13,7 @@ app.use(async (ctx, next) => {
     try {
         await next()
     } catch (error) {
-        console.error(error)
+        Logger.error(error)
         ctx.status = 500
     }
 })
