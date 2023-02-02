@@ -55,13 +55,10 @@ accountRouter.post('/', koaBody(), authenticateAccessToken(), async (ctx) => {
         number,
     } = body
 
-    const {data: createAccountResult, message} = await createAccount({amount, bankName, number, userId: id})
+    const {message} = await createAccount({amount, bankName, number, userId: id})
 
     if (message === RES_MSG.SUCCESS) {
         ctx.status = 200
-        ctx.body = {
-            data: createAccountResult,
-        }
     } else {
         ctx.status = 400
         ctx.body = {
