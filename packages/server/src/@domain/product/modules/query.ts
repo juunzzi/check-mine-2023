@@ -16,10 +16,6 @@ export const isProductTableRowType = (productQuertResult: any): productQuertResu
 export const findProducts = async () => {
     const productQueryResult = await pool.query(`SELECT * FROM PRODUCT`)
 
-    if (!productQueryResult) {
-        return
-    }
-
     const products = productQueryResult.filter((product: any) => isProductTableRowType(product))
 
     return products
