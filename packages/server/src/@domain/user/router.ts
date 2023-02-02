@@ -22,19 +22,21 @@ userRouter.get('/me', authenticateAccessToken(), async (ctx) => {
         return
     }
 
-    try {
-        const {
-            authenticationInfo: {id},
-        } = body
+    const {
+        authenticationInfo: {id},
+    } = body
 
-        const {email, accountId, name, payPoint} = await getUser(id)
+    const user = await getUser(id)
+
+    if (user) {
+        const {email, accountId, name, payPoint} = user
 
         ctx.status = 200
         ctx.body = {
             data: {id, email, accountId, name, payPoint},
         }
-    } catch (error) {
-        ctx.status = 401
+    } else {
+        ctx.status = 400
     }
 })
 
@@ -49,11 +51,11 @@ userRouter.put('/me', koaBody(), authenticateAccessToken(), async (ctx) => {
         return
     }
 
-    try {
-        await editUser({...body})
+    const editUserResult = await editUser({...body})
 
+    if (editUserResult) {
         ctx.status = 200
-    } catch (error) {
+    } else {
         ctx.status = 400
     }
 })
@@ -69,14 +71,14 @@ userRouter.post('/login', koaBody(), checkAlreadyLogin(), async (ctx) => {
         return
     }
 
-    try {
-        const {email, password} = body
+    const {email, password} = body
 
-        const accessToken = await loginUser(email, password)
+    const accessToken = await loginUser(email, password)
 
+    if (accessToken) {
         ctx.status = 200
         ctx.body = {data: {accessToken}}
-    } catch (error) {
+    } else {
         ctx.status = 400
     }
 })
@@ -92,11 +94,11 @@ userRouter.post('/join', koaBody(), async (ctx) => {
         return
     }
 
-    try {
-        await createUser({...body, accountId: null})
+    const createUserResult = await createUser({...body, accountId: null})
 
+    if (createUserResult) {
         ctx.status = 200
-    } catch (error) {
+    } else {
         ctx.status = 400
     }
 })

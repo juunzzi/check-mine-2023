@@ -34,8 +34,8 @@ export const insertUser = (userInput: CreateUserInput) => {
 export const findUserByEmail = async (email: string) => {
     const userQueryResult = await pool.query(`SELECT * FROM USER WHERE email='${email}'`)
 
-    if (!userQueryResult[0] || !isUserTableRowType(userQueryResult[0])) {
-        return
+    if (!isUserTableRowType(userQueryResult[0])) {
+        return null
     }
 
     return {
@@ -51,8 +51,8 @@ export const findUserByEmail = async (email: string) => {
 export const findUserById = async (id: number) => {
     const userQueryResult = await pool.query(`SELECT * FROM USER WHERE id='${id}'`)
 
-    if (!userQueryResult[0] || !isUserTableRowType(userQueryResult[0])) {
-        return
+    if (!isUserTableRowType(userQueryResult[0])) {
+        return null
     }
 
     return {
