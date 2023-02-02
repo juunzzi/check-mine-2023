@@ -21,15 +21,18 @@ accountRouter.get('/', authenticateAccessToken(), async (ctx) => {
         authenticationInfo: {id},
     } = body
 
-    const account = await getAccount(id)
+    const {data: account, message} = await getAccount(id)
 
-    if (account) {
+    if (message === 'SUCCESS') {
         ctx.status = 200
         ctx.body = {
             data: account,
         }
     } else {
         ctx.status = 400
+        ctx.body = {
+            message,
+        }
     }
 })
 
@@ -51,12 +54,18 @@ accountRouter.post('/', koaBody(), authenticateAccessToken(), async (ctx) => {
         number,
     } = body
 
-    const createAccountResult = await createAccount({amount, bankName, number, userId: id})
+    const {data: createAccountResult, message} = await createAccount({amount, bankName, number, userId: id})
 
-    if (createAccountResult) {
+    if (message === 'SUCCESS') {
         ctx.status = 200
+        ctx.body = {
+            data: createAccountResult,
+        }
     } else {
         ctx.status = 400
+        ctx.body = {
+            message,
+        }
     }
 })
 

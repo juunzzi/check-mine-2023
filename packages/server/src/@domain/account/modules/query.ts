@@ -27,7 +27,7 @@ export const findAccountByUserId = async (id: number) => {
     const accountQueryResult = await pool.query(`SELECT * FROM ACCOUNT WHERE user_id=?`, [id])
 
     if (!isAccountTableRow(accountQueryResult[0])) {
-        return null
+        return
     }
 
     return {
@@ -54,7 +54,7 @@ export const insertAccount = async (accountInput: CreateAccountInput) => {
         )
 
         if (!isInsertQueryResult(accountQueryResult)) {
-            return null
+            return
         }
 
         const insertId = Number(accountQueryResult.insertId.toString())
