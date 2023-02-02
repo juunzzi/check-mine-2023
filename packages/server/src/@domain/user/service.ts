@@ -4,48 +4,60 @@ import * as DB from 'src/@domain/user/modules/query'
 import {isValidEditUserInput, isValidCreateUserInput} from 'src/@domain/user/modules/validation'
 import {User} from 'src/@domain/user/type'
 
-export const getUser = (id: number) => {
-    return DB.findUserById(id)
+export const getUser = async (id: number) => {
+    const user = await DB.findUserById(id)
+
+    return {data: user, message: user ? 'SUCCESS' : 'FAILED'}
 }
 
 export type EditUserInput = Omit<User, 'password'>
 
 export const editUser = async (newUser: EditUserInput) => {
     if (!isValidEditUserInput(newUser)) {
-        return null
+        return {data: null, message: 'EDIT_USER_INPUT_ERROR'}
     }
 
-    return DB.updateUser(newUser)
+    const updateResult = await DB.updateUser(newUser)
+
+    return {data: updateResult, message: updateResult ? 'SUCCESS' : 'FAILED'}
 }
 
 export type CreateUserInput = Omit<User, 'id'>
 
 export const createUser = async (userInput: CreateUserInput) => {
-    const {email, password} = userInput
-
     if (!isValidCreateUserInput(userInput)) {
-        return null
+        return {data: null, message: 'CREATE_USER_INPUT_ERROR'}
     }
+
+    const {email, password} = userInput
 
     const user = await DB.findUserByEmail(email)
 
     if (user) {
-        return null
+        return {data: null, message: 'DUPLICATE_EMAIL'}
     }
 
     const hashedPassword = await bcrypt.hash(password, 10)
 
-    return DB.insertUser({...userInput, password: hashedPassword})
+    const insertResult = await DB.insertUser({...userInput, password: hashedPassword})
+
+    return {data: insertResult, message: insertResult ? 'SUCCESS' : 'FAILED'}
 }
 
 export const loginUser = async (email: string, password: string) => {
     const user = await DB.findUserByEmail(email)
 
-    const isMatch = await bcrypt.compare(password, user.password)
-
-    if (!user || !isMatch) {
-        return null
+    if (!user) {
+        return {data: null, message: 'FAILED_LOGIN'}
     }
 
-    return generateAccessToken(user.id)
+    const isMatch = await bcrypt.compare(password, user.password)
+
+    if (!isMatch) {
+        return {data: null, message: 'FAILED_LOGIN'}
+    }
+
+    const accessToken = generateAccessToken(user.id)
+
+    return {data: accessToken, message: accessToken ? 'SUCCESS' : 'FAILED'}
 }

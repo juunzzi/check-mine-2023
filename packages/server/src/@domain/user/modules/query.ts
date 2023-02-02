@@ -13,7 +13,7 @@ export interface UserTableRow {
 export const isUserTableRowType = (userQueryResult: any): userQueryResult is UserTableRow => {
     return (
         userQueryResult &&
-        userQueryResult['account_id'] === null &&
+        (typeof userQueryResult.account_id === 'number' || userQueryResult.account_id === null) &&
         typeof userQueryResult.name === 'string' &&
         typeof userQueryResult.email === 'string' &&
         typeof userQueryResult.password === 'string' &&
@@ -35,7 +35,7 @@ export const findUserByEmail = async (email: string) => {
     const userQueryResult = await pool.query(`SELECT * FROM USER WHERE email='${email}'`)
 
     if (!isUserTableRowType(userQueryResult[0])) {
-        return null
+        return
     }
 
     return {
@@ -52,7 +52,7 @@ export const findUserById = async (id: number) => {
     const userQueryResult = await pool.query(`SELECT * FROM USER WHERE id='${id}'`)
 
     if (!isUserTableRowType(userQueryResult[0])) {
-        return null
+        return
     }
 
     return {
