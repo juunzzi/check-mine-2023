@@ -1,4 +1,4 @@
-import {EditMeRequestBodyType, User} from 'src/@domain/user/type'
+import {CreateUserInput, EditUserInput} from 'src/@domain/user/service'
 import pool from 'src/db'
 
 export interface UserTableRow {
@@ -21,7 +21,7 @@ export const isUserTableRowType = (userQueryResult: any): userQueryResult is Use
     )
 }
 
-export const insertUser = (userInput: User) => {
+export const insertUser = (userInput: CreateUserInput) => {
     const {name, email, password, payPoint, accountId} = userInput
 
     return pool.query(
@@ -65,7 +65,7 @@ export const findUserById = async (id: number) => {
     }
 }
 
-export const updateUser = async (newUser: EditMeRequestBodyType) => {
+export const updateUser = async (newUser: EditUserInput) => {
     const {id, name, email, payPoint, accountId} = newUser
 
     await pool.query(

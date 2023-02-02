@@ -1,4 +1,4 @@
-import {EditMeRequestBodyType, User} from 'src/@domain/user/type'
+import {CreateUserInput, EditUserInput} from 'src/@domain/user/service'
 
 /** 영문자, 한글, 숫자만을 포함하여 2~6 글자만 이름으로 가능하다 */
 export const nameRegExp = /^[a-z|A-Z|가-힣|0-9]{2,6}$/
@@ -24,7 +24,7 @@ export const isValidUserPayPoint = (payPoint: number) => {
     return !isNaN(payPoint) && payPoint >= 0
 }
 
-export const isValidCreateUserInput = (userInput: User) => {
+export const isValidCreateUserInput = (userInput: CreateUserInput) => {
     const {name, email, password, payPoint} = userInput
 
     return (
@@ -35,7 +35,7 @@ export const isValidCreateUserInput = (userInput: User) => {
     )
 }
 
-export const isValidEditUserInput = (editUserInput: EditMeRequestBodyType) => {
+export const isValidEditUserInput = (editUserInput: EditUserInput) => {
     const {name, email, payPoint} = editUserInput
 
     return isValidUserName(name) && isValidUserEmail(email) && isValidUserPayPoint(payPoint)

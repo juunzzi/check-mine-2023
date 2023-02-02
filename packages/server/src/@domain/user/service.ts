@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt'
 import {generateAccessToken} from 'src/@domain/user/modules/jwt'
 import * as DB from 'src/@domain/user/modules/query'
 import {isValidEditUserInput, isValidCreateUserInput} from 'src/@domain/user/modules/validation'
-import {EditMeRequestBodyType, User} from 'src/@domain/user/type'
+import {User} from 'src/@domain/user/type'
 
 export const getUser = async (id: number) => {
     const user = await DB.findUserById(id)
@@ -14,7 +14,9 @@ export const getUser = async (id: number) => {
     return user
 }
 
-export const editUser = async (newUser: EditMeRequestBodyType) => {
+export type EditUserInput = Omit<User, 'password'>
+
+export const editUser = async (newUser: EditUserInput) => {
     if (!isValidEditUserInput(newUser)) {
         throw new Error('입력 값을 확인해주세요.')
     }
@@ -22,7 +24,9 @@ export const editUser = async (newUser: EditMeRequestBodyType) => {
     return DB.updateUser(newUser)
 }
 
-export const createUser = async (userInput: User) => {
+export type CreateUserInput = Omit<User, 'id'>
+
+export const createUser = async (userInput: CreateUserInput) => {
     const {email, password} = userInput
 
     if (!isValidCreateUserInput(userInput)) {
