@@ -6,18 +6,18 @@ export interface UserTableRow {
     name: string
     email: string
     password: string
-    ['pay_point']: number
-    ['account_id']: null
+    pay_point: number
+    account_id: number | null
 }
 
 export const isUserTableRowType = (userQueryResult: any): userQueryResult is UserTableRow => {
     return (
         userQueryResult &&
-        (typeof userQueryResult.account_id === 'number' || userQueryResult.account_id === null) &&
         typeof userQueryResult.name === 'string' &&
         typeof userQueryResult.email === 'string' &&
         typeof userQueryResult.password === 'string' &&
-        typeof userQueryResult['pay_point'] === 'number'
+        typeof userQueryResult.pay_point === 'number' &&
+        (typeof userQueryResult.account_id === 'number' || userQueryResult.account_id === null)
     )
 }
 

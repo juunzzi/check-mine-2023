@@ -4,7 +4,7 @@ export interface User {
     email: string
     password: string
     payPoint: number
-    accountId: null
+    accountId: number | null
 }
 
 export interface AuthenticationInfo {
@@ -28,11 +28,11 @@ export type EditMeRequestBodyType = Omit<User, 'password'>
 export const isEditMeRequestBodyType = (body: any): body is EditMeRequestBodyType => {
     return (
         body &&
-        body.accountId === null &&
         typeof body.id === 'number' &&
         typeof body.name === 'string' &&
         typeof body.email === 'string' &&
-        typeof body.payPoint === 'number'
+        typeof body.payPoint === 'number' &&
+        (body.accountId === null || typeof body.accountId === 'number')
     )
 }
 
