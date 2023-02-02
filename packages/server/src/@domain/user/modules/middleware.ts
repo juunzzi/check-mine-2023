@@ -13,17 +13,7 @@ export const authenticateAccessToken = (): Middleware => async (ctx, next) => {
             return
         }
 
-        const resolvedDecoded = await new Promise((resolve, reject) =>
-            decodeAccessToken(token, (error, decoded) => {
-                if (error) {
-                    reject(error)
-
-                    return
-                }
-
-                resolve(decoded)
-            }),
-        )
+        const resolvedDecoded = await decodeAccessToken({token, errorResolve: false})
 
         ctx.request.body = {
             authenticationInfo: resolvedDecoded,
@@ -42,17 +32,7 @@ export const checkAlreadyLogin = (): Middleware => async (ctx, next) => {
     try {
         const token = headers['authorization'] && headers['authorization'].split(' ')[1]
 
-        await new Promise((resolve, reject) =>
-            decodeAccessToken(token, (error, decoded) => {
-                if (decoded) {
-                    reject(decoded)
-
-                    return
-                }
-
-                resolve(error)
-            }),
-        )
+        await decodeAccessToken({token, errorResolve: true})
 
         await next()
     } catch (error) {
