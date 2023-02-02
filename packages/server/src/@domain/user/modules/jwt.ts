@@ -31,6 +31,6 @@ export const decodeAccessToken = ({token, errorResolve}: {token: string; errorRe
             reject(error)
         }
 
-        return jwt.verify(token, JWT_PRIVATE_KEY, errorResolve ? errorResolveCallback : decodedResolveCallback)
+        jwt.verify(token, JWT_PRIVATE_KEY, errorResolve ? errorResolveCallback : decodedResolveCallback)
     })
 }
