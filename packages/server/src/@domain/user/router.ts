@@ -1,7 +1,7 @@
 import {koaBody} from 'koa-body'
 import Router from 'koa-router'
 import {checkAlreadyLogin, authenticateAccessToken} from 'src/@domain/user/modules/middleware'
-import {createUser, editUser, getUser, loginUser} from 'src/@domain/user/service'
+import {editUser, getUser, joinUser, loginUser} from 'src/@domain/user/service'
 import {
     isEditMeRequestBodyType,
     isJoinRequestBodyType,
@@ -55,13 +55,10 @@ userRouter.put('/me', koaBody(), authenticateAccessToken(), async (ctx) => {
         return
     }
 
-    const {data: editUserResult, message} = await editUser({...body})
+    const {message} = await editUser({...body})
 
     if (message === RES_MSG.SUCCESS) {
         ctx.status = 200
-        ctx.body = {
-            data: editUserResult,
-        }
     } else {
         ctx.status = 400
         ctx.body = {message}
@@ -105,13 +102,10 @@ userRouter.post('/join', koaBody(), async (ctx) => {
         return
     }
 
-    const {data: createUserResult, message} = await createUser({...body, accountId: null})
+    const {message} = await joinUser({...body, accountId: null})
 
     if (message === RES_MSG.SUCCESS) {
         ctx.status = 200
-        ctx.body = {
-            data: createUserResult,
-        }
     } else {
         ctx.status = 400
         ctx.body = {message}
