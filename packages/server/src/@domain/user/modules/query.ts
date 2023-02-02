@@ -68,7 +68,7 @@ export const findUserById = async (id: number) => {
 export const updateUser = async (newUser: EditUserInput) => {
     const {id, name, email, payPoint, accountId} = newUser
 
-    await pool.query(
+    return pool.query(
         `UPDATE USER 
          SET name=?, email=?, pay_point=?, account_id=? WHERE id=?`,
         [name, email, payPoint, accountId, id],
