@@ -8,6 +8,7 @@ import {
     isLoginRequestBodyType,
     isMeRequestBodyType,
 } from 'src/@domain/user/type'
+import {RES_MSG} from 'src/common/response-message'
 
 const userRouter = new Router()
 
@@ -18,7 +19,7 @@ userRouter.get('/me', authenticateAccessToken(), async (ctx) => {
 
     if (!isMeRequestBodyType(body)) {
         ctx.status = 400
-        ctx.body = {message: 'INPUT_TYPE_ERROR'}
+        ctx.body = {message: RES_MSG.INPUT_TYPE_ERROR}
 
         return
     }
@@ -29,7 +30,7 @@ userRouter.get('/me', authenticateAccessToken(), async (ctx) => {
 
     const {data: user, message} = await getUser(id)
 
-    if (message === 'SUCCESS') {
+    if (message === RES_MSG.SUCCESS) {
         const {email, accountId, name, payPoint} = user
 
         ctx.status = 200
@@ -49,14 +50,14 @@ userRouter.put('/me', koaBody(), authenticateAccessToken(), async (ctx) => {
 
     if (!isEditMeRequestBodyType(body)) {
         ctx.status = 400
-        ctx.body = {message: 'INPUT_TYPE_ERROR'}
+        ctx.body = {message: RES_MSG.INPUT_TYPE_ERROR}
 
         return
     }
 
     const {data: editUserResult, message} = await editUser({...body})
 
-    if (message === 'SUCCESS') {
+    if (message === RES_MSG.SUCCESS) {
         ctx.status = 200
         ctx.body = {
             data: editUserResult,
@@ -74,7 +75,7 @@ userRouter.post('/login', koaBody(), checkAlreadyLogin(), async (ctx) => {
 
     if (!isLoginRequestBodyType(body)) {
         ctx.status = 400
-        ctx.body = {message: 'INPUT_TYPE_ERROR'}
+        ctx.body = {message: RES_MSG.INPUT_TYPE_ERROR}
 
         return
     }
@@ -83,7 +84,7 @@ userRouter.post('/login', koaBody(), checkAlreadyLogin(), async (ctx) => {
 
     const {data: accessToken, message} = await loginUser(email, password)
 
-    if (message === 'SUCCESS') {
+    if (message === RES_MSG.SUCCESS) {
         ctx.status = 200
         ctx.body = {data: {accessToken}}
     } else {
@@ -99,14 +100,14 @@ userRouter.post('/join', koaBody(), async (ctx) => {
 
     if (!isJoinRequestBodyType(body)) {
         ctx.status = 400
-        ctx.body = {message: 'INPUT_TYPE_ERROR'}
+        ctx.body = {message: RES_MSG.INPUT_TYPE_ERROR}
 
         return
     }
 
     const {data: createUserResult, message} = await createUser({...body, accountId: null})
 
-    if (message === 'SUCCESS') {
+    if (message === RES_MSG.SUCCESS) {
         ctx.status = 200
         ctx.body = {
             data: createUserResult,
