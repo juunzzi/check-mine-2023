@@ -3,7 +3,7 @@ import {generateAccessToken} from 'src/@domain/user/modules/jwt'
 import * as DB from 'src/@domain/user/modules/query'
 import {isValidEditUserInput, isValidCreateUserInput} from 'src/@domain/user/modules/validation'
 import {User} from 'src/@domain/user/type'
-import {RES_MSG, RES_MSG_TYPE} from 'src/common/response-message'
+import {RES_MSG} from 'src/common/response-message'
 
 export const getUser = async (id: number) => {
     const user = await DB.findUserById(id)
@@ -14,9 +14,9 @@ export const getUser = async (id: number) => {
 
 export type EditUserInput = Omit<User, 'password'>
 
-export const editUser = async (newUser: EditUserInput): Promise<{data: any; message: RES_MSG_TYPE}> => {
+export const editUser = async (newUser: EditUserInput) => {
     if (!isValidEditUserInput(newUser)) {
-        return {data: null, message: RES_MSG.EDIT_USER_INPUT_ERROR}
+        return {message: RES_MSG.EDIT_USER_INPUT_ERROR}
     }
 
     const updateResult = await DB.updateUser(newUser)
@@ -27,9 +27,9 @@ export const editUser = async (newUser: EditUserInput): Promise<{data: any; mess
 
 export type CreateUserInput = Omit<User, 'id'>
 
-export const createUser = async (userInput: CreateUserInput): Promise<{data: any; message: RES_MSG_TYPE}> => {
+export const joinUser = async (userInput: CreateUserInput) => {
     if (!isValidCreateUserInput(userInput)) {
-        return {data: null, message: RES_MSG.CREATE_USER_INPUT_ERROR}
+        return {message: RES_MSG.CREATE_USER_INPUT_ERROR}
     }
 
     const {email, password} = userInput
@@ -37,7 +37,7 @@ export const createUser = async (userInput: CreateUserInput): Promise<{data: any
     const user = await DB.findUserByEmail(email)
 
     if (user) {
-        return {data: null, message: RES_MSG.DUPLICATE_EMAIL}
+        return {message: RES_MSG.DUPLICATE_EMAIL}
     }
 
     const hashedPassword = await bcrypt.hash(password, 10)
@@ -48,17 +48,17 @@ export const createUser = async (userInput: CreateUserInput): Promise<{data: any
     return {data: insertResult, message}
 }
 
-export const loginUser = async (email: string, password: string): Promise<{data: any; message: RES_MSG_TYPE}> => {
+export const loginUser = async (email: string, password: string) => {
     const user = await DB.findUserByEmail(email)
 
     if (!user) {
-        return {data: null, message: RES_MSG.FAILURE}
+        return {message: RES_MSG.FAILURE}
     }
 
     const isMatch = await bcrypt.compare(password, user.password)
 
     if (!isMatch) {
-        return {data: null, message: RES_MSG.FAILURE}
+        return {message: RES_MSG.FAILURE}
     }
 
     const accessToken = generateAccessToken(user.id)

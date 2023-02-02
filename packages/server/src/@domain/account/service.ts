@@ -1,9 +1,9 @@
 import * as DB from 'src/@domain/account/modules/query'
 import {isValidCreateAccountInput} from 'src/@domain/account/modules/validation'
 import {Account} from 'src/@domain/account/type'
-import {RES_MSG, RES_MSG_TYPE} from 'src/common/response-message'
+import {RES_MSG} from 'src/common/response-message'
 
-export const getAccount = async (userId: number): Promise<{data: any; message: RES_MSG_TYPE}> => {
+export const getAccount = async (userId: number) => {
     const account = await DB.findAccountByUserId(userId)
     const message = account ? RES_MSG.SUCCESS : RES_MSG.FAILURE
 
@@ -15,12 +15,9 @@ export const getAccount = async (userId: number): Promise<{data: any; message: R
 
 export type CreateAccountInput = Omit<Account, 'id'>
 
-export const createAccount = async (
-    createAccountInput: CreateAccountInput,
-): Promise<{data: any; message: RES_MSG_TYPE}> => {
+export const createAccount = async (createAccountInput: CreateAccountInput) => {
     if (!isValidCreateAccountInput(createAccountInput)) {
         return {
-            data: null,
             message: RES_MSG.CREATE_ACCOUNT_INPUT_ERROR,
         }
     }
