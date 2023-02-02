@@ -2,6 +2,7 @@ import {isValidBankName} from 'src/@domain/account/modules/validation'
 import {CreateAccountInput} from 'src/@domain/account/service'
 import {Bank} from 'src/@domain/account/type'
 import {isInsertQueryResult} from 'src/common/db/type'
+import {transactQueries} from 'src/common/db/util'
 import pool from 'src/db'
 
 export interface AccountTableRow {
@@ -44,9 +45,7 @@ export const insertAccount = async (accountInput: CreateAccountInput) => {
 
     const connection = await pool.getConnection()
 
-    try {
-        await connection.beginTransaction()
-
+    const result = await transactQueries(async () => {
         const accountQueryResult = await connection.query(
             `INSERT INTO ACCOUNT (bank_name, number, amount, user_id)
              VALUES (?,?,?,?)`,
@@ -65,12 +64,8 @@ export const insertAccount = async (accountInput: CreateAccountInput) => {
             [insertId, userId],
         )
 
-        await connection.commit()
-
         return updateQueryResult
-    } catch (error) {
-        await connection.rollback()
+    })
 
-        throw error
-    }
+    return result
 }
