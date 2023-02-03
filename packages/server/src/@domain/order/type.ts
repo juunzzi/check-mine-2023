@@ -16,6 +16,7 @@ export interface CreateOrderRequestBody {
 export const isCreateOrderRequestBodyType = (body: any): body is CreateOrderRequestBody => {
     return (
         body &&
+        body.productsToOrder &&
         body.productsToOrder.every((productToOrder: any) => isProductToOrder(productToOrder)) &&
         isAuthenticationInfo(body.authenticationInfo)
     )
