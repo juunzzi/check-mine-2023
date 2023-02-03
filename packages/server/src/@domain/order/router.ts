@@ -6,7 +6,7 @@ import {RES_MSG} from 'src/common/response-message'
 
 const orderRouter = new Router()
 
-orderRouter.post('/order', koaBody(), authenticateAccessToken(), async (ctx) => {
+orderRouter.post('/', koaBody(), authenticateAccessToken(), async (ctx) => {
     const {
         request: {body},
     } = ctx
