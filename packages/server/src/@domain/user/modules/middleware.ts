@@ -1,5 +1,6 @@
 import {Middleware} from 'koa'
 import {decodeAccessToken} from 'src/@domain/user/modules/jwt'
+import Logger from 'src/common/logger/winston'
 
 export const authenticateAccessToken = (): Middleware => async (ctx, next) => {
     const {headers} = ctx.request
@@ -22,6 +23,8 @@ export const authenticateAccessToken = (): Middleware => async (ctx, next) => {
 
         await next()
     } catch (error) {
+        Logger.error(error)
+
         ctx.status = 401
     }
 }
@@ -36,6 +39,8 @@ export const checkAlreadyLogin = (): Middleware => async (ctx, next) => {
 
         await next()
     } catch (error) {
+        Logger.error(error)
+
         ctx.status = 403
     }
 }
