@@ -1,6 +1,6 @@
 import {isValidBankName} from 'src/@domain/account/modules/validation'
 import {CreateAccountInput} from 'src/@domain/account/service'
-import {Bank} from 'src/@domain/account/type'
+import {Account, Bank} from 'src/@domain/account/type'
 import {isInsertQueryResult} from 'src/common/db/type'
 import {transactQueries} from 'src/common/db/util'
 import pool from 'src/db'
@@ -26,6 +26,22 @@ export const isAccountTableRow = (accountQueryResult: any): accountQueryResult i
 
 export const findAccountByUserId = async (id: number) => {
     const accountQueryResult = await pool.query(`SELECT * FROM ACCOUNT WHERE user_id=?`, [id])
+
+    if (!isAccountTableRow(accountQueryResult[0])) {
+        return
+    }
+
+    return {
+        id: accountQueryResult[0].id,
+        bankName: accountQueryResult[0].bank_name,
+        amount: accountQueryResult[0].amount,
+        number: accountQueryResult[0].number,
+        userId: accountQueryResult[0].user_id,
+    }
+}
+
+export const findAccountByAccountId = async (id: number) => {
+    const accountQueryResult = await pool.query(`SELECT * FROM ACCOUNT WHERE id=?`, [id])
 
     if (!isAccountTableRow(accountQueryResult[0])) {
         return
@@ -68,4 +84,14 @@ export const insertAccount = async (accountInput: CreateAccountInput) => {
     })
 
     return result
+}
+
+export const updateAccount = async (newAccount: Account) => {
+    const {id, amount, bankName, number, userId} = newAccount
+
+    return pool.query(
+        `UPDATE ACCOUNT 
+             SET amount=?, bank_name=?, number=?, user_id=? WHERE id=?`,
+        [amount, bankName, number, userId, id],
+    )
 }
