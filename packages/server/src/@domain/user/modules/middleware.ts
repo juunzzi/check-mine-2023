@@ -13,10 +13,10 @@ export const authenticateAccessToken = (): Middleware => async (ctx, next) => {
             return
         }
 
-        const resolvedDecoded = await decodeAccessToken({token, errorResolve: false})
+        const decoded = await decodeAccessToken({token, errorResolve: false})
 
         ctx.request.body = {
-            authenticationInfo: resolvedDecoded,
+            authenticationInfo: decoded,
             ...(ctx.request.body ?? {}),
         }
 
