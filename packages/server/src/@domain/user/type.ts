@@ -11,8 +11,16 @@ export interface AuthenticationInfo {
     id: number
 }
 
-export const isAuthenticationInfo = (authenticationInfo: any) => {
+export const isAuthenticationInfo = (authenticationInfo: any): authenticationInfo is AuthenticationInfo => {
     return authenticationInfo && typeof authenticationInfo.id === 'number'
+}
+
+export interface BarcodeInfo {
+    id: number
+}
+
+export const isBarcodeInfo = (barcodeInfo: any): barcodeInfo is BarcodeInfo => {
+    return barcodeInfo && typeof barcodeInfo.id === 'number'
 }
 
 export interface MeRequestBody {
@@ -21,6 +29,14 @@ export interface MeRequestBody {
 
 export const isMeRequestBodyType = (body: any): body is MeRequestBody => {
     return body && isAuthenticationInfo(body.authenticationInfo)
+}
+
+export interface BarcodeRequestBody {
+    barcodeInfo: BarcodeInfo
+}
+
+export const isBarcodeRequestBody = (body: any): body is BarcodeRequestBody => {
+    return body && isBarcodeInfo(body.barcodeInfo)
 }
 
 export type EditMeRequestBodyType = Omit<User, 'password'>

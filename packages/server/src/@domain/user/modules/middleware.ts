@@ -44,3 +44,30 @@ export const checkAlreadyLogin = (): Middleware => async (ctx, next) => {
         ctx.status = 403
     }
 }
+
+export const decodeBarcodeToken = (): Middleware => async (ctx, next) => {
+    const {body} = ctx.request
+
+    try {
+        const {barcode: barcodeToken} = body
+
+        if (!barcodeToken) {
+            ctx.status = 400
+
+            return
+        }
+
+        const decoded = await decodeAccessToken({token: barcodeToken, errorResolve: false})
+
+        ctx.request.body = {
+            barcodeInfo: decoded,
+            ...(ctx.request.body ?? {}),
+        }
+
+        await next()
+    } catch (error) {
+        Logger.error(error)
+
+        ctx.status = 400
+    }
+}

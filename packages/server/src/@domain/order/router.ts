@@ -2,12 +2,12 @@ import koaBody from 'koa-body'
 import Router from 'koa-router'
 import {createOrder} from 'src/@domain/order/service'
 import {isCreateOrderRequestBodyType} from 'src/@domain/order/type'
-import {authenticateAccessToken} from 'src/@domain/user/modules/middleware'
+import {decodeBarcodeToken} from 'src/@domain/user/modules/middleware'
 import {RES_MSG} from 'src/common/response-message'
 
 const orderRouter = new Router()
 
-orderRouter.post('/', koaBody(), authenticateAccessToken(), async (ctx) => {
+orderRouter.post('/', koaBody(), decodeBarcodeToken(), async (ctx) => {
     const {
         request: {body},
     } = ctx
@@ -20,7 +20,7 @@ orderRouter.post('/', koaBody(), authenticateAccessToken(), async (ctx) => {
     }
 
     const {
-        authenticationInfo: {id},
+        barcodeInfo: {id},
         productsToOrder,
     } = body
 
