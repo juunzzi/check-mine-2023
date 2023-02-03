@@ -1,7 +1,7 @@
 import {koaBody} from 'koa-body'
 import Router from 'koa-router'
 import {checkAlreadyLogin, authenticateAccessToken} from 'src/@domain/user/modules/middleware'
-import {editUser, getUser, joinUser, loginUser} from 'src/@domain/user/service'
+import {editUser, getBarcode, getUser, joinUser, loginUser} from 'src/@domain/user/service'
 import {
     isEditMeRequestBodyType,
     isJoinRequestBodyType,
@@ -36,6 +36,35 @@ userRouter.get('/me', authenticateAccessToken(), async (ctx) => {
         ctx.status = 200
         ctx.body = {
             data: {id, email, accountId, name, payPoint},
+        }
+    } else {
+        ctx.status = 400
+        ctx.body = {message}
+    }
+})
+
+userRouter.get('/me/barcode', authenticateAccessToken(), async (ctx) => {
+    const {
+        request: {body},
+    } = ctx
+
+    if (!isMeRequestBodyType(body)) {
+        ctx.status = 400
+        ctx.body = {message: RES_MSG.INPUT_TYPE_ERROR}
+
+        return
+    }
+
+    const {
+        authenticationInfo: {id},
+    } = body
+
+    const {data: barcodeToken, message} = getBarcode(id)
+
+    if (message === RES_MSG.SUCCESS) {
+        ctx.status = 200
+        ctx.body = {
+            data: barcodeToken,
         }
     } else {
         ctx.status = 400

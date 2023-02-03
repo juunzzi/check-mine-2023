@@ -12,6 +12,13 @@ export const getUser = async (id: number) => {
     return {data: user, message}
 }
 
+export const getBarcode = (id: number) => {
+    const barcodeToken = generateAccessToken(id)
+    const message = barcodeToken ? RES_MSG.SUCCESS : RES_MSG.FAILURE
+
+    return {data: barcodeToken, message}
+}
+
 export type EditUserInput = Omit<User, 'password'>
 
 export const editUser = async (newUser: EditUserInput) => {
