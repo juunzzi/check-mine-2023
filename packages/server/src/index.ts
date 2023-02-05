@@ -5,9 +5,16 @@ import koaLogger from 'koa-logger'
 import Logger from 'src/common/logger/winston'
 import {initializeDB} from 'src/db'
 import router from 'src/router'
+
 // prettier-ignore
 (async () => {
-    await initializeDB()
+    try{
+        await initializeDB();
+
+        Logger.info('데이터베이스 셋업을 성공하였습니다.')
+    }catch(error){
+        Logger.error(error)
+    }
 })()
 
 const app = new Koa()

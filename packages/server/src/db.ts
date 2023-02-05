@@ -1,5 +1,4 @@
 import {createPool} from 'mariadb'
-import Logger from 'src/common/logger/winston'
 
 const pool = createPool({
     host: process.env.DB_HOST,
@@ -10,10 +9,9 @@ const pool = createPool({
 })
 
 export const initializeDB = async () => {
-    try {
-        const connection = await pool.getConnection()
+    const connection = await pool.getConnection()
 
-        await connection.query(`create table IF NOT EXISTS user
+    await connection.query(`create table IF NOT EXISTS user
         (
             id         int auto_increment primary key,
             name       varchar(255)  not null,
@@ -23,7 +21,7 @@ export const initializeDB = async () => {
             account_id int           null
         )`)
 
-        await connection.query(`create table IF NOT EXISTS product
+    await connection.query(`create table IF NOT EXISTS product
         (
             id    int auto_increment
                 primary key,
@@ -32,7 +30,7 @@ export const initializeDB = async () => {
             stock int default 0 not null
         )`)
 
-        await connection.query(`create table IF NOT EXISTS account
+    await connection.query(`create table IF NOT EXISTS account
         (
             id        int auto_increment
                 primary key,
@@ -44,11 +42,6 @@ export const initializeDB = async () => {
                 foreign key (user_id) references user (id)
                     on update cascade on delete cascade
         )`)
-
-        Logger.info('데이터베이스 셋업을 성공하였습니다.')
-    } catch (error) {
-        Logger.error(error)
-    }
 }
 
 export default pool
