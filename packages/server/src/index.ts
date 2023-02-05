@@ -11,7 +11,7 @@ import router from 'src/router'
     try{
         await initializeDB();
 
-        Logger.info('데이터베이스 셋업을 성공하였습니다.')
+        Logger.info('데이터베이스 셋업에 성공하였습니다.')
     }catch(error){
         Logger.error(error)
     }
