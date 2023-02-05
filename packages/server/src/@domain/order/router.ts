@@ -21,10 +21,10 @@ orderRouter.post('/', koaBody(), decodeBarcodeToken(), async (ctx) => {
 
     const {
         barcodeInfo: {id},
-        productsToOrder,
+        orderProducts,
     } = body
 
-    const {message} = await createOrder(id, productsToOrder)
+    const {message} = await createOrder(id, orderProducts)
 
     if (message === RES_MSG.SUCCESS) {
         ctx.status = 200

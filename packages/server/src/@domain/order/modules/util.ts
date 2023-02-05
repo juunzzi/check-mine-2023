@@ -1,11 +1,10 @@
-import {ProductsToOrderMap} from 'src/@domain/order/service'
-import {ProductToOrder} from 'src/@domain/order/type'
+import {OrderProduct, OrderProductMap} from 'src/@domain/order/type'
 import {Product} from 'src/@domain/product/type'
 
-export const computeOrderAmount = (products: Product[], productsToOrderMap: ProductsToOrderMap) => {
+export const computeOrderAmount = (products: Product[], orderProductMap: OrderProductMap) => {
     return products.reduce((prev, {id, price}) => {
-        if (productsToOrderMap[id]) {
-            const {quantity} = productsToOrderMap[id]
+        if (orderProductMap[id]) {
+            const {quantity} = orderProductMap[id]
 
             return prev + price * quantity
         }
@@ -14,16 +13,16 @@ export const computeOrderAmount = (products: Product[], productsToOrderMap: Prod
     }, 0)
 }
 
-export const parseProductsToOrder = (productsToOrder: ProductToOrder[]) => {
-    return productsToOrder.reduce<{
-        productsToOrderMap: ProductsToOrderMap
+export const parseOrderProducts = (orderProducts: OrderProduct[]) => {
+    return orderProducts.reduce<{
+        orderProductMap: OrderProductMap
         productIds: number[]
     }>(
         (prev, {id, quantity}) => ({
             ...prev,
-            productsToOrderMap: {...prev.productsToOrderMap, [id]: {id, quantity}},
+            orderProductMap: {...prev.orderProductMap, [id]: {id, quantity}},
             productIds: [...prev.productIds, id],
         }),
-        {productsToOrderMap: {}, productIds: []},
+        {orderProductMap: {}, productIds: []},
     )
 }

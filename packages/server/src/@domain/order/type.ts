@@ -1,23 +1,27 @@
 import {BarcodeInfo, isBarcodeInfo} from 'src/@domain/user/type'
 
-export type ProductToOrder = {
+export type OrderProduct = {
     id: number
     quantity: number
 }
 
-export const isProductToOrder = (productToOrder: any): productToOrder is ProductToOrder => {
-    return productToOrder && typeof productToOrder.id === 'number' && typeof productToOrder.quantity === 'number'
+export interface OrderProductMap {
+    [id: number]: OrderProduct
+}
+
+export const isOrderProduct = (order: any): order is OrderProduct => {
+    return order && typeof order.id === 'number' && typeof order.quantity === 'number'
 }
 export interface CreateOrderRequestBody {
     barcodeInfo: BarcodeInfo
-    productsToOrder: ProductToOrder[]
+    orderProducts: OrderProduct[]
 }
 
 export const isCreateOrderRequestBodyType = (body: any): body is CreateOrderRequestBody => {
     return (
         body &&
-        body.productsToOrder &&
-        body.productsToOrder.every((productToOrder: any) => isProductToOrder(productToOrder)) &&
+        body.orderProducts &&
+        body.orderProducts.every((order: any) => isOrderProduct(order)) &&
         isBarcodeInfo(body.barcodeInfo)
     )
 }
