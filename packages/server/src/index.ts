@@ -3,7 +3,11 @@ import 'src/env'
 import Koa from 'koa'
 import koaLogger from 'koa-logger'
 import Logger from 'src/common/logger/winston'
+import {initializeDB} from 'src/db'
 import router from 'src/router'
+;(async () => {
+    await initializeDB()
+})()
 
 const app = new Koa()
 
