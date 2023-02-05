@@ -51,7 +51,6 @@ export const updateProductsStock = async (productsWithIdAndStockOnly: Pick<Produ
         },
         {idAndStocks: [], ids: [], when: '', questionMark: ''},
     )
-
     const productsQueryResult = await pool.query(
         `UPDATE PRODUCT SET stock = CASE id ${when} END WHERE id IN (${questionMark})`,
         [...idAndStocks, ...ids],
