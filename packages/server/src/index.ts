@@ -5,7 +5,8 @@ import koaLogger from 'koa-logger'
 import Logger from 'src/common/logger/winston'
 import {initializeDB} from 'src/db'
 import router from 'src/router'
-;(async () => {
+// prettier-ignore
+(async () => {
     await initializeDB()
 })()
 
