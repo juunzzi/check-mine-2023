@@ -32,16 +32,16 @@ node -v // 14.16.1
 
 -   환경 변수
 
-    ```json
+    ```js
     // 본인의 로컬 DB 정보를 기입한다.
-    DB_HOST="$HOST"
-    DB_PORT=$PORT
-    DB_USER="$USER"
-    DB_PASSWORD="$PASSWORD"
-    DB_DATABASE="$DATABASE_NAME"
+    DB_HOST = '$HOST'
+    DB_PORT = $PORT
+    DB_USER = '$USER'
+    DB_PASSWORD = '$PASSWORD'
+    DB_DATABASE = '$DATABASE_NAME'
 
     // JWT_PRIVATE_KEY는 아무렇게나 generate 해주세요 (e.g. asfidjsaifvihsdiav)
-    JWT_PRIVATE_KEY="$JWT_PRIVATE_KEY"
+    JWT_PRIVATE_KEY = '$JWT_PRIVATE_KEY'
     ```
 
 -   구동 명령어
@@ -78,7 +78,7 @@ node -v // 14.16.1
 ### API Scheme
 
 <p align="center" style="padding:100px;">
-<button name="button" style="font-size:20px; background-color:#36A779; color:white; border-radius:12px; padding:15px; cursor:pointer;" onclick="https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/docs/API_DOCS.md">API 명세 확인하기</button>
+<span style="width:200px; font-size:20px; background-color:#36A779; color:white; border-radius:12px; padding:15px; cursor:pointer;" onclick="https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/docs/API_DOCS.md">API 명세 확인하기</span>
 
 </p>
 
