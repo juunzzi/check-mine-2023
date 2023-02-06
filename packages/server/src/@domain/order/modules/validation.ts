@@ -7,6 +7,6 @@ export const checkProductsAvailableForOrder = (products: Product[], orderProduct
 
         const foundProduct = products.find((product) => product.id === id)
 
-        return foundProduct && foundProduct.stock > quantity
+        return foundProduct && foundProduct.stock >= quantity
     })
 }
