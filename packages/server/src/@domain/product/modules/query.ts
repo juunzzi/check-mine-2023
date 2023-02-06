@@ -4,22 +4,24 @@ import pool from 'src/db'
 
 export type ProductTableRow = Product
 
-export const isProductTableRowType = (productQuertResult: any): productQuertResult is ProductTableRow => {
+export const isProductTableRowType = (productTableRow: any): productTableRow is ProductTableRow => {
     return (
-        productQuertResult &&
-        typeof productQuertResult.id === 'number' &&
-        typeof productQuertResult.name === 'string' &&
-        typeof productQuertResult.price === 'number' &&
-        typeof productQuertResult.stock === 'number'
+        productTableRow &&
+        typeof productTableRow.id === 'number' &&
+        typeof productTableRow.name === 'string' &&
+        typeof productTableRow.price === 'number' &&
+        typeof productTableRow.stock === 'number'
     )
 }
 
 export const findProducts = async () => {
     const productQueryResult = await pool.query(`SELECT * FROM PRODUCT`)
 
-    const products = productQueryResult.filter((product: any) => isProductTableRowType(product))
+    const productTableRows = productQueryResult.filter((productQueryResultElement: any) =>
+        isProductTableRowType(productQueryResultElement),
+    )
 
-    return products
+    return productTableRows
 }
 
 export const findProductsByIds = async (productIds: number[]) => {
@@ -27,9 +29,11 @@ export const findProductsByIds = async (productIds: number[]) => {
 
     const productsQueryResult = await pool.query(`SELECT * FROM PRODUCT WHERE id ${inStatement}`, productIds)
 
-    const products: ProductTableRow[] = productsQueryResult.filter((element: any) => isProductTableRowType(element))
+    const productTableRows: ProductTableRow[] = productsQueryResult.filter((productQueryResultElement: any) =>
+        isProductTableRowType(productQueryResultElement),
+    )
 
-    return products
+    return productTableRows
 }
 
 export const updateProductsStock = async (productsWithIdAndStockOnly: Pick<Product, 'id' | 'stock'>[]) => {

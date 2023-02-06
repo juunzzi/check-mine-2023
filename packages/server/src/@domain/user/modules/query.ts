@@ -10,14 +10,14 @@ export interface UserTableRow {
     account_id: number | null
 }
 
-export const isUserTableRowType = (userQueryResult: any): userQueryResult is UserTableRow => {
+export const isUserTableRowType = (userTableRow: any): userTableRow is UserTableRow => {
     return (
-        userQueryResult &&
-        typeof userQueryResult.name === 'string' &&
-        typeof userQueryResult.email === 'string' &&
-        typeof userQueryResult.password === 'string' &&
-        typeof userQueryResult.pay_point === 'number' &&
-        (typeof userQueryResult.account_id === 'number' || userQueryResult.account_id === null)
+        userTableRow &&
+        typeof userTableRow.name === 'string' &&
+        typeof userTableRow.email === 'string' &&
+        typeof userTableRow.password === 'string' &&
+        typeof userTableRow.pay_point === 'number' &&
+        (typeof userTableRow.account_id === 'number' || userTableRow.account_id === null)
     )
 }
 
@@ -32,36 +32,36 @@ export const insertUser = (userInput: CreateUserInput) => {
 }
 
 export const findUserByEmail = async (email: string) => {
-    const userQueryResult = await pool.query(`SELECT * FROM USER WHERE email=?`, [email])
+    const [userTableRow] = await pool.query(`SELECT * FROM USER WHERE email=?`, [email])
 
-    if (!isUserTableRowType(userQueryResult[0])) {
+    if (!isUserTableRowType(userTableRow)) {
         return
     }
 
     return {
-        id: userQueryResult[0].id,
-        name: userQueryResult[0].name,
-        email: userQueryResult[0].email,
-        password: userQueryResult[0].password,
-        payPoint: userQueryResult[0].pay_point,
-        accountId: userQueryResult[0].account_id,
+        id: userTableRow.id,
+        name: userTableRow.name,
+        email: userTableRow.email,
+        password: userTableRow.password,
+        payPoint: userTableRow.pay_point,
+        accountId: userTableRow.account_id,
     }
 }
 
 export const findUserById = async (id: number) => {
-    const userQueryResult = await pool.query(`SELECT * FROM USER WHERE id=?`, [id])
+    const [userTableRow] = await pool.query(`SELECT * FROM USER WHERE id=?`, [id])
 
-    if (!isUserTableRowType(userQueryResult[0])) {
+    if (!isUserTableRowType(userTableRow)) {
         return
     }
 
     return {
-        id: userQueryResult[0].id,
-        name: userQueryResult[0].name,
-        email: userQueryResult[0].email,
-        password: userQueryResult[0].password,
-        payPoint: userQueryResult[0].pay_point,
-        accountId: userQueryResult[0].account_id,
+        id: userTableRow.id,
+        name: userTableRow.name,
+        email: userTableRow.email,
+        password: userTableRow.password,
+        payPoint: userTableRow.pay_point,
+        accountId: userTableRow.account_id,
     }
 }
 

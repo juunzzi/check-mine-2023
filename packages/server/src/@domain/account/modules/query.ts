@@ -13,46 +13,46 @@ export interface AccountTableRow {
     user_id: number
 }
 
-export const isAccountTableRow = (accountQueryResult: any): accountQueryResult is AccountTableRow => {
+export const isAccountTableRow = (accountTableRow: any): accountTableRow is AccountTableRow => {
     return (
-        accountQueryResult &&
-        typeof accountQueryResult.id === 'number' &&
-        typeof accountQueryResult.number === 'string' &&
-        typeof accountQueryResult.amount === 'number' &&
-        typeof accountQueryResult.user_id === 'number' &&
-        isValidBankName(accountQueryResult.bank_name)
+        accountTableRow &&
+        typeof accountTableRow.id === 'number' &&
+        typeof accountTableRow.number === 'string' &&
+        typeof accountTableRow.amount === 'number' &&
+        typeof accountTableRow.user_id === 'number' &&
+        isValidBankName(accountTableRow.bank_name)
     )
 }
 
 export const findAccountByUserId = async (id: number) => {
-    const accountQueryResult = await pool.query(`SELECT * FROM ACCOUNT WHERE user_id=?`, [id])
+    const [accountTableRow] = await pool.query(`SELECT * FROM ACCOUNT WHERE user_id=?`, [id])
 
-    if (!isAccountTableRow(accountQueryResult[0])) {
+    if (!isAccountTableRow(accountTableRow)) {
         return
     }
 
     return {
-        id: accountQueryResult[0].id,
-        bankName: accountQueryResult[0].bank_name,
-        amount: accountQueryResult[0].amount,
-        number: accountQueryResult[0].number,
-        userId: accountQueryResult[0].user_id,
+        id: accountTableRow.id,
+        bankName: accountTableRow.bank_name,
+        amount: accountTableRow.amount,
+        number: accountTableRow.number,
+        userId: accountTableRow.user_id,
     }
 }
 
 export const findAccountByAccountId = async (id: number) => {
-    const accountQueryResult = await pool.query(`SELECT * FROM ACCOUNT WHERE id=?`, [id])
+    const [accountTableRow] = await pool.query(`SELECT * FROM ACCOUNT WHERE id=?`, [id])
 
-    if (!isAccountTableRow(accountQueryResult[0])) {
+    if (!isAccountTableRow(accountTableRow)) {
         return
     }
 
     return {
-        id: accountQueryResult[0].id,
-        bankName: accountQueryResult[0].bank_name,
-        amount: accountQueryResult[0].amount,
-        number: accountQueryResult[0].number,
-        userId: accountQueryResult[0].user_id,
+        id: accountTableRow.id,
+        bankName: accountTableRow.bank_name,
+        amount: accountTableRow.amount,
+        number: accountTableRow.number,
+        userId: accountTableRow.user_id,
     }
 }
 
