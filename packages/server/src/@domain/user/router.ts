@@ -65,7 +65,7 @@ userRouter.get('/me/barcode', authenticateAccessToken(), async (ctx) => {
     if (message === RES_MSG.SUCCESS) {
         ctx.status = 200
         ctx.body = {
-            data: barcodeToken,
+            data: {barcodeToken},
         }
     } else {
         ctx.status = 400

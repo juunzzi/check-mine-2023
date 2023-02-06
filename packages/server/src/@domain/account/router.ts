@@ -27,7 +27,7 @@ accountRouter.get('/', authenticateAccessToken(), async (ctx) => {
     if (message === RES_MSG.SUCCESS) {
         ctx.status = 200
         ctx.body = {
-            data: account,
+            data: {account},
         }
     } else {
         ctx.status = 400

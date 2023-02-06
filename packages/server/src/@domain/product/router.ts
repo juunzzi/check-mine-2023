@@ -10,7 +10,7 @@ productRouter.get('/', async (ctx) => {
     if (message === RES_MSG.SUCCESS) {
         ctx.status = 200
         ctx.body = {
-            data: products,
+            data: {products},
         }
     } else {
         ctx.status = 400
