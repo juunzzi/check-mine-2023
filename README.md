@@ -78,7 +78,7 @@ node -v // 14.16.1
 ### API Scheme
 
 <p align="center" style="padding:100px;">
-<span style="width:200px; font-size:20px; background-color:#36A779; color:white; border-radius:12px; padding:15px; cursor:pointer;" onclick="https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/docs/API_DOCS.md">API 명세 확인하기</span>
+<a style="width:200px; font-size:20px; background-color:#36A779; color:white; border-radius:12px; padding:15px; cursor:pointer;" href="https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/docs/API_DOCS.md">API 명세 확인하기</a>
 
 </p>
 
@@ -111,6 +111,6 @@ node -v // 14.16.1
 ## 4. 디자인
 
 <p align="center" style="padding:100px;">
-<button name="button"style="font-size:20px; background-color:#36A779; color:white; border-radius:12px; padding:15px; cursor:pointer;" onclick="https://www.figma.com/file/Ugz9cPI4BV06I1bTQnVt9v/NFP?node-id=0%3A1&t=MckBLduyv7ixmEaP-0"><span style="font-size:20px">와이어 프레임 확인하기<span></button>
+<a style="width:200px; font-size:20px; background-color:#36A779; color:white; border-radius:12px; padding:15px; cursor:pointer;" href="https://www.figma.com/file/Ugz9cPI4BV06I1bTQnVt9v/NFP?node-id=0%3A1&t=MckBLduyv7ixmEaP-0">와이어 프레임 확인하기</a>
 
 </p>
