@@ -1,9 +1,8 @@
 import jwt from 'jsonwebtoken'
 
 const {JWT_PRIVATE_KEY} = process.env
-const EXPIRED_TIME = 60 * 60 * 1000
 
-export const generateAccessToken = (id: number) => {
+export const generateAccessToken = (id: number, EXPIRED_TIME: number) => {
     const accessToken = jwt.sign({id}, JWT_PRIVATE_KEY, {expiresIn: EXPIRED_TIME, algorithm: 'HS256'})
 
     return accessToken

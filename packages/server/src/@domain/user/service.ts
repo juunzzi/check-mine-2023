@@ -13,7 +13,7 @@ export const getUser = async (id: number) => {
 }
 
 export const getBarcode = (id: number) => {
-    const barcodeToken = generateAccessToken(id)
+    const barcodeToken = generateAccessToken(id, 15 * 60 * 1000)
     const message = barcodeToken ? RES_MSG.SUCCESS : RES_MSG.FAILURE
 
     return {data: barcodeToken, message}
@@ -68,7 +68,7 @@ export const loginUser = async (email: string, password: string) => {
         return {message: RES_MSG.FAILURE}
     }
 
-    const accessToken = generateAccessToken(user.id)
+    const accessToken = generateAccessToken(user.id, 60 * 60 * 1000)
     const message = accessToken ? RES_MSG.SUCCESS : RES_MSG.FAILURE
 
     return {data: accessToken, message}
