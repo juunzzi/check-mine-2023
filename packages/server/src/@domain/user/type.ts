@@ -1,3 +1,5 @@
+import {isNullType, isNumberType, isStringType} from 'src/common/type/guard'
+
 export interface User {
     id: number
     name: string
@@ -11,8 +13,8 @@ export interface AuthenticationInfo {
     id: number
 }
 
-export const isAuthenticationInfo = (authenticationInfo: any): authenticationInfo is AuthenticationInfo => {
-    return authenticationInfo && typeof authenticationInfo.id === 'number'
+export const isAuthenticationInfoType = (authenticationInfo: any): authenticationInfo is AuthenticationInfo => {
+    return authenticationInfo && isNumberType(authenticationInfo.id)
 }
 
 export interface BarcodeInfo {
@@ -20,7 +22,7 @@ export interface BarcodeInfo {
 }
 
 export const isBarcodeInfo = (barcodeInfo: any): barcodeInfo is BarcodeInfo => {
-    return barcodeInfo && typeof barcodeInfo.id === 'number'
+    return barcodeInfo && isNumberType(barcodeInfo.id)
 }
 
 export interface GetMeRequestBody {
@@ -28,27 +30,27 @@ export interface GetMeRequestBody {
 }
 
 export const isGetMeRequestBodyType = (body: any): body is GetMeRequestBody => {
-    return body && isAuthenticationInfo(body.authenticationInfo)
+    return body && isAuthenticationInfoType(body.authenticationInfo)
 }
 
 export interface GetBarcodeTokenRequestBody {
     authenticationInfo: AuthenticationInfo
 }
 
-export const isGetBarcodeTokenRequestBody = (body: any): body is GetBarcodeTokenRequestBody => {
-    return body && isAuthenticationInfo(body.authenticationInfo)
+export const isGetBarcodeTokenRequestBodyType = (body: any): body is GetBarcodeTokenRequestBody => {
+    return body && isAuthenticationInfoType(body.authenticationInfo)
 }
 
-export type EditMeRequestBodyType = Omit<User, 'password'>
+export type EditMeRequestBody = Omit<User, 'password'>
 
-export const isEditMeRequestBodyType = (body: any): body is EditMeRequestBodyType => {
+export const isEditMeRequestBodyType = (body: any): body is EditMeRequestBody => {
     return (
         body &&
-        typeof body.id === 'number' &&
-        typeof body.name === 'string' &&
-        typeof body.email === 'string' &&
-        typeof body.payPoint === 'number' &&
-        (body.accountId === null || typeof body.accountId === 'number')
+        isNumberType(body.id) &&
+        isNumberType(body.payPoint) &&
+        isStringType(body.name) &&
+        isStringType(body.email) &&
+        (isNullType(body.accountId) || isNumberType(body.accountId))
     )
 }
 
@@ -57,15 +59,15 @@ export type JoinRequestBody = Omit<User, 'accountId'>
 export const isJoinRequestBodyType = (body: any): body is JoinRequestBody => {
     return (
         body &&
-        typeof body.name === 'string' &&
-        typeof body.email === 'string' &&
-        typeof body.password === 'string' &&
-        typeof body.payPoint === 'number'
+        isStringType(body.name) &&
+        isStringType(body.email) &&
+        isStringType(body.password) &&
+        isNumberType(body.payPoint)
     )
 }
 
 export type LoginRequestBody = Pick<User, 'email' | 'password'>
 
 export const isLoginRequestBodyType = (body: any): body is LoginRequestBody => {
-    return body && typeof body.email === 'string' && typeof body.password === 'string'
+    return body && isStringType(body.email) && isStringType(body.password)
 }

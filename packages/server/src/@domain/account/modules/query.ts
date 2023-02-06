@@ -1,8 +1,9 @@
 import {isValidBankName} from 'src/@domain/account/modules/validation'
 import {CreateAccountInput} from 'src/@domain/account/service'
 import {Account, Bank} from 'src/@domain/account/type'
-import {isInsertQueryResult} from 'src/common/db/type'
+import {isInsertQueryResultType} from 'src/common/db/type'
 import {transactQueries} from 'src/common/db/util'
+import {isNumberType, isStringType} from 'src/common/type/guard'
 import pool from 'src/db'
 
 export interface AccountTableRow {
@@ -16,10 +17,10 @@ export interface AccountTableRow {
 export const isAccountTableRow = (accountTableRow: any): accountTableRow is AccountTableRow => {
     return (
         accountTableRow &&
-        typeof accountTableRow.id === 'number' &&
-        typeof accountTableRow.number === 'string' &&
-        typeof accountTableRow.amount === 'number' &&
-        typeof accountTableRow.user_id === 'number' &&
+        isNumberType(accountTableRow.id) &&
+        isNumberType(accountTableRow.amount) &&
+        isNumberType(accountTableRow.user_id) &&
+        isStringType(accountTableRow.number) &&
         isValidBankName(accountTableRow.bank_name)
     )
 }
@@ -68,7 +69,7 @@ export const insertAccount = async (accountInput: CreateAccountInput) => {
             [bankName, number, amount, userId],
         )
 
-        if (!isInsertQueryResult(accountQueryResult)) {
+        if (!isInsertQueryResultType(accountQueryResult)) {
             return
         }
 

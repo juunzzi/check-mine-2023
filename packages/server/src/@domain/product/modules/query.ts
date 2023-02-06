@@ -1,5 +1,6 @@
 import {Product} from 'src/@domain/product/type'
 import {generateQueryStatement} from 'src/common/db/util'
+import {isNumberType, isStringType} from 'src/common/type/guard'
 import pool from 'src/db'
 
 export type ProductTableRow = Product
@@ -7,10 +8,10 @@ export type ProductTableRow = Product
 export const isProductTableRowType = (productTableRow: any): productTableRow is ProductTableRow => {
     return (
         productTableRow &&
-        typeof productTableRow.id === 'number' &&
-        typeof productTableRow.name === 'string' &&
-        typeof productTableRow.price === 'number' &&
-        typeof productTableRow.stock === 'number'
+        isNumberType(productTableRow.id) &&
+        isNumberType(productTableRow.price) &&
+        isNumberType(productTableRow.stock) &&
+        isStringType(productTableRow.name)
     )
 }
 

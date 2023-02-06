@@ -1,4 +1,5 @@
 import {BarcodeInfo, isBarcodeInfo} from 'src/@domain/user/type'
+import {isNumberType} from 'src/common/type/guard'
 
 export type OrderProduct = {
     id: number
@@ -9,8 +10,8 @@ export interface OrderProductMap {
     [id: number]: OrderProduct
 }
 
-export const isOrderProduct = (order: any): order is OrderProduct => {
-    return order && typeof order.id === 'number' && typeof order.quantity === 'number'
+export const isOrderProductType = (orderProduct: any): orderProduct is OrderProduct => {
+    return orderProduct && isNumberType(orderProduct.id) && isNumberType(orderProduct.quantity)
 }
 export interface CreateOrderRequestBody {
     barcodeInfo: BarcodeInfo
@@ -21,7 +22,7 @@ export const isCreateOrderRequestBodyType = (body: any): body is CreateOrderRequ
     return (
         body &&
         body.orderProducts &&
-        body.orderProducts.every((order: any) => isOrderProduct(order)) &&
+        body.orderProducts.every((order: any) => isOrderProductType(order)) &&
         isBarcodeInfo(body.barcodeInfo)
     )
 }

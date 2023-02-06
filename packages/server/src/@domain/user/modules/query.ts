@@ -1,4 +1,5 @@
 import {CreateUserInput, EditUserInput} from 'src/@domain/user/service'
+import {isNullType, isNumberType, isStringType} from 'src/common/type/guard'
 import pool from 'src/db'
 
 export interface UserTableRow {
@@ -13,11 +14,11 @@ export interface UserTableRow {
 export const isUserTableRowType = (userTableRow: any): userTableRow is UserTableRow => {
     return (
         userTableRow &&
-        typeof userTableRow.name === 'string' &&
-        typeof userTableRow.email === 'string' &&
-        typeof userTableRow.password === 'string' &&
-        typeof userTableRow.pay_point === 'number' &&
-        (typeof userTableRow.account_id === 'number' || userTableRow.account_id === null)
+        isNumberType(userTableRow.pay_point) &&
+        isStringType(userTableRow.name) &&
+        isStringType(userTableRow.email) &&
+        isStringType(userTableRow.password) &&
+        (isNumberType(userTableRow.account_id) || isNullType(userTableRow.account_id))
     )
 }
 

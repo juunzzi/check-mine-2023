@@ -1,7 +1,7 @@
 import koaBody from 'koa-body'
 import Router from 'koa-router'
 import {createAccount, getAccount} from 'src/@domain/account/service'
-import {isAccountRequestBody, isCreateAccountBody} from 'src/@domain/account/type'
+import {isCreateAccountBodyType, isGetAccountRequestBodyType} from 'src/@domain/account/type'
 import {authenticateAccessToken} from 'src/@domain/user/modules/middleware'
 import {RES_MSG} from 'src/common/response-message'
 
@@ -12,7 +12,7 @@ accountRouter.get('/', authenticateAccessToken(), async (ctx) => {
         request: {body},
     } = ctx
 
-    if (!isAccountRequestBody(body)) {
+    if (!isGetAccountRequestBodyType(body)) {
         ctx.status = 400
 
         return
@@ -42,7 +42,7 @@ accountRouter.post('/', koaBody(), authenticateAccessToken(), async (ctx) => {
         request: {body},
     } = ctx
 
-    if (!isCreateAccountBody(body)) {
+    if (!isCreateAccountBodyType(body)) {
         ctx.status = 400
 
         return
