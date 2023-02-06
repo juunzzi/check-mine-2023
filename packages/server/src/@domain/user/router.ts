@@ -6,7 +6,8 @@ import {
     isEditMeRequestBodyType,
     isJoinRequestBodyType,
     isLoginRequestBodyType,
-    isMeRequestBodyType,
+    isGetMeRequestBodyType,
+    isGetBarcodeTokenRequestBody,
 } from 'src/@domain/user/type'
 import {RES_MSG} from 'src/common/response-message'
 
@@ -17,7 +18,7 @@ userRouter.get('/me', authenticateAccessToken(), async (ctx) => {
         request: {body},
     } = ctx
 
-    if (!isMeRequestBodyType(body)) {
+    if (!isGetMeRequestBodyType(body)) {
         ctx.status = 400
         ctx.body = {message: RES_MSG.INPUT_TYPE_ERROR}
 
@@ -48,7 +49,7 @@ userRouter.get('/me/barcode', authenticateAccessToken(), async (ctx) => {
         request: {body},
     } = ctx
 
-    if (!isMeRequestBodyType(body)) {
+    if (!isGetBarcodeTokenRequestBody(body)) {
         ctx.status = 400
         ctx.body = {message: RES_MSG.INPUT_TYPE_ERROR}
 

@@ -23,20 +23,20 @@ export const isBarcodeInfo = (barcodeInfo: any): barcodeInfo is BarcodeInfo => {
     return barcodeInfo && typeof barcodeInfo.id === 'number'
 }
 
-export interface MeRequestBody {
+export interface GetMeRequestBody {
     authenticationInfo: AuthenticationInfo
 }
 
-export const isMeRequestBodyType = (body: any): body is MeRequestBody => {
+export const isGetMeRequestBodyType = (body: any): body is GetMeRequestBody => {
     return body && isAuthenticationInfo(body.authenticationInfo)
 }
 
-export interface BarcodeRequestBody {
-    barcodeInfo: BarcodeInfo
+export interface GetBarcodeTokenRequestBody {
+    authenticationInfo: AuthenticationInfo
 }
 
-export const isBarcodeRequestBody = (body: any): body is BarcodeRequestBody => {
-    return body && isBarcodeInfo(body.barcodeInfo)
+export const isGetBarcodeTokenRequestBody = (body: any): body is GetBarcodeTokenRequestBody => {
+    return body && isAuthenticationInfo(body.authenticationInfo)
 }
 
 export type EditMeRequestBodyType = Omit<User, 'password'>
