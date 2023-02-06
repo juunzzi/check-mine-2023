@@ -8,28 +8,28 @@ import router from 'src/router'
 
 // prettier-ignore
 (async () => {
-    try{
-        await initializeDB();
+    try {
+        await initializeDB()
 
-        Logger.info('데이터베이스 셋업에 성공하였습니다.')
-    }catch(error){
+        const app = new Koa()
+
+        app.use(koaLogger())
+
+        app.use(async (ctx, next) => {
+            try {
+                await next()
+            } catch (error) {
+                Logger.error(error)
+                ctx.status = 500
+            }
+        })
+
+        app.use(router.routes())
+
+        app.listen(8080)
+
+        Logger.info('데이터베이스 셋업 및 서버 구동이 완료되었습니다.')
+    } catch (error) {
         Logger.error(error)
     }
 })()
-
-const app = new Koa()
-
-app.use(koaLogger())
-
-app.use(async (ctx, next) => {
-    try {
-        await next()
-    } catch (error) {
-        Logger.error(error)
-        ctx.status = 500
-    }
-})
-
-app.use(router.routes())
-
-app.listen(8080)
