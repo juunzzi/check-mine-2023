@@ -4584,6 +4584,47 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@tanstack/query-core", [\
+        ["npm:4.24.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40tanstack%2Fquery-core%2F-%2Fquery-core-4.24.4.tgz", {\
+          "packageLocation": "./.yarn/cache/@tanstack-query-core-npm-4.24.4-ca30e7c5ba-b357e950a4.zip/node_modules/@tanstack/query-core/",\
+          "packageDependencies": [\
+            ["@tanstack/query-core", "npm:4.24.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40tanstack%2Fquery-core%2F-%2Fquery-core-4.24.4.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@tanstack/react-query", [\
+        ["npm:4.24.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40tanstack%2Freact-query%2F-%2Freact-query-4.24.4.tgz", {\
+          "packageLocation": "./.yarn/cache/@tanstack-react-query-npm-4.24.4-c9928f04f8-8cf008d690.zip/node_modules/@tanstack/react-query/",\
+          "packageDependencies": [\
+            ["@tanstack/react-query", "npm:4.24.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40tanstack%2Freact-query%2F-%2Freact-query-4.24.4.tgz"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:4.24.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40tanstack%2Freact-query%2F-%2Freact-query-4.24.4.tgz", {\
+          "packageLocation": "./.yarn/__virtual__/@tanstack-react-query-virtual-03902824c3/0/cache/@tanstack-react-query-npm-4.24.4-c9928f04f8-8cf008d690.zip/node_modules/@tanstack/react-query/",\
+          "packageDependencies": [\
+            ["@tanstack/react-query", "virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:4.24.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40tanstack%2Freact-query%2F-%2Freact-query-4.24.4.tgz"],\
+            ["@tanstack/query-core", "npm:4.24.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40tanstack%2Fquery-core%2F-%2Fquery-core-4.24.4.tgz"],\
+            ["@types/react", "npm:18.0.27::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Freact%2F-%2Freact-18.0.27.tgz"],\
+            ["@types/react-dom", "npm:18.0.10::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Freact-dom%2F-%2Freact-dom-18.0.10.tgz"],\
+            ["@types/react-native", null],\
+            ["react", "npm:18.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Freact%2F-%2Freact-18.2.0.tgz"],\
+            ["react-dom", "virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:18.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Freact-dom%2F-%2Freact-dom-18.2.0.tgz"],\
+            ["react-native", null],\
+            ["use-sync-external-store", "virtual:03902824c3add87d59d5eac0ebd22de901206062a92e1ac6173c6fba75f7df788cd69db72f00ef59acc7aa99fbb6b1cb4518e7f7691bdf1983d1ee55895a84f5#npm:1.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fuse-sync-external-store%2F-%2Fuse-sync-external-store-1.2.0.tgz"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react-native",\
+            "@types/react",\
+            "react-dom",\
+            "react-native",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@testing-library/dom", [\
         ["npm:8.20.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40testing-library%2Fdom%2F-%2Fdom-8.20.0.tgz", {\
           "packageLocation": "./.yarn/cache/@testing-library-dom-npm-8.20.0-9101186f4e-1e599129a2.zip/node_modules/@testing-library/dom/",\
@@ -14769,6 +14810,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@emotion/babel-preset-css-prop", "virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:11.10.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40emotion%2Fbabel-preset-css-prop%2F-%2Fbabel-preset-css-prop-11.10.0.tgz"],\
             ["@emotion/react", "virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:11.10.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40emotion%2Freact%2F-%2Freact-11.10.5.tgz"],\
             ["@emotion/styled", "virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:11.10.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40emotion%2Fstyled%2F-%2Fstyled-11.10.5.tgz"],\
+            ["@tanstack/react-query", "virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:4.24.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40tanstack%2Freact-query%2F-%2Freact-query-4.24.4.tgz"],\
             ["@testing-library/jest-dom", "npm:5.16.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40testing-library%2Fjest-dom%2F-%2Fjest-dom-5.16.5.tgz"],\
             ["@testing-library/react", "virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:13.4.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40testing-library%2Freact%2F-%2Freact-13.4.0.tgz"],\
             ["@testing-library/user-event", "virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:13.5.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40testing-library%2Fuser-event%2F-%2Fuser-event-13.5.0.tgz"],\
@@ -19411,6 +19453,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["url-parse", "npm:1.5.10::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Furl-parse%2F-%2Furl-parse-1.5.10.tgz"],\
             ["querystringify", "npm:2.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fquerystringify%2F-%2Fquerystringify-2.2.0.tgz"],\
             ["requires-port", "npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Frequires-port%2F-%2Frequires-port-1.0.0.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["use-sync-external-store", [\
+        ["npm:1.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fuse-sync-external-store%2F-%2Fuse-sync-external-store-1.2.0.tgz", {\
+          "packageLocation": "./.yarn/cache/use-sync-external-store-npm-1.2.0-485486c87b-5c639e0f8d.zip/node_modules/use-sync-external-store/",\
+          "packageDependencies": [\
+            ["use-sync-external-store", "npm:1.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fuse-sync-external-store%2F-%2Fuse-sync-external-store-1.2.0.tgz"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:03902824c3add87d59d5eac0ebd22de901206062a92e1ac6173c6fba75f7df788cd69db72f00ef59acc7aa99fbb6b1cb4518e7f7691bdf1983d1ee55895a84f5#npm:1.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fuse-sync-external-store%2F-%2Fuse-sync-external-store-1.2.0.tgz", {\
+          "packageLocation": "./.yarn/__virtual__/use-sync-external-store-virtual-f910ba4c40/0/cache/use-sync-external-store-npm-1.2.0-485486c87b-5c639e0f8d.zip/node_modules/use-sync-external-store/",\
+          "packageDependencies": [\
+            ["use-sync-external-store", "virtual:03902824c3add87d59d5eac0ebd22de901206062a92e1ac6173c6fba75f7df788cd69db72f00ef59acc7aa99fbb6b1cb4518e7f7691bdf1983d1ee55895a84f5#npm:1.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fuse-sync-external-store%2F-%2Fuse-sync-external-store-1.2.0.tgz"],\
+            ["@types/react", "npm:18.0.27::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Freact%2F-%2Freact-18.0.27.tgz"],\
+            ["react", "npm:18.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Freact%2F-%2Freact-18.2.0.tgz"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
           ],\
           "linkType": "HARD"\
         }]\
