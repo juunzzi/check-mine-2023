@@ -4,7 +4,7 @@ import Router from 'src/Router'
 import globalStyle from 'src/styles/globalStyle'
 import theme from 'src/styles/theme'
 
-function App() {
+const App = () => {
     return (
         <BrowserRouter>
             <ThemeProvider theme={theme}>
