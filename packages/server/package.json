@@ -1,6 +1,7 @@
 {
     "name": "payment_server",
     "packageManager": "yarn@3.3.1",
+    "private": true,
     "scripts": {
         "start": "nodemon --exec yarn ts-node -r tsconfig-paths/register src -e js,json,ts",
         "build": "yarn tsc"

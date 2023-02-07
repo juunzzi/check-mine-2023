@@ -1,5 +1,6 @@
 {
     "name": "payment_root",
+    "private": true,
     "packageManager": "yarn@3.3.1",
     "workspaces": {
         "packages": [
