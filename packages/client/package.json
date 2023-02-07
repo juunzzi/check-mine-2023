@@ -1,8 +1,10 @@
 {
     "name": "payment_client",
     "version": "0.1.0",
-    "private": true,
     "dependencies": {
+        "@craco/craco": "^7.0.0",
+        "@emotion/react": "^11.10.5",
+        "@emotion/styled": "^11.10.5",
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^13.4.0",
         "@testing-library/user-event": "^13.5.0",
@@ -18,10 +20,9 @@
         "web-vitals": "^2.1.4"
     },
     "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "start": "DISABLE_ESLINT_PLUGIN=true craco start",
+        "build": "DISABLE_ESLINT_PLUGIN=true craco build",
+        "test": "craco test"
     },
     "browserslist": {
         "production": [
@@ -34,5 +35,8 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "devDependencies": {
+        "@emotion/babel-preset-css-prop": "^11.10.0"
     }
 }
