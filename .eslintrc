@@ -22,6 +22,7 @@
                 "component": true,
                 "html": true
             }
-        ]
+        ],
+        "react/no-unknown-property": "off"
     }
 }
