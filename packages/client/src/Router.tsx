@@ -1,9 +1,5 @@
+import {lazy, Suspense} from 'react'
 import {Routes, Route} from 'react-router-dom'
-import JoinPage from 'src/@pages/join'
-import LoginPage from 'src/@pages/login'
-import MainPage from 'src/@pages/main'
-import NotFoundPage from 'src/@pages/not-found'
-import PaymentPage from 'src/@pages/payment'
 
 export const PATH = {
     MAIN: '/',
@@ -13,15 +9,23 @@ export const PATH = {
     NOT_FOUND: '*',
 } as const
 
+const MainPage = lazy(() => import('src/@pages/main'))
+const LoginPage = lazy(() => import('src/@pages/login'))
+const JoinPage = lazy(() => import('src/@pages/join'))
+const PaymentPage = lazy(() => import('src/@pages/payment'))
+const NotFoundPage = lazy(() => import('src/@pages/not-found'))
+
 const Router = () => {
     return (
-        <Routes>
-            <Route path={PATH.MAIN} element={<MainPage />} />
-            <Route path={PATH.LOGIN} element={<LoginPage />} />
-            <Route path={PATH.JOIN} element={<JoinPage />} />
-            <Route path={PATH.PAYMENT} element={<PaymentPage />} />
-            <Route path={PATH.NOT_FOUND} element={<NotFoundPage />} />
-        </Routes>
+        <Suspense fallback={<></>}>
+            <Routes>
+                <Route path={PATH.MAIN} element={<MainPage />} />
+                <Route path={PATH.LOGIN} element={<LoginPage />} />
+                <Route path={PATH.JOIN} element={<JoinPage />} />
+                <Route path={PATH.PAYMENT} element={<PaymentPage />} />
+                <Route path={PATH.NOT_FOUND} element={<NotFoundPage />} />
+            </Routes>
+        </Suspense>
     )
 }
 
