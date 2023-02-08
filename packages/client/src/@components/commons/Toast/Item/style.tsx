@@ -68,7 +68,9 @@ export const ProgressContainer = styled.div`
     bottom: 2px;
     transform: translateX(-50%);
 
-    background-color: white;
+    ${({theme}) => css`
+        background-color: ${theme.colors.white_100};
+    `}
 `
 
 export const Progress = styled.div<{progress: number}>`
