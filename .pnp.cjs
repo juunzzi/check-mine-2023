@@ -4114,6 +4114,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@koa/cors", [\
+        ["npm:4.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40koa%2Fcors%2F-%2Fcors-4.0.0.tgz", {\
+          "packageLocation": "./.yarn/cache/@koa-cors-npm-4.0.0-fac59535a2-e076054482.zip/node_modules/@koa/cors/",\
+          "packageDependencies": [\
+            ["@koa/cors", "npm:4.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40koa%2Fcors%2F-%2Fcors-4.0.0.tgz"],\
+            ["vary", "npm:1.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fvary%2F-%2Fvary-1.1.2.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@leichtgewicht/ip-codec", [\
         ["npm:2.0.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40leichtgewicht%2Fip-codec%2F-%2Fip-codec-2.0.4.tgz", {\
           "packageLocation": "./.yarn/cache/@leichtgewicht-ip-codec-npm-2.0.4-4e204e01fc-468de1f04d.zip/node_modules/@leichtgewicht/ip-codec/",\
@@ -5185,6 +5195,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-koa-router-npm-7.4.4-9d91072d7f-23ff5b725d.zip/node_modules/@types/koa-router/",\
           "packageDependencies": [\
             ["@types/koa-router", "npm:7.4.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa-router%2F-%2Fkoa-router-7.4.4.tgz"],\
+            ["@types/koa", "npm:2.13.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa%2F-%2Fkoa-2.13.5.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/koa__cors", [\
+        ["npm:3.3.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa__cors%2F-%2Fkoa__cors-3.3.0.tgz", {\
+          "packageLocation": "./.yarn/cache/@types-koa__cors-npm-3.3.0-553f337a33-c1aeb10b07.zip/node_modules/@types/koa__cors/",\
+          "packageDependencies": [\
+            ["@types/koa__cors", "npm:3.3.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa__cors%2F-%2Fkoa__cors-3.3.0.tgz"],\
             ["@types/koa", "npm:2.13.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa%2F-%2Fkoa-2.13.5.tgz"]\
           ],\
           "linkType": "HARD"\
@@ -14868,11 +14888,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/server/",\
           "packageDependencies": [\
             ["payment_server", "workspace:packages/server"],\
+            ["@koa/cors", "npm:4.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40koa%2Fcors%2F-%2Fcors-4.0.0.tgz"],\
             ["@types/bcrypt", "npm:5.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fbcrypt%2F-%2Fbcrypt-5.0.0.tgz"],\
             ["@types/jsonwebtoken", "npm:9.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fjsonwebtoken%2F-%2Fjsonwebtoken-9.0.1.tgz"],\
             ["@types/koa", "npm:2.13.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa%2F-%2Fkoa-2.13.5.tgz"],\
             ["@types/koa-logger", "npm:3.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa-logger%2F-%2Fkoa-logger-3.1.2.tgz"],\
             ["@types/koa-router", "npm:7.4.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa-router%2F-%2Fkoa-router-7.4.4.tgz"],\
+            ["@types/koa__cors", "npm:3.3.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa__cors%2F-%2Fkoa__cors-3.3.0.tgz"],\
             ["@types/node", "npm:18.11.19::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fnode%2F-%2Fnode-18.11.19.tgz"],\
             ["bcrypt", "npm:5.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fbcrypt%2F-%2Fbcrypt-5.1.0.tgz"],\
             ["dotenv", "npm:16.0.3::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fdotenv%2F-%2Fdotenv-16.0.3.tgz"],\

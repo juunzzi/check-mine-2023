@@ -2390,6 +2390,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@koa/cors@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@koa/cors@npm:4.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40koa%2Fcors%2F-%2Fcors-4.0.0.tgz"
+  dependencies:
+    vary: ^1.1.2
+  checksum: e0760544823532f2d71d792e3076858e38bab9b1c090abea175f1319fd91ea58a1da384a2fe7f5108f1c681e3830b01f62a1cafe271d6406751976af443187aa
+  languageName: node
+  linkType: hard
+
 "@leichtgewicht/ip-codec@npm:^2.0.1":
   version: 2.0.4
   resolution: "@leichtgewicht/ip-codec@npm:2.0.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40leichtgewicht%2Fip-codec%2F-%2Fip-codec-2.0.4.tgz"
@@ -3258,6 +3267,15 @@ __metadata:
     "@types/koa-compose": "*"
     "@types/node": "*"
   checksum: e3b634d934b79ce8f394bf4130511596081f9c073dbfb4309aa32e4c421c47049a002b65111f8d9687eabec55d5a27b1b9ae0699afa83894cb7032c3536bfa17
+  languageName: node
+  linkType: hard
+
+"@types/koa__cors@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "@types/koa__cors@npm:3.3.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fkoa__cors%2F-%2Fkoa__cors-3.3.0.tgz"
+  dependencies:
+    "@types/koa": "*"
+  checksum: c1aeb10b070e72b6c01a2f6abb4b0a936017794ef4eab3469697a4e24ef2054bc371519afa90c8e6c5ea9dbeda58395a64400bd499c3fda207cb593b751b44ca
   languageName: node
   linkType: hard
 
@@ -10957,11 +10975,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "payment_server@workspace:packages/server"
   dependencies:
+    "@koa/cors": ^4.0.0
     "@types/bcrypt": ^5.0.0
     "@types/jsonwebtoken": ^9.0.1
     "@types/koa": ^2.13.5
     "@types/koa-logger": ^3.1.2
     "@types/koa-router": ^7.4.4
+    "@types/koa__cors": ^3.3.0
     "@types/node": ^18.11.18
     bcrypt: ^5.1.0
     dotenv: ^16.0.3
