@@ -1,8 +1,8 @@
 import {createContext, PropsWithChildren, useState} from 'react'
-import uuid from 'react-uuid'
 import {TOAST_LIST_MAX_LENGTH} from 'src/@components/commons/Toast/constant'
 import ToastItem from 'src/@components/commons/Toast/Item'
 import {Toast, ToastStatus} from 'src/@components/commons/Toast/type'
+import {v4 as uuid} from 'uuid'
 
 import * as Styled from './style'
 
