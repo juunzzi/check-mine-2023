@@ -1,18 +1,18 @@
-import {useContext, useEffect, useRef, useState} from 'react'
+import {useContext, useEffect, useState} from 'react'
 import {ToastContext} from 'src/@components/commons/Toast/Provider'
 
 export const useProgress = (delayMS: number) => {
     const [progress, setProgress] = useState(0)
-    const animationFrameId = useRef<number>()
 
     useEffect(() => {
         let startTime = 0
+        let animationFrameId: number | null = null
 
         const handleProgress = (currentProgress: number) => {
             if (currentProgress < 100) {
                 setProgress(Math.ceil(currentProgress))
 
-                animationFrameId.current = requestAnimationFrame((nextTime) => {
+                animationFrameId = requestAnimationFrame((nextTime) => {
                     const nextProgress = ((nextTime - startTime) / delayMS) * 100
 
                     return handleProgress(nextProgress)
@@ -20,15 +20,15 @@ export const useProgress = (delayMS: number) => {
             }
         }
 
-        animationFrameId.current = requestAnimationFrame((timestamp) => {
+        animationFrameId = requestAnimationFrame((timestamp) => {
             startTime = timestamp
 
             return handleProgress(0)
         })
 
         return () => {
-            if (animationFrameId.current) {
-                cancelAnimationFrame(animationFrameId.current)
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId)
             }
         }
     }, [])
