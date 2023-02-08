@@ -21,6 +21,10 @@ const colors = {
 
     red_800: '#E81300',
 
+    green_500: '#49ff66',
+
+    orange_500: '#f68a32',
+
     background_4: '#F5F4F3',
     background_3: '#F7F7F7',
     background_2: '#F6F4EE',
