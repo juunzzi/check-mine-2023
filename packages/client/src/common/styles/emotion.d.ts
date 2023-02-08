@@ -1,5 +1,5 @@
 import '@emotion/react'
-import theme from 'src/styles/theme'
+import theme from 'src/common/styles/theme'
 
 type CustomTheme = typeof theme
 

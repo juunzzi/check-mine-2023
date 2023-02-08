@@ -2,9 +2,9 @@ import {Global, ThemeProvider} from '@emotion/react'
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 import {BrowserRouter} from 'react-router-dom'
 import ToastProvider from 'src/@components/commons/Toast/Provider'
+import globalStyle from 'src/common/styles/globalStyle'
+import theme from 'src/common/styles/theme'
 import Router from 'src/Router'
-import globalStyle from 'src/styles/globalStyle'
-import theme from 'src/styles/theme'
 
 const queryClient = new QueryClient({
     defaultOptions: {

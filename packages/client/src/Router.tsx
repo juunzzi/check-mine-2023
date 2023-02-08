@@ -1,6 +1,6 @@
 import {lazy, Suspense} from 'react'
 import {Routes, Route} from 'react-router-dom'
-import PageLoadingFallback from 'src/@components/commons/PageLoadingFallback'
+import PageLoadingFallback from 'src/@components/common/PageLoadingFallback'
 
 export const PATH = {
     MAIN: '/',
