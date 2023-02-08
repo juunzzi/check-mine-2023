@@ -10917,6 +10917,7 @@ __metadata:
     react-dom: ^18.2.0
     react-router-dom: ^6.8.1
     react-scripts: 5.0.1
+    react-uuid: ^2.0.0
     typescript: ^4.9.4
     web-vitals: ^2.1.4
   languageName: unknown
@@ -12311,6 +12312,13 @@ __metadata:
   bin:
     react-scripts: bin/react-scripts.js
   checksum: 92afa2f245c7092ccc97d5609dc7a2130616262e34da7f15072d9442e2d2e1d4909a91022abd1faac1336eb17c5525a10d9bd43e1ae374c7ec941ca20addca68
+  languageName: node
+  linkType: hard
+
+"react-uuid@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "react-uuid@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Freact-uuid%2F-%2Freact-uuid-2.0.0.tgz"
+  checksum: edfdd86ce5cd19da9740fae1147ed106e3090f4d9c59b4e3f0001c2dc605f63dc89e225adc5623929a8775363ab355da32adda92dd70a3bb514fff911b93da73
   languageName: node
   linkType: hard
 

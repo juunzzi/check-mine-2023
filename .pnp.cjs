@@ -14822,6 +14822,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-dom", "virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:18.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Freact-dom%2F-%2Freact-dom-18.2.0.tgz"],\
             ["react-router-dom", "virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:6.8.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Freact-router-dom%2F-%2Freact-router-dom-6.8.1.tgz"],\
             ["react-scripts", "virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:5.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Freact-scripts%2F-%2Freact-scripts-5.0.1.tgz"],\
+            ["react-uuid", "npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Freact-uuid%2F-%2Freact-uuid-2.0.0.tgz"],\
             ["typescript", "patch:typescript@npm%3A4.9.5%3A%3A__archiveUrl=https%253A%252F%252Fregistry.navercorp.com%253A443%252Fapi%252Fnpm%252Fnpm-naver%252Ftypescript%252F-%252Ftypescript-4.9.5.tgz#~builtin<compat/typescript>::version=4.9.5&hash=ad5954"],\
             ["web-vitals", "npm:2.1.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fweb-vitals%2F-%2Fweb-vitals-2.1.4.tgz"]\
           ],\
@@ -17206,6 +17207,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/typescript",\
             "react",\
             "typescript"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["react-uuid", [\
+        ["npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Freact-uuid%2F-%2Freact-uuid-2.0.0.tgz", {\
+          "packageLocation": "./.yarn/cache/react-uuid-npm-2.0.0-0c8d5cd028-edfdd86ce5.zip/node_modules/react-uuid/",\
+          "packageDependencies": [\
+            ["react-uuid", "npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Freact-uuid%2F-%2Freact-uuid-2.0.0.tgz"]\
           ],\
           "linkType": "HARD"\
         }]\
