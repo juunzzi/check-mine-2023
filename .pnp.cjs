@@ -20,6 +20,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/client"\
       },\
       {\
+        "name": "payment_common",\
+        "reference": "workspace:packages/common"\
+      },\
+      {\
         "name": "payment_server",\
         "reference": "workspace:packages/server"\
       }\
@@ -28,6 +32,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
       ["payment_client", ["workspace:packages/client"]],\
+      ["payment_common", ["workspace:packages/common"]],\
       ["payment_root", ["workspace:."]],\
       ["payment_server", ["workspace:packages/server"]]\
     ],\
@@ -14848,6 +14853,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:18.0.27::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Freact%2F-%2Freact-18.0.27.tgz"],\
             ["@types/react-dom", "npm:18.0.10::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Freact-dom%2F-%2Freact-dom-18.0.10.tgz"],\
             ["@types/uuid", "npm:9.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fuuid%2F-%2Fuuid-9.0.0.tgz"],\
+            ["payment_common", "workspace:packages/common"],\
             ["react", "npm:18.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Freact%2F-%2Freact-18.2.0.tgz"],\
             ["react-dom", "virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:18.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Freact-dom%2F-%2Freact-dom-18.2.0.tgz"],\
             ["react-router-dom", "virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:6.8.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Freact-router-dom%2F-%2Freact-router-dom-6.8.1.tgz"],\
@@ -14855,6 +14861,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.5%3A%3A__archiveUrl=https%253A%252F%252Fregistry.navercorp.com%253A443%252Fapi%252Fnpm%252Fnpm-naver%252Ftypescript%252F-%252Ftypescript-4.9.5.tgz#~builtin<compat/typescript>::version=4.9.5&hash=ad5954"],\
             ["uuid", "npm:9.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fuuid%2F-%2Fuuid-9.0.0.tgz"],\
             ["web-vitals", "npm:2.1.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fweb-vitals%2F-%2Fweb-vitals-2.1.4.tgz"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["payment_common", [\
+        ["workspace:packages/common", {\
+          "packageLocation": "./packages/common/",\
+          "packageDependencies": [\
+            ["payment_common", "workspace:packages/common"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -14905,6 +14920,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["koa-router", "npm:12.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fkoa-router%2F-%2Fkoa-router-12.0.0.tgz"],\
             ["mariadb", "npm:3.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fmariadb%2F-%2Fmariadb-3.0.2.tgz"],\
             ["nodemon", "npm:2.0.20::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fnodemon%2F-%2Fnodemon-2.0.20.tgz"],\
+            ["payment_common", "workspace:packages/common"],\
             ["ts-node", "virtual:4d54fc2fb5bf057f6fde15b28801161b9e33712c0eaf98f1559323e77933eab1ad64ed9752b87b7c80e5c0f494d71c6599488988d8d308ecb90998491c09b4d9#npm:10.9.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fts-node%2F-%2Fts-node-10.9.1.tgz"],\
             ["tsconfig-paths", "npm:4.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Ftsconfig-paths%2F-%2Ftsconfig-paths-4.1.2.tgz"],\
             ["typescript", "patch:typescript@npm%3A4.9.5%3A%3A__archiveUrl=https%253A%252F%252Fregistry.navercorp.com%253A443%252Fapi%252Fnpm%252Fnpm-naver%252Ftypescript%252F-%252Ftypescript-4.9.5.tgz#~builtin<compat/typescript>::version=4.9.5&hash=ad5954"],\
