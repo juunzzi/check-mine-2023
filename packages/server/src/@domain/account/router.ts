@@ -1,9 +1,9 @@
 import koaBody from 'koa-body'
 import Router from 'koa-router'
+import {RES_MSG} from 'payment_common'
 import {createAccount, getAccount} from 'src/@domain/account/service'
 import {isCreateAccountBodyType, isGetAccountRequestBodyType} from 'src/@domain/account/type'
 import {authenticateAccessToken} from 'src/@domain/user/modules/middleware'
-import {RES_MSG} from 'src/common/response-message'
 
 const accountRouter = new Router()
 

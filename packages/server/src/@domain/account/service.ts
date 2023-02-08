@@ -1,7 +1,7 @@
+import {RES_MSG} from 'payment_common'
 import * as DB from 'src/@domain/account/modules/query'
 import {isValidCreateAccountInput} from 'src/@domain/account/modules/validation'
 import {Account} from 'src/@domain/account/type'
-import {RES_MSG} from 'src/common/response-message'
 
 export const getAccount = async (userId: number) => {
     const account = await DB.findAccountByUserId(userId)

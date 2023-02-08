@@ -1,6 +1,6 @@
 import Router from 'koa-router'
+import {RES_MSG} from 'payment_common'
 import {getProducts} from 'src/@domain/product/service'
-import {RES_MSG} from 'src/common/response-message'
 
 const productRouter = new Router()
 

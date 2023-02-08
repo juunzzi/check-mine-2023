@@ -1,5 +1,6 @@
 import {koaBody} from 'koa-body'
 import Router from 'koa-router'
+import {RES_MSG} from 'payment_common'
 import {checkAlreadyLogin, authenticateAccessToken} from 'src/@domain/user/modules/middleware'
 import {editUser, getBarcode, getUser, joinUser, loginUser} from 'src/@domain/user/service'
 import {
@@ -9,7 +10,6 @@ import {
     isGetMeRequestBodyType,
     isGetBarcodeTokenRequestBodyType,
 } from 'src/@domain/user/type'
-import {RES_MSG} from 'src/common/response-message'
 
 const userRouter = new Router()
 

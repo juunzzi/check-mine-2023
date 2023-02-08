@@ -1,9 +1,9 @@
 import bcrypt from 'bcrypt'
+import {RES_MSG} from 'payment_common'
 import {generateAccessToken} from 'src/@domain/user/modules/jwt'
 import * as DB from 'src/@domain/user/modules/query'
 import {isValidEditUserInput, isValidCreateUserInput} from 'src/@domain/user/modules/validation'
 import {User} from 'src/@domain/user/type'
-import {RES_MSG} from 'src/common/response-message'
 
 export const getUser = async (id: number) => {
     const user = await DB.findUserById(id)

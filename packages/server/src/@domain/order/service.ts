@@ -1,3 +1,4 @@
+import {RES_MSG} from 'payment_common'
 import * as ACCOUNT_DB from 'src/@domain/account/modules/query'
 import {computeOrderAmount, parseOrderProducts} from 'src/@domain/order/modules/util'
 import {checkProductsAvailableForOrder} from 'src/@domain/order/modules/validation'
@@ -7,7 +8,6 @@ import {Product} from 'src/@domain/product/type'
 import * as USER_DB from 'src/@domain/user/modules/query'
 import {User} from 'src/@domain/user/type'
 import {transactQueries} from 'src/common/db/util'
-import {RES_MSG} from 'src/common/response-message'
 
 const orderOnPayPoint = async ({
     user: {id: userId, payPoint, accountId, email, name},

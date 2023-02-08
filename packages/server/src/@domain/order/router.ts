@@ -1,9 +1,9 @@
 import koaBody from 'koa-body'
 import Router from 'koa-router'
+import {RES_MSG} from 'payment_common'
 import {createOrder} from 'src/@domain/order/service'
 import {isCreateOrderRequestBodyType} from 'src/@domain/order/type'
 import {decodeBarcodeToken} from 'src/@domain/user/modules/middleware'
-import {RES_MSG} from 'src/common/response-message'
 
 const orderRouter = new Router()
 
