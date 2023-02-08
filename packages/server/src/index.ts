@@ -1,5 +1,6 @@
 import 'src/env'
 
+import cors from '@koa/cors'
 import Koa from 'koa'
 import koaLogger from 'koa-logger'
 import Logger from 'src/common/logger/winston'
@@ -12,6 +13,8 @@ import router from 'src/router'
         await initializeDB()
 
         const app = new Koa()
+
+        app.use(cors())
 
         app.use(koaLogger())
 
