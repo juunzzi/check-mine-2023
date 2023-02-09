@@ -1,7 +1,7 @@
 import {CreateUserInput, EditUserInput} from 'src/@domain/user/service'
 
 /** 영문자, 한글, 숫자만을 포함하여 2~6 글자만 이름으로 가능하다 */
-export const nameRegExp = /^[a-z|A-Z|가-힣|0-9]{2,6}$/
+export const nameRegExp = /^[a-z|A-Z|가-힣]{2,6}$/
 
 export const emailRegExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i
 
@@ -21,7 +21,7 @@ export const isValidUserPassword = (password: string) => {
 }
 
 export const isValidUserPayPoint = (payPoint: number) => {
-    return !isNaN(payPoint) && payPoint >= 0
+    return !isNaN(payPoint) && payPoint >= 0 && payPoint < 2000000
 }
 
 export const isValidCreateUserInput = (userInput: CreateUserInput) => {
