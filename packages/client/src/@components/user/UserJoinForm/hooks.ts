@@ -55,7 +55,9 @@ export const useUserJoinForm = (props: UserJoinFormProps) => {
             target: {value},
         } = e
 
-        const numberAsValue = Number(value)
+        const valueReplacedRestChar = value.replace(/,/g, '')
+
+        const numberAsValue = Number(valueReplacedRestChar)
         const isValid = isValidUserPayPoint(numberAsValue)
 
         changeUserInput({key: 'payPoint', value: isValid ? numberAsValue : payPoint})

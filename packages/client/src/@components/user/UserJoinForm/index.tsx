@@ -75,10 +75,10 @@ const UserJoinForm = (props: UserJoinFormProps) => {
                 errorText="비밀번호가 동일하지 않습니다."
             />
             <Input
-                value={payPoint}
+                value={payPoint.toLocaleString('ko-kr')}
                 onChange={onChangePayPointInput}
-                placeholder="페이 포인트를 입력해주세요 (최대 200만 포인트)"
-                label="페이 포인트"
+                placeholder="페이 포인트를 입력해주세요"
+                label="페이 포인트  (200만 포인트 미만)"
                 isError={isPayPointError}
                 errorText="숫자만 입력이 가능합니다."
             />
