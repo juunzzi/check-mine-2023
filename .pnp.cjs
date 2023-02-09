@@ -14902,6 +14902,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-dom", "virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:18.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Freact-dom%2F-%2Freact-dom-18.2.0.tgz"],\
             ["react-router-dom", "virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:6.8.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Freact-router-dom%2F-%2Freact-router-dom-6.8.1.tgz"],\
             ["react-scripts", "virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:5.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Freact-scripts%2F-%2Freact-scripts-5.0.1.tgz"],\
+            ["ts-loader", "virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:9.4.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fts-loader%2F-%2Fts-loader-9.4.2.tgz"],\
             ["typescript", "patch:typescript@npm%3A4.9.5%3A%3A__archiveUrl=https%253A%252F%252Fregistry.navercorp.com%253A443%252Fapi%252Fnpm%252Fnpm-naver%252Ftypescript%252F-%252Ftypescript-4.9.5.tgz#~builtin<compat/typescript>::version=4.9.5&hash=ad5954"],\
             ["uuid", "npm:9.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fuuid%2F-%2Fuuid-9.0.0.tgz"],\
             ["web-vitals", "npm:2.1.4::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fweb-vitals%2F-%2Fweb-vitals-2.1.4.tgz"]\
@@ -19119,6 +19120,36 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/tryer-npm-1.0.1-c40ac8d0c3-1cf14d7f67.zip/node_modules/tryer/",\
           "packageDependencies": [\
             ["tryer", "npm:1.0.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Ftryer%2F-%2Ftryer-1.0.1.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["ts-loader", [\
+        ["npm:9.4.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fts-loader%2F-%2Fts-loader-9.4.2.tgz", {\
+          "packageLocation": "./.yarn/cache/ts-loader-npm-9.4.2-10b47ae266-6f306ee4c6.zip/node_modules/ts-loader/",\
+          "packageDependencies": [\
+            ["ts-loader", "npm:9.4.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fts-loader%2F-%2Fts-loader-9.4.2.tgz"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:9.4.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fts-loader%2F-%2Fts-loader-9.4.2.tgz", {\
+          "packageLocation": "./.yarn/__virtual__/ts-loader-virtual-0d3d2bf3cc/0/cache/ts-loader-npm-9.4.2-10b47ae266-6f306ee4c6.zip/node_modules/ts-loader/",\
+          "packageDependencies": [\
+            ["ts-loader", "virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:9.4.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fts-loader%2F-%2Fts-loader-9.4.2.tgz"],\
+            ["@types/typescript", null],\
+            ["@types/webpack", null],\
+            ["chalk", "npm:4.1.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fchalk%2F-%2Fchalk-4.1.2.tgz"],\
+            ["enhanced-resolve", "npm:5.12.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fenhanced-resolve%2F-%2Fenhanced-resolve-5.12.0.tgz"],\
+            ["micromatch", "npm:4.0.5::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fmicromatch%2F-%2Fmicromatch-4.0.5.tgz"],\
+            ["semver", "npm:7.3.8::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fsemver%2F-%2Fsemver-7.3.8.tgz"],\
+            ["typescript", "patch:typescript@npm%3A4.9.5%3A%3A__archiveUrl=https%253A%252F%252Fregistry.navercorp.com%253A443%252Fapi%252Fnpm%252Fnpm-naver%252Ftypescript%252F-%252Ftypescript-4.9.5.tgz#~builtin<compat/typescript>::version=4.9.5&hash=ad5954"],\
+            ["webpack", null]\
+          ],\
+          "packagePeers": [\
+            "@types/typescript",\
+            "@types/webpack",\
+            "typescript",\
+            "webpack"\
           ],\
           "linkType": "HARD"\
         }]\
