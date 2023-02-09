@@ -5,5 +5,5 @@ export const FormConainer = styled.form`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 8px;
 `

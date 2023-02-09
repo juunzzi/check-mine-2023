@@ -77,7 +77,7 @@ const UserJoinForm = (props: UserJoinFormProps) => {
             <Input
                 value={payPoint}
                 onChange={onChangePayPointInput}
-                placeholder="페이 포인트를 입력해주세요"
+                placeholder="페이 포인트를 입력해주세요 (최대 200만 포인트)"
                 label="페이 포인트"
                 isError={isPayPointError}
                 errorText="숫자만 입력이 가능합니다."
