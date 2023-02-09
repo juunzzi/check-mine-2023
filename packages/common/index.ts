@@ -11,3 +11,7 @@ export const RES_MSG = {
 } as const
 
 export type RES_MSG_TYPE = (typeof RES_MSG)[keyof typeof RES_MSG]
+
+export const isResMsgType = (resMsg: any): resMsg is RES_MSG_TYPE => {
+    return Object.values(RES_MSG).includes(resMsg)
+}
