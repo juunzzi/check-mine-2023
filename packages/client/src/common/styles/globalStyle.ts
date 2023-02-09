@@ -1,12 +1,12 @@
-import {css, Theme} from '@emotion/react'
+import {css} from '@emotion/react'
 
-const globalStyle = (theme: Theme) => css`
+const globalStyle = css`
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
         font: inherit;
-        color: ${theme.colors.grey_400};
+        color: inherit;
         flex-shrink: 0;
     }
 
