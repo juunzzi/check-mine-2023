@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import {Link} from 'react-router-dom'
 
 export const Container = styled.div`
     padding: 10px 20px;
@@ -8,6 +9,10 @@ export const Container = styled.div`
     align-items: center;
 `
 
-export const Main = styled.div``
+export const Main = styled(Link)`
+    cursor: pointer;
+`
 
-export const User = styled.div``
+export const User = styled(Link)`
+    cursor: pointer;
+`
