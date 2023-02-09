@@ -1,5 +1,7 @@
+import PageTemplate from 'src/@components/common/PageTemplate'
+
 const PaymentPageLoadingFallback = () => {
-    return <div>PaymentPageLoadingFallback</div>
+    return <PageTemplate>PaymentPageLoadingFallback</PageTemplate>
 }
 
 export default PaymentPageLoadingFallback

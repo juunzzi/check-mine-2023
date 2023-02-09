@@ -1,5 +1,7 @@
+import PageTemplate from 'src/@components/common/PageTemplate'
+
 const MainPageLoadingFallback = () => {
-    return <div>MainPageLoadingFallback</div>
+    return <PageTemplate>MainPageLoadingFallback</PageTemplate>
 }
 
 export default MainPageLoadingFallback

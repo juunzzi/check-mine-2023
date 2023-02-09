@@ -1,5 +1,7 @@
+import PageTemplate from 'src/@components/common/PageTemplate'
+
 const NotFoundPage = () => {
-    return <div>NotFoundPage</div>
+    return <PageTemplate>NotFoundPage</PageTemplate>
 }
 
 export default NotFoundPage

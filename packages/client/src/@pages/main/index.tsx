@@ -1,5 +1,7 @@
+import PageTemplate from 'src/@components/common/PageTemplate'
+
 const MainPage = () => {
-    return <div>MainPage</div>
+    return <PageTemplate>MainPage</PageTemplate>
 }
 
 export default MainPage

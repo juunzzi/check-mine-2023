@@ -1,5 +1,7 @@
+import PageTemplate from 'src/@components/common/PageTemplate'
+
 const LoginPage = () => {
-    return <div>LoginPage</div>
+    return <PageTemplate>LoginPage</PageTemplate>
 }
 
 export default LoginPage

@@ -1,5 +1,7 @@
+import PageTemplate from 'src/@components/common/PageTemplate'
+
 const LoginPageLoadingFallback = () => {
-    return <div>LoginPageLoadingFallback</div>
+    return <PageTemplate>LoginPageLoadingFallback</PageTemplate>
 }
 
 export default LoginPageLoadingFallback
