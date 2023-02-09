@@ -1,6 +1,6 @@
 import koaBody from 'koa-body'
 import Router from 'koa-router'
-import {RES_MSG} from 'payment_common'
+import {RES_MSG} from 'payment_common/module/constant'
 import {createAccount, getAccount} from 'src/@domain/account/service'
 import {isCreateAccountBodyType, isGetAccountRequestBodyType} from 'src/@domain/account/type'
 import {authenticateAccessToken} from 'src/@domain/user/modules/middleware'

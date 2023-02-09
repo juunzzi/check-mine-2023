@@ -1,4 +1,4 @@
-import {RES_MSG} from 'payment_common'
+import {RES_MSG} from 'payment_common/module/constant'
 import {useToast} from 'src/@components/common/Toast/hooks'
 import {hasAxiosResponseAxiosErrorType, hasErrorMessageAxiosResponseType} from 'src/@domain/api'
 import USER_API, {JoinUserRequestBody} from 'src/@domain/api/user'

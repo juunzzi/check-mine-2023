@@ -1,5 +1,5 @@
 import Router from 'koa-router'
-import {RES_MSG} from 'payment_common'
+import {RES_MSG} from 'payment_common/module/constant'
 import {getProducts} from 'src/@domain/product/service'
 
 const productRouter = new Router()

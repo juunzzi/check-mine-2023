@@ -1,4 +1,4 @@
-import {RES_MSG} from 'payment_common'
+import {RES_MSG} from 'payment_common/module/constant'
 import * as ACCOUNT_DB from 'src/@domain/account/modules/query'
 import {computeOrderAmount, parseOrderProducts} from 'src/@domain/order/modules/util'
 import {checkProductsAvailableForOrder} from 'src/@domain/order/modules/validation'

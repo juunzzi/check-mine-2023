@@ -1,4 +1,4 @@
-import {RES_MSG} from 'payment_common'
+import {RES_MSG} from 'payment_common/module/constant'
 import * as DB from 'src/@domain/account/modules/query'
 import {isValidCreateAccountInput} from 'src/@domain/account/modules/validation'
 import {Account} from 'src/@domain/account/type'

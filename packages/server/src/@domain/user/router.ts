@@ -1,6 +1,6 @@
 import {koaBody} from 'koa-body'
 import Router from 'koa-router'
-import {RES_MSG} from 'payment_common'
+import {RES_MSG} from 'payment_common/module/constant'
 import {checkAlreadyLogin, authenticateAccessToken} from 'src/@domain/user/modules/middleware'
 import {editUser, getBarcode, getUser, joinUser, loginUser} from 'src/@domain/user/service'
 import {

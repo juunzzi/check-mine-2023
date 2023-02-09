@@ -1,4 +1,4 @@
-import {RES_MSG, RES_MSG_TYPE} from 'payment_common'
+import {RES_MSG, RES_MSG_TYPE} from 'payment_common/module/constant'
 import * as DB from 'src/@domain/product/modules/query'
 
 export const getProducts = async (): Promise<{data: any; message: RES_MSG_TYPE}> => {

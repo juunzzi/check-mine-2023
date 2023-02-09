@@ -1,6 +1,6 @@
 import koaBody from 'koa-body'
 import Router from 'koa-router'
-import {RES_MSG} from 'payment_common'
+import {RES_MSG} from 'payment_common/module/constant'
 import {createOrder} from 'src/@domain/order/service'
 import {isCreateOrderRequestBodyType} from 'src/@domain/order/type'
 import {decodeBarcodeToken} from 'src/@domain/user/modules/middleware'
