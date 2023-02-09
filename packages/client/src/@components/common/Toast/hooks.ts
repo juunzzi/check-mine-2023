@@ -1,5 +1,5 @@
 import {useContext, useEffect, useState} from 'react'
-import {ToastContext} from 'src/@components/commons/Toast/Provider'
+import {ToastContext} from 'src/@components/common/Toast/Provider'
 
 export const useProgress = (delayMS: number) => {
     const [progress, setProgress] = useState(0)

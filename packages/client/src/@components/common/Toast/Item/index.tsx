@@ -1,7 +1,7 @@
 import {useEffect, useRef} from 'react'
-import {TOAST_DELAY} from 'src/@components/commons/Toast/constant'
-import {useProgress} from 'src/@components/commons/Toast/hooks'
-import {Toast} from 'src/@components/commons/Toast/type'
+import {TOAST_DELAY} from 'src/@components/common/Toast/constant'
+import {useProgress} from 'src/@components/common/Toast/hooks'
+import {Toast} from 'src/@components/common/Toast/type'
 
 import * as Styled from './style'
 

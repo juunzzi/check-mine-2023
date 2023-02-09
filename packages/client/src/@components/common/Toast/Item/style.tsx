@@ -1,6 +1,6 @@
 import {css} from '@emotion/react'
 import styled from '@emotion/styled'
-import {ToastStatus} from 'src/@components/commons/Toast/type'
+import {ToastStatus} from 'src/@components/common/Toast/type'
 
 export const Container = styled.div<{status: ToastStatus; isActive: boolean}>`
     position: relative;
