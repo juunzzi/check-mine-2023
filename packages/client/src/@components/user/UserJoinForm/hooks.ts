@@ -1,7 +1,7 @@
 import {ChangeEventHandler} from 'react'
 import {UserJoinFormProps} from 'src/@components/user/UserJoinForm'
 
-export const nameRegExp = /^[a-z|A-Z|가-힣|0-9]{2,6}$/
+export const nameRegExp = /^[a-z|A-Z|가-힣]{2,6}$/
 
 export const emailRegExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i
 
@@ -24,11 +24,11 @@ export const isValidUserPasswordReEnter = (password: string, passwordReEnter: st
 }
 
 export const isValidUserPayPoint = (payPoint: number) => {
-    return !isNaN(payPoint) && payPoint >= 0
+    return !isNaN(payPoint) && payPoint >= 0 && payPoint < 2000000
 }
 
 export const useUserJoinForm = (props: UserJoinFormProps) => {
-    const {password, changeUserInput, changeUserErrorInput} = props
+    const {payPoint, password, changeUserInput, changeUserErrorInput} = props
 
     const onChangeNameInput: ChangeEventHandler<HTMLInputElement> = (e) => {
         const {
@@ -72,9 +72,9 @@ export const useUserJoinForm = (props: UserJoinFormProps) => {
         } = e
 
         const numberAsValue = Number(value)
+        const isValid = isValidUserPayPoint(numberAsValue)
 
-        changeUserInput({key: 'payPoint', value: numberAsValue})
-        changeUserErrorInput({key: 'isPayPointError', value: !isValidUserPayPoint(numberAsValue)})
+        changeUserInput({key: 'payPoint', value: isValid ? numberAsValue : payPoint})
     }
 
     return {
