@@ -4,6 +4,8 @@ import * as Style from './style'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     label: string
+    errorText: string
+    isError: boolean
 }
 
 const Input = (props: InputProps) => {

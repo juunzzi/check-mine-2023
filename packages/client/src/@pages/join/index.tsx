@@ -5,12 +5,10 @@ import {PATH} from 'src/Router'
 
 import * as Styled from './style'
 
-export type ChangeUserInputArgs = {key: 'email' | 'password' | 'name'; value: string} | {key: 'payPoint'; value: number}
-
 const JoinPage = () => {
     const {
-        state: {userInput},
-        handler: {changeUserInput, submitUserJoinForm},
+        state: {userInput, userInputError},
+        handler: {changeUserInput, changeUserInputError, submitUserJoinForm},
     } = useUserJoinFormPage()
 
     return (
@@ -19,8 +17,10 @@ const JoinPage = () => {
                 <Styled.FormLabel>회원가입</Styled.FormLabel>
                 <UserJoinForm
                     changeUserInput={changeUserInput}
+                    changeUserErrorInput={changeUserInputError}
                     submitUserJoinForm={submitUserJoinForm}
                     {...userInput}
+                    {...userInputError}
                 />
                 <Styled.LoginLink to={PATH.LOGIN}>이미 회원이신가요?</Styled.LoginLink>
             </Styled.Container>
