@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom'
 import {useMutateUserDomain} from 'src/@domain/hooks/user'
 import {PATH} from 'src/Router'
 
-interface UserInputState {
+interface UserJoinInputState {
     name: string
     email: string
     password: string
@@ -11,7 +11,7 @@ interface UserInputState {
     payPoint: number
 }
 
-interface UserInputErrorState {
+interface UserJoinInputErrorState {
     isNameError: boolean
     isEmailError: boolean
     isPasswordError: boolean
@@ -19,20 +19,20 @@ interface UserInputErrorState {
     isPayPointError: boolean
 }
 
-export type ChangeUserInputArgs =
+export type ChangeUserJoinInputArgs =
     | {key: 'email' | 'password' | 'passwordReEnter' | 'name'; value: string}
     | {key: 'payPoint'; value: number}
 
-export interface ChangeUserInputErrorArgs {
-    key: keyof UserInputErrorState
+export interface ChangeUserJoinInputErrorArgs {
+    key: keyof UserJoinInputErrorState
     value: boolean
 }
 
-export type UserInputStatus = UserInputState & UserInputErrorState
+export type UserInputStatus = UserJoinInputState & UserJoinInputErrorState
 
-const useUserJoinFormPage = () => {
+export const useUserJoinPage = () => {
     /** State를 객체로 선언하는 경우 1depth만 */
-    const [userInput, setUserInput] = useState<UserInputState>({
+    const [userJoinInput, setUserJoinInput] = useState<UserJoinInputState>({
         name: '',
         email: '',
         password: '',
@@ -40,7 +40,7 @@ const useUserJoinFormPage = () => {
         payPoint: 0,
     })
 
-    const [userInputError, setUserInputError] = useState<UserInputErrorState>({
+    const [userJoinInputError, setUserJoinInputError] = useState<UserJoinInputErrorState>({
         isNameError: false,
         isEmailError: false,
         isPasswordError: false,
@@ -52,15 +52,15 @@ const useUserJoinFormPage = () => {
 
     const {joinUser} = useMutateUserDomain()
 
-    const changeUserInput = ({key, value}: ChangeUserInputArgs) => {
-        setUserInput((prev) => ({
+    const changeUserJoinInput = ({key, value}: ChangeUserJoinInputArgs) => {
+        setUserJoinInput((prev) => ({
             ...prev,
             [key]: value,
         }))
     }
 
-    const changeUserInputError = ({key, value}: ChangeUserInputErrorArgs) => {
-        setUserInputError((prev) => ({
+    const changeUserJoinInputError = ({key, value}: ChangeUserJoinInputErrorArgs) => {
+        setUserJoinInputError((prev) => ({
             ...prev,
             [key]: value,
         }))
@@ -69,11 +69,11 @@ const useUserJoinFormPage = () => {
     const submitUserJoinForm: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault()
 
-        if (Object.values(userInputError).some(({isError}) => isError)) {
+        if (Object.values(userJoinInput).some(({isError}) => isError)) {
             return
         }
 
-        const {name, email, password, payPoint} = userInput
+        const {name, email, password, payPoint} = userJoinInput
 
         const {message} = await joinUser({name, email, password, payPoint})
 
@@ -84,15 +84,13 @@ const useUserJoinFormPage = () => {
 
     return {
         state: {
-            userInput,
-            userInputError,
+            userJoinInput,
+            userJoinInputError,
         },
         handler: {
-            changeUserInput,
-            changeUserInputError,
+            changeUserJoinInput,
+            changeUserJoinInputError,
             submitUserJoinForm,
         },
     }
 }
-
-export default useUserJoinFormPage

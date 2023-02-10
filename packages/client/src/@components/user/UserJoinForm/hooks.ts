@@ -12,15 +12,15 @@ export const isValidUserPasswordReEnter = (password: string, passwordReEnter: st
 }
 
 export const useUserJoinForm = (props: UserJoinFormProps) => {
-    const {payPoint, password, changeUserInput, changeUserErrorInput} = props
+    const {payPoint, password, changeUserJoinInput, changeUserJoinInputError} = props
 
     const onChangeNameInput: ChangeEventHandler<HTMLInputElement> = (e) => {
         const {
             target: {value},
         } = e
 
-        changeUserInput({key: 'name', value})
-        changeUserErrorInput({key: 'isNameError', value: !isValidUserName(value)})
+        changeUserJoinInput({key: 'name', value})
+        changeUserJoinInputError({key: 'isNameError', value: !isValidUserName(value)})
     }
 
     const onChangeEmailInput: ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -28,8 +28,8 @@ export const useUserJoinForm = (props: UserJoinFormProps) => {
             target: {value},
         } = e
 
-        changeUserInput({key: 'email', value})
-        changeUserErrorInput({key: 'isEmailError', value: !isValidUserEmail(value)})
+        changeUserJoinInput({key: 'email', value})
+        changeUserJoinInputError({key: 'isEmailError', value: !isValidUserEmail(value)})
     }
 
     const onChangePasswordInput: ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -37,8 +37,8 @@ export const useUserJoinForm = (props: UserJoinFormProps) => {
             target: {value},
         } = e
 
-        changeUserInput({key: 'password', value})
-        changeUserErrorInput({key: 'isPasswordError', value: !isValidUserPassword(value)})
+        changeUserJoinInput({key: 'password', value})
+        changeUserJoinInputError({key: 'isPasswordError', value: !isValidUserPassword(value)})
     }
 
     const onChangePasswordReEnterInput: ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -46,8 +46,8 @@ export const useUserJoinForm = (props: UserJoinFormProps) => {
             target: {value},
         } = e
 
-        changeUserInput({key: 'passwordReEnter', value})
-        changeUserErrorInput({key: 'isPasswordReEnterError', value: !isValidUserPasswordReEnter(password, value)})
+        changeUserJoinInput({key: 'passwordReEnter', value})
+        changeUserJoinInputError({key: 'isPasswordReEnterError', value: !isValidUserPasswordReEnter(password, value)})
     }
 
     const onChangePayPointInput: ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -60,7 +60,7 @@ export const useUserJoinForm = (props: UserJoinFormProps) => {
         const numberAsValue = Number(valueReplacedRestChar)
         const isValid = isValidUserPayPoint(numberAsValue)
 
-        changeUserInput({key: 'payPoint', value: isValid ? numberAsValue : payPoint})
+        changeUserJoinInput({key: 'payPoint', value: isValid ? numberAsValue : payPoint})
     }
 
     return {

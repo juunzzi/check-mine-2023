@@ -2,13 +2,13 @@ import {FormEventHandler} from 'react'
 import Button from 'src/@components/common/Button'
 import Input from 'src/@components/common/Input'
 import {useUserJoinForm} from 'src/@components/user/UserJoinForm/hooks'
-import {ChangeUserInputArgs, ChangeUserInputErrorArgs, UserInputStatus} from 'src/@pages/join/hooks'
+import {ChangeUserJoinInputArgs, ChangeUserJoinInputErrorArgs, UserInputStatus} from 'src/@pages/join/hooks'
 
 import * as Styled from './style'
 
 export interface UserJoinFormProps extends UserInputStatus {
-    changeUserInput: (args: ChangeUserInputArgs) => void
-    changeUserErrorInput: (args: ChangeUserInputErrorArgs) => void
+    changeUserJoinInput: (args: ChangeUserJoinInputArgs) => void
+    changeUserJoinInputError: (args: ChangeUserJoinInputErrorArgs) => void
     submitUserJoinForm: FormEventHandler<HTMLFormElement>
 }
 
