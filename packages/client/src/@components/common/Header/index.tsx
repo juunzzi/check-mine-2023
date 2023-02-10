@@ -10,7 +10,7 @@ const Header = () => {
                 <Icon icon={LogoIcon} size="100" />
             </Styled.Main>
             <Styled.User to={PATH.LOGIN}>
-                <Icon icon={UserIcon} size="32" />
+                <Icon icon={UserIcon} size="24" />
             </Styled.User>
         </Styled.Container>
     )
