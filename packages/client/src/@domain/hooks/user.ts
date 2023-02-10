@@ -1,14 +1,18 @@
 import {RES_MSG} from 'payment_common/module/constant'
+import {useLoading} from 'src/@components/common/Loading/hooks'
 import {useToast} from 'src/@components/common/Toast/hooks'
 import {hasAxiosResponseAxiosErrorType, hasErrorMessageAxiosResponseType} from 'src/@domain/api'
 import USER_API, {JoinUserRequestBody} from 'src/@domain/api/user'
 import {avoidRepeatRequest} from 'src/common/util/func'
 
 export const useMutateUserDomain = () => {
+    const {showLoading, hideLoading} = useLoading()
     const {showToastMessage} = useToast()
 
     const joinUser = async (args: JoinUserRequestBody) => {
         try {
+            showLoading()
+
             await USER_API.join(args)
 
             showToastMessage('회원가입에 성공하였습니다', 'success')
@@ -42,6 +46,8 @@ export const useMutateUserDomain = () => {
             return {
                 message: RES_MSG.FAILURE,
             }
+        } finally {
+            hideLoading()
         }
     }
 

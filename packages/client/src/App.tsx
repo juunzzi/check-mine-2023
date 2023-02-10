@@ -1,6 +1,7 @@
 import {Global, ThemeProvider} from '@emotion/react'
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 import {BrowserRouter} from 'react-router-dom'
+import LoadingProvider from 'src/@components/common/Loading/provider'
 import ToastProvider from 'src/@components/common/Toast/Provider'
 import globalStyle from 'src/common/styles/globalStyle'
 import theme from 'src/common/styles/theme'
@@ -25,10 +26,12 @@ const App = () => {
         <BrowserRouter>
             <QueryClientProvider client={queryClient}>
                 <ThemeProvider theme={theme}>
-                    <ToastProvider>
-                        <Global styles={globalStyle} />
-                        <Router />
-                    </ToastProvider>
+                    <LoadingProvider>
+                        <ToastProvider>
+                            <Global styles={globalStyle} />
+                            <Router />
+                        </ToastProvider>
+                    </LoadingProvider>
                 </ThemeProvider>
             </QueryClientProvider>
         </BrowserRouter>
