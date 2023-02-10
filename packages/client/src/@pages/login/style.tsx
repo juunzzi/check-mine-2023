@@ -27,7 +27,7 @@ export const JoinLink = styled(Link)`
         transition: 0.5s color;
 
         &:hover {
-            color: ${theme.colors.primary_200};
+            color: ${theme.colors.primary_300};
         }
     `}
 `

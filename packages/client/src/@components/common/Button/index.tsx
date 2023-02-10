@@ -15,7 +15,7 @@ const Button = styled.button`
     }
 
     ${({theme}) => css`
-        background-color: ${theme.colors.primary_400};
+        background-color: ${theme.colors.primary_300};
         color: ${theme.colors.white_100};
     `}
 `
