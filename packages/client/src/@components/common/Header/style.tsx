@@ -23,6 +23,6 @@ export const Profile = styled.div`
     font-size: 1.2rem;
 
     ${({theme}) => css`
-        color: ${theme.colors.primary_600};
+        color: ${theme.colors.primary_300};
     `};
 `
