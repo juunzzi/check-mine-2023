@@ -90,6 +90,7 @@ export const useMutateUserDomain = () => {
             } = await USER_API.login(args)
 
             localStorage.setItem(USER_ATHORIZATION_TOKEN_KEY, accessToken)
+            client.defaults.headers['Authorization'] = `Bearer ${accessToken}`
 
             showToastMessage('로그인에 성공하였습니다', 'success')
 
