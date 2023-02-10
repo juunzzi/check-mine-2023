@@ -1,16 +1,16 @@
 import {PropsWithChildren} from 'react'
 import Header from 'src/@components/common/Header'
 
-import * as Style from './style'
+import * as Styled from './style'
 
 const PageTemplate = ({children}: PropsWithChildren) => {
     return (
-        <Style.Container>
-            <Style.Inner>
+        <Styled.Container>
+            <Styled.Inner>
                 <Header />
                 {children}
-            </Style.Inner>
-        </Style.Container>
+            </Styled.Inner>
+        </Styled.Container>
     )
 }
 

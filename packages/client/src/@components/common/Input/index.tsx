@@ -1,6 +1,6 @@
 import {InputHTMLAttributes} from 'react'
 
-import * as Style from './style'
+import * as Styled from './style'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     label: string
@@ -12,11 +12,11 @@ const Input = (props: InputProps) => {
     const {id, label, errorText, isError, ...inputAttribute} = props
 
     return (
-        <Style.Container isError={isError}>
-            <Style.Label htmlFor={id}>{label}</Style.Label>
-            <Style.Input id={id} {...inputAttribute} />
-            <Style.Error isError={isError}>{errorText}</Style.Error>
-        </Style.Container>
+        <Styled.Container isError={isError}>
+            <Styled.Label htmlFor={id}>{label}</Styled.Label>
+            <Styled.Input id={id} {...inputAttribute} />
+            <Styled.Error isError={isError}>{errorText}</Styled.Error>
+        </Styled.Container>
     )
 }
 

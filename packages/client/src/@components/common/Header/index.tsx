@@ -1,18 +1,18 @@
 import Icon, {mainIcon, userIcon} from 'src/@components/common/Icon'
 import {PATH} from 'src/Router'
 
-import * as Style from './style'
+import * as Styled from './style'
 
 const Header = () => {
     return (
-        <Style.Container>
-            <Style.Main to={PATH.MAIN}>
+        <Styled.Container>
+            <Styled.Main to={PATH.MAIN}>
                 <Icon icon={mainIcon} size="32" />
-            </Style.Main>
-            <Style.User to={PATH.LOGIN}>
+            </Styled.Main>
+            <Styled.User to={PATH.LOGIN}>
                 <Icon icon={userIcon} size="32" />
-            </Style.User>
-        </Style.Container>
+            </Styled.User>
+        </Styled.Container>
     )
 }
 
