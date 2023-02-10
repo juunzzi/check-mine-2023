@@ -46,6 +46,7 @@ const UserJoinForm = (props: UserJoinFormProps) => {
                 label="이름 (2~6자)"
                 isError={isNameError}
                 errorText="이름은 2~6 글자의 영문, 한글만 가능합니다."
+                required
             />
             <Input
                 type="email"
@@ -55,6 +56,7 @@ const UserJoinForm = (props: UserJoinFormProps) => {
                 label="이메일"
                 isError={isEmailError}
                 errorText="이메일 양식을 지켜주세요"
+                required
             />
             <Input
                 type="password"
@@ -64,6 +66,7 @@ const UserJoinForm = (props: UserJoinFormProps) => {
                 label="비밀번호 (최소 8자, 하나 이상의 영문자)"
                 isError={isPasswordError}
                 errorText="비밀번호는 최소 8자이고, 하나 이상의 영문자가 입력되어야 합니다."
+                required
             />
             <Input
                 type="password"
@@ -73,6 +76,7 @@ const UserJoinForm = (props: UserJoinFormProps) => {
                 label="비밀번호 확인"
                 isError={isPasswordReEnterError}
                 errorText="비밀번호가 동일하지 않습니다."
+                required
             />
             <Input
                 value={payPoint.toLocaleString('ko-kr')}
@@ -81,8 +85,9 @@ const UserJoinForm = (props: UserJoinFormProps) => {
                 label="페이 포인트  (200만 포인트 미만)"
                 isError={isPayPointError}
                 errorText="숫자만 입력이 가능합니다."
+                required
             />
-            <Button>제출</Button>
+            <Button>회원가입</Button>
         </Styled.FormConainer>
     )
 }

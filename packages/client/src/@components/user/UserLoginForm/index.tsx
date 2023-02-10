@@ -29,6 +29,7 @@ const UserLoginForm = (props: UserLoginFormProps) => {
                 label="이메일"
                 isError={isEmailError}
                 errorText="이메일 양식을 지켜주세요"
+                required
             />
             <Input
                 type="password"
@@ -38,6 +39,7 @@ const UserLoginForm = (props: UserLoginFormProps) => {
                 label="비밀번호 (최소 8자, 하나 이상의 영문자)"
                 isError={isPasswordError}
                 errorText="비밀번호는 최소 8자이고, 하나 이상의 영문자가 입력되어야 합니다."
+                required
             />
             <Button>로그인</Button>
         </Styled.FormConainer>
