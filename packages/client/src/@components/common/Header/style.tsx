@@ -1,3 +1,4 @@
+import {css} from '@emotion/react'
 import styled from '@emotion/styled'
 import {Link} from 'react-router-dom'
 
@@ -15,4 +16,13 @@ export const Main = styled(Link)`
 
 export const User = styled(Link)`
     cursor: pointer;
+`
+
+export const Profile = styled.div`
+    font-weight: bold;
+    font-size: 1.2rem;
+
+    ${({theme}) => css`
+        color: ${theme.colors.primary_600};
+    `};
 `

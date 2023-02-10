@@ -1,9 +1,39 @@
+import {useQuery, useQueryClient} from '@tanstack/react-query'
 import {RES_MSG} from 'payment_common/module/constant'
 import {useLoading} from 'src/@components/common/Loading/hooks'
 import {useToast} from 'src/@components/common/Toast/hooks'
-import {hasAxiosResponseAxiosErrorType, hasErrorMessageAxiosResponseType} from 'src/@domain/api'
+import {client, hasAxiosResponseAxiosErrorType, hasErrorMessageAxiosResponseType} from 'src/@domain/api'
 import USER_API, {JoinUserRequestBody, LoginUserRequestBody, USER_ATHORIZATION_TOKEN_KEY} from 'src/@domain/api/user'
 import {avoidRepeatRequest} from 'src/common/util/func'
+
+const QUERY_KEY = {
+    me: 'me',
+}
+
+export const useFetchMe = () => {
+    const {data: response, isLoading} = useQuery([QUERY_KEY.me], USER_API.me, {
+        suspense: false,
+        refetchOnWindowFocus: false,
+        useErrorBoundary: false,
+        enabled: Boolean(localStorage.getItem('user-authorization-token')),
+    })
+
+    const queryClient = useQueryClient()
+
+    const logout = () => {
+        client.defaults.headers['Authorization'] = ''
+
+        localStorage.removeItem('user-authorization-token')
+
+        queryClient.clear()
+    }
+
+    return {
+        me: response?.data,
+        isLoading,
+        logout,
+    }
+}
 
 export const useMutateUserDomain = () => {
     const {showLoading, hideLoading} = useLoading()

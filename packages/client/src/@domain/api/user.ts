@@ -11,12 +11,21 @@ export interface LoginUserResponseBody {
     data: {accessToken: string}
 }
 
+export type GetMeResponseBody = {
+    data: User
+}
+
 const USER_API = {
     join: (body: JoinUserRequestBody) => {
         return client.post<JoinUserResponseBody>('/users/join', body)
     },
     login: async (body: LoginUserRequestBody) => {
         const {data} = await client.post<LoginUserResponseBody>('/users/login', body)
+
+        return data
+    },
+    me: async () => {
+        const {data} = await client.get<GetMeResponseBody>('/users/me')
 
         return data
     },
