@@ -24,7 +24,7 @@ export const Container = styled.div<{status: ToastStatus; isActive: boolean}>`
 
         if (status === 'success') {
             return css`
-                background-color: ${theme.colors.green_500};
+                background-color: ${theme.colors.primary_300};
             `
         }
 
