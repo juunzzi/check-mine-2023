@@ -61,7 +61,7 @@ export const useMutateUserDomain = () => {
 
             localStorage.setItem('user-authorization-token', accessToken)
 
-            showToastMessage('회원가입에 성공하였습니다', 'success')
+            showToastMessage('로그인에 성공하였습니다', 'success')
 
             return {
                 data: {
