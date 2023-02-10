@@ -1,4 +1,4 @@
-import Icon, {MainIcon, UserIcon} from 'src/@components/common/Icon'
+import Icon, {LogoIcon, UserIcon} from 'src/@components/common/Icon'
 import {PATH} from 'src/Router'
 
 import * as Styled from './style'
@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <Styled.Container>
             <Styled.Main to={PATH.MAIN}>
-                <Icon icon={MainIcon} size="32" />
+                <Icon icon={LogoIcon} size="100" />
             </Styled.Main>
             <Styled.User to={PATH.LOGIN}>
                 <Icon icon={UserIcon} size="32" />
