@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom'
 import Dimmed from 'src/@components/common/Dimmed'
-import logoImg from 'src/common/assets/img/logo-img.png'
+import Icon, {logoIcon} from 'src/@components/common/Icon'
 
 import * as Styled from './style'
 
@@ -8,7 +8,7 @@ const Loading = () => {
     return ReactDOM.createPortal(
         <Dimmed>
             <Styled.Root>
-                <img src={logoImg} alt="로고" width="120" />
+                <Icon icon={logoIcon} />
             </Styled.Root>
         </Dimmed>,
         document.querySelector('#root') as Element,
