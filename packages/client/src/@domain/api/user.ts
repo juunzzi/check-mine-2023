@@ -1,6 +1,8 @@
 import {client} from 'src/@domain/api'
 import {User} from 'src/@domain/types/user'
 
+export const USER_ATHORIZATION_TOKEN_KEY = 'user-authorization-token'
+
 export type JoinUserRequestBody = Omit<User, 'id' | 'accountId'>
 export type JoinUserResponseBody = undefined
 
