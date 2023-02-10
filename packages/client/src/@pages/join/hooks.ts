@@ -1,5 +1,6 @@
 import {FormEventHandler, useState} from 'react'
 import {useNavigate} from 'react-router-dom'
+import {useToast} from 'src/@components/common/Toast/hooks'
 import {useMutateUserDomain} from 'src/@domain/hooks/user'
 import {PATH} from 'src/Router'
 
@@ -50,6 +51,8 @@ export const useUserJoinPage = () => {
 
     const navigate = useNavigate()
 
+    const {showToastMessage} = useToast()
+
     const {joinUser} = useMutateUserDomain()
 
     const changeUserJoinInput = ({key, value}: ChangeUserJoinInputArgs) => {
@@ -69,7 +72,9 @@ export const useUserJoinPage = () => {
     const submitUserJoinForm: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault()
 
-        if (Object.values(userJoinInput).some(({isError}) => isError)) {
+        if (Object.values(userJoinInputError).some((isError) => isError)) {
+            showToastMessage('입력 양식을 확인해주세요', 'error')
+
             return
         }
 
