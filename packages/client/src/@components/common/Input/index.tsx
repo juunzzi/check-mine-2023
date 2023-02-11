@@ -1,4 +1,5 @@
-import {InputHTMLAttributes} from 'react'
+import {InputHTMLAttributes, useState} from 'react'
+import Icon, {EyeCloseIcon, EyeIcon} from 'src/@components/common/Icon'
 
 import * as Styled from './style'
 
@@ -8,13 +9,36 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     isError?: boolean
 }
 
-const Input = (props: InputProps) => {
+export const Input = (props: InputProps) => {
     const {id, label, errorText, isError, ...inputAttribute} = props
 
     return (
         <Styled.Container isError={isError}>
             <Styled.Label htmlFor={id}>{label}</Styled.Label>
             <Styled.Input id={id} {...inputAttribute} />
+            <Styled.Error isError={isError}>{errorText}</Styled.Error>
+        </Styled.Container>
+    )
+}
+
+export const EncryptionInput = (props: InputProps) => {
+    const {id, label, errorText, isError, type = 'password', ...inputAttribute} = props
+
+    const [isEncryption, setIsEncryption] = useState(true)
+
+    const onClickEncryptionButton = () => {
+        setIsEncryption((prev) => !prev)
+    }
+
+    return (
+        <Styled.Container isError={isError}>
+            <Styled.Label htmlFor={id}>{label}</Styled.Label>
+            <Styled.EncrytionInputWrapper>
+                <Styled.Input id={id} type={isEncryption ? type : 'text'} {...inputAttribute} />
+                <Styled.EncryptionButton onClick={onClickEncryptionButton}>
+                    {isEncryption ? <Icon icon={EyeIcon} size="18" /> : <Icon icon={EyeCloseIcon} size="18" />}
+                </Styled.EncryptionButton>
+            </Styled.EncrytionInputWrapper>
             <Styled.Error isError={isError}>{errorText}</Styled.Error>
         </Styled.Container>
     )
@@ -27,7 +51,7 @@ interface SelectInputProps extends InputHTMLAttributes<HTMLSelectElement> {
     isError?: boolean
 }
 
-Input.Select = (props: SelectInputProps) => {
+export const SelectInput = (props: SelectInputProps) => {
     const {id, value, onChange, label, optionList, ...inputAttribute} = props
 
     return (
@@ -43,5 +67,3 @@ Input.Select = (props: SelectInputProps) => {
         </Styled.Container>
     )
 }
-
-export default Input

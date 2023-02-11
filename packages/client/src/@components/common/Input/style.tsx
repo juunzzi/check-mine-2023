@@ -2,7 +2,7 @@ import {css} from '@emotion/react'
 import styled from '@emotion/styled'
 
 export const Container = styled.div<{isError?: boolean}>`
-    width: 330px;
+    width: 100%;
 
     display: flex;
     flex-direction: column;
@@ -11,7 +11,7 @@ export const Container = styled.div<{isError?: boolean}>`
     ${({isError = false, theme}) => css`
         color: ${isError ? theme.colors.red_800 : 'inherit'};
 
-        & > input,
+        & input,
         select {
             border: 1px ${isError ? theme.colors.red_800 : theme.colors.light_grey_200} solid;
         }
@@ -23,6 +23,8 @@ export const Label = styled.label`
 `
 
 export const Input = styled.input`
+    width: 100%;
+
     padding: 8px 5px;
 
     border-radius: 4px;
@@ -41,6 +43,8 @@ export const Error = styled.div<{isError?: boolean}>`
 `
 
 export const SelectInput = styled.select`
+    width: 100%;
+
     padding: 8px 0;
 
     border-radius: 4px;
@@ -48,6 +52,19 @@ export const SelectInput = styled.select`
     margin-bottom: 8px;
 
     font-size: 0.9rem;
+
+    cursor: pointer;
+`
+
+export const EncrytionInputWrapper = styled.div`
+    position: relative;
+`
+
+export const EncryptionButton = styled.div`
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
 
     cursor: pointer;
 `
