@@ -21,7 +21,7 @@ export const isValidUserPassword = (password: string) => {
 }
 
 export const isValidUserPayPoint = (payPoint: number) => {
-    return !isNaN(payPoint) && payPoint >= 0 && payPoint < 2000000
+    return !isNaN(payPoint) && payPoint >= 0 && payPoint <= 2000000
 }
 
 /** Account */
@@ -37,5 +37,5 @@ export const isValidAccountNumber = (accountNumber: string) => {
 }
 
 export const isValidAccountAmount = (accountAmount: number) => {
-    return accountAmount >= 0 && accountAmount < 2000000
+    return !isNaN(accountAmount) && accountAmount >= 0 && accountAmount <= 2000000
 }
