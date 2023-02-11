@@ -1,5 +1,5 @@
 import {useLocation} from 'react-router-dom'
-import AccountCreateLoadingFallback from 'src/@pages/account-create/loading-fallback'
+import AccountCreatePageLoadingFallback from 'src/@pages/account/create/loading-fallback'
 import JoinPageLoadingFallback from 'src/@pages/join/loading-fallback'
 import LoginPageLoadingFallback from 'src/@pages/login/loading-fallback'
 import MainPageLoadingFallback from 'src/@pages/main/loading-fallback'
@@ -32,7 +32,7 @@ const PageLoadingFallback = () => {
     }
 
     if (pathname === PATH.ACCOUNT_CREATE) {
-        return <AccountCreateLoadingFallback />
+        return <AccountCreatePageLoadingFallback />
     }
 
     return <NotFoundPageLoadingFallback />

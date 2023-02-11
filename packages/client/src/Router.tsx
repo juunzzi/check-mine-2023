@@ -1,7 +1,7 @@
 import {lazy, Suspense} from 'react'
 import {Routes, Route} from 'react-router-dom'
 import PageLoadingFallback from 'src/@components/common/PageLoadingFallback'
-import AccountCreatePage from 'src/@pages/account-create'
+import AccountCreatePage from 'src/@pages/account/create'
 import ProfilePage from 'src/@pages/profile'
 
 export const PATH = {
@@ -10,7 +10,7 @@ export const PATH = {
     JOIN: '/join',
     PAYMENT: '/payment',
     PROFILE: '/profile',
-    ACCOUNT_CREATE: '/account-create',
+    ACCOUNT_CREATE: '/account/create',
     NOT_FOUND: '/*',
 } as const
 
