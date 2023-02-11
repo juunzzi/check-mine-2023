@@ -11,6 +11,10 @@ const ProfilePage = () => {
 
     const {logout} = useFetchMe()
 
+    const onClickAccountCreateButton = () => {
+        navigate(PATH.ACCOUNT_CREATE)
+    }
+
     const onClickLogoutButton = () => {
         logout()
 
@@ -20,6 +24,7 @@ const ProfilePage = () => {
     return (
         <PageTemplate>
             <Styled.Container>
+                <Button onClick={onClickAccountCreateButton}>계좌 생성</Button>
                 <Button onClick={onClickLogoutButton}>로그아웃</Button>
             </Styled.Container>
         </PageTemplate>
