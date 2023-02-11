@@ -15,3 +15,7 @@ export type RES_MSG_TYPE = (typeof RES_MSG)[keyof typeof RES_MSG]
 export const isResMsgType = (resMsg: any): resMsg is RES_MSG_TYPE => {
     return Object.values(RES_MSG).includes(resMsg)
 }
+
+export const BANK = ['국민은행', '신한은행', '토스뱅크'] as const
+
+export type Bank = (typeof BANK)[number]
