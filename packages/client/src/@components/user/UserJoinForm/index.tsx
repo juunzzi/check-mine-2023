@@ -1,6 +1,6 @@
 import {FormEventHandler} from 'react'
 import Button from 'src/@components/common/Button'
-import Input from 'src/@components/common/Input'
+import {EncryptionInput, Input} from 'src/@components/common/Input'
 import {useUserJoinForm} from 'src/@components/user/UserJoinForm/hooks'
 import {ChangeUserJoinInputArgs, ChangeUserJoinInputErrorArgs, UserInputStatus} from 'src/@pages/join/hooks'
 
@@ -40,6 +40,7 @@ const UserJoinForm = (props: UserJoinFormProps) => {
     return (
         <Styled.FormConainer onSubmit={submitUserJoinForm}>
             <Input
+                id="user-join-name-input"
                 value={name}
                 onChange={onChangeNameInput}
                 placeholder="이름을 입력해주세요 (2~6자)"
@@ -49,6 +50,7 @@ const UserJoinForm = (props: UserJoinFormProps) => {
                 required
             />
             <Input
+                id="user-join-email-input"
                 type="email"
                 value={email}
                 onChange={onChangeEmailInput}
@@ -58,8 +60,8 @@ const UserJoinForm = (props: UserJoinFormProps) => {
                 errorText="이메일 양식을 지켜주세요"
                 required
             />
-            <Input
-                type="password"
+            <EncryptionInput
+                id="user-join-password-input"
                 value={password}
                 onChange={onChangePasswordInput}
                 placeholder="비밀번호를 입력해주세요 (최소 8자, 하나 이상의 영문자)"
@@ -68,8 +70,8 @@ const UserJoinForm = (props: UserJoinFormProps) => {
                 errorText="비밀번호는 최소 8자이고, 하나 이상의 영문자가 입력되어야 합니다."
                 required
             />
-            <Input
-                type="password"
+            <EncryptionInput
+                id="user-join-password-reenter-input"
                 value={passwordReEnter}
                 onChange={onChangePasswordReEnterInput}
                 placeholder="비밀번호를 재입력해주세요"
@@ -79,6 +81,7 @@ const UserJoinForm = (props: UserJoinFormProps) => {
                 required
             />
             <Input
+                id="user-join-pay-point-input"
                 value={payPoint.toLocaleString('ko-kr')}
                 onChange={onChangePayPointInput}
                 placeholder="페이 포인트를 입력해주세요"

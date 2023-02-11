@@ -1,6 +1,6 @@
 import {FormEventHandler} from 'react'
 import Button from 'src/@components/common/Button'
-import Input from 'src/@components/common/Input'
+import {EncryptionInput, Input} from 'src/@components/common/Input'
 import {useUserLoginForm} from 'src/@components/user/UserLoginForm/hooks'
 import {ChangeUserLoginInputArgs, ChangeUserLoginInputErrorArgs, UserLoginInputStatus} from 'src/@pages/login/hooks'
 
@@ -22,6 +22,7 @@ const UserLoginForm = (props: UserLoginFormProps) => {
     return (
         <Styled.FormConainer onSubmit={submitUserLoginForm}>
             <Input
+                id="user-login-email-input"
                 type="email"
                 value={email}
                 onChange={onChangeEmailInput}
@@ -31,8 +32,8 @@ const UserLoginForm = (props: UserLoginFormProps) => {
                 errorText="이메일 양식을 지켜주세요"
                 required
             />
-            <Input
-                type="password"
+            <EncryptionInput
+                id="user-login-password-input"
                 value={password}
                 onChange={onChangePasswordInput}
                 placeholder="비밀번호를 입력해주세요 (최소 8자, 하나 이상의 영문자)"

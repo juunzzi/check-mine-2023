@@ -2,7 +2,7 @@ import {BANK} from 'payment_common/module/constant'
 import {FormEventHandler} from 'react'
 import {useAccountCreateForm} from 'src/@components/account/AccountCreateForm/hooks'
 import Button from 'src/@components/common/Button'
-import Input from 'src/@components/common/Input'
+import {EncryptionInput, Input, SelectInput} from 'src/@components/common/Input'
 import {
     AccountCreateInputStatus,
     ChangeAccountCreateInputArgs,
@@ -26,15 +26,15 @@ const AccountCreateForm = (props: AccountCreateFormProps) => {
 
     return (
         <Styled.FormConainer onSubmit={submitAccountCreateForm}>
-            <Input.Select
-                id="account_form_bank_select"
+            <SelectInput
+                id="account-create-bank-select"
                 value={bankName}
                 onChange={onChangeBankName}
                 label="은행 선택"
                 optionList={BANK}
             />
-            <Input
-                id="account_form_number_input"
+            <EncryptionInput
+                id="account-create-number-input"
                 value={number}
                 onChange={onChangeAccountNumber}
                 placeholder="계좌 번호를 입력해주세요 ( - 포함 )"
@@ -45,7 +45,7 @@ const AccountCreateForm = (props: AccountCreateFormProps) => {
                 required
             />
             <Input
-                id="account_form_amount_input"
+                id="account-create-amount-input"
                 value={amount.toLocaleString('ko-kr')}
                 onChange={onChangeAmount}
                 placeholder="계좌 금액를 입력해주세요"
