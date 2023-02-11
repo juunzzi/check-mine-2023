@@ -12,7 +12,7 @@ export const isValidUserPasswordReEnter = (password: string, passwordReEnter: st
 }
 
 export const useUserJoinForm = (props: UserJoinFormProps) => {
-    const {payPoint, password, changeUserJoinInput, changeUserJoinInputError} = props
+    const {password, changeUserJoinInput, changeUserJoinInputError} = props
 
     const onChangeNameInput: ChangeEventHandler<HTMLInputElement> = (e) => {
         const {
@@ -56,11 +56,16 @@ export const useUserJoinForm = (props: UserJoinFormProps) => {
         } = e
 
         const valueReplacedRestChar = value.replace(/,/g, '')
+        const valueAsNumber = Number(valueReplacedRestChar)
 
-        const numberAsValue = Number(valueReplacedRestChar)
-        const isValid = isValidUserPayPoint(numberAsValue)
+        if (isNaN(valueAsNumber)) {
+            return
+        }
 
-        changeUserJoinInput({key: 'payPoint', value: isValid ? numberAsValue : payPoint})
+        const isValid = isValidUserPayPoint(valueAsNumber)
+
+        changeUserJoinInput({key: 'payPoint', value: valueAsNumber})
+        changeUserJoinInputError({key: 'isPayPointError', value: !isValid})
     }
 
     return {

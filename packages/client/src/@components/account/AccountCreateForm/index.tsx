@@ -51,7 +51,8 @@ const AccountCreateForm = (props: AccountCreateFormProps) => {
                 placeholder="계좌 금액를 입력해주세요"
                 label="계좌 금액 (최대 200만원까지)"
                 isError={isAmountError}
-                errorText="숫자만 입력이 가능합니다."
+                errorText="200만원까지 가능합니다."
+                maxLength={10}
                 required
             />
             <Button>계좌생성</Button>

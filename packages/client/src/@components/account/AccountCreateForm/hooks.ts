@@ -3,7 +3,7 @@ import {ChangeEventHandler} from 'react'
 import {AccountCreateFormProps} from 'src/@components/account/AccountCreateForm'
 
 export const useAccountCreateForm = (props: AccountCreateFormProps) => {
-    const {amount, changeAccountCreateInput, changeAccountCreateInputError} = props
+    const {changeAccountCreateInput, changeAccountCreateInputError} = props
 
     const onChangeBankName: ChangeEventHandler<HTMLSelectElement> = (e) => {
         const {
@@ -32,11 +32,15 @@ export const useAccountCreateForm = (props: AccountCreateFormProps) => {
         } = e
 
         const valueReplacedRestChar = value.replace(/,/g, '')
+        const valueAsNumber = Number(valueReplacedRestChar)
 
-        const numberAsValue = Number(valueReplacedRestChar)
-        const isValid = isValidAccountAmount(numberAsValue)
+        if (isNaN(valueAsNumber)) {
+            return
+        }
 
-        changeAccountCreateInput({key: 'amount', value: isValid ? numberAsValue : amount})
+        const isValid = isValidAccountAmount(valueAsNumber)
+
+        changeAccountCreateInput({key: 'amount', value: valueAsNumber})
         changeAccountCreateInputError({key: 'isAmountError', value: !isValid})
     }
 

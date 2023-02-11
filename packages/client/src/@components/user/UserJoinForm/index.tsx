@@ -82,9 +82,10 @@ const UserJoinForm = (props: UserJoinFormProps) => {
                 value={payPoint.toLocaleString('ko-kr')}
                 onChange={onChangePayPointInput}
                 placeholder="페이 포인트를 입력해주세요"
-                label="페이 포인트  (200만 포인트 미만)"
+                label="페이 포인트 (최대 200만원까지)"
                 isError={isPayPointError}
-                errorText="숫자만 입력이 가능합니다."
+                errorText="200만원까지 가능합니다."
+                maxLength={10}
                 required
             />
             <Button>회원가입</Button>
