@@ -11,7 +11,7 @@ const QUERY_KEY = {
 }
 
 export const useFetchMe = () => {
-    const {data: response, isLoading} = useQuery([QUERY_KEY.me], USER_API.me, {
+    const {data: response, isInitialLoading} = useQuery([QUERY_KEY.me], USER_API.me, {
         suspense: false,
         refetchOnWindowFocus: false,
         useErrorBoundary: false,
@@ -30,7 +30,7 @@ export const useFetchMe = () => {
 
     return {
         me: response?.data,
-        isLoading,
+        isInitialLoading,
         logout,
     }
 }

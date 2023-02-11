@@ -22,9 +22,9 @@ const PaymentPage = lazy(() => import('src/@pages/payment'))
 const NotFoundPage = lazy(() => import('src/@pages/not-found'))
 
 export const LoginRedirectIfNotLoggedIn = () => {
-    const {me} = useFetchMe()
+    const {me, isInitialLoading} = useFetchMe()
 
-    if (!me) {
+    if (!me && !isInitialLoading) {
         return <Navigate to={PATH.LOGIN} replace />
     }
 
@@ -32,9 +32,9 @@ export const LoginRedirectIfNotLoggedIn = () => {
 }
 
 export const MainRedirectIfLoggedIn = () => {
-    const {me} = useFetchMe()
+    const {me, isInitialLoading} = useFetchMe()
 
-    if (me) {
+    if (me && !isInitialLoading) {
         return <Navigate to={PATH.MAIN} replace />
     }
 
