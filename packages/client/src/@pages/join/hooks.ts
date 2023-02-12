@@ -29,7 +29,7 @@ export interface ChangeUserJoinInputErrorArgs {
     value: boolean
 }
 
-export type UserInputStatus = UserJoinInputState & UserJoinInputErrorState
+export type UserJoinInputStatus = UserJoinInputState & UserJoinInputErrorState
 
 export const useUserJoinPage = () => {
     /** State를 객체로 선언하는 경우 1depth만 */
