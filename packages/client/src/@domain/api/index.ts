@@ -1,11 +1,12 @@
 import axios, {AxiosError, AxiosResponse} from 'axios'
+import {USER_ATHORIZATION_TOKEN_KEY} from 'src/@domain/api/user'
 
 export const API_URL = `${process.env.REACT_APP_API_URL}/api`
 
 export const client = axios.create({
     baseURL: API_URL,
     headers: {
-        Authorization: `Bearer ${localStorage.getItem('user-authorization-token')}`,
+        Authorization: `Bearer ${localStorage.getItem(USER_ATHORIZATION_TOKEN_KEY)}`,
     },
 })
 

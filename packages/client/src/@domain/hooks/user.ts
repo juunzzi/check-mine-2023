@@ -15,7 +15,7 @@ export const useFetchMe = () => {
         suspense: false,
         refetchOnWindowFocus: false,
         useErrorBoundary: false,
-        enabled: Boolean(localStorage.getItem('user-authorization-token')),
+        enabled: Boolean(localStorage.getItem(USER_ATHORIZATION_TOKEN_KEY)),
     })
 
     const queryClient = useQueryClient()
@@ -23,7 +23,7 @@ export const useFetchMe = () => {
     const logout = () => {
         client.defaults.headers['Authorization'] = ''
 
-        localStorage.removeItem('user-authorization-token')
+        localStorage.removeItem(USER_ATHORIZATION_TOKEN_KEY)
 
         queryClient.clear()
     }
