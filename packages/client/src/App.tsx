@@ -1,6 +1,7 @@
 import {Global, ThemeProvider} from '@emotion/react'
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 import {BrowserRouter} from 'react-router-dom'
+import ErrorBoundaryWithHooks from 'src/@components/common/ErrorBoundary'
 import LoadingProvider from 'src/@components/common/Loading/provider'
 import ToastProvider from 'src/@components/common/Toast/Provider'
 import globalStyle from 'src/common/styles/globalStyle'
@@ -28,8 +29,10 @@ const App = () => {
                 <ThemeProvider theme={theme}>
                     <LoadingProvider>
                         <ToastProvider>
-                            <Global styles={globalStyle} />
-                            <Router />
+                            <ErrorBoundaryWithHooks>
+                                <Global styles={globalStyle} />
+                                <Router />
+                            </ErrorBoundaryWithHooks>
                         </ToastProvider>
                     </LoadingProvider>
                 </ThemeProvider>
