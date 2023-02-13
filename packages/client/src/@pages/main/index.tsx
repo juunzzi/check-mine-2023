@@ -1,5 +1,5 @@
 import PageTemplate from 'src/@components/common/PageTemplate'
-import UserPaymentInfo from 'src/@components/user/UserPaymentInfo'
+import UserPayment from 'src/@components/user/UserPayment'
 
 import * as Styled from './style'
 
@@ -7,9 +7,10 @@ const MainPage = () => {
     return (
         <PageTemplate>
             <Styled.Container>
-                <Styled.UserPaymentInfoContainer>
-                    <UserPaymentInfo />
-                </Styled.UserPaymentInfoContainer>
+                <Styled.UserPaymentContainer>
+                    <Styled.UserPaymentHeader>현장결제</Styled.UserPaymentHeader>
+                    <UserPayment />
+                </Styled.UserPaymentContainer>
             </Styled.Container>
         </PageTemplate>
     )
