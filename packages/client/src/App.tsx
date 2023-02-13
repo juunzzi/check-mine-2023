@@ -1,9 +1,10 @@
 import {Global, ThemeProvider} from '@emotion/react'
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 import {BrowserRouter} from 'react-router-dom'
-import ErrorBoundaryWithHooks from 'src/@components/common/ErrorBoundary'
+import ErrorBoundary from 'src/@components/common/ErrorBoundary'
 import LoadingProvider from 'src/@components/common/Loading/provider'
 import ToastProvider from 'src/@components/common/Toast/Provider'
+import ErrorPage from 'src/@pages/error'
 import globalStyle from 'src/common/styles/globalStyle'
 import theme from 'src/common/styles/theme'
 import Router from 'src/Router'
@@ -29,10 +30,10 @@ const App = () => {
                 <ThemeProvider theme={theme}>
                     <LoadingProvider>
                         <ToastProvider>
-                            <ErrorBoundaryWithHooks>
+                            <ErrorBoundary fallback={ErrorPage}>
                                 <Global styles={globalStyle} />
                                 <Router />
-                            </ErrorBoundaryWithHooks>
+                            </ErrorBoundary>
                         </ToastProvider>
                     </LoadingProvider>
                 </ThemeProvider>

@@ -1,15 +1,10 @@
-import {useQueryClient} from '@tanstack/react-query'
 import {Component, PropsWithChildren} from 'react'
-import {useNavigate} from 'react-router-dom'
-import Icon, {MainIcon, ReloadIcon} from 'src/@components/common/Icon'
-import PageTemplate from 'src/@components/common/PageTemplate'
-import {PATH} from 'src/Router'
 
-import * as Styled from './style'
-
+export interface ErrorBoundaryFallbackProps {
+    resetErrorState: () => void
+}
 export interface ErrorBoundaryProps {
-    onReset?: () => void
-    onEscape?: () => void
+    fallback: React.FC<ErrorBoundaryFallbackProps>
 }
 
 interface ErrorBoundaryState {
@@ -21,13 +16,7 @@ class ErrorBoundary extends Component<PropsWithChildren<ErrorBoundaryProps>, Err
         error: null,
     }
 
-    onClickReset = () => {
-        this.props.onReset?.()
-        this.setState({error: null})
-    }
-
-    onClickMain = () => {
-        this.props.onEscape?.()
+    resetErrorState = () => {
         this.setState({error: null})
     }
 
@@ -36,50 +25,16 @@ class ErrorBoundary extends Component<PropsWithChildren<ErrorBoundaryProps>, Err
     }
 
     render() {
-        const {children} = this.props
+        const {children, fallback: Fallback} = this.props
 
         const {error} = this.state
 
         if (error) {
-            return (
-                <PageTemplate>
-                    <Styled.Containter>
-                        <Styled.ErrorMessage>
-                            <p>서비스에 문제가 발생했어요!</p>
-                            <p>다시 시도하시거나 메인 화면으로 이동해주세요</p>
-                        </Styled.ErrorMessage>
-                        <Styled.ButtonWrapper>
-                            <Styled.Button onClick={this.onClickReset}>
-                                <Icon icon={ReloadIcon} size={28} />
-                                <span>다시 시도하기</span>
-                            </Styled.Button>
-                            <Styled.Button onClick={this.onClickMain}>
-                                <Icon icon={MainIcon} size={28} />
-                                <span>메인으로</span>
-                            </Styled.Button>
-                        </Styled.ButtonWrapper>
-                    </Styled.Containter>
-                </PageTemplate>
-            )
+            return <Fallback resetErrorState={this.resetErrorState} />
         }
 
         return children
     }
 }
 
-const ErrorBoundaryWithHooks = (props: PropsWithChildren) => {
-    const queryClient = useQueryClient()
-    const navigate = useNavigate()
-
-    const resetError = () => {
-        queryClient.clear()
-    }
-
-    const routeMain = () => {
-        navigate(PATH.MAIN)
-    }
-
-    return <ErrorBoundary onReset={resetError} onEscape={routeMain} {...props} />
-}
-
-export default ErrorBoundaryWithHooks
+export default ErrorBoundary
