@@ -46,7 +46,7 @@ export const EncryptionInput = (props: InputProps) => {
 
 interface SelectInputProps extends InputHTMLAttributes<HTMLSelectElement> {
     label: string
-    optionList: any[] | readonly any[]
+    optionList: readonly any[]
     errorText?: string
     isError?: boolean
 }
