@@ -1,5 +1,6 @@
 import {QRCodeSVG} from 'qrcode.react'
 import {Suspense} from 'react'
+import ErrorBoundary from 'src/@components/common/ErrorBoundary'
 import UserPaymentBarcodeErrorFallback from 'src/@components/user/UserPayment/UserPaymentBarcode/error-fallback'
 import UserPaymentBarcodeLoadingFallback from 'src/@components/user/UserPayment/UserPaymentBarcode/loading-fallback'
 import {useFetchBarcode} from 'src/@domain/hooks/user'
@@ -21,13 +22,12 @@ const UserPaymentBarcode = () => {
     )
 }
 
-export const UserPaymentBarcodeWrappedInSuspense = () => {
+export default () => {
     return (
-        <Suspense fallback={<UserPaymentBarcodeLoadingFallback />}>
-            <UserPaymentBarcode />
-            <UserPaymentBarcodeErrorFallback />
-        </Suspense>
+        <ErrorBoundary fallback={UserPaymentBarcodeErrorFallback}>
+            <Suspense fallback={<UserPaymentBarcodeLoadingFallback />}>
+                <UserPaymentBarcode />
+            </Suspense>
+        </ErrorBoundary>
     )
 }
-
-export default UserPaymentBarcode
