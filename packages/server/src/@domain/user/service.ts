@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt'
-import {RES_MSG} from 'payment_common/module/constant'
+import {BARCODE_TOKEN_EXPIRATION, RES_MSG} from 'payment_common/module/constant'
 import {generateAccessToken} from 'src/@domain/user/modules/jwt'
 import * as DB from 'src/@domain/user/modules/query'
 import {isValidEditUserInput, isValidCreateUserInput} from 'src/@domain/user/modules/validation'
@@ -13,7 +13,7 @@ export const getUser = async (id: number) => {
 }
 
 export const getBarcode = (id: number) => {
-    const barcodeToken = generateAccessToken(id, 15 * 60 * 1000)
+    const barcodeToken = generateAccessToken(id, BARCODE_TOKEN_EXPIRATION)
     const message = barcodeToken ? RES_MSG.SUCCESS : RES_MSG.FAILURE
 
     return {data: barcodeToken, message}

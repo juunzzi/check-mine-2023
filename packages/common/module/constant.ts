@@ -19,3 +19,5 @@ export const isResMsgType = (resMsg: any): resMsg is RES_MSG_TYPE => {
 export const BANK = ['국민은행', '신한은행', '토스뱅크'] as const
 
 export type Bank = (typeof BANK)[number]
+
+export const BARCODE_TOKEN_EXPIRATION = 15 * 60 * 1000

@@ -1,5 +1,5 @@
 import {useQuery, useQueryClient} from '@tanstack/react-query'
-import {RES_MSG} from 'payment_common/module/constant'
+import {BARCODE_TOKEN_EXPIRATION, RES_MSG} from 'payment_common/module/constant'
 import {useLoading} from 'src/@components/common/Loading/hooks'
 import {useToast} from 'src/@components/common/Toast/hooks'
 import {client, hasAxiosResponseAxiosErrorType, hasErrorMessageAxiosResponseType} from 'src/@domain/api'
@@ -39,7 +39,7 @@ export const useFetchMe = () => {
 
 export const useFetchBarcode = () => {
     const {data: response} = useQuery([QUERY_KEY.getBarcode], USER_API.getBarcode, {
-        staleTime: 10000,
+        staleTime: BARCODE_TOKEN_EXPIRATION,
     })
 
     return {
