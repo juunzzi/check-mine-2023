@@ -10,19 +10,19 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const Input = (props: InputProps) => {
-    const {id, label, errorText, isError, ...inputAttribute} = props
+    const {id, label, errorText, isError, ...inputAttributes} = props
 
     return (
         <Styled.Container isError={isError}>
             <Styled.Label htmlFor={id}>{label}</Styled.Label>
-            <Styled.Input id={id} {...inputAttribute} />
+            <Styled.Input id={id} {...inputAttributes} />
             <Styled.Error isError={isError}>{errorText}</Styled.Error>
         </Styled.Container>
     )
 }
 
 export const EncryptionInput = (props: InputProps) => {
-    const {id, label, errorText, isError, type = 'password', ...inputAttribute} = props
+    const {id, label, errorText, isError, type = 'password', ...inputAttributes} = props
 
     const [isEncryption, setIsEncryption] = useState(true)
 
@@ -34,7 +34,7 @@ export const EncryptionInput = (props: InputProps) => {
         <Styled.Container isError={isError}>
             <Styled.Label htmlFor={id}>{label}</Styled.Label>
             <Styled.EncrytionInputWrapper>
-                <Styled.Input id={id} type={isEncryption ? type : 'text'} {...inputAttribute} />
+                <Styled.Input id={id} type={isEncryption ? type : 'text'} {...inputAttributes} />
                 <Styled.EncryptionButton onClick={onClickEncryptionButton}>
                     {isEncryption ? <Icon icon={EyeIcon} size="18" /> : <Icon icon={EyeCloseIcon} size="18" />}
                 </Styled.EncryptionButton>
@@ -52,12 +52,12 @@ interface SelectInputProps extends InputHTMLAttributes<HTMLSelectElement> {
 }
 
 export const SelectInput = (props: SelectInputProps) => {
-    const {id, value, onChange, label, optionList, ...inputAttribute} = props
+    const {id, value, onChange, label, optionList, ...inputAttributes} = props
 
     return (
         <Styled.Container>
             <Styled.Label htmlFor={id}>{label}</Styled.Label>
-            <Styled.SelectInput id={id} value={value} onChange={onChange} {...inputAttribute}>
+            <Styled.SelectInput id={id} value={value} onChange={onChange} {...inputAttributes}>
                 {optionList.map((optionValue) => (
                     <option key={optionValue} value={optionValue}>
                         {optionValue}
