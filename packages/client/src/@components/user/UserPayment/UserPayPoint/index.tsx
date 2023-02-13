@@ -4,7 +4,7 @@ import {useFetchMe} from 'src/@domain/hooks/user'
 
 import * as Styled from './style'
 
-const UserPayPoint = () => {
+const UserPayPointNaked = () => {
     const {me} = useFetchMe()
 
     return (
@@ -19,10 +19,12 @@ const UserPayPoint = () => {
     )
 }
 
-export default () => {
+const UserPayPoint = () => {
     return (
         <Suspense fallback={<UserPayPointLoadingFallback />}>
-            <UserPayPoint />
+            <UserPayPointNaked />
         </Suspense>
     )
 }
+
+export default UserPayPoint

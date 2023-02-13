@@ -9,7 +9,7 @@ import * as Styled from './style'
 
 const CLIENT_URL = process.env.REACT_APP_URL
 
-const UserPaymentBarcode = () => {
+const UserPaymentBarcodeNaked = () => {
     const {barcodeToken} = useFetchBarcode()
 
     const barcodeValue = `${CLIENT_URL}/order?qrcode=${barcodeToken}`
@@ -22,12 +22,14 @@ const UserPaymentBarcode = () => {
     )
 }
 
-export default () => {
+const UserPaymentBarcode = () => {
     return (
         <ErrorBoundary fallback={UserPaymentBarcodeErrorFallback}>
             <Suspense fallback={<UserPaymentBarcodeLoadingFallback />}>
-                <UserPaymentBarcode />
+                <UserPaymentBarcodeNaked />
             </Suspense>
         </ErrorBoundary>
     )
 }
+
+export default UserPaymentBarcode
