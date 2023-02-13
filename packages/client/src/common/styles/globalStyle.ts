@@ -71,6 +71,31 @@ const globalStyle = css`
             opacity: 0;
         }
     }
+
+    @-webkit-keyframes slide-in-bottom {
+        0% {
+            -webkit-transform: translateY(1000px);
+            transform: translateY(1000px);
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: translateY(-50%, -50%);
+            transform: translateY(-50%, -50%);
+            opacity: 1;
+        }
+    }
+    @keyframes slide-in-bottom {
+        0% {
+            -webkit-transform: translate(-50%, 1000px);
+            transform: translate(-50%, 1000px);
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            opacity: 1;
+        }
+    }
 `
 
 export default globalStyle
