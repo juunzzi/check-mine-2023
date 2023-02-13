@@ -5,4 +5,5 @@ export interface Account {
     bankName: Bank
     number: string
     amount: number
+    userId: number
 }

@@ -1,9 +1,24 @@
+import {useQuery} from '@tanstack/react-query'
 import {RES_MSG} from 'payment_common/module/constant'
 import {useLoading} from 'src/@components/common/Loading/hooks'
 import {useToast} from 'src/@components/common/Toast/hooks'
 import {hasAxiosResponseAxiosErrorType, hasErrorMessageAxiosResponseType} from 'src/@domain/api'
 import ACCOUNT_API, {AccountCreateRequestBody} from 'src/@domain/api/account'
 import {avoidRepeatRequest} from 'src/common/util/func'
+
+const QUERY_KEY = {
+    getAccount: 'getAccount',
+}
+
+export const useFetchAccount = () => {
+    const {data: response} = useQuery([QUERY_KEY.getAccount], ACCOUNT_API.get, {
+        staleTime: 10000,
+    })
+
+    return {
+        account: response?.data?.account,
+    }
+}
 
 export const useMutateAccountDomain = () => {
     const {showLoading, hideLoading} = useLoading()
