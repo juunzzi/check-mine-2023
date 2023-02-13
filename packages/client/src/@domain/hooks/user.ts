@@ -8,6 +8,7 @@ import {avoidRepeatRequest} from 'src/common/util/func'
 
 const QUERY_KEY = {
     me: 'me',
+    getBarcode: 'getBarcode',
 }
 
 export const useFetchMe = () => {
@@ -16,6 +17,7 @@ export const useFetchMe = () => {
         refetchOnWindowFocus: false,
         useErrorBoundary: false,
         enabled: Boolean(localStorage.getItem(USER_ATHORIZATION_TOKEN_KEY)),
+        staleTime: 10000,
     })
 
     const queryClient = useQueryClient()
@@ -32,6 +34,16 @@ export const useFetchMe = () => {
         me: response?.data,
         isInitialLoading,
         logout,
+    }
+}
+
+export const useFetchBarcode = () => {
+    const {data: response} = useQuery([QUERY_KEY.getBarcode], USER_API.getBarcode, {
+        staleTime: 10000,
+    })
+
+    return {
+        barcodeToken: response?.data?.barcodeToken,
     }
 }
 

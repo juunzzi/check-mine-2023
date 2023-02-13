@@ -6,3 +6,7 @@ export interface User {
     password: string
     accountId: number | null
 }
+
+export interface Barcode {
+    barcodeToken: string
+}

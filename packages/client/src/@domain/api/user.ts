@@ -1,5 +1,5 @@
 import {client} from 'src/@domain/api'
-import {User} from 'src/@domain/types/user'
+import {Barcode, User} from 'src/@domain/types/user'
 
 export const USER_ATHORIZATION_TOKEN_KEY = 'user-authorization-token'
 
@@ -15,6 +15,10 @@ export type GetMeResponseBody = {
     data: User
 }
 
+export type GetBarcodeResponseBody = {
+    data: Barcode
+}
+
 const USER_API = {
     join: (body: JoinUserRequestBody) => {
         return client.post<JoinUserResponseBody>('/users/join', body)
@@ -26,6 +30,11 @@ const USER_API = {
     },
     me: async () => {
         const {data} = await client.get<GetMeResponseBody>('/users/me')
+
+        return data
+    },
+    getBarcode: async () => {
+        const {data} = await client.get<GetBarcodeResponseBody>('/users/me/barcode')
 
         return data
     },
