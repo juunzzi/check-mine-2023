@@ -3344,6 +3344,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/qrcode.react@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@types/qrcode.react@npm:1.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fqrcode.react%2F-%2Fqrcode.react-1.0.2.tgz"
+  dependencies:
+    "@types/react": "*"
+  checksum: be256f0192366b4c0822da43c732bf3e29beb954c89d739aa770f09e5160842a3ca4d6814cb57bbcbbf8997cf7af0b998de318dab957f0820f267bb746c9a329
+  languageName: node
+  linkType: hard
+
 "@types/qs@npm:*":
   version: 6.9.7
   resolution: "@types/qs@npm:6.9.7::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fqs%2F-%2Fqs-6.9.7.tgz"
@@ -10976,11 +10985,13 @@ __metadata:
     "@types/axios": ^0.14.0
     "@types/jest": ^27.5.2
     "@types/node": ^16.18.11
+    "@types/qrcode.react": ^1.0.2
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
     "@types/uuid": ^9.0.0
     axios: ^1.3.2
     payment_common: "workspace:^"
+    qrcode.react: ^3.1.0
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.8.1
@@ -12146,6 +12157,15 @@ __metadata:
   version: 1.5.1
   resolution: "q@npm:1.5.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fq%2F-%2Fq-1.5.1.tgz"
   checksum: 147baa93c805bc1200ed698bdf9c72e9e42c05f96d007e33a558b5fdfd63e5ea130e99313f28efc1783e90e6bdb4e48b67a36fcc026b7b09202437ae88a1fb12
+  languageName: node
+  linkType: hard
+
+"qrcode.react@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "qrcode.react@npm:3.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fqrcode.react%2F-%2Fqrcode.react-3.1.0.tgz"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 94a2942ecf83f461d869adb20305ae663c6d1abe93ef2c72442b07d756ce70cf6deb6fd588dc5b382b48c6991cfde1dfd5ac9b814c1461e71d5edb2d945e67fc
   languageName: node
   linkType: hard
 

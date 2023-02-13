@@ -5293,6 +5293,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@types/qrcode.react", [\
+        ["npm:1.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fqrcode.react%2F-%2Fqrcode.react-1.0.2.tgz", {\
+          "packageLocation": "./.yarn/cache/@types-qrcode.react-npm-1.0.2-45fd10f0a4-be256f0192.zip/node_modules/@types/qrcode.react/",\
+          "packageDependencies": [\
+            ["@types/qrcode.react", "npm:1.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fqrcode.react%2F-%2Fqrcode.react-1.0.2.tgz"],\
+            ["@types/react", "npm:18.0.27::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Freact%2F-%2Freact-18.0.27.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/qs", [\
         ["npm:6.9.7::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fqs%2F-%2Fqs-6.9.7.tgz", {\
           "packageLocation": "./.yarn/cache/@types-qs-npm-6.9.7-d1c1d9f38e-7fd6f9c250.zip/node_modules/@types/qs/",\
@@ -14893,11 +14903,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/axios", "npm:0.14.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Faxios%2F-%2Faxios-0.14.0.tgz"],\
             ["@types/jest", "npm:27.5.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fjest%2F-%2Fjest-27.5.2.tgz"],\
             ["@types/node", "npm:16.18.12::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fnode%2F-%2Fnode-16.18.12.tgz"],\
+            ["@types/qrcode.react", "npm:1.0.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fqrcode.react%2F-%2Fqrcode.react-1.0.2.tgz"],\
             ["@types/react", "npm:18.0.27::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Freact%2F-%2Freact-18.0.27.tgz"],\
             ["@types/react-dom", "npm:18.0.10::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Freact-dom%2F-%2Freact-dom-18.0.10.tgz"],\
             ["@types/uuid", "npm:9.0.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Fuuid%2F-%2Fuuid-9.0.0.tgz"],\
             ["axios", "npm:1.3.2::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Faxios%2F-%2Faxios-1.3.2.tgz"],\
             ["payment_common", "workspace:packages/common"],\
+            ["qrcode.react", "virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:3.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fqrcode.react%2F-%2Fqrcode.react-3.1.0.tgz"],\
             ["react", "npm:18.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Freact%2F-%2Freact-18.2.0.tgz"],\
             ["react-dom", "virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:18.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Freact-dom%2F-%2Freact-dom-18.2.0.tgz"],\
             ["react-router-dom", "virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:6.8.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Freact-router-dom%2F-%2Freact-router-dom-6.8.1.tgz"],\
@@ -16963,6 +16975,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/q-npm-1.5.1-b7863812e7-147baa93c8.zip/node_modules/q/",\
           "packageDependencies": [\
             ["q", "npm:1.5.1::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fq%2F-%2Fq-1.5.1.tgz"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["qrcode.react", [\
+        ["npm:3.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fqrcode.react%2F-%2Fqrcode.react-3.1.0.tgz", {\
+          "packageLocation": "./.yarn/cache/qrcode.react-npm-3.1.0-3b1ff81766-94a2942ecf.zip/node_modules/qrcode.react/",\
+          "packageDependencies": [\
+            ["qrcode.react", "npm:3.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fqrcode.react%2F-%2Fqrcode.react-3.1.0.tgz"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:3.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fqrcode.react%2F-%2Fqrcode.react-3.1.0.tgz", {\
+          "packageLocation": "./.yarn/__virtual__/qrcode.react-virtual-5c74849152/0/cache/qrcode.react-npm-3.1.0-3b1ff81766-94a2942ecf.zip/node_modules/qrcode.react/",\
+          "packageDependencies": [\
+            ["qrcode.react", "virtual:4be74c7324804e463a318a90a5e38d733368fda9cc683de64ab46c0808f72b98fc6512786e6efffce48a407101bbe2a4864ea38b7f834556a30861b3b999d56b#npm:3.1.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Fqrcode.react%2F-%2Fqrcode.react-3.1.0.tgz"],\
+            ["@types/react", "npm:18.0.27::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2F%40types%2Freact%2F-%2Freact-18.0.27.tgz"],\
+            ["react", "npm:18.2.0::__archiveUrl=https%3A%2F%2Fregistry.navercorp.com%3A443%2Fapi%2Fnpm%2Fnpm-naver%2Freact%2F-%2Freact-18.2.0.tgz"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
           ],\
           "linkType": "HARD"\
         }]\
