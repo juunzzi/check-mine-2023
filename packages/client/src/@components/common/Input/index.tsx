@@ -36,7 +36,7 @@ export const EncryptionInput = (props: InputProps) => {
             <Styled.EncrytionInputWrapper>
                 <Styled.Input id={id} type={isEncryption ? type : 'text'} {...inputAttributes} />
                 <Styled.EncryptionButton onClick={onClickEncryptionButton}>
-                    {isEncryption ? <Icon icon={EyeIcon} size="18" /> : <Icon icon={EyeCloseIcon} size="18" />}
+                    {isEncryption ? <Icon icon={EyeIcon} size={18} /> : <Icon icon={EyeCloseIcon} size={18} />}
                 </Styled.EncryptionButton>
             </Styled.EncrytionInputWrapper>
             <Styled.Error isError={isError}>{errorText}</Styled.Error>

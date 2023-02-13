@@ -50,11 +50,11 @@ class ErrorBoundary extends Component<PropsWithChildren<ErrorBoundaryProps>, Err
                         </Styled.ErrorMessage>
                         <Styled.ButtonWrapper>
                             <Styled.Button onClick={this.onClickReset}>
-                                <Icon icon={ReloadIcon} size="28" />
+                                <Icon icon={ReloadIcon} size={28} />
                                 <span>다시 시도하기</span>
                             </Styled.Button>
                             <Styled.Button onClick={this.onClickMain}>
-                                <Icon icon={MainIcon} size="28" />
+                                <Icon icon={MainIcon} size={28} />
                                 <span>메인으로</span>
                             </Styled.Button>
                         </Styled.ButtonWrapper>

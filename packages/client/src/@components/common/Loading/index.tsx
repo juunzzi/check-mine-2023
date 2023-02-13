@@ -8,7 +8,7 @@ const Loading = () => {
     return ReactDOM.createPortal(
         <Dimmed>
             <Styled.Root>
-                <Icon icon={LogoIcon} size="150" />
+                <Icon icon={LogoIcon} size={150} />
             </Styled.Root>
         </Dimmed>,
         document.querySelector('#root') as Element,

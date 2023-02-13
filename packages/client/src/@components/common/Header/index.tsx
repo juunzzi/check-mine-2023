@@ -10,7 +10,7 @@ const Header = () => {
     return (
         <Styled.Container>
             <Styled.Main to={PATH.MAIN}>
-                <Icon icon={LogoIcon} size="100" />
+                <Icon icon={LogoIcon} size={100} />
             </Styled.Main>
             {me ? (
                 <Styled.User to={PATH.PROFILE}>
@@ -18,7 +18,7 @@ const Header = () => {
                 </Styled.User>
             ) : (
                 <Styled.User to={PATH.LOGIN}>
-                    <Icon icon={UserIcon} size="24" />
+                    <Icon icon={UserIcon} size={24} />
                 </Styled.User>
             )}
         </Styled.Container>
