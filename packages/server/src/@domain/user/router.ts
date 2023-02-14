@@ -37,7 +37,7 @@ userRouter.get('/me', authenticateAccessToken(), async (ctx) => {
 
         ctx.status = 200
         ctx.body = {
-            data: {id, email, accountId, name, payPoint, isValidBarcodeToken: BarcodeSessionStore.hasUserBarcode(id)},
+            data: {id, email, accountId, name, payPoint, hasValidBarcodeToken: BarcodeSessionStore.hasUserBarcode(id)},
         }
     } else {
         ctx.status = 400

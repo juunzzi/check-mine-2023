@@ -17,7 +17,7 @@ const UserPaymentBarcodeNaked = () => {
     const barcodeValue = `${CLIENT_URL}/order?qrcode=${barcodeToken}`
 
     useEffect(() => {
-        if (me && !me.isValidBarcodeToken) {
+        if (me && !me.hasValidBarcodeToken) {
             throw new Error('유효하지 않은 바코드 토큰')
         }
     }, [me])

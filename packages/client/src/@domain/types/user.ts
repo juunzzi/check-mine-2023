@@ -5,7 +5,7 @@ export interface User {
     payPoint: number
     password: string
     accountId: number | null
-    isValidBarcodeToken: boolean
+    hasValidBarcodeToken: boolean
 }
 
 export interface Barcode {
