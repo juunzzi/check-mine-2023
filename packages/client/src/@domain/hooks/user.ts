@@ -37,12 +37,17 @@ export const useFetchMe = () => {
 }
 
 export const useFetchBarcode = () => {
-    const {data: response} = useQuery([QUERY_KEY.getBarcode], USER_API.getBarcode, {
+    const {data: response, refetch} = useQuery([QUERY_KEY.getBarcode], USER_API.getBarcode, {
         staleTime: BARCODE_TOKEN_EXPIRATION,
     })
 
+    const reloadBarcodeToken = async () => {
+        await refetch()
+    }
+
     return {
         barcodeToken: response?.data?.barcodeToken,
+        reloadBarcodeToken: avoidRepeatRequest(reloadBarcodeToken),
     }
 }
 

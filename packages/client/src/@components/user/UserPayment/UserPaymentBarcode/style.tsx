@@ -20,6 +20,18 @@ export const HelpMessage = styled.div`
     `}
 `
 
+export const FloatButton = styled.div`
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.7;
+    }
+`
+
 export const ErrorReloadButton = styled.div`
     position: absolute;
     top: 50%;
