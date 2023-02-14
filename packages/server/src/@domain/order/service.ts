@@ -93,7 +93,7 @@ const ORDER_SERVICE = {
             const products = await PRODUCT_DB.findProductsByIds(productIds)
 
             if (!checkProductsAvailableForOrder(products, orderProducts)) {
-                return {message: RES_MSG.FAILURE}
+                return {message: RES_MSG.IS_NOT_AVAILABLE_FOR_ORDER}
             }
 
             const orderAmount = computeOrderAmount(products, orderProductMap)
