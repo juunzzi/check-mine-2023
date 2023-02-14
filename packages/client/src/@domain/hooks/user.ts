@@ -14,7 +14,6 @@ const QUERY_KEY = {
 export const useFetchMe = () => {
     const {data: response, isInitialLoading} = useQuery([QUERY_KEY.me], USER_API.me, {
         suspense: false,
-        refetchOnWindowFocus: false,
         useErrorBoundary: false,
         enabled: Boolean(localStorage.getItem(USER_ATHORIZATION_TOKEN_KEY)),
         staleTime: 10000,
@@ -102,6 +101,7 @@ export const useMutateUserDomain = () => {
             } = await USER_API.login(args)
 
             localStorage.setItem(USER_ATHORIZATION_TOKEN_KEY, accessToken)
+
             client.defaults.headers['Authorization'] = `Bearer ${accessToken}`
 
             showToastMessage('로그인에 성공하였습니다', 'success')

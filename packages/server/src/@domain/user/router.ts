@@ -1,6 +1,7 @@
 import {koaBody} from 'koa-body'
 import Router from 'koa-router'
 import {RES_MSG} from 'payment_common/module/constant'
+import BarcodeSessionStore from 'src/@domain/user/modules/barcode-session-store'
 import {checkAlreadyLogin, authenticateAccessToken} from 'src/@domain/user/modules/middleware'
 import {editUser, getBarcode, getUser, joinUser, loginUser} from 'src/@domain/user/service'
 import {
@@ -36,7 +37,7 @@ userRouter.get('/me', authenticateAccessToken(), async (ctx) => {
 
         ctx.status = 200
         ctx.body = {
-            data: {id, email, accountId, name, payPoint},
+            data: {id, email, accountId, name, payPoint, isValidBarcodeToken: BarcodeSessionStore.hasUserBarcode(id)},
         }
     } else {
         ctx.status = 400

@@ -1,5 +1,7 @@
 import {Middleware} from 'koa'
-import {decodeAccessToken} from 'src/@domain/user/modules/jwt'
+import {RES_MSG} from 'payment_common/module/constant'
+import BarcodeSessionStore from 'src/@domain/user/modules/barcode-session-store'
+import {decodeUserJWT} from 'src/@domain/user/modules/jwt'
 import Logger from 'src/common/logger/winston'
 
 export const authenticateAccessToken = (): Middleware => async (ctx, next) => {
@@ -14,7 +16,7 @@ export const authenticateAccessToken = (): Middleware => async (ctx, next) => {
             return
         }
 
-        const decoded = await decodeAccessToken({token, errorResolve: false})
+        const decoded = await decodeUserJWT({token, errorResolve: false})
 
         ctx.request.body = {
             authenticationInfo: decoded,
@@ -35,7 +37,7 @@ export const checkAlreadyLogin = (): Middleware => async (ctx, next) => {
     try {
         const token = headers['authorization'] && headers['authorization'].split(' ')[1]
 
-        await decodeAccessToken({token, errorResolve: true})
+        await decodeUserJWT({token, errorResolve: true})
 
         await next()
     } catch (error) {
@@ -57,10 +59,21 @@ export const decodeBarcodeToken = (): Middleware => async (ctx, next) => {
             return
         }
 
-        const decoded = await decodeAccessToken({token: barcodeToken, errorResolve: false})
+        const {id} = (await decodeUserJWT({token: barcodeToken, errorResolve: false})) as {id: number}
+
+        if (!BarcodeSessionStore.isValidBarcode(id, barcodeToken)) {
+            ctx.status = 400
+            ctx.body = {
+                message: RES_MSG.IS_NOT_VALID_BARCODE_TOKEN,
+            }
+
+            return
+        }
 
         ctx.request.body = {
-            barcodeInfo: decoded,
+            barcodeInfo: {
+                id,
+            },
             ...(ctx.request.body ?? {}),
         }
 

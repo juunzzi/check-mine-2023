@@ -3,11 +3,11 @@ import {Barcode, User} from 'src/@domain/types/user'
 
 export const USER_ATHORIZATION_TOKEN_KEY = 'user-authorization-token'
 
-export type JoinUserRequestBody = Omit<User, 'id' | 'accountId'>
+export type JoinUserRequestBody = Omit<User, 'id' | 'accountId' | 'isValidBarcodeToken'>
 export type JoinUserResponseBody = undefined
 
 export type LoginUserRequestBody = Pick<User, 'email' | 'password'>
-export interface LoginUserResponseBody {
+export type LoginUserResponseBody = {
     data: {accessToken: string}
 }
 

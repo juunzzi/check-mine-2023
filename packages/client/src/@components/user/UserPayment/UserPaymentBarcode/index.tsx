@@ -1,18 +1,26 @@
 import {QRCodeSVG} from 'qrcode.react'
-import {Suspense} from 'react'
+import {Suspense, useEffect} from 'react'
 import ErrorBoundary from 'src/@components/common/ErrorBoundary'
 import UserPaymentBarcodeErrorFallback from 'src/@components/user/UserPayment/UserPaymentBarcode/error-fallback'
 import UserPaymentBarcodeLoadingFallback from 'src/@components/user/UserPayment/UserPaymentBarcode/loading-fallback'
-import {useFetchBarcode} from 'src/@domain/hooks/user'
+import {useFetchBarcode, useFetchMe} from 'src/@domain/hooks/user'
 
 import * as Styled from './style'
 
 const CLIENT_URL = process.env.REACT_APP_URL
 
 const UserPaymentBarcodeNaked = () => {
+    const {me} = useFetchMe()
+
     const {barcodeToken} = useFetchBarcode()
 
     const barcodeValue = `${CLIENT_URL}/order?qrcode=${barcodeToken}`
+
+    useEffect(() => {
+        if (me && !me.isValidBarcodeToken) {
+            throw new Error('유효하지 않은 바코드 토큰')
+        }
+    }, [me])
 
     return (
         <Styled.Container>

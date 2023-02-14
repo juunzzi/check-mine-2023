@@ -3,6 +3,7 @@ import Router from 'koa-router'
 import {RES_MSG} from 'payment_common/module/constant'
 import {createOrder} from 'src/@domain/order/service'
 import {isCreateOrderRequestBodyType} from 'src/@domain/order/type'
+import BarcodeSessionStore from 'src/@domain/user/modules/barcode-session-store'
 import {decodeBarcodeToken} from 'src/@domain/user/modules/middleware'
 
 const orderRouter = new Router()
@@ -27,6 +28,7 @@ orderRouter.post('/', koaBody(), decodeBarcodeToken(), async (ctx) => {
     const {message} = await createOrder(id, orderProducts)
 
     if (message === RES_MSG.SUCCESS) {
+        BarcodeSessionStore.breakUserBarcode(id)
         ctx.status = 200
     } else {
         ctx.status = 400
