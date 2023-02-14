@@ -84,29 +84,33 @@ const orderOnPayPointWithAccount = async ({
     }
 }
 
-export const createOrder = async (userId: number, orderProducts: OrderProduct[]) => {
-    const createOrderQueries = async () => {
-        const {orderProductMap, productIds} = parseOrderProducts(orderProducts)
+const ORDER_SERVICE = {
+    create: async (userId: number, orderProducts: OrderProduct[]) => {
+        const createOrderQueries = async () => {
+            const {orderProductMap, productIds} = parseOrderProducts(orderProducts)
 
-        const user = await USER_DB.findUserById(userId)
-        const products = await PRODUCT_DB.findProductsByIds(productIds)
+            const user = await USER_DB.findUserById(userId)
+            const products = await PRODUCT_DB.findProductsByIds(productIds)
 
-        if (!checkProductsAvailableForOrder(products, orderProducts)) {
-            return {message: RES_MSG.FAILURE}
+            if (!checkProductsAvailableForOrder(products, orderProducts)) {
+                return {message: RES_MSG.FAILURE}
+            }
+
+            const orderAmount = computeOrderAmount(products, orderProductMap)
+            const orderMethod = user.payPoint >= orderAmount ? orderOnPayPoint : orderOnPayPointWithAccount
+            const orderResult = orderMethod({user, products, orderProductMap, orderAmount})
+            const message = orderResult ? RES_MSG.SUCCESS : RES_MSG.FAILURE
+
+            return {
+                data: orderResult,
+                message,
+            }
         }
 
-        const orderAmount = computeOrderAmount(products, orderProductMap)
-        const orderMethod = user.payPoint >= orderAmount ? orderOnPayPoint : orderOnPayPointWithAccount
-        const orderResult = orderMethod({user, products, orderProductMap, orderAmount})
-        const message = orderResult ? RES_MSG.SUCCESS : RES_MSG.FAILURE
+        const queriesResult = await transactQueries(createOrderQueries)
 
-        return {
-            data: orderResult,
-            message,
-        }
-    }
-
-    const queriesResult = await transactQueries(createOrderQueries)
-
-    return queriesResult
+        return queriesResult
+    },
 }
+
+export default ORDER_SERVICE

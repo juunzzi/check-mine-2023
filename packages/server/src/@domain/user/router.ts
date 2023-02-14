@@ -3,7 +3,7 @@ import Router from 'koa-router'
 import {RES_MSG} from 'payment_common/module/constant'
 import BarcodeTokenStore from 'src/@domain/user/modules/barcode-session-store'
 import {checkAlreadyLogin, authenticateAccessToken} from 'src/@domain/user/modules/middleware'
-import {editUser, getBarcode, getUser, joinUser, loginUser} from 'src/@domain/user/service'
+import USER_SERVICE from 'src/@domain/user/service'
 import {
     isEditMeRequestBodyType,
     isJoinRequestBodyType,
@@ -30,7 +30,7 @@ userRouter.get('/me', authenticateAccessToken(), async (ctx) => {
         authenticationInfo: {id},
     } = body
 
-    const {data: user, message} = await getUser(id)
+    const {data: user, message} = await USER_SERVICE.get(id)
 
     if (message === RES_MSG.SUCCESS) {
         const {email, accountId, name, payPoint} = user
@@ -61,7 +61,7 @@ userRouter.get('/me/barcode', authenticateAccessToken(), async (ctx) => {
         authenticationInfo: {id},
     } = body
 
-    const {data: barcodeToken, message} = getBarcode(id)
+    const {data: barcodeToken, message} = await USER_SERVICE.getBarcode(id)
 
     if (message === RES_MSG.SUCCESS) {
         ctx.status = 200
@@ -86,7 +86,7 @@ userRouter.put('/me', koaBody(), authenticateAccessToken(), async (ctx) => {
         return
     }
 
-    const {message} = await editUser({...body})
+    const {message} = await USER_SERVICE.edit({...body})
 
     if (message === RES_MSG.SUCCESS) {
         ctx.status = 200
@@ -110,7 +110,7 @@ userRouter.post('/login', koaBody(), checkAlreadyLogin(), async (ctx) => {
 
     const {email, password} = body
 
-    const {data: accessToken, message} = await loginUser(email, password)
+    const {data: accessToken, message} = await USER_SERVICE.login(email, password)
 
     if (message === RES_MSG.SUCCESS) {
         ctx.status = 200
@@ -133,7 +133,7 @@ userRouter.post('/join', koaBody(), async (ctx) => {
         return
     }
 
-    const {message} = await joinUser({...body, accountId: null})
+    const {message} = await USER_SERVICE.join({...body, accountId: null})
 
     if (message === RES_MSG.SUCCESS) {
         ctx.status = 200

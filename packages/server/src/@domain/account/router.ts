@@ -1,7 +1,7 @@
 import koaBody from 'koa-body'
 import Router from 'koa-router'
 import {RES_MSG} from 'payment_common/module/constant'
-import {createAccount, getAccount} from 'src/@domain/account/service'
+import ACCOUNT_SERVICE from 'src/@domain/account/service'
 import {isCreateAccountBodyType, isGetAccountRequestBodyType} from 'src/@domain/account/type'
 import {authenticateAccessToken} from 'src/@domain/user/modules/middleware'
 
@@ -22,7 +22,7 @@ accountRouter.get('/', authenticateAccessToken(), async (ctx) => {
         authenticationInfo: {id},
     } = body
 
-    const {data: account, message} = await getAccount(id)
+    const {data: account, message} = await ACCOUNT_SERVICE.get(id)
 
     if (message === RES_MSG.SUCCESS) {
         ctx.status = 200
@@ -55,7 +55,7 @@ accountRouter.post('/', koaBody(), authenticateAccessToken(), async (ctx) => {
         number,
     } = body
 
-    const {message} = await createAccount({amount, bankName, number, userId: id})
+    const {message} = await ACCOUNT_SERVICE.create({amount, bankName, number, userId: id})
 
     if (message === RES_MSG.SUCCESS) {
         ctx.status = 200
