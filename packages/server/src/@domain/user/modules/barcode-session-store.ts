@@ -1,20 +1,20 @@
-const BarcodeSessionStore = (() => {
+const BarcodeTokenStore = (() => {
     const store = {} as Record<number, string>
 
     return {
-        setUserBarcode: (id: number, token: string) => {
+        setToken: (id: number, token: string) => {
             store[id] = token
         },
-        breakUserBarcode: (id: number) => {
+        breakToken: (id: number) => {
             delete store[id]
         },
-        hasUserBarcode: (id: number) => {
+        hasValidToken: (id: number) => {
             return Boolean(store[id])
         },
-        isValidBarcode: (id: number, token: string) => {
+        isValidToken: (id: number, token: string) => {
             return store[id] === token
         },
     }
 })()
 
-export default BarcodeSessionStore
+export default BarcodeTokenStore

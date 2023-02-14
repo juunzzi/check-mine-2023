@@ -1,6 +1,6 @@
 import {Middleware} from 'koa'
 import {RES_MSG} from 'payment_common/module/constant'
-import BarcodeSessionStore from 'src/@domain/user/modules/barcode-session-store'
+import BarcodeTokenStore from 'src/@domain/user/modules/barcode-session-store'
 import {decodeUserJWT} from 'src/@domain/user/modules/jwt'
 import Logger from 'src/common/logger/winston'
 
@@ -61,7 +61,7 @@ export const decodeBarcodeToken = (): Middleware => async (ctx, next) => {
 
         const {id} = (await decodeUserJWT({token: barcodeToken, errorResolve: false})) as {id: number}
 
-        if (!BarcodeSessionStore.isValidBarcode(id, barcodeToken)) {
+        if (!BarcodeTokenStore.isValidToken(id, barcodeToken)) {
             ctx.status = 400
             ctx.body = {
                 message: RES_MSG.IS_NOT_VALID_BARCODE_TOKEN,

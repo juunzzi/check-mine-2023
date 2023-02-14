@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt'
 import {BARCODE_TOKEN_EXPIRATION, RES_MSG} from 'payment_common/module/constant'
-import BarcodeSessionStore from 'src/@domain/user/modules/barcode-session-store'
+import BarcodeTokenStore from 'src/@domain/user/modules/barcode-session-store'
 import {generateUserJWT} from 'src/@domain/user/modules/jwt'
 import * as DB from 'src/@domain/user/modules/query'
 import {isValidEditUserInput, isValidCreateUserInput} from 'src/@domain/user/modules/validation'
@@ -17,7 +17,7 @@ export const getBarcode = (id: number) => {
     const barcodeToken = generateUserJWT(id, BARCODE_TOKEN_EXPIRATION)
     const message = barcodeToken ? RES_MSG.SUCCESS : RES_MSG.FAILURE
 
-    BarcodeSessionStore.setUserBarcode(id, barcodeToken)
+    BarcodeTokenStore.setToken(id, barcodeToken)
 
     return {data: barcodeToken, message}
 }
