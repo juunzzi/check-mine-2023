@@ -43,14 +43,6 @@ export const MainRedirectIfLoggedIn = () => {
     return <Outlet />
 }
 
-export const MainRedirectIfNotCustomer = () => {
-    if (prompt('비밀번호를 입력해주세요') !== process.env.REACT_APP_CUSTOMER_KEY) {
-        return <Navigate to={PATH.MAIN} replace />
-    }
-
-    return <Outlet />
-}
-
 const Router = () => {
     return (
         <Suspense fallback={<PageLoadingFallback />}>
@@ -59,9 +51,7 @@ const Router = () => {
                     <Route path={PATH.LOGIN} element={<LoginPage />} />
                     <Route path={PATH.JOIN} element={<JoinPage />} />
                 </Route>
-                <Route element={<MainRedirectIfNotCustomer />}>
-                    <Route path={PATH.ORDER} element={<OrderPage />} />
-                </Route>
+                <Route path={PATH.ORDER} element={<OrderPage />} />
                 <Route element={<LoginRedirectIfNotLoggedIn />}>
                     <Route path={PATH.MAIN} element={<MainPage />} />
                     <Route path={PATH.PROFILE} element={<ProfilePage />} />
