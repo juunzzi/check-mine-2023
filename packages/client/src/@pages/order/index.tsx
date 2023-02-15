@@ -1,10 +1,8 @@
-import {Suspense} from 'react'
 import {Navigate} from 'react-router-dom'
 import Button from 'src/@components/common/Button'
 import PageTemplate from 'src/@components/common/PageTemplate'
 import OrderProductItem from 'src/@components/product/OrderProductItem'
 import {useOrderPage} from 'src/@pages/order/hooks'
-import OrderPageLoadingFallback from 'src/@pages/order/loading-fallback'
 import useSearchParams from 'src/common/hooks/useSearchParams'
 import {PATH} from 'src/Router'
 
@@ -50,11 +48,7 @@ const OrderPage = () => {
         return <Navigate to={PATH.MAIN} />
     }
 
-    return (
-        <Suspense fallback={<OrderPageLoadingFallback />}>
-            <NonProtectedOrderPage />
-        </Suspense>
-    )
+    return <NonProtectedOrderPage />
 }
 
 export default OrderPage
