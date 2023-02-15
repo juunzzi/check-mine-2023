@@ -41,13 +41,9 @@ export const useFetchBarcode = () => {
         staleTime: BARCODE_TOKEN_EXPIRATION,
     })
 
-    const reloadBarcodeToken = async () => {
-        await refetch()
-    }
-
     return {
         barcodeToken: response?.data?.barcodeToken,
-        reloadBarcodeToken: avoidRepeatRequest(reloadBarcodeToken),
+        reloadBarcodeToken: avoidRepeatRequest(refetch),
     }
 }
 
