@@ -10,12 +10,14 @@ export const avoidRepeatRequest = <T extends unknown[], R>(api: (...args: T) => 
             return {message: RES_MSG.FAILURE}
         }
 
-        isPending = true
+        try {
+            isPending = true
 
-        const data = await api(...args)
+            const data = await api(...args)
 
-        isPending = false
-
-        return data
+            return data
+        } finally {
+            isPending = false
+        }
     }
 }
