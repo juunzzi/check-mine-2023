@@ -9,7 +9,7 @@ const UserAccountNaked = () => {
 
     return (
         <Styled.Container>
-            {account && (
+            {account ? (
                 <Styled.AccountWrapper>
                     <Styled.AccountAmountWrapper>
                         <Styled.AccountLabel>출금계좌</Styled.AccountLabel>
@@ -19,6 +19,8 @@ const UserAccountNaked = () => {
                         {account.bankName}({account.number.slice(0, 4)})
                     </Styled.AccountNumber>
                 </Styled.AccountWrapper>
+            ) : (
+                <Styled.AccountWrapper>연동된 계좌가 없습니다.</Styled.AccountWrapper>
             )}
         </Styled.Container>
     )
