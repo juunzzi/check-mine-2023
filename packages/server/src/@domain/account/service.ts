@@ -1,18 +1,27 @@
 import {RES_MSG} from 'payment_common/module/constant'
-import * as DB from 'src/@domain/account/modules/query'
+import * as ACCOUNT_DB from 'src/@domain/account/modules/query'
 import {isValidCreateAccountInput} from 'src/@domain/account/modules/validation'
 import {Account} from 'src/@domain/account/type'
+import * as USER_DB from 'src/@domain/user/modules/query'
 
 export type CreateAccountInput = Omit<Account, 'id'>
 
 const ACCOUNT_SERVICE = {
     get: async (userId: number) => {
-        const account = await DB.findAccountByUserId(userId)
-        const message = account ? RES_MSG.SUCCESS : RES_MSG.FAILURE
+        const user = await USER_DB.findUserById(userId)
+
+        if (!user.accountId) {
+            return {
+                data: null,
+                message: RES_MSG.SUCCESS,
+            }
+        }
+
+        const account = await ACCOUNT_DB.findAccountByAccountId(user.accountId)
 
         return {
             data: account,
-            message,
+            message: account ? RES_MSG.SUCCESS : RES_MSG.FAILURE,
         }
     },
     create: async (createAccountInput: CreateAccountInput) => {
@@ -22,7 +31,7 @@ const ACCOUNT_SERVICE = {
             }
         }
 
-        const insertResult = await DB.insertAccount(createAccountInput)
+        const insertResult = await ACCOUNT_DB.insertAccount(createAccountInput)
         const message = insertResult ? RES_MSG.SUCCESS : RES_MSG.FAILURE
 
         return {

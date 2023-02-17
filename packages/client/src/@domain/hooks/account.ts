@@ -4,6 +4,7 @@ import {useLoading} from 'src/@components/common/Loading/hooks'
 import {useToast} from 'src/@components/common/Toast/hooks'
 import {hasAxiosResponseAxiosErrorType, hasErrorMessageAxiosResponseType} from 'src/@domain/api'
 import ACCOUNT_API, {AccountCreateRequestBody} from 'src/@domain/api/account'
+import {useFetchMe} from 'src/@domain/hooks/user'
 import {avoidRepeatRequest} from 'src/common/util/func'
 
 const QUERY_KEY = {
@@ -11,8 +12,11 @@ const QUERY_KEY = {
 }
 
 export const useFetchAccount = () => {
+    const {me} = useFetchMe()
+
     const {data: response} = useQuery([QUERY_KEY.getAccount], ACCOUNT_API.get, {
         staleTime: 10000,
+        enabled: Boolean(me?.accountId),
     })
 
     return {
