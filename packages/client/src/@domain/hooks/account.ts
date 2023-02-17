@@ -1,4 +1,4 @@
-import {useQuery} from '@tanstack/react-query'
+import {useQuery, useQueryClient} from '@tanstack/react-query'
 import {RES_MSG} from 'payment_common/module/constant'
 import {useLoading} from 'src/@components/common/Loading/hooks'
 import {useToast} from 'src/@components/common/Toast/hooks'
@@ -21,6 +21,7 @@ export const useFetchAccount = () => {
 }
 
 export const useMutateAccountDomain = () => {
+    const queryClient = useQueryClient()
     const {showLoading, hideLoading} = useLoading()
     const {showToastMessage} = useToast()
 
@@ -31,6 +32,8 @@ export const useMutateAccountDomain = () => {
             await ACCOUNT_API.create(args)
 
             showToastMessage('계좌 생성에 성공하였습니다', 'success')
+
+            queryClient.invalidateQueries([QUERY_KEY.getAccount])
 
             return {
                 message: RES_MSG.SUCCESS,
