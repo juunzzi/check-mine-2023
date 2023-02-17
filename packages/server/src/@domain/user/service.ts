@@ -59,13 +59,13 @@ const USER_SERVICE = {
         const user = await DB.findUserByEmail(email)
 
         if (!user) {
-            return {message: RES_MSG.FAILURE}
+            return {message: RES_MSG.IS_NOT_MATCH}
         }
 
         const isMatch = await bcrypt.compare(password, user.password)
 
         if (!isMatch) {
-            return {message: RES_MSG.FAILURE}
+            return {message: RES_MSG.IS_NOT_MATCH}
         }
 
         const accessToken = generateUserJWT(user.id, 60 * 60 * 1000)

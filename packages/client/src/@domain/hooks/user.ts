@@ -132,6 +132,10 @@ export const useMutateUserDomain = () => {
                 showToastMessage('입력 값이 올바르지 않습니다.', 'error')
             }
 
+            if (message === RES_MSG.IS_NOT_MATCH) {
+                showToastMessage('일치하는 유저가 존재하지 않습니다.', 'error')
+            }
+
             return {
                 message: RES_MSG.FAILURE,
             }
