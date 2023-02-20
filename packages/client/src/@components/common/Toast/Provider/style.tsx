@@ -14,5 +14,5 @@ export const ToastListContainer = styled.div`
     flex-direction: column-reverse;
     gap: 5px;
 
-    z-index: 1;
+    z-index: 10000;
 `
