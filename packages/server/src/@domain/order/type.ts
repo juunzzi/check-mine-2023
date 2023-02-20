@@ -34,3 +34,11 @@ export interface StartOrderRequestBody {
 export const isStartOrderRequestBody = (body: any): body is StartOrderRequestBody => {
     return isPaymentTokenInfo(body.paymentTokenInfo)
 }
+
+export interface CancelOrderRequestBody {
+    paymentTokenInfo: PaymentTokenInfo
+}
+
+export const isCancelOrderRequestBody = (body: any): body is CancelOrderRequestBody => {
+    return isPaymentTokenInfo(body.paymentTokenInfo)
+}

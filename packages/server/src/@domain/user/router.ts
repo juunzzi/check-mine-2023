@@ -45,6 +45,7 @@ userRouter.get('/me', authenticateAccessToken(), async (ctx) => {
                 payPoint,
                 payment: {
                     status: PaymentTokenStore.getStatus(id),
+                    token: PaymentTokenStore.getToken(id),
                 },
             },
         }

@@ -2,7 +2,7 @@ import koaBody from 'koa-body'
 import Router from 'koa-router'
 import {RES_MSG} from 'payment_common/module/constant'
 import ORDER_SERVICE from 'src/@domain/order/service'
-import {isCreateOrderRequestBodyType, isStartOrderRequestBody} from 'src/@domain/order/type'
+import {isCancelOrderRequestBody, isCreateOrderRequestBodyType, isStartOrderRequestBody} from 'src/@domain/order/type'
 import {decodePaymentToken} from 'src/@domain/user/modules/middleware'
 import PaymentTokenStore from 'src/@domain/user/modules/payment-token-store'
 
@@ -54,6 +54,32 @@ orderRouter.post('/start', koaBody(), decodePaymentToken(), async (ctx) => {
     } = body
 
     const message = PaymentTokenStore.setStatus(id, 'pending')
+
+    if (message === RES_MSG.SUCCESS) {
+        ctx.status = 200
+    } else {
+        ctx.status = 400
+        ctx.body = {message}
+    }
+})
+
+orderRouter.post('/cancel', koaBody(), decodePaymentToken(), async (ctx) => {
+    const {
+        request: {body},
+    } = ctx
+
+    if (!isCancelOrderRequestBody(body)) {
+        ctx.status = 400
+        ctx.body = {message: RES_MSG.INPUT_TYPE_ERROR}
+
+        return
+    }
+
+    const {
+        paymentTokenInfo: {id},
+    } = body
+
+    const message = PaymentTokenStore.setStatus(id, 'failure')
 
     if (message === RES_MSG.SUCCESS) {
         ctx.status = 200

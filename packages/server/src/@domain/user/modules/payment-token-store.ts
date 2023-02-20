@@ -60,6 +60,14 @@ const PaymentTokenStore = (() => {
 
             return store[id].status
         },
+
+        getToken: (id: number) => {
+            if (!store[id]) {
+                return 'nonexistent'
+            }
+
+            return store[id].token
+        },
         isValidToken: (id: number, token: string) => {
             return (
                 store[id] &&
