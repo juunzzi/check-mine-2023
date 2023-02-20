@@ -1,5 +1,5 @@
 import {useQuery, useQueryClient} from '@tanstack/react-query'
-import {BARCODE_TOKEN_EXPIRATION, RES_MSG} from 'payment_common/module/constant'
+import {PAYMENT_TOKEN_EXPIRATION, RES_MSG} from 'payment_common/module/constant'
 import {useLoading} from 'src/@components/common/Loading/hooks'
 import {useToast} from 'src/@components/common/Toast/hooks'
 import {client, hasAxiosResponseAxiosErrorType, hasErrorMessageAxiosResponseType} from 'src/@domain/api'
@@ -8,15 +8,22 @@ import {avoidRepeatRequest} from 'src/common/util/func'
 
 const QUERY_KEY = {
     me: 'me',
-    getBarcode: 'getBarcode',
+    getPaymentToken: 'getPaymentToken',
 }
 
-export const useFetchMe = () => {
+interface UseFetchMeProps {
+    refetchInterval?: number
+}
+
+export const useFetchMe = (props: UseFetchMeProps = {}) => {
+    const {refetchInterval} = props
+
     const {data: response, isInitialLoading} = useQuery([QUERY_KEY.me], USER_API.me, {
         suspense: false,
         useErrorBoundary: false,
         enabled: Boolean(localStorage.getItem(USER_ATHORIZATION_TOKEN_KEY)),
         staleTime: 10000,
+        refetchInterval,
     })
 
     const queryClient = useQueryClient()
@@ -36,14 +43,14 @@ export const useFetchMe = () => {
     }
 }
 
-export const useFetchBarcode = () => {
-    const {data: response, refetch} = useQuery([QUERY_KEY.getBarcode], USER_API.getBarcode, {
-        staleTime: BARCODE_TOKEN_EXPIRATION,
+export const useFetchPaymentToken = () => {
+    const {data: response, refetch} = useQuery([QUERY_KEY.getPaymentToken], USER_API.getPaymentToken, {
+        staleTime: PAYMENT_TOKEN_EXPIRATION,
     })
 
     return {
-        barcodeToken: response?.data?.barcodeToken,
-        reloadBarcodeToken: avoidRepeatRequest(refetch),
+        paymentToken: response?.data?.paymentToken,
+        reloadPaymentToken: avoidRepeatRequest(refetch),
     }
 }
 

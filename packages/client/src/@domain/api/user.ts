@@ -1,22 +1,22 @@
 import {client} from 'src/@domain/api'
-import {Barcode, User} from 'src/@domain/types/user'
+import {AccessToken, PaymentToken, User} from 'src/@domain/types/user'
 
 export const USER_ATHORIZATION_TOKEN_KEY = 'user-authorization-token'
 
-export type JoinUserRequestBody = Omit<User, 'id' | 'accountId' | 'hasValidBarcodeToken'>
+export type JoinUserRequestBody = Omit<User, 'id' | 'accountId' | 'payment'>
 export type JoinUserResponseBody = undefined
 
 export type LoginUserRequestBody = Pick<User, 'email' | 'password'>
 export type LoginUserResponseBody = {
-    data: {accessToken: string}
+    data: AccessToken
 }
 
 export type GetMeResponseBody = {
     data: User
 }
 
-export type GetBarcodeResponseBody = {
-    data: Barcode
+export type GetPaymentTokenResponseBody = {
+    data: PaymentToken
 }
 
 const USER_API = {
@@ -33,8 +33,8 @@ const USER_API = {
 
         return data
     },
-    getBarcode: async () => {
-        const {data} = await client.get<GetBarcodeResponseBody>('/users/me/barcode')
+    getPaymentToken: async () => {
+        const {data} = await client.get<GetPaymentTokenResponseBody>('/users/me/payment-token')
 
         return data
     },
