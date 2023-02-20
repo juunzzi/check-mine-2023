@@ -1,19 +1,18 @@
 import {RES_MSG} from 'payment_common/module/constant'
 import {useEffect, useMemo, useState} from 'react'
 import {useToast} from 'src/@components/common/Toast/hooks'
-import {useMutateOrderDomain} from 'src/@domain/hooks/order'
+import {useFetchStatus, useMutateOrderDomain} from 'src/@domain/hooks/order'
 import {OrderProduct} from 'src/@domain/types/order'
-import {PaymentTokenStatus} from 'src/@domain/types/user'
 import useSearchParams from 'src/common/hooks/useSearchParams'
 
 export type OrderProductMapState = Record<number, OrderProduct>
 
 export const useOrderPage = () => {
-    const [paymentStatus, setPaymentStatus] = useState<PaymentTokenStatus>('pending')
-
     const {showToastMessage} = useToast()
 
     const token = useSearchParams('qrcode')
+
+    const {status, refetchStatus} = useFetchStatus({token, refetchInterval: 2000})
 
     const [orderProductsMap, setOrderProductsMap] = useState<OrderProductMapState>({})
 
@@ -22,10 +21,16 @@ export const useOrderPage = () => {
     useEffect(() => {
         startOrder({paymentToken: token}).then(({message}) => {
             if (message === RES_MSG.FAILURE) {
-                setPaymentStatus('failure')
+                refetchStatus()
             }
         })
     }, [])
+
+    useEffect(() => {
+        if (status === 'failure') {
+            refetchStatus()
+        }
+    }, [status])
 
     const totalAmount = useMemo(
         () =>
@@ -69,19 +74,15 @@ export const useOrderPage = () => {
 
         const orderProducts = Object.values(orderProductsMap).map(({id, quantity}) => ({id, quantity}))
 
-        const {message} = await createOrder({paymentToken: token, orderProducts})
+        await createOrder({paymentToken: token, orderProducts})
 
-        if (message === RES_MSG.SUCCESS) {
-            setPaymentStatus('success')
-        } else {
-            setPaymentStatus('failure')
-        }
+        await refetchStatus()
     }
 
     return {
         state: {
-            isShowSuccessModal: paymentStatus === 'success',
-            isShowFailureModal: paymentStatus === 'failure',
+            isShowSuccessModal: status === 'success',
+            isShowFailureModal: status === 'failure',
             orderProductsMap,
         },
         handler: {

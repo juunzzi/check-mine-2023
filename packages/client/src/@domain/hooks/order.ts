@@ -1,3 +1,4 @@
+import {useQuery} from '@tanstack/react-query'
 import {RES_MSG} from 'payment_common/module/constant'
 import {useLoading} from 'src/@components/common/Loading/hooks'
 import {useToast} from 'src/@components/common/Toast/hooks'
@@ -5,6 +6,27 @@ import {hasAxiosResponseAxiosErrorType, hasErrorMessageAxiosResponseType} from '
 import ORDER_API, {CancelOrderRequestBody, CreateOrderRequestBody, StartOrderRequestBody} from 'src/@domain/api/order'
 import {useMutateUserDomain} from 'src/@domain/hooks/user'
 import {avoidRepeatRequest} from 'src/common/util/func'
+
+const QUERY_KEY = {
+    getStatus: 'getStatus',
+}
+
+export const useFetchStatus = ({token, refetchInterval}: {token: string | null; refetchInterval?: number}) => {
+    const {data: response, refetch} = useQuery(
+        [QUERY_KEY.getStatus, token],
+        () => ORDER_API.getStatus({paymentToken: token}),
+        {
+            refetchInterval,
+            suspense: false,
+            enabled: Boolean(token),
+        },
+    )
+
+    return {
+        status: response?.data.status,
+        refetchStatus: avoidRepeatRequest(refetch),
+    }
+}
 
 export const useMutateOrderDomain = () => {
     const {invalidateUserQuery} = useMutateUserDomain()
