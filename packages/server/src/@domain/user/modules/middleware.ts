@@ -1,7 +1,7 @@
 import {Middleware} from 'koa'
 import {RES_MSG} from 'payment_common/module/constant'
-import BarcodeTokenStore from 'src/@domain/user/modules/barcode-session-store'
 import {decodeUserJWT} from 'src/@domain/user/modules/jwt'
+import PaymentTokenStore from 'src/@domain/user/modules/payment-token-store'
 import Logger from 'src/common/logger/winston'
 
 export const authenticateAccessToken = (): Middleware => async (ctx, next) => {
@@ -47,32 +47,30 @@ export const checkAlreadyLogin = (): Middleware => async (ctx, next) => {
     }
 }
 
-export const decodeBarcodeToken = (): Middleware => async (ctx, next) => {
+export const decodePaymentToken = (): Middleware => async (ctx, next) => {
     const {body} = ctx.request
 
     try {
-        const {barcode: barcodeToken} = body
+        const {paymentToken} = body
 
-        if (!barcodeToken) {
+        if (!paymentToken) {
             ctx.status = 400
 
             return
         }
 
-        const {id} = (await decodeUserJWT({token: barcodeToken, errorResolve: false})) as {id: number}
+        const {id} = (await decodeUserJWT({token: paymentToken, errorResolve: false})) as {id: number}
 
-        if (!BarcodeTokenStore.isValidToken(id, barcodeToken)) {
+        if (!PaymentTokenStore.isValidToken(id, paymentToken)) {
             ctx.status = 400
-            ctx.body = {
-                message: RES_MSG.IS_NOT_VALID_BARCODE_TOKEN,
-            }
 
             return
         }
 
         ctx.request.body = {
-            barcodeInfo: {
+            paymentTokenInfo: {
                 id,
+                token: paymentToken,
             },
             ...(ctx.request.body ?? {}),
         }
@@ -82,5 +80,9 @@ export const decodeBarcodeToken = (): Middleware => async (ctx, next) => {
         Logger.error(error)
 
         ctx.status = 400
+    } finally {
+        ctx.body = {
+            message: RES_MSG.IS_NOT_VALID_PAYMENT_TOKEN,
+        }
     }
 }

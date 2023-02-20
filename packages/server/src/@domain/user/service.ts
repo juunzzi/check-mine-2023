@@ -1,6 +1,5 @@
 import bcrypt from 'bcrypt'
-import {BARCODE_TOKEN_EXPIRATION, RES_MSG} from 'payment_common/module/constant'
-import BarcodeTokenStore from 'src/@domain/user/modules/barcode-session-store'
+import {PAYMENT_TOKEN_EXPIRATION, RES_MSG} from 'payment_common/module/constant'
 import {generateUserJWT} from 'src/@domain/user/modules/jwt'
 import * as DB from 'src/@domain/user/modules/query'
 import {isValidEditUserInput, isValidCreateUserInput} from 'src/@domain/user/modules/validation'
@@ -17,13 +16,11 @@ const USER_SERVICE = {
 
         return {data: user, message}
     },
-    getBarcode: (id: number) => {
-        const barcodeToken = generateUserJWT(id, BARCODE_TOKEN_EXPIRATION)
-        const message = barcodeToken ? RES_MSG.SUCCESS : RES_MSG.FAILURE
+    getPaymentToken: (id: number) => {
+        const paymentToken = generateUserJWT(id, PAYMENT_TOKEN_EXPIRATION)
+        const message = paymentToken ? RES_MSG.SUCCESS : RES_MSG.FAILURE
 
-        BarcodeTokenStore.setToken(id, barcodeToken)
-
-        return {data: barcodeToken, message}
+        return {data: paymentToken, message}
     },
     edit: async (newUser: EditUserInput) => {
         if (!isValidEditUserInput(newUser)) {

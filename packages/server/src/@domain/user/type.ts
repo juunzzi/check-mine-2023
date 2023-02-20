@@ -17,12 +17,13 @@ export const isAuthenticationInfoType = (authenticationInfo: any): authenticatio
     return authenticationInfo && isNumberType(authenticationInfo.id)
 }
 
-export interface BarcodeInfo {
+export interface PaymentTokenInfo {
     id: number
+    token: string
 }
 
-export const isBarcodeInfo = (barcodeInfo: any): barcodeInfo is BarcodeInfo => {
-    return barcodeInfo && isNumberType(barcodeInfo.id)
+export const isPaymentTokenInfo = (paymentTokenInfo: any): paymentTokenInfo is PaymentTokenInfo => {
+    return paymentTokenInfo && isNumberType(paymentTokenInfo.id) && isStringType(paymentTokenInfo.token)
 }
 
 export interface GetMeRequestBody {
@@ -33,11 +34,11 @@ export const isGetMeRequestBodyType = (body: any): body is GetMeRequestBody => {
     return body && isAuthenticationInfoType(body.authenticationInfo)
 }
 
-export interface GetBarcodeTokenRequestBody {
+export interface GetPaymentTokenRequestBody {
     authenticationInfo: AuthenticationInfo
 }
 
-export const isGetBarcodeTokenRequestBodyType = (body: any): body is GetBarcodeTokenRequestBody => {
+export const isGetPaymentTokenRequestBodyType = (body: any): body is GetPaymentTokenRequestBody => {
     return body && isAuthenticationInfoType(body.authenticationInfo)
 }
 

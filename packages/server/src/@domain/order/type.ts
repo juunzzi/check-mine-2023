@@ -1,4 +1,4 @@
-import {BarcodeInfo, isBarcodeInfo} from 'src/@domain/user/type'
+import {isPaymentTokenInfo, PaymentTokenInfo} from 'src/@domain/user/type'
 import {isNumberType} from 'src/common/type/guard'
 
 export type OrderProduct = {
@@ -14,7 +14,7 @@ export const isOrderProductType = (orderProduct: any): orderProduct is OrderProd
     return orderProduct && isNumberType(orderProduct.id) && isNumberType(orderProduct.quantity)
 }
 export interface CreateOrderRequestBody {
-    barcodeInfo: BarcodeInfo
+    paymentTokenInfo: PaymentTokenInfo
     orderProducts: OrderProduct[]
 }
 
@@ -23,6 +23,14 @@ export const isCreateOrderRequestBodyType = (body: any): body is CreateOrderRequ
         body &&
         body.orderProducts &&
         body.orderProducts.every((order: any) => isOrderProductType(order)) &&
-        isBarcodeInfo(body.barcodeInfo)
+        isPaymentTokenInfo(body.paymentTokenInfo)
     )
+}
+
+export interface StartOrderRequestBody {
+    paymentTokenInfo: PaymentTokenInfo
+}
+
+export const isStartOrderRequestBody = (body: any): body is StartOrderRequestBody => {
+    return isPaymentTokenInfo(body.paymentTokenInfo)
 }

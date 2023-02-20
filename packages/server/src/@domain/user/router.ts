@@ -1,15 +1,15 @@
 import {koaBody} from 'koa-body'
 import Router from 'koa-router'
 import {RES_MSG} from 'payment_common/module/constant'
-import BarcodeTokenStore from 'src/@domain/user/modules/barcode-session-store'
 import {checkAlreadyLogin, authenticateAccessToken} from 'src/@domain/user/modules/middleware'
+import PaymentTokenStore from 'src/@domain/user/modules/payment-token-store'
 import USER_SERVICE from 'src/@domain/user/service'
 import {
     isEditMeRequestBodyType,
     isJoinRequestBodyType,
     isLoginRequestBodyType,
     isGetMeRequestBodyType,
-    isGetBarcodeTokenRequestBodyType,
+    isGetPaymentTokenRequestBodyType,
 } from 'src/@domain/user/type'
 
 const userRouter = new Router()
@@ -37,7 +37,16 @@ userRouter.get('/me', authenticateAccessToken(), async (ctx) => {
 
         ctx.status = 200
         ctx.body = {
-            data: {id, email, accountId, name, payPoint, hasValidBarcodeToken: BarcodeTokenStore.hasValidToken(id)},
+            data: {
+                id,
+                email,
+                accountId,
+                name,
+                payPoint,
+                payment: {
+                    status: PaymentTokenStore.getStatus(id),
+                },
+            },
         }
     } else {
         ctx.status = 400
@@ -45,12 +54,12 @@ userRouter.get('/me', authenticateAccessToken(), async (ctx) => {
     }
 })
 
-userRouter.get('/me/barcode', authenticateAccessToken(), async (ctx) => {
+userRouter.get('/me/payment-token', authenticateAccessToken(), async (ctx) => {
     const {
         request: {body},
     } = ctx
 
-    if (!isGetBarcodeTokenRequestBodyType(body)) {
+    if (!isGetPaymentTokenRequestBodyType(body)) {
         ctx.status = 400
         ctx.body = {message: RES_MSG.INPUT_TYPE_ERROR}
 
@@ -61,12 +70,14 @@ userRouter.get('/me/barcode', authenticateAccessToken(), async (ctx) => {
         authenticationInfo: {id},
     } = body
 
-    const {data: barcodeToken, message} = await USER_SERVICE.getBarcode(id)
+    const {data: paymentToken, message} = await USER_SERVICE.getPaymentToken(id)
 
     if (message === RES_MSG.SUCCESS) {
+        PaymentTokenStore.setToken(id, paymentToken)
+
         ctx.status = 200
         ctx.body = {
-            data: {barcodeToken},
+            data: {paymentToken},
         }
     } else {
         ctx.status = 400

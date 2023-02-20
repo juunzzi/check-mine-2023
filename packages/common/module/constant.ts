@@ -11,7 +11,7 @@ export const RES_MSG = {
 
     IS_NOT_MATCH: 'IS_NOT_MATCH',
 
-    IS_NOT_VALID_BARCODE_TOKEN: 'IS_NOT_VALID_BARCODE_TOKEN',
+    IS_NOT_VALID_PAYMENT_TOKEN: 'IS_NOT_VALID_PAYMENT_TOKEN',
 
     IS_NOT_AVAILABLE_FOR_ORDER: 'IS_NOT_AVAILABLE_FOR_ORDER',
 } as const
@@ -26,4 +26,4 @@ export const BANK = ['국민은행', '신한은행', '토스뱅크'] as const
 
 export type Bank = (typeof BANK)[number]
 
-export const BARCODE_TOKEN_EXPIRATION = 15 * 60 * 1000
+export const PAYMENT_TOKEN_EXPIRATION = 15 * 60 * 1000
