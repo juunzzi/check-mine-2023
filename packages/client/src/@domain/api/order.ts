@@ -3,7 +3,7 @@ import {OrderProduct} from 'src/@domain/types/order'
 
 export type CreateOrderRequestBody = {
     barcode: string
-    orderProducts: OrderProduct[]
+    orderProducts: Omit<OrderProduct, 'amount'>[]
 }
 export type CreateOrderResponseBody = undefined
 

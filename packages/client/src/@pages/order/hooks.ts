@@ -2,7 +2,6 @@ import {useMemo, useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {useToast} from 'src/@components/common/Toast/hooks'
 import {useMutateOrderDomain} from 'src/@domain/hooks/order'
-import {useFetchProducts} from 'src/@domain/hooks/product'
 import {OrderProduct} from 'src/@domain/types/order'
 import useSearchParams from 'src/common/hooks/useSearchParams'
 import {PATH} from 'src/Router'
@@ -18,19 +17,17 @@ export const useOrderPage = () => {
 
     const [orderProductsMap, setOrderProductsMap] = useState<OrderProductMapState>({})
 
-    const {products} = useFetchProducts()
-
     const {createOrder} = useMutateOrderDomain()
 
-    const amount = useMemo(
+    const totalAmount = useMemo(
         () =>
-            products?.reduce((prev, {id, price}) => {
-                return orderProductsMap[id] ? prev + price * orderProductsMap[id].quantity : prev
+            Object.values(orderProductsMap)?.reduce((prev, {amount}) => {
+                return prev + amount
             }, 0),
-        [products, orderProductsMap],
+        [orderProductsMap],
     )
 
-    const changeProductQuantity = ({id, quantity}: OrderProduct) => {
+    const changeProductQuantity = ({id, quantity, amount}: OrderProduct) => {
         if (quantity < 0 || quantity > 100) {
             return
         }
@@ -40,6 +37,7 @@ export const useOrderPage = () => {
             [id]: {
                 id,
                 quantity,
+                amount,
             },
         }))
     }
@@ -51,17 +49,19 @@ export const useOrderPage = () => {
             return
         }
 
-        if (amount === 0) {
+        if (totalAmount === 0) {
             showToastMessage('결제할 상품을 선택해주세요', 'error')
 
             return
         }
 
-        if (!confirm(`${amount}를 결제하시겠습니까?`)) {
+        if (!confirm(`${totalAmount}를 결제하시겠습니까?`)) {
             return
         }
 
-        await createOrder({barcode: token, orderProducts: Object.values(orderProductsMap)})
+        const orderProducts = Object.values(orderProductsMap).map(({id, quantity}) => ({id, quantity}))
+
+        await createOrder({barcode: token, orderProducts})
 
         navigate(PATH.MAIN)
     }
@@ -69,14 +69,13 @@ export const useOrderPage = () => {
     return {
         state: {
             orderProductsMap,
-            products,
         },
         handler: {
             changeProductQuantity,
             submitCreateOrder,
         },
         etc: {
-            amount,
+            totalAmount,
         },
     }
 }

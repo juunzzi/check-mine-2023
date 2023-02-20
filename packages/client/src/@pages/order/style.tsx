@@ -8,14 +8,6 @@ export const Container = styled.div`
     padding: 10px;
 `
 
-export const OrderProductItemWrapper = styled.div`
-    padding: 20px;
-
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-`
-
 export const OrderButtonWrapper = styled.div`
     width: 100%;
 

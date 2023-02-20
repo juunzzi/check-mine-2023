@@ -1,6 +1,6 @@
 import ButtonLoadingFallback from 'src/@components/common/Button/loading-fallback'
 import PageTemplateLoadingFallback from 'src/@components/common/PageTemplate/loading-fallback'
-import Placeholder from 'src/@components/common/Placeholder'
+import OrderProductListLoadingFallback from 'src/@components/product/OrderProductList/loading-fallback'
 
 import * as Styled from './style'
 
@@ -8,12 +8,7 @@ const OrderPageLoadingFallback = () => {
     return (
         <PageTemplateLoadingFallback>
             <Styled.Container>
-                <Styled.OrderProductItemWrapper>
-                    <Placeholder width="100%" height="100px" />
-                    <Placeholder width="100%" height="100px" />
-                    <Placeholder width="100%" height="100px" />
-                    <Placeholder width="100%" height="100px" />
-                </Styled.OrderProductItemWrapper>
+                <OrderProductListLoadingFallback />
                 <Styled.OrderButtonWrapper>
                     <ButtonLoadingFallback />
                 </Styled.OrderButtonWrapper>

@@ -6,7 +6,7 @@ const QUERY_KEY = {
 }
 
 export const useFetchProducts = () => {
-    const {data: response} = useQuery([QUERY_KEY.getProducts], PRODUCT_API.getAll, {suspense: false})
+    const {data: response} = useQuery([QUERY_KEY.getProducts], PRODUCT_API.getAll)
 
     return {
         products: response?.data?.products,

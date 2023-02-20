@@ -1,7 +1,7 @@
 import {Navigate} from 'react-router-dom'
 import Button from 'src/@components/common/Button'
 import PageTemplate from 'src/@components/common/PageTemplate'
-import OrderProductItem from 'src/@components/product/OrderProductItem'
+import OrderProductList from 'src/@components/product/OrderProductList'
 import {useOrderPage} from 'src/@pages/order/hooks'
 import useSearchParams from 'src/common/hooks/useSearchParams'
 import {PATH} from 'src/Router'
@@ -10,31 +10,17 @@ import * as Styled from './style'
 
 const NonProtectedOrderPage = () => {
     const {
-        state: {orderProductsMap, products},
+        state: {orderProductsMap},
         handler: {changeProductQuantity, submitCreateOrder},
-        etc: {amount},
+        etc: {totalAmount},
     } = useOrderPage()
 
     return (
         <PageTemplate>
             <Styled.Container>
-                <Styled.OrderProductItemWrapper>
-                    {products &&
-                        products.map((product) => {
-                            const quantity = orderProductsMap[product.id]?.quantity ?? 0
-
-                            return (
-                                <OrderProductItem
-                                    key={product.id}
-                                    quantity={quantity}
-                                    changeProductQuantity={changeProductQuantity}
-                                    {...product}
-                                />
-                            )
-                        })}
-                </Styled.OrderProductItemWrapper>
+                <OrderProductList orderProductsMap={orderProductsMap} changeProductQuantity={changeProductQuantity} />
                 <Styled.OrderButtonWrapper>
-                    <Button onClick={submitCreateOrder}>총 결제 금액 : {amount?.toLocaleString('ko-kr')}원</Button>
+                    <Button onClick={submitCreateOrder}>총 결제 금액 : {totalAmount?.toLocaleString('ko-kr')}원</Button>
                 </Styled.OrderButtonWrapper>
             </Styled.Container>
         </PageTemplate>

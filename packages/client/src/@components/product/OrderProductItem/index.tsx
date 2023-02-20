@@ -14,12 +14,14 @@ const OrderProductItem = (props: OrderProductItemProps) => {
     const {id, name, price, stock, quantity, changeProductQuantity} = props
 
     const onClickMinusButton: MouseEventHandler<HTMLButtonElement> = () => {
-        changeProductQuantity({id, quantity: quantity - 1})
+        if (quantity > 0) {
+            changeProductQuantity({id, quantity: quantity - 1, amount: price * (quantity - 1)})
+        }
     }
 
     const onClickPlusButton: MouseEventHandler<HTMLButtonElement> = () => {
         if (stock > quantity) {
-            changeProductQuantity({id, quantity: quantity + 1})
+            changeProductQuantity({id, quantity: quantity + 1, amount: price * (quantity + 1)})
         }
     }
 
