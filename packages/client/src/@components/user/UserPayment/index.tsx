@@ -1,5 +1,5 @@
 import UserAccount from 'src/@components/user/UserPayment/UserAccount'
-import UserPaymentBarcode from 'src/@components/user/UserPayment/UserPaymentBarcode'
+import UserPaymentTokenQRCode from 'src/@components/user/UserPayment/UserPaymentTokenQRCode'
 import UserPayPoint from 'src/@components/user/UserPayment/UserPayPoint'
 
 import * as Styled from './style'
@@ -7,7 +7,7 @@ import * as Styled from './style'
 const UserPayment = () => {
     return (
         <Styled.Container>
-            <UserPaymentBarcode />
+            <UserPaymentTokenQRCode />
             <Styled.UserPointAndAccountContainer>
                 <Styled.UserPointAndAccountLabel>포인트 & 머니</Styled.UserPointAndAccountLabel>
                 <UserPayPoint />

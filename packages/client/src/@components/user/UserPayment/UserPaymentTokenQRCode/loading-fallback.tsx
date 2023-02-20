@@ -3,7 +3,7 @@ import Placeholder from 'src/@components/common/Placeholder'
 
 import * as Styled from './style'
 
-const UserPaymentBarcodeLoadingFallback = () => {
+const UserPaymentTokenQRCodeLoadingFallback = () => {
     return (
         <Styled.Container>
             <QRCodeSVG value="" opacity={0.1} />
@@ -12,4 +12,4 @@ const UserPaymentBarcodeLoadingFallback = () => {
     )
 }
 
-export default UserPaymentBarcodeLoadingFallback
+export default UserPaymentTokenQRCodeLoadingFallback

@@ -5,7 +5,7 @@ import Icon, {ReloadIcon} from 'src/@components/common/Icon'
 
 import * as Styled from './style'
 
-const UserPaymentBarcodeErrorFallback = (props: ErrorBoundaryFallbackProps) => {
+const UserPaymentTokenQRCodeErrorFallback = (props: ErrorBoundaryFallbackProps) => {
     const {resetErrorState} = props
 
     const queryClient = useQueryClient()
@@ -27,4 +27,4 @@ const UserPaymentBarcodeErrorFallback = (props: ErrorBoundaryFallbackProps) => {
     )
 }
 
-export default UserPaymentBarcodeErrorFallback
+export default UserPaymentTokenQRCodeErrorFallback

@@ -1,6 +1,6 @@
 import Placeholder from 'src/@components/common/Placeholder'
 import UserAccountLoadingFallback from 'src/@components/user/UserPayment/UserAccount/loading-fallback'
-import UserPaymentBarcodeLoadingFallback from 'src/@components/user/UserPayment/UserPaymentBarcode/loading-fallback'
+import UserPaymentTokenQRCodeLoadingFallback from 'src/@components/user/UserPayment/UserPaymentTokenQRCode/loading-fallback'
 import UserPayPointLoadingFallback from 'src/@components/user/UserPayment/UserPayPoint/loading-fallback'
 
 import * as Styled from './style'
@@ -8,7 +8,7 @@ import * as Styled from './style'
 const UserPaymentLoadingFallback = () => {
     return (
         <Styled.Container>
-            <UserPaymentBarcodeLoadingFallback />
+            <UserPaymentTokenQRCodeLoadingFallback />
             <Styled.UserPointAndAccountContainer>
                 <Placeholder width="50%" height="30px" />
                 <UserPayPointLoadingFallback />
