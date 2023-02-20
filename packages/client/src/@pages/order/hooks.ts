@@ -1,15 +1,15 @@
-import {useMemo, useState} from 'react'
-import {useNavigate} from 'react-router-dom'
+import {RES_MSG} from 'payment_common/module/constant'
+import {useEffect, useMemo, useState} from 'react'
 import {useToast} from 'src/@components/common/Toast/hooks'
 import {useMutateOrderDomain} from 'src/@domain/hooks/order'
 import {OrderProduct} from 'src/@domain/types/order'
+import {PaymentTokenStatus} from 'src/@domain/types/user'
 import useSearchParams from 'src/common/hooks/useSearchParams'
-import {PATH} from 'src/Router'
 
 export type OrderProductMapState = Record<number, OrderProduct>
 
 export const useOrderPage = () => {
-    const navigate = useNavigate()
+    const [paymentStatus, setPaymentStatus] = useState<PaymentTokenStatus>('pending')
 
     const {showToastMessage} = useToast()
 
@@ -17,7 +17,15 @@ export const useOrderPage = () => {
 
     const [orderProductsMap, setOrderProductsMap] = useState<OrderProductMapState>({})
 
-    const {createOrder} = useMutateOrderDomain()
+    const {createOrder, startOrder} = useMutateOrderDomain()
+
+    useEffect(() => {
+        startOrder({paymentToken: token}).then(({message}) => {
+            if (message === RES_MSG.FAILURE) {
+                setPaymentStatus('failure')
+            }
+        })
+    }, [])
 
     const totalAmount = useMemo(
         () =>
@@ -61,13 +69,19 @@ export const useOrderPage = () => {
 
         const orderProducts = Object.values(orderProductsMap).map(({id, quantity}) => ({id, quantity}))
 
-        await createOrder({barcode: token, orderProducts})
+        const {message} = await createOrder({paymentToken: token, orderProducts})
 
-        navigate(PATH.MAIN)
+        if (message === RES_MSG.SUCCESS) {
+            setPaymentStatus('success')
+        } else {
+            setPaymentStatus('failure')
+        }
     }
 
     return {
         state: {
+            isShowSuccessModal: paymentStatus === 'success',
+            isShowFailureModal: paymentStatus === 'failure',
             orderProductsMap,
         },
         handler: {

@@ -1,6 +1,8 @@
 import {Navigate} from 'react-router-dom'
 import Button from 'src/@components/common/Button'
 import PageTemplate from 'src/@components/common/PageTemplate'
+import OrderFailureModal from 'src/@components/order/OrderFailureModal'
+import OrderSuccessModal from 'src/@components/order/OrderSuccessModal'
 import OrderProductList from 'src/@components/product/OrderProductList'
 import {useOrderPage} from 'src/@pages/order/hooks'
 import useSearchParams from 'src/common/hooks/useSearchParams'
@@ -10,7 +12,7 @@ import * as Styled from './style'
 
 const NonProtectedOrderPage = () => {
     const {
-        state: {orderProductsMap},
+        state: {isShowSuccessModal, isShowFailureModal, orderProductsMap},
         handler: {changeProductQuantity, submitCreateOrder},
         etc: {totalAmount},
     } = useOrderPage()
@@ -23,6 +25,8 @@ const NonProtectedOrderPage = () => {
                     <Button onClick={submitCreateOrder}>총 결제 금액 : {totalAmount?.toLocaleString('ko-kr')}원</Button>
                 </Styled.OrderButtonWrapper>
             </Styled.Container>
+            {isShowSuccessModal && <OrderSuccessModal />}
+            {isShowFailureModal && <OrderFailureModal />}
         </PageTemplate>
     )
 }

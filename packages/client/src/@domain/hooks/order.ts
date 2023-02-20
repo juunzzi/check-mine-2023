@@ -2,7 +2,7 @@ import {RES_MSG} from 'payment_common/module/constant'
 import {useLoading} from 'src/@components/common/Loading/hooks'
 import {useToast} from 'src/@components/common/Toast/hooks'
 import {hasAxiosResponseAxiosErrorType, hasErrorMessageAxiosResponseType} from 'src/@domain/api'
-import ORDER_API, {CreateOrderRequestBody} from 'src/@domain/api/order'
+import ORDER_API, {CreateOrderRequestBody, OrderStartRequestBody} from 'src/@domain/api/order'
 import {avoidRepeatRequest} from 'src/common/util/func'
 
 export const useMutateOrderDomain = () => {
@@ -35,7 +35,7 @@ export const useMutateOrderDomain = () => {
                 },
             } = error
 
-            if (message === RES_MSG.IS_NOT_VALID_BARCODE_TOKEN) {
+            if (message === RES_MSG.IS_NOT_VALID_PAYMENT_TOKEN) {
                 showToastMessage('결제 정보를 갱신해주세요.', 'error')
             }
 
@@ -55,7 +55,38 @@ export const useMutateOrderDomain = () => {
         }
     }
 
+    const startOrder = async (args: OrderStartRequestBody) => {
+        try {
+            showLoading()
+
+            await ORDER_API.start(args)
+
+            showToastMessage('유효한 결제 토큰입니다.', 'success')
+
+            return {
+                message: RES_MSG.SUCCESS,
+            }
+        } catch (error) {
+            if (!hasAxiosResponseAxiosErrorType(error) || !hasErrorMessageAxiosResponseType(error.response)) {
+                showToastMessage('알 수 없는 에러가 발생하였습니다.', 'error')
+
+                return {
+                    message: RES_MSG.FAILURE,
+                }
+            }
+
+            showToastMessage('유효하지 않은 토큰입니다.', 'error')
+
+            return {
+                message: RES_MSG.FAILURE,
+            }
+        } finally {
+            hideLoading()
+        }
+    }
+
     return {
         createOrder: avoidRepeatRequest(createOrder),
+        startOrder: avoidRepeatRequest(startOrder),
     }
 }
