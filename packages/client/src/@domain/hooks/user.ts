@@ -55,6 +55,8 @@ export const useFetchPaymentToken = () => {
 }
 
 export const useMutateUserDomain = () => {
+    const queryClient = useQueryClient()
+
     const {showLoading, hideLoading} = useLoading()
     const {showToastMessage} = useToast()
 
@@ -151,8 +153,13 @@ export const useMutateUserDomain = () => {
         }
     }
 
+    const invalidateUserQuery = async () => {
+        await queryClient.invalidateQueries([QUERY_KEY.me])
+    }
+
     return {
         joinUser: avoidRepeatRequest(joinUser),
         loginUser: avoidRepeatRequest(loginUser),
+        invalidateUserQuery: avoidRepeatRequest(invalidateUserQuery),
     }
 }

@@ -2,10 +2,13 @@ import {RES_MSG} from 'payment_common/module/constant'
 import {useLoading} from 'src/@components/common/Loading/hooks'
 import {useToast} from 'src/@components/common/Toast/hooks'
 import {hasAxiosResponseAxiosErrorType, hasErrorMessageAxiosResponseType} from 'src/@domain/api'
-import ORDER_API, {CreateOrderRequestBody, OrderStartRequestBody} from 'src/@domain/api/order'
+import ORDER_API, {CancelOrderRequestBody, CreateOrderRequestBody, StartOrderRequestBody} from 'src/@domain/api/order'
+import {useMutateUserDomain} from 'src/@domain/hooks/user'
 import {avoidRepeatRequest} from 'src/common/util/func'
 
 export const useMutateOrderDomain = () => {
+    const {invalidateUserQuery} = useMutateUserDomain()
+
     const {showLoading, hideLoading} = useLoading()
     const {showToastMessage} = useToast()
 
@@ -55,11 +58,11 @@ export const useMutateOrderDomain = () => {
         }
     }
 
-    const startOrder = async (args: OrderStartRequestBody) => {
+    const startOrder = async (body: StartOrderRequestBody) => {
         try {
             showLoading()
 
-            await ORDER_API.start(args)
+            await ORDER_API.start(body)
 
             showToastMessage('유효한 결제 토큰입니다.', 'success')
 
@@ -85,8 +88,39 @@ export const useMutateOrderDomain = () => {
         }
     }
 
+    const cancelOrder = async (body: CancelOrderRequestBody) => {
+        try {
+            showLoading()
+
+            await ORDER_API.cancel(body)
+
+            invalidateUserQuery()
+
+            return {
+                message: RES_MSG.SUCCESS,
+            }
+        } catch (error) {
+            if (!hasAxiosResponseAxiosErrorType(error) || !hasErrorMessageAxiosResponseType(error.response)) {
+                showToastMessage('알 수 없는 에러가 발생하였습니다.', 'error')
+
+                return {
+                    message: RES_MSG.FAILURE,
+                }
+            }
+
+            showToastMessage('주문 취소에 실패하였습니다.', 'error')
+
+            return {
+                message: RES_MSG.FAILURE,
+            }
+        } finally {
+            hideLoading()
+        }
+    }
+
     return {
         createOrder: avoidRepeatRequest(createOrder),
         startOrder: avoidRepeatRequest(startOrder),
+        cancelOrder: avoidRepeatRequest(cancelOrder),
     }
 }

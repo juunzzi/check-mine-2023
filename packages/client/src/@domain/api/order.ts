@@ -7,10 +7,15 @@ export type CreateOrderRequestBody = {
 }
 export type CreateOrderResponseBody = undefined
 
-export type OrderStartRequestBody = {
+export type StartOrderRequestBody = {
     paymentToken: string | null
 }
-export type OrderStartResponseBody = undefined
+export type StartOrderResponseBody = undefined
+
+export type CancelOrderRequestBody = {
+    paymentToken: string | null
+}
+export type CancelOrderResponseBody = undefined
 
 const ORDER_API = {
     create: async (body: CreateOrderRequestBody) => {
@@ -18,8 +23,13 @@ const ORDER_API = {
 
         return data
     },
-    start: async (body: OrderStartRequestBody) => {
-        const {data} = await client.post<OrderStartResponseBody>('/orders/start', body)
+    start: async (body: StartOrderRequestBody) => {
+        const {data} = await client.post<StartOrderResponseBody>('/orders/start', body)
+
+        return data
+    },
+    cancel: async (body: CancelOrderRequestBody) => {
+        const {data} = await client.post<CancelOrderResponseBody>('/orders/cancel', body)
 
         return data
     },

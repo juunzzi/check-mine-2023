@@ -1,6 +1,5 @@
 import {css} from '@emotion/react'
 import styled from '@emotion/styled'
-import {Link} from 'react-router-dom'
 
 export const Container = styled.div`
     min-height: 80vh;
@@ -10,7 +9,7 @@ export const Container = styled.div`
     align-items: center;
     flex-direction: column;
 
-    gap: 20px;
+    gap: 36px;
 `
 
 export const OrderStatus = styled.div`
@@ -28,10 +27,9 @@ export const ButtonWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
 `
 
-export const Button = styled(Link)`
+export const Button = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,6 +41,8 @@ export const Button = styled(Link)`
     cursor: pointer;
 
     font-size: 1rem;
+
+    cursor: pointer;
 
     ${({theme}) => css`
         background-color: ${theme.colors.background_0};

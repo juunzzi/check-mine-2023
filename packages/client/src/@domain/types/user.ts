@@ -8,7 +8,8 @@ export interface User {
     password: string
     accountId: number | null
     payment: {
-        status: PaymentTokenStatus
+        status: PaymentTokenStatus | 'nonexistent'
+        token: string | 'nonexistent'
     }
 }
 
