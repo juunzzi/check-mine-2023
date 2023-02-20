@@ -1,7 +1,6 @@
 import {Middleware} from 'koa'
 import {RES_MSG} from 'payment_common/module/constant'
 import {decodeUserJWT} from 'src/@domain/user/modules/jwt'
-import PaymentTokenStore from 'src/@domain/user/modules/payment-token-store'
 import Logger from 'src/common/logger/winston'
 
 export const authenticateAccessToken = (): Middleware => async (ctx, next) => {
@@ -55,17 +54,14 @@ export const decodePaymentToken = (): Middleware => async (ctx, next) => {
 
         if (!paymentToken) {
             ctx.status = 400
+            ctx.body = {
+                message: RES_MSG.IS_NOT_VALID_PAYMENT_TOKEN,
+            }
 
             return
         }
 
         const {id} = (await decodeUserJWT({token: paymentToken, errorResolve: false})) as {id: number}
-
-        if (!PaymentTokenStore.isValidToken(id, paymentToken)) {
-            ctx.status = 400
-
-            return
-        }
 
         ctx.request.body = {
             paymentTokenInfo: {
@@ -80,7 +76,6 @@ export const decodePaymentToken = (): Middleware => async (ctx, next) => {
         Logger.error(error)
 
         ctx.status = 400
-    } finally {
         ctx.body = {
             message: RES_MSG.IS_NOT_VALID_PAYMENT_TOKEN,
         }
