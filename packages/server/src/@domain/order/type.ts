@@ -27,6 +27,14 @@ export const isCreateOrderRequestBodyType = (body: any): body is CreateOrderRequ
     )
 }
 
+export interface GetPaymentStatusRequestBody {
+    paymentTokenInfo: PaymentTokenInfo
+}
+
+export const isGetPaymentStatusRequestBody = (body: any): body is GetPaymentStatusRequestBody => {
+    return isPaymentTokenInfo(body.paymentTokenInfo)
+}
+
 export interface StartOrderRequestBody {
     paymentTokenInfo: PaymentTokenInfo
 }
