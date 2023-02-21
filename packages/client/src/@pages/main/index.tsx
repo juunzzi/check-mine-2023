@@ -13,7 +13,7 @@ const UnwrappedMainPage = () => {
 
     const {paymentToken} = useFetchPaymentToken()
 
-    const {status} = useFetchPaymentTokenStatus({token: paymentToken, refetchInterval: 3000})
+    const {status} = useFetchPaymentTokenStatus({token: paymentToken, refetchInterval: 3000, useErrorBoundary: false})
 
     useEffect(() => {
         if (status && status === 'pending') {

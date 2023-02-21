@@ -64,15 +64,21 @@ export const useFetchPaymentToken = () => {
 interface UseFetchPaymentTokenStatus {
     token: string | null
     refetchInterval?: number | false
+    useErrorBoundary?: boolean
 }
 
-export const useFetchPaymentTokenStatus = ({token, refetchInterval = false}: UseFetchPaymentTokenStatus) => {
+export const useFetchPaymentTokenStatus = ({
+    token,
+    refetchInterval = false,
+    useErrorBoundary = true,
+}: UseFetchPaymentTokenStatus) => {
     const {data: response, refetch} = useQuery(
         [QUERY_KEY.getPaymentTokenStatus, token],
         () => USER_API.getPaymentTokenStatus({paymentToken: token}),
         {
             refetchInterval,
             suspense: false,
+            useErrorBoundary,
             enabled: Boolean(token),
         },
     )
