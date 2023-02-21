@@ -25,7 +25,7 @@ const PaymentTokenStore = (() => {
         },
         setStatus: (id: number, status: PaymentTokenStatus) => {
             if (!store[id]) {
-                return RES_MSG.FAILURE
+                return RES_MSG.SET_PAYMENT_TOKEN_STATUS_FAILURE
             }
 
             if (status === 'pending') {
@@ -43,7 +43,7 @@ const PaymentTokenStore = (() => {
                     }
                 }, PENDING_STATUS_EXPIRED_TIME)
 
-                return RES_MSG.SUCCESS
+                return RES_MSG.SET_PAYMENT_TOKEN_STATUS_SUCCESS
             }
 
             store[id] = {
@@ -51,7 +51,7 @@ const PaymentTokenStore = (() => {
                 status,
             }
 
-            return RES_MSG.SUCCESS
+            return RES_MSG.SET_PAYMENT_TOKEN_STATUS_SUCCESS
         },
         getStatus: (id: number) => {
             if (!store[id]) {

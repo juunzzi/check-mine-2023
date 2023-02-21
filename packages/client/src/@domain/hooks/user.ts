@@ -103,16 +103,16 @@ export const useMutateUserDomain = () => {
         } catch (error) {
             const {messageCode} = parseMessageCodeInAxiosError(error)
 
-            if (messageCode === RES_MSG.INPUT_TYPE_ERROR || messageCode === RES_MSG.CREATE_USER_INPUT_ERROR) {
+            if (messageCode === RES_MSG.INPUT_TYPE_ERROR || messageCode === RES_MSG.JOIN_USER_INPUT_ERROR) {
                 showToastMessage('입력 값이 올바르지 않습니다.', 'error')
             }
 
-            if (messageCode === RES_MSG.DUPLICATE_EMAIL) {
+            if (messageCode === RES_MSG.JOIN_USER_DUPLICATE_EMAIL) {
                 showToastMessage('이메일이 중복되었습니다.', 'error')
             }
 
             return {
-                message: RES_MSG.FAILURE,
+                message: messageCode,
             }
         } finally {
             hideLoading()
@@ -146,12 +146,12 @@ export const useMutateUserDomain = () => {
                 showToastMessage('입력 값이 올바르지 않습니다.', 'error')
             }
 
-            if (messageCode === RES_MSG.IS_NOT_MATCH) {
+            if (messageCode === RES_MSG.IS_NOT_MATCH_EMAIL_OR_PASSWORD) {
                 showToastMessage('일치하는 유저가 존재하지 않습니다.', 'error')
             }
 
             return {
-                message: RES_MSG.FAILURE,
+                message: messageCode,
             }
         } finally {
             hideLoading()
@@ -174,10 +174,12 @@ export const useMutateUserDomain = () => {
                 message: RES_MSG.SUCCESS,
             }
         } catch (error) {
+            const {messageCode} = parseMessageCodeInAxiosError(error)
+
             showToastMessage('유효하지 않은 토큰입니다.', 'error')
 
             return {
-                message: RES_MSG.FAILURE,
+                message: messageCode,
             }
         } finally {
             hideLoading()
@@ -196,10 +198,12 @@ export const useMutateUserDomain = () => {
                 message: RES_MSG.SUCCESS,
             }
         } catch (error) {
+            const {messageCode} = parseMessageCodeInAxiosError(error)
+
             showToastMessage('주문 취소에 실패하였습니다.', 'error')
 
             return {
-                message: RES_MSG.FAILURE,
+                message: messageCode,
             }
         } finally {
             hideLoading()

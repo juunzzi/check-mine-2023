@@ -35,7 +35,7 @@ userRouter.get('/me', authenticateAccessToken(), async (ctx) => {
 
     const {data: user, message} = await USER_SERVICE.get(id)
 
-    if (message === RES_MSG.SUCCESS) {
+    if (message === RES_MSG.GET_USER_SUCCESS) {
         const {email, accountId, name, payPoint} = user
 
         ctx.status = 200
@@ -46,10 +46,6 @@ userRouter.get('/me', authenticateAccessToken(), async (ctx) => {
                 accountId,
                 name,
                 payPoint,
-                payment: {
-                    status: PaymentTokenStore.getStatus(id),
-                    token: PaymentTokenStore.getToken(id),
-                },
             },
         }
     } else {
@@ -72,7 +68,7 @@ userRouter.put('/me', koaBody(), authenticateAccessToken(), async (ctx) => {
 
     const {message} = await USER_SERVICE.edit({...body})
 
-    if (message === RES_MSG.SUCCESS) {
+    if (message === RES_MSG.EDIT_USER_SUCCESS) {
         ctx.status = 200
     } else {
         ctx.status = 400
@@ -96,7 +92,7 @@ userRouter.post('/login', koaBody(), checkAlreadyLogin(), async (ctx) => {
 
     const {data: accessToken, message} = await USER_SERVICE.login(email, password)
 
-    if (message === RES_MSG.SUCCESS) {
+    if (message === RES_MSG.LOGIN_USER_SUCCESS) {
         ctx.status = 200
         ctx.body = {data: {accessToken}}
     } else {
@@ -119,7 +115,7 @@ userRouter.post('/join', koaBody(), async (ctx) => {
 
     const {message} = await USER_SERVICE.join({...body, accountId: null})
 
-    if (message === RES_MSG.SUCCESS) {
+    if (message === RES_MSG.JOIN_USER_SUCCESS) {
         ctx.status = 200
     } else {
         ctx.status = 400
@@ -143,9 +139,9 @@ userRouter.post('/me/payment-token', authenticateAccessToken(), async (ctx) => {
         authenticationInfo: {id},
     } = body
 
-    const {data: paymentToken, message} = await USER_SERVICE.getPaymentToken(id)
+    const {data: paymentToken, message} = await USER_SERVICE.generatePaymentToken(id)
 
-    if (message === RES_MSG.SUCCESS) {
+    if (message === RES_MSG.GENERATE_PAYMENT_TOKEN_SUCCESS) {
         PaymentTokenStore.setToken(id, paymentToken)
 
         ctx.status = 200
@@ -190,7 +186,7 @@ userRouter.get('/me/payment-token/status', koaBody(), decodePaymentToken({isPaym
         }
     } else {
         ctx.status = 400
-        ctx.body = {message: RES_MSG.FAILURE}
+        ctx.body = {message: RES_MSG.HAS_NOT_PAYMENT_TOKEN}
     }
 })
 
@@ -219,7 +215,7 @@ userRouter.post('/me/payment-token/start', koaBody(), decodePaymentToken(), asyn
 
     const message = PaymentTokenStore.setStatus(id, 'pending')
 
-    if (message === RES_MSG.SUCCESS) {
+    if (message === RES_MSG.SET_PAYMENT_TOKEN_STATUS_SUCCESS) {
         ctx.status = 200
     } else {
         ctx.status = 400
@@ -252,7 +248,7 @@ userRouter.post('/me/payment-token/cancel', koaBody(), decodePaymentToken(), asy
 
     const message = PaymentTokenStore.setStatus(id, 'failure')
 
-    if (message === RES_MSG.SUCCESS) {
+    if (message === RES_MSG.SET_PAYMENT_TOKEN_STATUS_SUCCESS) {
         ctx.status = 200
     } else {
         ctx.status = 400
