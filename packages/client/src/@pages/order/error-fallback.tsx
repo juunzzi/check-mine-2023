@@ -19,7 +19,7 @@ const OrderPageErrorFallback = (props: ErrorBoundaryFallbackProps) => {
                     {messageCode === RES_MSG.IS_NOT_VALID_PAYMENT_TOKEN && <p>결제 정보가 갱신되었습니다.</p>}
                     {messageCode === RES_MSG.LOAD_PRODUCT_FAILURE && <p>상품 정보를 불러오는데 실패했습니다.</p>}
                     {!messageCode && <p>결제에 문제가 발생했어요.</p>}
-                    <p>메인 화면으로 이동해주세요</p>
+                    <p>사용자의 결제 바코드를 다시 스캔 후 시도해주세요</p>
                 </Styled.ErrorMessage>
                 <Styled.ButtonWrapper>
                     <Styled.Button to={PATH.MAIN}>
