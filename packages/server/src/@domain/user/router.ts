@@ -210,7 +210,7 @@ userRouter.post('/me/payment-token/start', koaBody(), decodePaymentToken(), asyn
         paymentTokenInfo: {id, token},
     } = body
 
-    if (!PaymentTokenStore.isValidToken(id, token)) {
+    if (!PaymentTokenStore.isAvaiableOrderToken(id, token)) {
         ctx.status = 400
         ctx.body = {message: RES_MSG.IS_NOT_VALID_PAYMENT_TOKEN}
 
