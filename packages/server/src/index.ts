@@ -3,6 +3,7 @@ import 'src/env'
 import cors from '@koa/cors'
 import Koa from 'koa'
 import koaLogger from 'koa-logger'
+import {RES_MSG} from 'payment_common/module/constant'
 import Logger from 'src/common/logger/winston'
 import {initializeDB} from 'src/db'
 import router from 'src/router'
@@ -24,6 +25,9 @@ import router from 'src/router'
             } catch (error) {
                 Logger.error(error)
                 ctx.status = 500
+                ctx.body = {
+                    message : RES_MSG.SERVER_ERROR
+                }
             }
         })
 
