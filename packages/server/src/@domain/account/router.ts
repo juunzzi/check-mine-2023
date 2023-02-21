@@ -14,6 +14,7 @@ accountRouter.get('/', authenticateAccessToken(), async (ctx) => {
 
     if (!isGetAccountRequestBodyType(body)) {
         ctx.status = 400
+        ctx.body = {message: RES_MSG.INPUT_TYPE_ERROR}
 
         return
     }
@@ -44,6 +45,7 @@ accountRouter.post('/', koaBody(), authenticateAccessToken(), async (ctx) => {
 
     if (!isCreateAccountBodyType(body)) {
         ctx.status = 400
+        ctx.body = {message: RES_MSG.INPUT_TYPE_ERROR}
 
         return
     }
