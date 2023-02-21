@@ -16,6 +16,8 @@ export const transactQueries = async <T>(executor: (connection: PoolConnection) 
         await connection.rollback()
 
         throw error
+    } finally {
+        await connection.release()
     }
 }
 

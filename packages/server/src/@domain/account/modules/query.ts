@@ -1,3 +1,4 @@
+import {Connection} from 'mariadb'
 import {Bank} from 'payment_common/module/constant'
 import {isValidBankName} from 'payment_common/module/validation'
 import {CreateAccountInput} from 'src/@domain/account/service'
@@ -61,9 +62,7 @@ export const findAccountByAccountId = async (id: number) => {
 export const insertAccount = async (accountInput: CreateAccountInput) => {
     const {bankName, number, amount, userId} = accountInput
 
-    const connection = await pool.getConnection()
-
-    const result = await transactQueries(async () => {
+    const result = await transactQueries(async (connection: Connection) => {
         const accountQueryResult = await connection.query(
             `INSERT INTO ACCOUNT (bank_name, number, amount, user_id)
              VALUES (?,?,?,?)`,

@@ -42,6 +42,8 @@ export const initializeDB = async () => {
                 foreign key (user_id) references user (id)
                     on update cascade on delete cascade
         )`)
+
+    await connection.release()
 }
 
 export default pool
