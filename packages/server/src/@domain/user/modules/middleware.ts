@@ -46,38 +46,46 @@ export const checkAlreadyLogin = (): Middleware => async (ctx, next) => {
     }
 }
 
-export const decodePaymentToken = (): Middleware => async (ctx, next) => {
-    const {body} = ctx.request
+interface DecodePaymentTokenArgs {
+    isPaymentTokenIn?: 'body' | 'query'
+}
 
-    try {
-        const {paymentToken} = body
+export const decodePaymentToken =
+    (args: DecodePaymentTokenArgs = {}): Middleware =>
+    async (ctx, next) => {
+        const {isPaymentTokenIn} = args
 
-        if (!paymentToken) {
+        const {body, query} = ctx.request
+
+        try {
+            const {paymentToken} = isPaymentTokenIn === 'body' ? body : query
+
+            if (!paymentToken) {
+                ctx.status = 400
+                ctx.body = {
+                    message: RES_MSG.IS_NOT_VALID_PAYMENT_TOKEN,
+                }
+
+                return
+            }
+
+            const {id} = (await decodeUserJWT({token: paymentToken, errorResolve: false})) as {id: number}
+
+            ctx.request.body = {
+                paymentTokenInfo: {
+                    id,
+                    token: paymentToken,
+                },
+                ...(ctx.request.body ?? {}),
+            }
+
+            await next()
+        } catch (error) {
+            Logger.error(error)
+
             ctx.status = 400
             ctx.body = {
                 message: RES_MSG.IS_NOT_VALID_PAYMENT_TOKEN,
             }
-
-            return
-        }
-
-        const {id} = (await decodeUserJWT({token: paymentToken, errorResolve: false})) as {id: number}
-
-        ctx.request.body = {
-            paymentTokenInfo: {
-                id,
-                token: paymentToken,
-            },
-            ...(ctx.request.body ?? {}),
-        }
-
-        await next()
-    } catch (error) {
-        Logger.error(error)
-
-        ctx.status = 400
-        ctx.body = {
-            message: RES_MSG.IS_NOT_VALID_PAYMENT_TOKEN,
         }
     }
-}
