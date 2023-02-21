@@ -3,7 +3,8 @@ import {useNavigate} from 'react-router-dom'
 import LoginRedirectIfNotLoggedIn from 'src/@components/common/LoginRedirectIfNotLoggedIn'
 import PageTemplate from 'src/@components/common/PageTemplate'
 import UserPayment from 'src/@components/user/UserPayment'
-import {useFetchMe} from 'src/@domain/hooks/user'
+import {useFetchStatus} from 'src/@domain/hooks/order'
+import {useFetchPaymentToken} from 'src/@domain/hooks/user'
 import {PATH} from 'src/Router'
 
 import * as Styled from './style'
@@ -11,13 +12,15 @@ import * as Styled from './style'
 const UnwrappedMainPage = () => {
     const navigate = useNavigate()
 
-    const {me} = useFetchMe({refetchInterval: 3000})
+    const {paymentToken} = useFetchPaymentToken()
+
+    const {status} = useFetchStatus({token: paymentToken, refetchInterval: 3000})
 
     useEffect(() => {
-        if (me && me.payment.status === 'pending') {
+        if (status && status === 'pending') {
             navigate(PATH.ORDER_PENDING_PAGE)
         }
-    }, [me])
+    }, [status])
 
     return (
         <PageTemplate>

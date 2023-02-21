@@ -49,7 +49,7 @@ export const useFetchPaymentToken = () => {
     })
 
     return {
-        paymentToken: response?.data?.paymentToken,
+        paymentToken: response?.data?.paymentToken ?? null,
         reloadPaymentToken: avoidRepeatRequest(refetch),
     }
 }

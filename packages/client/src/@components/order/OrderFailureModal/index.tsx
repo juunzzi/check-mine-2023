@@ -14,7 +14,8 @@ const OrderFailureModal = () => {
         <Modal>
             <Styled.Container>
                 <Styled.Message>
-                    <p>결제에 실패했어요</p>
+                    <p>결제 정보가 갱신되었어요</p>
+                    <p>새로운 결제 바코드를 스캔해주세요</p>
                 </Styled.Message>
 
                 <Styled.LinkButtonWrapper>

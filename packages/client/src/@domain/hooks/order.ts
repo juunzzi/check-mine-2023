@@ -11,7 +11,12 @@ const QUERY_KEY = {
     getStatus: 'getStatus',
 }
 
-export const useFetchStatus = ({token, refetchInterval}: {token: string | null; refetchInterval?: number}) => {
+interface UseFetchStatusProps {
+    token: string | null
+    refetchInterval?: number | false
+}
+
+export const useFetchStatus = ({token, refetchInterval = false}: UseFetchStatusProps) => {
     const {data: response, refetch} = useQuery(
         [QUERY_KEY.getStatus, token],
         () => ORDER_API.getStatus({paymentToken: token}),

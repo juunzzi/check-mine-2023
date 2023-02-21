@@ -12,7 +12,7 @@ export const useOrderPage = () => {
 
     const token = useSearchParams('qrcode')
 
-    const {status, refetchStatus} = useFetchStatus({token, refetchInterval: 2000})
+    const {status, refetchStatus} = useFetchStatus({token, refetchInterval: 3000})
 
     const [orderProductsMap, setOrderProductsMap] = useState<OrderProductMapState>({})
 

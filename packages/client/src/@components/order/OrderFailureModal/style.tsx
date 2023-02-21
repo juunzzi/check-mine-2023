@@ -13,12 +13,22 @@ export const Container = styled.div`
 `
 
 export const Message = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
     font-size: 1.2rem;
     font-weight: bold;
     text-align: center;
 
     ${({theme}) => css`
         color: ${theme.colors.grey_400};
+
+        & > p:last-child {
+            color: ${theme.colors.grey_100};
+            font-weight: normal;
+            font-size: 0.9rem;
+        }
     `}
 `
 

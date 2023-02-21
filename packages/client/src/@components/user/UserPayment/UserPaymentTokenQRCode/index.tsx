@@ -4,27 +4,25 @@ import ErrorBoundary from 'src/@components/common/ErrorBoundary'
 import Icon, {ReloadIcon} from 'src/@components/common/Icon'
 import UserPaymentTokenQRCodeErrorFallback from 'src/@components/user/UserPayment/UserPaymentTokenQRCode/error-fallback'
 import UserPaymentTokenQRCodeLoadingFallback from 'src/@components/user/UserPayment/UserPaymentTokenQRCode/loading-fallback'
-import {useFetchPaymentToken, useFetchMe} from 'src/@domain/hooks/user'
+import {useFetchStatus} from 'src/@domain/hooks/order'
+import {useFetchPaymentToken} from 'src/@domain/hooks/user'
 
 import * as Styled from './style'
 
 const CLIENT_URL = process.env.REACT_APP_URL
 
 const UserPaymentTokenQRCodeNaked = () => {
-    const {me} = useFetchMe()
-
     const {paymentToken, reloadPaymentToken} = useFetchPaymentToken()
+
+    const {status} = useFetchStatus({token: paymentToken})
 
     const paymentTokenValue = `${CLIENT_URL}/order?qrcode=${paymentToken}`
 
     useEffect(() => {
-        const hasNotValidToken =
-            me && me.payment && me.payment.status !== 'initialize' && me.payment.status !== 'pending'
-
-        if (hasNotValidToken) {
+        if (status && status !== 'initialize' && status !== 'pending') {
             throw new Error('유효하지 않은 바코드 토큰')
         }
-    }, [me])
+    }, [status])
 
     const onClickReloadButton = async () => {
         await reloadPaymentToken()
