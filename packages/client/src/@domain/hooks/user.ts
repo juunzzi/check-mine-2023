@@ -2,7 +2,7 @@ import {useQuery, useQueryClient} from '@tanstack/react-query'
 import {PAYMENT_TOKEN_EXPIRATION, RES_MSG} from 'payment_common/module/constant'
 import {useLoading} from 'src/@components/common/Loading/hooks'
 import {useToast} from 'src/@components/common/Toast/hooks'
-import {client, hasAxiosResponseAxiosErrorType, hasErrorMessageAxiosResponseType} from 'src/@domain/api'
+import {client, parseMessageCodeInAxiosError} from 'src/@domain/api'
 import USER_API, {
     CancelPaymentTokenRequestBody,
     JoinUserRequestBody,
@@ -101,25 +101,13 @@ export const useMutateUserDomain = () => {
                 message: RES_MSG.SUCCESS,
             }
         } catch (error) {
-            if (!hasAxiosResponseAxiosErrorType(error) || !hasErrorMessageAxiosResponseType(error.response)) {
-                showToastMessage('알 수 없는 에러가 발생하였습니다.', 'error')
+            const {messageCode} = parseMessageCodeInAxiosError(error)
 
-                return {
-                    message: RES_MSG.FAILURE,
-                }
-            }
-
-            const {
-                response: {
-                    data: {message},
-                },
-            } = error
-
-            if (message === RES_MSG.INPUT_TYPE_ERROR || message === RES_MSG.CREATE_USER_INPUT_ERROR) {
+            if (messageCode === RES_MSG.INPUT_TYPE_ERROR || messageCode === RES_MSG.CREATE_USER_INPUT_ERROR) {
                 showToastMessage('입력 값이 올바르지 않습니다.', 'error')
             }
 
-            if (message === RES_MSG.DUPLICATE_EMAIL) {
+            if (messageCode === RES_MSG.DUPLICATE_EMAIL) {
                 showToastMessage('이메일이 중복되었습니다.', 'error')
             }
 
@@ -152,25 +140,13 @@ export const useMutateUserDomain = () => {
                 message: RES_MSG.SUCCESS,
             }
         } catch (error) {
-            if (!hasAxiosResponseAxiosErrorType(error) || !hasErrorMessageAxiosResponseType(error.response)) {
-                showToastMessage('알 수 없는 에러가 발생하였습니다.', 'error')
+            const {messageCode} = parseMessageCodeInAxiosError(error)
 
-                return {
-                    message: RES_MSG.FAILURE,
-                }
-            }
-
-            const {
-                response: {
-                    data: {message},
-                },
-            } = error
-
-            if (message === RES_MSG.INPUT_TYPE_ERROR) {
+            if (messageCode === RES_MSG.INPUT_TYPE_ERROR) {
                 showToastMessage('입력 값이 올바르지 않습니다.', 'error')
             }
 
-            if (message === RES_MSG.IS_NOT_MATCH) {
+            if (messageCode === RES_MSG.IS_NOT_MATCH) {
                 showToastMessage('일치하는 유저가 존재하지 않습니다.', 'error')
             }
 
@@ -198,14 +174,6 @@ export const useMutateUserDomain = () => {
                 message: RES_MSG.SUCCESS,
             }
         } catch (error) {
-            if (!hasAxiosResponseAxiosErrorType(error) || !hasErrorMessageAxiosResponseType(error.response)) {
-                showToastMessage('알 수 없는 에러가 발생하였습니다.', 'error')
-
-                return {
-                    message: RES_MSG.FAILURE,
-                }
-            }
-
             showToastMessage('유효하지 않은 토큰입니다.', 'error')
 
             return {
@@ -228,14 +196,6 @@ export const useMutateUserDomain = () => {
                 message: RES_MSG.SUCCESS,
             }
         } catch (error) {
-            if (!hasAxiosResponseAxiosErrorType(error) || !hasErrorMessageAxiosResponseType(error.response)) {
-                showToastMessage('알 수 없는 에러가 발생하였습니다.', 'error')
-
-                return {
-                    message: RES_MSG.FAILURE,
-                }
-            }
-
             showToastMessage('주문 취소에 실패하였습니다.', 'error')
 
             return {
