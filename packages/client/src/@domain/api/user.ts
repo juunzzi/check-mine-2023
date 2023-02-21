@@ -3,7 +3,7 @@ import {AccessToken, PaymentToken, PaymentTokenStatus, User} from 'src/@domain/t
 
 export const USER_ATHORIZATION_TOKEN_KEY = 'user-authorization-token'
 
-export type JoinUserRequestBody = Omit<User, 'id' | 'accountId' | 'payment'>
+export type JoinUserRequestBody = Omit<User, 'id' | 'accountId'>
 export type JoinUserResponseBody = undefined
 
 export type LoginUserRequestBody = Pick<User, 'email' | 'password'>

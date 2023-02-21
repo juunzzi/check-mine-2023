@@ -7,10 +7,6 @@ export interface User {
     payPoint: number
     password: string
     accountId: number | null
-    payment: {
-        status: PaymentTokenStatus | 'nonexistent'
-        token: string | 'nonexistent'
-    }
 }
 
 export interface AccessToken {
