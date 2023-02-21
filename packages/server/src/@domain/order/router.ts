@@ -34,7 +34,7 @@ orderRouter.post('/', koaBody(), decodePaymentToken(), async (ctx) => {
 
     const {message} = await ORDER_SERVICE.create(id, orderProducts)
 
-    if (message === RES_MSG.SUCCESS) {
+    if (message === RES_MSG.CREATE_ORDER_SUCCESS) {
         PaymentTokenStore.setStatus(id, 'success')
         ctx.status = 200
     } else {

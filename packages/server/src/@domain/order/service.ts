@@ -36,8 +36,11 @@ const orderOnPayPoint = async ({
     )
 
     return {
-        updateUserResult,
-        updateProductsResult,
+        message: RES_MSG.CREATE_ORDER_SUCCESS,
+        data: {
+            updateUserResult,
+            updateProductsResult,
+        },
     }
 }
 
@@ -55,7 +58,7 @@ const orderOnPayPointWithAccount = async ({
     const {amount, ...accountRest} = await ACCOUNT_DB.findAccountByAccountId(accountId)
 
     if (payPoint + amount < orderAmount) {
-        return
+        return {message: RES_MSG.IS_INSUFFICIENT_PAY_POINT}
     }
 
     const updateAccountResult = await ACCOUNT_DB.updateAccount({
@@ -78,9 +81,12 @@ const orderOnPayPointWithAccount = async ({
     )
 
     return {
-        updateUserResult,
-        updateProductsResult,
-        updateAccountResult,
+        message: RES_MSG.CREATE_ORDER_SUCCESS,
+        data: {
+            updateUserResult,
+            updateProductsResult,
+            updateAccountResult,
+        },
     }
 }
 
@@ -98,11 +104,10 @@ const ORDER_SERVICE = {
 
             const orderAmount = computeOrderAmount(products, orderProductMap)
             const orderMethod = user.payPoint >= orderAmount ? orderOnPayPoint : orderOnPayPointWithAccount
-            const orderResult = orderMethod({user, products, orderProductMap, orderAmount})
-            const message = orderResult ? RES_MSG.SUCCESS : RES_MSG.FAILURE
+            const {message, data} = await orderMethod({user, products, orderProductMap, orderAmount})
 
             return {
-                data: orderResult,
+                data,
                 message,
             }
         }
