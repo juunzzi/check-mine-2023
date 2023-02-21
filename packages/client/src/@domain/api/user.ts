@@ -1,5 +1,5 @@
 import {client} from 'src/@domain/api'
-import {AccessToken, PaymentToken, User} from 'src/@domain/types/user'
+import {AccessToken, PaymentToken, PaymentTokenStatus, User} from 'src/@domain/types/user'
 
 export const USER_ATHORIZATION_TOKEN_KEY = 'user-authorization-token'
 
@@ -15,8 +15,27 @@ export type GetMeResponseBody = {
     data: User
 }
 
-export type GetPaymentTokenResponseBody = {
+export type GeneratePaymentTokenResponseBody = {
     data: PaymentToken
+}
+
+export type StartPaymentTokenRequestBody = {
+    paymentToken: string | null
+}
+export type StartPaymentTokenResponseBody = undefined
+
+export type CancelPaymentTokenRequestBody = {
+    paymentToken: string | null
+}
+export type CancelPaymentTokenResponseBody = undefined
+
+export type GetPaymentTokenStatusRequestBody = {
+    paymentToken: string | null
+}
+export type GetPaymentTokenStatusResponseBody = {
+    data: {
+        status: PaymentTokenStatus
+    }
 }
 
 const USER_API = {
@@ -33,8 +52,27 @@ const USER_API = {
 
         return data
     },
-    getPaymentToken: async () => {
-        const {data} = await client.get<GetPaymentTokenResponseBody>('/users/me/payment-token')
+    generatePaymentToken: async () => {
+        const {data} = await client.post<GeneratePaymentTokenResponseBody>('/users/me/payment-token')
+
+        return data
+    },
+    startPaymentToken: async (body: StartPaymentTokenRequestBody) => {
+        const {data} = await client.post<StartPaymentTokenResponseBody>('/users/me/payment-token/start', body)
+
+        return data
+    },
+    cancelPaymentToken: async (body: CancelPaymentTokenRequestBody) => {
+        const {data} = await client.post<CancelPaymentTokenResponseBody>('/users/me/payment-token/cancel', body)
+
+        return data
+    },
+    getPaymentTokenStatus: async (body: GetPaymentTokenStatusRequestBody) => {
+        const {data} = await client.get<GetPaymentTokenStatusResponseBody>('/users/me/payment-token/status', {
+            params: {
+                ...body,
+            },
+        })
 
         return data
     },

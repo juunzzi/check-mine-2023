@@ -3,8 +3,7 @@ import {useNavigate} from 'react-router-dom'
 import LoginRedirectIfNotLoggedIn from 'src/@components/common/LoginRedirectIfNotLoggedIn'
 import PageTemplate from 'src/@components/common/PageTemplate'
 import UserPayment from 'src/@components/user/UserPayment'
-import {useFetchStatus} from 'src/@domain/hooks/order'
-import {useFetchPaymentToken} from 'src/@domain/hooks/user'
+import {useFetchPaymentToken, useFetchPaymentTokenStatus} from 'src/@domain/hooks/user'
 import {PATH} from 'src/Router'
 
 import * as Styled from './style'
@@ -14,7 +13,7 @@ const UnwrappedMainPage = () => {
 
     const {paymentToken} = useFetchPaymentToken()
 
-    const {status} = useFetchStatus({token: paymentToken, refetchInterval: 3000})
+    const {status} = useFetchPaymentTokenStatus({token: paymentToken, refetchInterval: 3000})
 
     useEffect(() => {
         if (status && status === 'pending') {

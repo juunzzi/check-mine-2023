@@ -3,12 +3,19 @@ import {PAYMENT_TOKEN_EXPIRATION, RES_MSG} from 'payment_common/module/constant'
 import {useLoading} from 'src/@components/common/Loading/hooks'
 import {useToast} from 'src/@components/common/Toast/hooks'
 import {client, hasAxiosResponseAxiosErrorType, hasErrorMessageAxiosResponseType} from 'src/@domain/api'
-import USER_API, {JoinUserRequestBody, LoginUserRequestBody, USER_ATHORIZATION_TOKEN_KEY} from 'src/@domain/api/user'
+import USER_API, {
+    CancelPaymentTokenRequestBody,
+    JoinUserRequestBody,
+    LoginUserRequestBody,
+    StartPaymentTokenRequestBody,
+    USER_ATHORIZATION_TOKEN_KEY,
+} from 'src/@domain/api/user'
 import {avoidRepeatRequest} from 'src/common/util/func'
 
 const QUERY_KEY = {
     me: 'me',
-    getPaymentToken: 'getPaymentToken',
+    generatePaymentToken: 'generatePaymentToken',
+    getPaymentTokenStatus: 'getPaymentTokenStatus',
 }
 
 interface UseFetchMeProps {
@@ -44,13 +51,35 @@ export const useFetchMe = (props: UseFetchMeProps = {}) => {
 }
 
 export const useFetchPaymentToken = () => {
-    const {data: response, refetch} = useQuery([QUERY_KEY.getPaymentToken], USER_API.getPaymentToken, {
+    const {data: response, refetch} = useQuery([QUERY_KEY.generatePaymentToken], USER_API.generatePaymentToken, {
         staleTime: PAYMENT_TOKEN_EXPIRATION,
     })
 
     return {
         paymentToken: response?.data?.paymentToken ?? null,
         reloadPaymentToken: avoidRepeatRequest(refetch),
+    }
+}
+
+interface UseFetchPaymentTokenStatus {
+    token: string | null
+    refetchInterval?: number | false
+}
+
+export const useFetchPaymentTokenStatus = ({token, refetchInterval = false}: UseFetchPaymentTokenStatus) => {
+    const {data: response, refetch} = useQuery(
+        [QUERY_KEY.getPaymentTokenStatus, token],
+        () => USER_API.getPaymentTokenStatus({paymentToken: token}),
+        {
+            refetchInterval,
+            suspense: false,
+            enabled: Boolean(token),
+        },
+    )
+
+    return {
+        status: response?.data.status,
+        refetchStatus: avoidRepeatRequest(refetch),
     }
 }
 
@@ -157,9 +186,72 @@ export const useMutateUserDomain = () => {
         await queryClient.invalidateQueries([QUERY_KEY.me])
     }
 
+    const startPaymentToken = async (body: StartPaymentTokenRequestBody) => {
+        try {
+            showLoading()
+
+            await USER_API.startPaymentToken(body)
+
+            showToastMessage('유효한 결제 토큰입니다.', 'success')
+
+            return {
+                message: RES_MSG.SUCCESS,
+            }
+        } catch (error) {
+            if (!hasAxiosResponseAxiosErrorType(error) || !hasErrorMessageAxiosResponseType(error.response)) {
+                showToastMessage('알 수 없는 에러가 발생하였습니다.', 'error')
+
+                return {
+                    message: RES_MSG.FAILURE,
+                }
+            }
+
+            showToastMessage('유효하지 않은 토큰입니다.', 'error')
+
+            return {
+                message: RES_MSG.FAILURE,
+            }
+        } finally {
+            hideLoading()
+        }
+    }
+
+    const cancelPaymentToken = async (body: CancelPaymentTokenRequestBody) => {
+        try {
+            showLoading()
+
+            await USER_API.cancelPaymentToken(body)
+
+            invalidateUserQuery()
+
+            return {
+                message: RES_MSG.SUCCESS,
+            }
+        } catch (error) {
+            if (!hasAxiosResponseAxiosErrorType(error) || !hasErrorMessageAxiosResponseType(error.response)) {
+                showToastMessage('알 수 없는 에러가 발생하였습니다.', 'error')
+
+                return {
+                    message: RES_MSG.FAILURE,
+                }
+            }
+
+            showToastMessage('주문 취소에 실패하였습니다.', 'error')
+
+            return {
+                message: RES_MSG.FAILURE,
+            }
+        } finally {
+            hideLoading()
+        }
+    }
+
     return {
         joinUser: avoidRepeatRequest(joinUser),
         loginUser: avoidRepeatRequest(loginUser),
+        startPaymentToken: avoidRepeatRequest(startPaymentToken),
+        cancelPaymentToken: avoidRepeatRequest(cancelPaymentToken),
+
         invalidateUserQuery: avoidRepeatRequest(invalidateUserQuery),
     }
 }

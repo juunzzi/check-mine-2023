@@ -1,7 +1,8 @@
 import {RES_MSG} from 'payment_common/module/constant'
 import {useEffect, useMemo, useState} from 'react'
 import {useToast} from 'src/@components/common/Toast/hooks'
-import {useFetchStatus, useMutateOrderDomain} from 'src/@domain/hooks/order'
+import {useMutateOrderDomain} from 'src/@domain/hooks/order'
+import {useFetchPaymentTokenStatus, useMutateUserDomain} from 'src/@domain/hooks/user'
 import {OrderProduct} from 'src/@domain/types/order'
 import useSearchParams from 'src/common/hooks/useSearchParams'
 
@@ -12,14 +13,16 @@ export const useOrderPage = () => {
 
     const token = useSearchParams('qrcode')
 
-    const {status, refetchStatus} = useFetchStatus({token, refetchInterval: 3000})
+    const {status, refetchStatus} = useFetchPaymentTokenStatus({token, refetchInterval: 3000})
 
     const [orderProductsMap, setOrderProductsMap] = useState<OrderProductMapState>({})
 
-    const {createOrder, startOrder} = useMutateOrderDomain()
+    const {createOrder} = useMutateOrderDomain()
+
+    const {startPaymentToken} = useMutateUserDomain()
 
     useEffect(() => {
-        startOrder({paymentToken: token}).then(({message}) => {
+        startPaymentToken({paymentToken: token}).then(({message}) => {
             if (message === RES_MSG.FAILURE) {
                 refetchStatus()
             }

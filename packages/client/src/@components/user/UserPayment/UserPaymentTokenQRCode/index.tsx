@@ -4,8 +4,7 @@ import ErrorBoundary from 'src/@components/common/ErrorBoundary'
 import Icon, {ReloadIcon} from 'src/@components/common/Icon'
 import UserPaymentTokenQRCodeErrorFallback from 'src/@components/user/UserPayment/UserPaymentTokenQRCode/error-fallback'
 import UserPaymentTokenQRCodeLoadingFallback from 'src/@components/user/UserPayment/UserPaymentTokenQRCode/loading-fallback'
-import {useFetchStatus} from 'src/@domain/hooks/order'
-import {useFetchPaymentToken} from 'src/@domain/hooks/user'
+import {useFetchPaymentToken, useFetchPaymentTokenStatus} from 'src/@domain/hooks/user'
 
 import * as Styled from './style'
 
@@ -14,7 +13,7 @@ const CLIENT_URL = process.env.REACT_APP_URL
 const UserPaymentTokenQRCodeNaked = () => {
     const {paymentToken, reloadPaymentToken} = useFetchPaymentToken()
 
-    const {status} = useFetchStatus({token: paymentToken})
+    const {status} = useFetchPaymentTokenStatus({token: paymentToken})
 
     const paymentTokenValue = `${CLIENT_URL}/order?qrcode=${paymentToken}`
 

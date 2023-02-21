@@ -1,8 +1,7 @@
 import {useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {useToast} from 'src/@components/common/Toast/hooks'
-import {useFetchStatus, useMutateOrderDomain} from 'src/@domain/hooks/order'
-import {useFetchPaymentToken} from 'src/@domain/hooks/user'
+import {useFetchPaymentToken, useFetchPaymentTokenStatus, useMutateUserDomain} from 'src/@domain/hooks/user'
 import {PATH} from 'src/Router'
 
 export const useOrderPendingPage = () => {
@@ -10,12 +9,12 @@ export const useOrderPendingPage = () => {
 
     const {paymentToken} = useFetchPaymentToken()
 
-    const {status, refetchStatus} = useFetchStatus({
+    const {status, refetchStatus} = useFetchPaymentTokenStatus({
         token: paymentToken,
         refetchInterval: 3000,
     })
 
-    const {cancelOrder} = useMutateOrderDomain()
+    const {cancelPaymentToken} = useMutateUserDomain()
 
     const {showToastMessage} = useToast()
 
@@ -44,7 +43,7 @@ export const useOrderPendingPage = () => {
             return
         }
 
-        await cancelOrder({paymentToken})
+        await cancelPaymentToken({paymentToken})
 
         await refetchStatus()
     }

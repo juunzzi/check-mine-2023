@@ -72,3 +72,27 @@ export type LoginRequestBody = Pick<User, 'email' | 'password'>
 export const isLoginRequestBodyType = (body: any): body is LoginRequestBody => {
     return body && isStringType(body.email) && isStringType(body.password)
 }
+
+export interface GetPaymentStatusRequestBody {
+    paymentTokenInfo: PaymentTokenInfo
+}
+
+export const isGetPaymentStatusRequestBody = (body: any): body is GetPaymentStatusRequestBody => {
+    return isPaymentTokenInfo(body.paymentTokenInfo)
+}
+
+export interface StartOrderRequestBody {
+    paymentTokenInfo: PaymentTokenInfo
+}
+
+export const isStartOrderRequestBody = (body: any): body is StartOrderRequestBody => {
+    return isPaymentTokenInfo(body.paymentTokenInfo)
+}
+
+export interface CancelOrderRequestBody {
+    paymentTokenInfo: PaymentTokenInfo
+}
+
+export const isCancelOrderRequestBody = (body: any): body is CancelOrderRequestBody => {
+    return isPaymentTokenInfo(body.paymentTokenInfo)
+}
