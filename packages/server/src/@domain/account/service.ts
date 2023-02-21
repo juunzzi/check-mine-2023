@@ -12,8 +12,7 @@ const ACCOUNT_SERVICE = {
 
         if (!user.accountId) {
             return {
-                data: null,
-                message: RES_MSG.SUCCESS,
+                message: RES_MSG.HAS_NOT_USER_ACCOUNT,
             }
         }
 
@@ -21,7 +20,7 @@ const ACCOUNT_SERVICE = {
 
         return {
             data: account,
-            message: account ? RES_MSG.SUCCESS : RES_MSG.FAILURE,
+            message: account ? RES_MSG.GET_ACCOUNT_SUCCESS : RES_MSG.GET_ACCOUNT_FAILURE,
         }
     },
     create: async (createAccountInput: CreateAccountInput) => {
@@ -32,7 +31,7 @@ const ACCOUNT_SERVICE = {
         }
 
         const insertResult = await ACCOUNT_DB.insertAccount(createAccountInput)
-        const message = insertResult ? RES_MSG.SUCCESS : RES_MSG.FAILURE
+        const message = insertResult ? RES_MSG.CREATE_ACCOUNT_SUCCESS : RES_MSG.CREATE_ACCOUNT_FAILURE
 
         return {
             data: insertResult,
