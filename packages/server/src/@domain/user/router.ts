@@ -213,7 +213,7 @@ userRouter.post('/me/payment-token/start', koaBody(), decodePaymentToken(), asyn
         return
     }
 
-    const message = PaymentTokenStore.setStatus(id, 'pending')
+    const message = PaymentTokenStore.setPendingStatus(id)
 
     if (message === RES_MSG.SET_PAYMENT_TOKEN_STATUS_SUCCESS) {
         ctx.status = 200
@@ -246,7 +246,7 @@ userRouter.post('/me/payment-token/cancel', koaBody(), decodePaymentToken(), asy
         return
     }
 
-    const message = PaymentTokenStore.setStatus(id, 'failure')
+    const message = PaymentTokenStore.setSuccessOrFailureStatus(id, 'failure')
 
     if (message === RES_MSG.SET_PAYMENT_TOKEN_STATUS_SUCCESS) {
         ctx.status = 200
