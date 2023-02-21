@@ -19,3 +19,12 @@ export const hasErrorMessageAxiosResponseType = (
 ): errorResponse is AxiosResponse<{message: string}> => {
     return Boolean(errorResponse && errorResponse?.data?.message)
 }
+
+export const parseMessageCodeInAxiosError = (error: Error | AxiosError | null | undefined) => {
+    const messageCode =
+        hasAxiosResponseAxiosErrorType(error) &&
+        hasErrorMessageAxiosResponseType(error.response) &&
+        error.response.data.message
+
+    return {messageCode: messageCode || undefined}
+}

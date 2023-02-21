@@ -1,9 +1,11 @@
 import {Navigate} from 'react-router-dom'
 import Button from 'src/@components/common/Button'
+import ErrorBoundary from 'src/@components/common/ErrorBoundary'
 import PageTemplate from 'src/@components/common/PageTemplate'
 import OrderFailureModal from 'src/@components/order/OrderFailureModal'
 import OrderSuccessModal from 'src/@components/order/OrderSuccessModal'
 import OrderProductList from 'src/@components/product/OrderProductList'
+import OrderPageErrorFallback from 'src/@pages/order/error-fallback'
 import {useOrderPage} from 'src/@pages/order/hooks'
 import useSearchParams from 'src/common/hooks/useSearchParams'
 import {PATH} from 'src/Router'
@@ -38,7 +40,11 @@ const OrderPage = () => {
         return <Navigate to={PATH.MAIN} />
     }
 
-    return <NonProtectedOrderPage />
+    return (
+        <ErrorBoundary fallback={OrderPageErrorFallback}>
+            <NonProtectedOrderPage />
+        </ErrorBoundary>
+    )
 }
 
 export default OrderPage

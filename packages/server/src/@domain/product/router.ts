@@ -7,7 +7,7 @@ const productRouter = new Router()
 productRouter.get('/', async (ctx) => {
     const {data: products, message} = await PRODUCT_SERVICE.getAll()
 
-    if (message === RES_MSG.SUCCESS) {
+    if (message === RES_MSG.LOAD_PRODUCT_SUCCESS) {
         ctx.status = 200
         ctx.body = {
             data: {products},

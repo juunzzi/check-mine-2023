@@ -1,6 +1,8 @@
+import {AxiosError} from 'axios'
 import {Component, PropsWithChildren} from 'react'
 
 export interface ErrorBoundaryFallbackProps {
+    error?: Error | AxiosError | null
     resetErrorState: () => void
 }
 export interface ErrorBoundaryProps {
@@ -30,7 +32,7 @@ class ErrorBoundary extends Component<PropsWithChildren<ErrorBoundaryProps>, Err
         const {error} = this.state
 
         if (error) {
-            return <Fallback resetErrorState={this.resetErrorState} />
+            return <Fallback error={error} resetErrorState={this.resetErrorState} />
         }
 
         return children
