@@ -51,7 +51,7 @@ interface DecodePaymentTokenArgs {
 }
 
 export const decodePaymentToken =
-    (args: DecodePaymentTokenArgs = {}): Middleware =>
+    (args: DecodePaymentTokenArgs = {isPaymentTokenIn: 'body'}): Middleware =>
     async (ctx, next) => {
         const {isPaymentTokenIn} = args
 
