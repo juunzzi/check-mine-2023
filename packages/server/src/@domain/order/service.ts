@@ -55,7 +55,13 @@ const orderOnPayPointWithAccount = async ({
     orderProductMap: OrderProductMap
     orderAmount: number
 }) => {
-    const {amount, ...accountRest} = await ACCOUNT_DB.findAccountByAccountId(accountId)
+    const account = await ACCOUNT_DB.findAccountByAccountId(accountId)
+
+    if (!account) {
+        return {message: RES_MSG.IS_INSUFFICIENT_PAY_POINT}
+    }
+
+    const {amount, ...accountRest} = account
 
     if (payPoint + amount < orderAmount) {
         return {message: RES_MSG.IS_INSUFFICIENT_PAY_POINT}
