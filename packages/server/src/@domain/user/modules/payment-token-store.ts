@@ -69,6 +69,9 @@ const PaymentTokenStore = (() => {
             return store[id].token
         },
         isValidToken: (id: number, token: string) => {
+            return store[id] && store[id].token === token
+        },
+        isAvaiableOrderToken: (id: number, token: string) => {
             return (
                 store[id] &&
                 store[id].token === token &&

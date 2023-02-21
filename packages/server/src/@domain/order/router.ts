@@ -30,7 +30,7 @@ orderRouter.post('/', koaBody(), decodePaymentToken(), async (ctx) => {
         orderProducts,
     } = body
 
-    if (!PaymentTokenStore.isValidToken(id, token)) {
+    if (!PaymentTokenStore.isAvaiableOrderToken(id, token)) {
         ctx.status = 400
         ctx.body = {message: RES_MSG.IS_NOT_VALID_PAYMENT_TOKEN}
 
@@ -62,8 +62,15 @@ orderRouter.post('/status', koaBody(), decodePaymentToken(), async (ctx) => {
     }
 
     const {
-        paymentTokenInfo: {id},
+        paymentTokenInfo: {id, token},
     } = body
+
+    if (!PaymentTokenStore.isValidToken(id, token)) {
+        ctx.status = 400
+        ctx.body = {message: RES_MSG.IS_NOT_VALID_PAYMENT_TOKEN}
+
+        return
+    }
 
     const status = PaymentTokenStore.getStatus(id)
 
@@ -124,8 +131,15 @@ orderRouter.post('/cancel', koaBody(), decodePaymentToken(), async (ctx) => {
     }
 
     const {
-        paymentTokenInfo: {id},
+        paymentTokenInfo: {id, token},
     } = body
+
+    if (!PaymentTokenStore.isValidToken(id, token)) {
+        ctx.status = 400
+        ctx.body = {message: RES_MSG.IS_NOT_VALID_PAYMENT_TOKEN}
+
+        return
+    }
 
     const message = PaymentTokenStore.setStatus(id, 'failure')
 
