@@ -1,9 +1,6 @@
 import {lazy, Suspense} from 'react'
 import {Routes, Route} from 'react-router-dom'
 import PageLoadingFallback from 'src/@components/common/PageLoadingFallback'
-import AccountCreatePage from 'src/@pages/account/create'
-import OrderPendingPage from 'src/@pages/order/pending'
-import ProfilePage from 'src/@pages/profile'
 
 export const PATH = {
     MAIN: '/',
@@ -20,15 +17,18 @@ const MainPage = lazy(() => import('src/@pages/main'))
 const LoginPage = lazy(() => import('src/@pages/login'))
 const JoinPage = lazy(() => import('src/@pages/join'))
 const OrderPage = lazy(() => import('src/@pages/order'))
+const ProfilePage = lazy(() => import('src/@pages/profile'))
+const AccountCreatePage = lazy(() => import('src/@pages/account/create'))
+const OrderPendingPage = lazy(() => import('src/@pages/order/pending'))
 const NotFoundPage = lazy(() => import('src/@pages/not-found'))
 
 const Router = () => {
     return (
         <Suspense fallback={<PageLoadingFallback />}>
             <Routes>
+                <Route path={PATH.MAIN} element={<MainPage />} />
                 <Route path={PATH.LOGIN} element={<LoginPage />} />
                 <Route path={PATH.JOIN} element={<JoinPage />} />
-                <Route path={PATH.MAIN} element={<MainPage />} />
                 <Route path={PATH.PROFILE} element={<ProfilePage />} />
                 <Route path={PATH.ACCOUNT_CREATE} element={<AccountCreatePage />} />
                 <Route path={PATH.ORDER} element={<OrderPage />} />
