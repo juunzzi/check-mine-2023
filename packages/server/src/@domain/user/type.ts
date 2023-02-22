@@ -55,7 +55,7 @@ export const isEditMeRequestBodyType = (body: any): body is EditMeRequestBody =>
     )
 }
 
-export type JoinRequestBody = Omit<User, 'accountId'>
+export type JoinRequestBody = Omit<User, 'id' | 'accountId'>
 
 export const isJoinRequestBodyType = (body: any): body is JoinRequestBody => {
     return (

@@ -101,7 +101,7 @@ userRouter.post('/login', koaBody(), checkAlreadyLogin(), async (ctx) => {
     }
 })
 
-userRouter.post('/join', koaBody(), async (ctx) => {
+userRouter.post('/join', koaBody(), checkAlreadyLogin(), async (ctx) => {
     const {
         request: {body},
     } = ctx
