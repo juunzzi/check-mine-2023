@@ -25,7 +25,7 @@ const PaymentTokenStore = (() => {
                 status: 'initialize',
             }
 
-            return RES_MSG.SUCCESS
+            return RES_MSG.SET_PAYMENT_TOKEN_SUCCESS
         },
         setPendingStatus: (id: number) => {
             if (!store[id]) {
