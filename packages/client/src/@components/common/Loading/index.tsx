@@ -11,7 +11,7 @@ const Loading = () => {
                 <Icon icon={LogoIcon} size={150} />
             </Styled.Root>
         </Dimmed>,
-        document.querySelector('#root') as Element,
+        document.getElementById('root') as Element,
     )
 }
 

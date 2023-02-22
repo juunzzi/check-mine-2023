@@ -21,7 +21,7 @@ function Modal(props: PropsWithChildren<ModalProps>) {
         <Dimmed role="dialog" onClick={onClickDimmed}>
             <Styled.Root>{children}</Styled.Root>
         </Dimmed>,
-        document.querySelector('#root') as Element,
+        document.getElementById('root') as Element,
     )
 }
 
