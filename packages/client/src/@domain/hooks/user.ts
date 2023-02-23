@@ -75,7 +75,17 @@ export const useFetchPaymentTokenStatus = ({
         [QUERY_KEY.getPaymentTokenStatus, token],
         () => USER_API.getPaymentTokenStatus({paymentToken: token}),
         {
-            refetchInterval,
+            refetchInterval: (data) => {
+                if (!data) {
+                    return refetchInterval
+                }
+
+                const {
+                    data: {status},
+                } = data
+
+                return status === 'failure' || status === 'success' ? false : refetchInterval
+            },
             suspense: false,
             useErrorBoundary,
             enabled: Boolean(token),
