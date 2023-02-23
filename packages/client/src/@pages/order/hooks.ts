@@ -13,7 +13,7 @@ export const useOrderPage = () => {
 
     const token = useSearchParams('qrcode')
 
-    const {status, refetchStatus} = useFetchPaymentTokenStatus({token, refetchInterval: 3000})
+    const {status, refetchPaymentTokenStatus} = useFetchPaymentTokenStatus({token, refetchInterval: 3000})
 
     const [orderProductsMap, setOrderProductsMap] = useState<OrderProductMapState>({})
 
@@ -24,14 +24,14 @@ export const useOrderPage = () => {
     useEffect(() => {
         startPaymentToken({paymentToken: token}).then(({message}) => {
             if (message === RES_MSG.FAILURE) {
-                refetchStatus()
+                refetchPaymentTokenStatus()
             }
         })
     }, [])
 
     useEffect(() => {
         if (status === 'failure') {
-            refetchStatus()
+            refetchPaymentTokenStatus()
         }
     }, [status])
 
@@ -78,8 +78,6 @@ export const useOrderPage = () => {
         const orderProducts = Object.values(orderProductsMap).map(({id, quantity}) => ({id, quantity}))
 
         await createOrder({paymentToken: token, orderProducts})
-
-        await refetchStatus()
     }
 
     return {
