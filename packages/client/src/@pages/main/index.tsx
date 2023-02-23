@@ -1,6 +1,5 @@
 import {useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
-import LoginRedirectIfNotLoggedIn from 'src/@components/common/LoginRedirectIfNotLoggedIn'
 import PageTemplate from 'src/@components/common/PageTemplate'
 import UserPayment from 'src/@components/user/UserPayment'
 import {useFetchPaymentToken, useFetchPaymentTokenStatus} from 'src/@domain/hooks/user'
@@ -8,7 +7,7 @@ import {PATH} from 'src/Router'
 
 import * as Styled from './style'
 
-const UnwrappedMainPage = () => {
+const MainPage = () => {
     const navigate = useNavigate()
 
     const {paymentToken} = useFetchPaymentToken()
@@ -30,14 +29,6 @@ const UnwrappedMainPage = () => {
                 </Styled.UserPaymentContainer>
             </Styled.Container>
         </PageTemplate>
-    )
-}
-
-const MainPage = () => {
-    return (
-        <LoginRedirectIfNotLoggedIn>
-            <UnwrappedMainPage />
-        </LoginRedirectIfNotLoggedIn>
     )
 }
 

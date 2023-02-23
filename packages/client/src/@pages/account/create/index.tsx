@@ -1,11 +1,10 @@
 import AccountCreateForm from 'src/@components/account/AccountCreateForm'
-import LoginRedirectIfNotLoggedIn from 'src/@components/common/LoginRedirectIfNotLoggedIn'
 import PageTemplate from 'src/@components/common/PageTemplate'
 import {useAccountCreatePage} from 'src/@pages/account/create/hooks'
 
 import * as Styled from './style'
 
-const UnwrappedAccountCreatePage = () => {
+const AccountCreatePage = () => {
     const {
         state: {accountCreateInput, accountCreateInputError},
         handler: {changeAccountCreateInput, changeAccountCreateInputError, submitAccountCreateForm},
@@ -25,14 +24,6 @@ const UnwrappedAccountCreatePage = () => {
                 />
             </Styled.Container>
         </PageTemplate>
-    )
-}
-
-const AccountCreatePage = () => {
-    return (
-        <LoginRedirectIfNotLoggedIn>
-            <UnwrappedAccountCreatePage />
-        </LoginRedirectIfNotLoggedIn>
     )
 }
 
