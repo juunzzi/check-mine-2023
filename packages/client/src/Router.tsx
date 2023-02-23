@@ -13,6 +13,11 @@ export const PATH = {
     NOT_FOUND: '/*',
 } as const
 
+export const ONLY_UNAUTHORIZED_USER_PATH = {
+    LOGIN: '/login',
+    JOIN: '/join',
+}
+
 const MainPage = lazy(() => import('src/@pages/main'))
 const LoginPage = lazy(() => import('src/@pages/login'))
 const JoinPage = lazy(() => import('src/@pages/join'))

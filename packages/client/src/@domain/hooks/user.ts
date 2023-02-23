@@ -1,5 +1,6 @@
 import {useQuery, useQueryClient} from '@tanstack/react-query'
 import {PAYMENT_TOKEN_EXPIRATION, RES_MSG} from 'payment_common/module/constant'
+import {useLocation} from 'react-router-dom'
 import {useLoading} from 'src/@components/common/Loading/hooks'
 import {useToast} from 'src/@components/common/Toast/hooks'
 import {client, parseMessageCodeInAxiosError} from 'src/@domain/api'
@@ -11,6 +12,7 @@ import USER_API, {
     USER_ATHORIZATION_TOKEN_KEY,
 } from 'src/@domain/api/user'
 import {avoidRepeatRequest} from 'src/common/util/func'
+import {ONLY_UNAUTHORIZED_USER_PATH} from 'src/Router'
 
 const QUERY_KEY = {
     me: 'me',
@@ -18,19 +20,16 @@ const QUERY_KEY = {
     getPaymentTokenStatus: 'getPaymentTokenStatus',
 }
 
-interface UseFetchMeProps {
-    refetchInterval?: number
-}
+export const useFetchMe = () => {
+    const {pathname} = useLocation()
 
-export const useFetchMe = (props: UseFetchMeProps = {}) => {
-    const {refetchInterval} = props
+    const useErrorBoundary = !Object.values(ONLY_UNAUTHORIZED_USER_PATH).includes(pathname)
 
     const {data: response, isInitialLoading} = useQuery([QUERY_KEY.me], USER_API.me, {
         suspense: false,
-        useErrorBoundary: false,
         enabled: Boolean(localStorage.getItem(USER_ATHORIZATION_TOKEN_KEY)),
+        useErrorBoundary,
         staleTime: 10000,
-        refetchInterval,
     })
 
     const queryClient = useQueryClient()
@@ -57,7 +56,7 @@ export const useFetchPaymentToken = () => {
 
     return {
         paymentToken: response?.data?.paymentToken ?? null,
-        reloadPaymentToken: avoidRepeatRequest(refetch),
+        refetchPaymentToken: avoidRepeatRequest(refetch),
     }
 }
 
@@ -85,7 +84,7 @@ export const useFetchPaymentTokenStatus = ({
 
     return {
         status: response?.data.status,
-        refetchStatus: avoidRepeatRequest(refetch),
+        refetchPaymentTokenStatus: avoidRepeatRequest(refetch),
     }
 }
 
@@ -94,6 +93,10 @@ export const useMutateUserDomain = () => {
 
     const {showLoading, hideLoading} = useLoading()
     const {showToastMessage} = useToast()
+
+    const invalidatePaymentTokenStatus = async () => {
+        await queryClient.invalidateQueries([QUERY_KEY.getPaymentTokenStatus])
+    }
 
     const joinUser = async (args: JoinUserRequestBody) => {
         try {
@@ -115,6 +118,14 @@ export const useMutateUserDomain = () => {
 
             if (messageCode === RES_MSG.JOIN_USER_DUPLICATE_EMAIL) {
                 showToastMessage('이메일이 중복되었습니다.', 'error')
+            }
+
+            if (messageCode === RES_MSG.IS_ALREADY_LOGIN) {
+                showToastMessage('이미 로그인 중 입니다.', 'error')
+            }
+
+            if (messageCode === RES_MSG.JOIN_USER_FAILURE || messageCode === RES_MSG.SERVER_ERROR) {
+                showToastMessage('서비스 측에 문제가 발생하였습니다.', 'error')
             }
 
             return {
@@ -156,16 +167,20 @@ export const useMutateUserDomain = () => {
                 showToastMessage('일치하는 유저가 존재하지 않습니다.', 'error')
             }
 
+            if (messageCode === RES_MSG.IS_ALREADY_LOGIN) {
+                showToastMessage('이미 로그인 중 입니다.', 'error')
+            }
+
+            if (messageCode === RES_MSG.LOGIN_USER_FAILURE || messageCode === RES_MSG.SERVER_ERROR) {
+                showToastMessage('서비스 측에 문제가 발생하였습니다.', 'error')
+            }
+
             return {
                 message: messageCode,
             }
         } finally {
             hideLoading()
         }
-    }
-
-    const invalidateUserQuery = async () => {
-        await queryClient.invalidateQueries([QUERY_KEY.me])
     }
 
     const startPaymentToken = async (body: StartPaymentTokenRequestBody) => {
@@ -182,7 +197,21 @@ export const useMutateUserDomain = () => {
         } catch (error) {
             const {messageCode} = parseMessageCodeInAxiosError(error)
 
-            showToastMessage('유효하지 않은 토큰입니다.', 'error')
+            if (messageCode === RES_MSG.INPUT_TYPE_ERROR || messageCode === RES_MSG.IS_NOT_VALID_PAYMENT_TOKEN) {
+                showToastMessage('결제 정보가 존재하지 않거나 유효하지 않습니다.', 'error')
+            }
+
+            if (messageCode === RES_MSG.IS_NOT_AVAILABLE_PAYMENT_TOKEN) {
+                showToastMessage('이미 결제가 종료된 토큰이거나 유효하지 않은 토큰입니다.', 'error')
+            }
+
+            if (messageCode === RES_MSG.SET_PAYMENT_TOKEN_STATUS_FAILURE) {
+                showToastMessage('결제 정보에 문제가 있습니다. 결제 정보를 갱신 후 다시 스캔해주세요.', 'error')
+            }
+
+            if (messageCode === RES_MSG.SERVER_ERROR) {
+                showToastMessage('서비스 측에 문제가 발생하였습니다.', 'error')
+            }
 
             return {
                 message: messageCode,
@@ -198,7 +227,7 @@ export const useMutateUserDomain = () => {
 
             await USER_API.cancelPaymentToken(body)
 
-            invalidateUserQuery()
+            await invalidatePaymentTokenStatus()
 
             return {
                 message: RES_MSG.SUCCESS,
@@ -206,7 +235,17 @@ export const useMutateUserDomain = () => {
         } catch (error) {
             const {messageCode} = parseMessageCodeInAxiosError(error)
 
-            showToastMessage('주문 취소에 실패하였습니다.', 'error')
+            if (messageCode === RES_MSG.INPUT_TYPE_ERROR || messageCode === RES_MSG.IS_NOT_VALID_PAYMENT_TOKEN) {
+                showToastMessage('결제 정보가 존재하지 않거나 유효하지 않습니다.', 'error')
+            }
+
+            if (messageCode === RES_MSG.SET_PAYMENT_TOKEN_STATUS_FAILURE) {
+                showToastMessage('결제 정보에 문제가 있습니다. 결제 정보를 갱신 후 다시 시도해주세요.', 'error')
+            }
+
+            if (messageCode === RES_MSG.SERVER_ERROR) {
+                showToastMessage('서비스 측에 문제가 발생하였습니다.', 'error')
+            }
 
             return {
                 message: messageCode,
@@ -221,7 +260,6 @@ export const useMutateUserDomain = () => {
         loginUser: avoidRepeatRequest(loginUser),
         startPaymentToken: avoidRepeatRequest(startPaymentToken),
         cancelPaymentToken: avoidRepeatRequest(cancelPaymentToken),
-
-        invalidateUserQuery: avoidRepeatRequest(invalidateUserQuery),
+        invalidatePaymentTokenStatus: avoidRepeatRequest(invalidatePaymentTokenStatus),
     }
 }
