@@ -12,7 +12,7 @@ import {PATH} from 'src/Router'
 
 import * as Styled from './style'
 
-const NonProtectedOrderPage = () => {
+const NakedOrderPage = () => {
     const {
         state: {isShowSuccessModal, isShowFailureModal, orderProductsMap},
         handler: {changeProductQuantity, submitCreateOrder},
@@ -42,7 +42,7 @@ const OrderPage = () => {
 
     return (
         <ErrorBoundary fallback={OrderPageErrorFallback}>
-            <NonProtectedOrderPage />
+            <NakedOrderPage />
         </ErrorBoundary>
     )
 }

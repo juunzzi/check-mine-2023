@@ -12,7 +12,7 @@ interface OrderProductListProps {
     changeProductQuantity: (args: OrderProduct) => void
 }
 
-const OrderProductListNaked = (props: OrderProductListProps) => {
+const NakedOrderProductList = (props: OrderProductListProps) => {
     const {orderProductsMap, changeProductQuantity} = props
 
     const {products} = useFetchProducts()
@@ -39,7 +39,7 @@ const OrderProductListNaked = (props: OrderProductListProps) => {
 const OrderProductList = (props: OrderProductListProps) => {
     return (
         <Suspense fallback={<OrderProductListLoadingFallback />}>
-            <OrderProductListNaked {...props} />
+            <NakedOrderProductList {...props} />
         </Suspense>
     )
 }

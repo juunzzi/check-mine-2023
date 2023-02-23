@@ -10,8 +10,8 @@ import * as Styled from './style'
 
 const CLIENT_URL = process.env.REACT_APP_URL
 
-const UserPaymentTokenQRCodeNaked = () => {
-    const {paymentToken, reloadPaymentToken} = useFetchPaymentToken()
+const NakedUserPaymentTokenQRCode = () => {
+    const {paymentToken, refetchPaymentToken} = useFetchPaymentToken()
 
     const {status} = useFetchPaymentTokenStatus({token: paymentToken})
 
@@ -24,7 +24,7 @@ const UserPaymentTokenQRCodeNaked = () => {
     }, [status])
 
     const onClickReloadButton = async () => {
-        await reloadPaymentToken()
+        await refetchPaymentToken()
     }
 
     return (
@@ -42,7 +42,7 @@ const UserPaymentTokenQRCode = () => {
     return (
         <ErrorBoundary fallback={UserPaymentTokenQRCodeErrorFallback}>
             <Suspense fallback={<UserPaymentTokenQRCodeLoadingFallback />}>
-                <UserPaymentTokenQRCodeNaked />
+                <NakedUserPaymentTokenQRCode />
             </Suspense>
         </ErrorBoundary>
     )

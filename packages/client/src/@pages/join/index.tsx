@@ -6,7 +6,7 @@ import {PATH} from 'src/Router'
 
 import * as Styled from './style'
 
-const UnwrappedJoinPage = () => {
+const NakedJoinPage = () => {
     const {
         state: {userJoinInput, userJoinInputError},
         handler: {changeUserJoinInput, changeUserJoinInputError, submitUserJoinForm},
@@ -32,7 +32,7 @@ const UnwrappedJoinPage = () => {
 const JoinPage = () => {
     return (
         <MainRedirectIfLoggedIn>
-            <UnwrappedJoinPage />
+            <NakedJoinPage />
         </MainRedirectIfLoggedIn>
     )
 }

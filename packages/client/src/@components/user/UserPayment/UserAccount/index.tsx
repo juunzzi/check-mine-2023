@@ -4,7 +4,7 @@ import {useFetchAccount} from 'src/@domain/hooks/account'
 
 import * as Styled from './style'
 
-const UserAccountNaked = () => {
+const NakedUserAccount = () => {
     const {account} = useFetchAccount()
 
     return (
@@ -29,7 +29,7 @@ const UserAccountNaked = () => {
 const UserAccount = () => {
     return (
         <Suspense fallback={<UserAccountLoadingFallback />}>
-            <UserAccountNaked />
+            <NakedUserAccount />
         </Suspense>
     )
 }

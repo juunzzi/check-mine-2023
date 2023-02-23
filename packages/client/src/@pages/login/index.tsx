@@ -6,7 +6,7 @@ import {PATH} from 'src/Router'
 
 import * as Styled from './style'
 
-const UnwrappedLoginPage = () => {
+const NakedLoginPage = () => {
     const {
         state: {userLoginInput, userLoginInputError},
         handler: {changeUserLoginInput, changeUserLoginInputError, submitUserLoginForm},
@@ -32,7 +32,7 @@ const UnwrappedLoginPage = () => {
 const LoginPage = () => {
     return (
         <MainRedirectIfLoggedIn>
-            <UnwrappedLoginPage />
+            <NakedLoginPage />
         </MainRedirectIfLoggedIn>
     )
 }
