@@ -9,7 +9,7 @@ export const useOrderPendingPage = () => {
 
     const {paymentToken} = useFetchPaymentToken()
 
-    const {status, refetchStatus} = useFetchPaymentTokenStatus({
+    const {status} = useFetchPaymentTokenStatus({
         token: paymentToken,
         refetchInterval: 3000,
     })
@@ -38,14 +38,12 @@ export const useOrderPendingPage = () => {
 
     const onClickCancelButton = async () => {
         if (!paymentToken) {
-            showToastMessage('유저 정보가 존재하지 않습니다.', 'error')
+            showToastMessage('결제 정보가 존재하지 않습니다.', 'error')
 
             return
         }
 
         await cancelPaymentToken({paymentToken})
-
-        await refetchStatus()
     }
 
     return {
