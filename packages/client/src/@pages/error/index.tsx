@@ -27,7 +27,7 @@ const ErrorPage = (props: ErrorBoundaryFallbackProps) => {
     }
 
     return (
-        <PageTemplate>
+        <PageTemplate hasHeader={false}>
             <Styled.Containter>
                 <Styled.ErrorMessage>
                     <p>서비스에 문제가 발생했어요!</p>

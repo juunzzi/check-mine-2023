@@ -2,13 +2,13 @@ import {css} from '@emotion/react'
 import styled from '@emotion/styled'
 
 export const Containter = styled.div`
-    min-height: 80vh;
+    min-height: 100vh;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 40px;
 `
 
 export const ErrorMessage = styled.div`

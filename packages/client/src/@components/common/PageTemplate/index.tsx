@@ -3,11 +3,15 @@ import Header from 'src/@components/common/Header'
 
 import * as Styled from './style'
 
-const PageTemplate = ({children}: PropsWithChildren) => {
+interface PageTemplateProps {
+    hasHeader?: boolean
+}
+
+const PageTemplate = ({children, hasHeader = true}: PropsWithChildren<PageTemplateProps>) => {
     return (
         <Styled.Container>
             <Styled.Inner>
-                <Header />
+                {hasHeader && <Header />}
                 {children}
             </Styled.Inner>
         </Styled.Container>
