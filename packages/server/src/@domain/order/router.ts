@@ -25,9 +25,9 @@ orderRouter.post('/', koaBody(), decodePaymentToken(), async (ctx) => {
         orderProducts,
     } = body
 
-    if (!PaymentTokenStore.isAvaiableOrderToken(id, token)) {
+    if (!PaymentTokenStore.isAvailablePaymentToken(id, token)) {
         ctx.status = 400
-        ctx.body = {message: RES_MSG.IS_NOT_VALID_PAYMENT_TOKEN}
+        ctx.body = {message: RES_MSG.IS_NOT_AVAILABLE_PAYMENT_TOKEN}
 
         return
     }

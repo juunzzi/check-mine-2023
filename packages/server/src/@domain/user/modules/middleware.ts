@@ -6,7 +6,7 @@ import Logger from 'src/common/logger/winston'
 import {isNumberType} from 'src/common/type/guard'
 
 const isJsonWebTokenError = (error: any): error is VerifyErrors => {
-    return error.name === 'JsonWebTokenError'
+    return error.name === 'JsonWebTokenError' || error.name === 'TokenExpiredError'
 }
 
 const isDecodedAccessToken = (decoded: any): decoded is {id: number} => {

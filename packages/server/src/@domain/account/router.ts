@@ -13,8 +13,8 @@ accountRouter.get('/', authenticateAccessToken(), async (ctx) => {
     } = ctx
 
     if (!isGetAccountRequestBodyType(body)) {
-        ctx.status = 400
-        ctx.body = {message: RES_MSG.INPUT_TYPE_ERROR}
+        ctx.status = 401
+        ctx.body = {message: RES_MSG.AUTHORIZATION_ERROR}
 
         return
     }

@@ -110,7 +110,7 @@ const ORDER_SERVICE = {
 
             const orderAmount = computeOrderAmount(products, orderProductMap)
             const orderMethod = user.payPoint >= orderAmount ? orderOnPayPoint : orderOnPayPointWithAccount
-            const {message, data} = await orderMethod({user, products, orderProductMap, orderAmount})
+            const {data, message} = await orderMethod({user, products, orderProductMap, orderAmount})
 
             return {
                 data,
