@@ -3,7 +3,7 @@ import {AxiosError} from 'axios'
 import {RES_MSG} from 'payment_common/module/constant'
 import {Component, PropsWithChildren} from 'react'
 import {NavigateFunction, useNavigate} from 'react-router-dom'
-import {parseMessageCodeInAxiosError} from 'src/@domain/api'
+import {parseMessageCodeInAxiosError} from 'src/@domain/module/api'
 import {PATH} from 'src/Router'
 
 export interface ErrorBoundaryFallbackProps {
