@@ -59,7 +59,7 @@ const USER_SERVICE = {
             return {message: RES_MSG.IS_NOT_MATCH_EMAIL_OR_PASSWORD}
         }
 
-        const accessToken = generateUserJWT(user.id, 60 * 60 * 1000)
+        const accessToken = generateUserJWT(user.id, 60 * 10)
         const message = accessToken ? RES_MSG.LOGIN_USER_SUCCESS : RES_MSG.LOGIN_USER_FAILURE
 
         return {data: accessToken, message}
