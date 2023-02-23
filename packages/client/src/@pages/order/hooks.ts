@@ -1,9 +1,9 @@
 import {RES_MSG} from 'payment_common/module/constant'
 import {useEffect, useMemo, useState} from 'react'
 import {useToast} from 'src/@components/common/Toast/hooks'
-import {useMutateOrderDomain} from 'src/@domain/hooks/order'
-import {useFetchPaymentTokenStatus, useMutateUserDomain} from 'src/@domain/hooks/user'
-import {OrderProduct} from 'src/@domain/types/order'
+import {useMutateOrderDomain} from 'src/@domain/order/hooks'
+import {OrderProduct} from 'src/@domain/order/types'
+import {useFetchPaymentTokenStatus, useMutateUserDomain} from 'src/@domain/user/hooks'
 import useSearchParams from 'src/common/hooks/useSearchParams'
 
 export type OrderProductMapState = Record<number, OrderProduct>

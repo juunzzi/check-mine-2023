@@ -4,7 +4,7 @@ import ErrorBoundary from 'src/@components/common/ErrorBoundary'
 import Icon, {ReloadIcon} from 'src/@components/common/Icon'
 import UserPaymentTokenQRCodeErrorFallback from 'src/@components/user/UserPayment/UserPaymentTokenQRCode/error-fallback'
 import UserPaymentTokenQRCodeLoadingFallback from 'src/@components/user/UserPayment/UserPaymentTokenQRCode/loading-fallback'
-import {useFetchPaymentToken, useFetchPaymentTokenStatus} from 'src/@domain/hooks/user'
+import {useFetchPaymentToken, useFetchPaymentTokenStatus} from 'src/@domain/user/hooks'
 
 import * as Styled from './style'
 

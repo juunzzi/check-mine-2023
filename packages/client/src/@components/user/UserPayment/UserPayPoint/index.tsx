@@ -1,6 +1,6 @@
 import {Suspense} from 'react'
 import UserPayPointLoadingFallback from 'src/@components/user/UserPayment/UserPayPoint/loading-fallback'
-import {useFetchMe} from 'src/@domain/hooks/user'
+import {useFetchMe} from 'src/@domain/user/hooks'
 
 import * as Styled from './style'
 

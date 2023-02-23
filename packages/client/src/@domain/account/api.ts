@@ -1,5 +1,5 @@
-import {client} from 'src/@domain/api'
-import {Account} from 'src/@domain/types/account'
+import {Account} from 'src/@domain/account/types'
+import {client} from 'src/@domain/module/api'
 
 export type AccountCreateRequestBody = Omit<Account, 'id' | 'userId'>
 export type AccountCreateResponseBody = undefined

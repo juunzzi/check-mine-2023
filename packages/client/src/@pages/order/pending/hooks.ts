@@ -1,7 +1,7 @@
 import {useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {useToast} from 'src/@components/common/Toast/hooks'
-import {useFetchPaymentToken, useFetchPaymentTokenStatus, useMutateUserDomain} from 'src/@domain/hooks/user'
+import {useFetchPaymentToken, useFetchPaymentTokenStatus, useMutateUserDomain} from 'src/@domain/user/hooks'
 import {PATH} from 'src/Router'
 
 export const useOrderPendingPage = () => {

@@ -1,6 +1,6 @@
 import {Suspense} from 'react'
 import UserAccountLoadingFallback from 'src/@components/user/UserPayment/UserAccount/loading-fallback'
-import {useFetchAccount} from 'src/@domain/hooks/account'
+import {useFetchAccount} from 'src/@domain/account/hooks'
 
 import * as Styled from './style'
 

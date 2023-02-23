@@ -1,8 +1,8 @@
 import {Suspense} from 'react'
 import OrderProductItem from 'src/@components/product/OrderProductItem'
 import OrderProductListLoadingFallback from 'src/@components/product/OrderProductList/loading-fallback'
-import {useFetchProducts} from 'src/@domain/hooks/product'
-import {OrderProduct} from 'src/@domain/types/order'
+import {OrderProduct} from 'src/@domain/order/types'
+import {useFetchProducts} from 'src/@domain/product/hooks'
 import {OrderProductMapState} from 'src/@pages/order/hooks'
 
 import * as Styled from './style'

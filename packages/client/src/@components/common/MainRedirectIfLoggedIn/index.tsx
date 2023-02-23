@@ -1,6 +1,6 @@
 import {PropsWithChildren} from 'react'
 import {Navigate} from 'react-router-dom'
-import {useFetchMe} from 'src/@domain/hooks/user'
+import {useFetchMe} from 'src/@domain/user/hooks'
 import {PATH} from 'src/Router'
 
 const MainRedirectIfLoggedIn = (props: PropsWithChildren) => {

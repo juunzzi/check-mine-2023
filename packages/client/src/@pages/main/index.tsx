@@ -2,7 +2,7 @@ import {useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 import PageTemplate from 'src/@components/common/PageTemplate'
 import UserPayment from 'src/@components/user/UserPayment'
-import {useFetchPaymentToken, useFetchPaymentTokenStatus} from 'src/@domain/hooks/user'
+import {useFetchPaymentToken, useFetchPaymentTokenStatus} from 'src/@domain/user/hooks'
 import {PATH} from 'src/Router'
 
 import * as Styled from './style'

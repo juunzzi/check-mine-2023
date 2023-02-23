@@ -1,5 +1,5 @@
 import {useQuery} from '@tanstack/react-query'
-import PRODUCT_API from 'src/@domain/api/product'
+import PRODUCT_API from 'src/@domain/product/api'
 
 const QUERY_KEY = {
     getProducts: 'getProducts',

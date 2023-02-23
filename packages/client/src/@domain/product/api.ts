@@ -1,5 +1,5 @@
-import {client} from 'src/@domain/api'
-import {Product} from 'src/@domain/types/product'
+import {client} from 'src/@domain/module/api'
+import {Product} from 'src/@domain/product/types'
 
 export type GetProductsResponse = {
     data: {

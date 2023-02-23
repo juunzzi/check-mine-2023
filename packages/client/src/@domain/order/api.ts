@@ -1,5 +1,5 @@
-import {client} from 'src/@domain/api'
-import {OrderProduct} from 'src/@domain/types/order'
+import {client} from 'src/@domain/module/api'
+import {OrderProduct} from 'src/@domain/order/types'
 
 export type CreateOrderRequestBody = {
     paymentToken: string | null

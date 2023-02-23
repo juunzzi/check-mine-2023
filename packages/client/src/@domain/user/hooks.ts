@@ -3,14 +3,14 @@ import {PAYMENT_TOKEN_EXPIRATION, RES_MSG} from 'payment_common/module/constant'
 import {useLocation} from 'react-router-dom'
 import {useLoading} from 'src/@components/common/Loading/hooks'
 import {useToast} from 'src/@components/common/Toast/hooks'
-import {client, parseMessageCodeInAxiosError} from 'src/@domain/api'
+import {client, parseMessageCodeInAxiosError} from 'src/@domain/module/api'
 import USER_API, {
     CancelPaymentTokenRequestBody,
     JoinUserRequestBody,
     LoginUserRequestBody,
     StartPaymentTokenRequestBody,
     USER_ATHORIZATION_TOKEN_KEY,
-} from 'src/@domain/api/user'
+} from 'src/@domain/user/api'
 import {avoidRepeatRequest} from 'src/common/util/func'
 import {ONLY_UNAUTHORIZED_USER_PATH} from 'src/Router'
 

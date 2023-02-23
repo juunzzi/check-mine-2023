@@ -1,9 +1,9 @@
 import {RES_MSG} from 'payment_common/module/constant'
 import {useLoading} from 'src/@components/common/Loading/hooks'
 import {useToast} from 'src/@components/common/Toast/hooks'
-import {parseMessageCodeInAxiosError} from 'src/@domain/api'
-import ORDER_API, {CreateOrderRequestBody} from 'src/@domain/api/order'
-import {useMutateUserDomain} from 'src/@domain/hooks/user'
+import {parseMessageCodeInAxiosError} from 'src/@domain/module/api'
+import ORDER_API, {CreateOrderRequestBody} from 'src/@domain/order/api'
+import {useMutateUserDomain} from 'src/@domain/user/hooks'
 import {avoidRepeatRequest} from 'src/common/util/func'
 
 export const useMutateOrderDomain = () => {

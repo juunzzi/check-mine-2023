@@ -1,7 +1,7 @@
 import {MouseEventHandler} from 'react'
 import Counter from 'src/@components/common/Counter'
-import {OrderProduct} from 'src/@domain/types/order'
-import {Product} from 'src/@domain/types/product'
+import {OrderProduct} from 'src/@domain/order/types'
+import {Product} from 'src/@domain/product/types'
 
 import * as Styled from './style'
 

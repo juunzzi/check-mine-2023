@@ -2,7 +2,7 @@ import {Bank} from 'payment_common/module/constant'
 import {FormEventHandler, useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {useToast} from 'src/@components/common/Toast/hooks'
-import {useMutateAccountDomain} from 'src/@domain/hooks/account'
+import {useMutateAccountDomain} from 'src/@domain/account/hooks'
 import {PATH} from 'src/Router'
 
 interface AccountCreateInputState {

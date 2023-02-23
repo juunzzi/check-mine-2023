@@ -1,5 +1,5 @@
 import axios, {AxiosError, AxiosResponse} from 'axios'
-import {USER_ATHORIZATION_TOKEN_KEY} from 'src/@domain/api/user'
+import {USER_ATHORIZATION_TOKEN_KEY} from 'src/@domain/user/api'
 
 export const API_URL = `${process.env.REACT_APP_API_URL}/api`
 

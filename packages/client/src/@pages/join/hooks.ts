@@ -1,7 +1,7 @@
 import {FormEventHandler, useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {useToast} from 'src/@components/common/Toast/hooks'
-import {useMutateUserDomain} from 'src/@domain/hooks/user'
+import {useMutateUserDomain} from 'src/@domain/user/hooks'
 import {PATH} from 'src/Router'
 
 interface UserJoinInputState {

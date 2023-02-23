@@ -1,5 +1,5 @@
-import {client} from 'src/@domain/api'
-import {AccessToken, PaymentToken, PaymentTokenStatus, User} from 'src/@domain/types/user'
+import {client} from 'src/@domain/module/api'
+import {AccessToken, PaymentToken, PaymentTokenStatus, User} from 'src/@domain/user/types'
 
 export const USER_ATHORIZATION_TOKEN_KEY = 'user-authorization-token'
 

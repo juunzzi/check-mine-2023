@@ -2,7 +2,7 @@ import {RES_MSG} from 'payment_common/module/constant'
 import {ErrorBoundaryFallbackProps} from 'src/@components/common/ErrorBoundary'
 import Icon, {MainIcon} from 'src/@components/common/Icon'
 import PageTemplate from 'src/@components/common/PageTemplate'
-import {parseMessageCodeInAxiosError} from 'src/@domain/api'
+import {parseMessageCodeInAxiosError} from 'src/@domain/module/api'
 import {PATH} from 'src/Router'
 
 import * as Styled from './style'

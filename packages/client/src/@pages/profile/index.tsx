@@ -1,7 +1,7 @@
 import {useNavigate} from 'react-router-dom'
 import Button from 'src/@components/common/Button'
 import PageTemplate from 'src/@components/common/PageTemplate'
-import {useFetchMe} from 'src/@domain/hooks/user'
+import {useFetchMe} from 'src/@domain/user/hooks'
 import {PATH} from 'src/Router'
 
 import * as Styled from './style'
