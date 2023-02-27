@@ -305,7 +305,7 @@ git clone https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st.g
 
 ### **Query Key는 은닉화 한다.**
 
-Query Key는 [다음과 같이](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/blob/develop/packages/client/src/%40domain/user/hooks.ts) 하나의 모듈에 은닉화 시켜두었습니다. `React Query` 기술에 따르면, Caching 하게 되는 Cache Data는 코드 전역 어디서든 접근 가능한 `queryClient`와 Cache Data의 index가 되는 `Query Key` 에 의해 코드 어디서든 **재검증**, **무효화**, **삭제** 가 가능합니다. 이 처럼 코드 전역에서 Cache Data를 쉽게 다룰 수 있다는 점은 분명 개발자에게 편리함을 줍니다. 하지만, 이러한 기능은 **프로덕트를 예측 불가능**하게 만들고 **디버깅을 어렵게** 합니다. 더 나아가 **유지 보수를 힘들게** 하기도 합니다. 따라서 저는 `Query Key`를 은닉화하여 은닉화한 모듈에서만 **Cache Data에 대해 조작할 수 있도록 기술의 사용처를 제한하여 적용**하였습니다. <i>(React Query의 Cache Data 관련 기능은 전역에서 쉽게 사용할 수 있기에 편리하지만, 네트워크 요청을 트리거하는 코드가 방대한 프로덕트 코드 어디에나 존재하게 하기에 위험합니다.)</i>
+Query Key는 [다음과 같이](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/blob/develop/packages/client/src/%40domain/user/hooks.ts) 하나의 모듈에 은닉화 시켜두었습니다. `React Query` 기술에 따르면, Caching 하게 되는 Cache Data는 코드 전역 어디서든 접근 가능한 `queryClient`와 Cache Data의 index가 되는 `Query Key` 에 의해 코드 어디서든 **재검증**, **무효화**, **삭제** 가 가능합니다. 이러한 React Query의 기능은 전역에서 Cache Data를 쉽게 다루게 하기에 개발자에게 편리함을 줍니다. 하지만, 네트워크 요청을 트리거하는 코드를 전역 어디에나 존재하게 하여 **디버깅을 어렵게** 만들고, **유지 보수를 힘들게** 합니다. 이러한 위험성을 인지하여 `Query Key`를 하나의 모듈에 은닉한 뒤 은닉화한 모듈에서만 **Cache Data에 대해 조작할 수 있도록 기술의 사용처를 제한하여 적용**하였습니다.
 
 결과적으로 네트워크 요청과 같은 비싼 작업이 트리거 될 수 있는 곳들을 제한하여 **디버깅과 유지 보수에서의 불리함을 제거**할 수 있었습니다. 기술 사용 규칙을 만들어 지켰기에 **일관성을 유지**할 수도 있었으며, `queryClient` 자체가 갖는 다양한 기능들을 모두 이용하는 것이 아닌 제한적으로 이용하여 **기술 의존도를 낮출 수도 있었습니다.**
 
