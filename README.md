@@ -36,7 +36,7 @@ git clone https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st.g
 
 -   DB 설치
 
-    본인 디바이스 설치 방법을 따라 [`Maria DB`](https://mariadb.org/download/?t=mariadb&p=mariadb&r=11.0.0)를 설치하시면 됩니다.
+    본인 디바이스의 [`Maria DB`](https://mariadb.org/download/?t=mariadb&p=mariadb&r=11.0.0) 설치 방법을 따라 설치하시면 됩니다.
 
     (⚠️ MariaDB를 설치하신 후 환경 변수를 통해 백엔드 서버와 연동하시게 되면 서버 실행과 동시에 테이블을 생성합니다. 따라서 별도의 DB Scheme 설정은 필요하지 않습니다.)
 
@@ -295,7 +295,7 @@ git clone https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st.g
 `Toast UI`, `Modal UI`, `Loading UI`, `Button`, `Input` 등 서비스 도메인에 귀속되지 않는 UI들은 써드 파티 라이브러리를 사용하여 이를 쉽게 구현할 수 있습니다. 굳이 UI 영역으로 한정 짓지
 않더라도 비동기 요청의 중복을 허용하지 않게 하는 로직, 외부 데이터를 조작하기 위해 비동기 요청을 보내는 훅들은 다른 라이브러리의 기술을 활용하여 쉽게 구현할 수 있습니다.
 
-하지만 저는 이러한 개발 방식이 **기술 적용에 대한 학습 비용**, **문제 해결 비용**, **프로덕트의 책임감** 등의 영역에서 부정적인 영향력을 미칠 수 있다고 생각하기에 **개발이 가능한 영역은 직접 개발하는 방식**을 선호합니다. 다른 기술에 많은 영역을 의존하게 되어버리면 **기술을 적용하기 위해 학습**해야하는 비용, **문제가 발생하게 되면 기술의 문제 해결 방식에 의존하여 문제를 해결**하는 방식을 감수 해야합니다. 또한, 직접 구현한 것이 아니기 때문에 해당 영역에서 개발자의 **책임감이 다소 떨어질지도 모릅니다.** (Build 될 결과물의 사이즈가 불필요하게 커진다는 성능 관점에서의 문제점도 있을 수 있겠군요 !) 따라서 전 사소한 영역까지 여러 기술을 활용하여 개발하기보단 **직접 개발이 가능한 부분에 대해선 손수 개발하며 프로젝트를 진행**해보았습니다.
+하지만 저는 이러한 개발 방식이 **기술 적용에 대한 학습 비용**, **문제 해결 비용**, **프로덕트의 책임감** 등의 영역에서 부정적인 영향력을 미칠 수 있다고 생각하기에 **개발이 가능한 영역은 직접 개발하는 방식**을 선호합니다. 개발이 가능한 부분인데도, 다른 기술에 의존하게 되어버리면 **기술을 적용하기 위해 학습**해야하는 비용, **문제가 발생하게 되면 기술의 문제 해결 방식에 의존하여 문제를 해결**하는 트러블 슈팅 플로우를 감수 해야합니다. 또한, 직접 구현한 것이 아니기 때문에 해당 영역에서 개발자의 **책임감이 다소 떨어질지도 모릅니다.** (Build 될 결과물의 사이즈가 불필요하게 커진다는 성능 관점에서의 문제점도 있을 수 있겠군요 !) 따라서 전 사소한 영역까지 여러 기술을 활용하여 개발하기보단 **직접 개발이 가능한 부분에 대해선 손수 개발하며 프로젝트를 진행**해보았습니다.
 
 저는 직접 개발이 가능한 부분들은 손수 개발하며 프로젝트를 진행하였습니다. [`Toast UI`](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/tree/develop/packages/client/src/%40components/common/Toast), [`네트워크 중복 요청 방지`](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/blob/develop/packages/client/src/common/util/func.ts) 등 모든 영역이라 할 순 없지만 손수 개발한 부분들이 다수 존재하며, 이를 통해 **불필요하게 개발 비용이 상승하게 되는 일을 제어**할 수 있었고, **프로덕트에 책임감**을 불어넣을 수 있었습니다.
 
@@ -305,9 +305,9 @@ git clone https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st.g
 
 ### **Query Key는 은닉화 한다.**
 
-Query Key는 [다음과 같이](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/blob/develop/packages/client/src/%40domain/user/hooks.ts) 하나의 모듈에 은닉화 시켜두었습니다. `React Query` 기술에 따르면, Caching 하게 되는 Cache Data는 코드 전역 어디서든 접근 가능한 `queryClient`와 Cache Data의 index가 되는 `Query Key` 에 의해 어디서든 **재검증**, **무효화**, **삭제** 가 가능합니다. 이는 개발자에게 편리함을 주지만, 디버깅을 어렵게 하고 더 나아가 유지 보수를 힘들게 한다고 생각합니다. 코드 전역에서 사용할 수 있다는 것은 어디서나 쉽게 기능을 구현할 수 있기에 달콤하지만, 방대한 **프로덕트 코드 어디에나 해당 코드가 존재할 수도 있다는 말이기에 위험**합니다. 따라서 저는 `Query Key`를 은닉화하여 은닉화한 모듈에서만 **Cache Data에 대해 조작하도록 기술의 사용처를 제한하여 적용**하였습니다.
+Query Key는 [다음과 같이](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/blob/develop/packages/client/src/%40domain/user/hooks.ts) 하나의 모듈에 은닉화 시켜두었습니다. `React Query` 기술에 따르면, Caching 하게 되는 Cache Data는 코드 전역 어디서든 접근 가능한 `queryClient`와 Cache Data의 index가 되는 `Query Key` 에 의해 코드 어디서든 **재검증**, **무효화**, **삭제** 가 가능합니다. 코드 전역에서 Cache Data를 쉽게 다룰 수 있다는 점은 분명 개발자에게 편리함을 줍니다. 하지만, 이는 **프로덕트를 예측 불가능**하게 만들고 **디버깅을 어렵게** 합니다. 더 나아가 **유지 보수를 힘들게** 하기도 합니다. 따라서 저는 `Query Key`를 은닉화하여 은닉화한 모듈에서만 **Cache Data에 대해 조작하도록 기술의 사용처를 제한하여 적용**하였습니다. <i>(React Query의 Cache Data 관련 기능은 전역에서 사용할 수 있기에 편리하지만, 방대한 프로덕트 코드 어디던 네트워크 요청을 트리거하는 코드를 존재하게 하기에 위험합니다.)</i>
 
-결과적으로 네트워크 요청과 같은 비싼 작업이 트리거 될 수 있는 곳들을 제한하여 **디버깅과 유지 보수에 불리함을 제거**할 수 있었습니다. 코드 규칙을 만들어 지켰기에 **일관성을 유지**할 수도 있었으며, `queryClient` 자체가 갖는 다양한 기능들을 모두 이용하는 것이 아닌 제한적으로 이용하여 **기술 의존도를 낮출 수도 있었습니다.**
+결과적으로 네트워크 요청과 같은 비싼 작업이 트리거 될 수 있는 곳들을 제한하여 **디버깅과 유지 보수에서의 불리함을 제거**할 수 있었습니다. 기술 사용 규칙을 만들어 지켰기에 **일관성을 유지**할 수도 있었으며, `queryClient` 자체가 갖는 다양한 기능들을 모두 이용하는 것이 아닌 제한적으로 이용하여 **기술 의존도를 낮출 수도 있었습니다.**
 
 ### **useMutation Hook API는 사용하지 않는다.**
 
