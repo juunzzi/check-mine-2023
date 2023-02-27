@@ -97,20 +97,20 @@ git clone https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st.g
 </p>
 
 <p align="center">
-    <img src="assets/토큰_만료_상황_에러_처리_점원.png" width="197px">
-    <img src="assets/토큰_만료_상황_에러_처리_유저.png" width="200px">    
+    <img src="assets/토큰_만료_상황_에러_처리_점원.png" width="197">
+    <img src="assets/토큰_만료_상황_에러_처리_유저.png" width="200">    
     <p align="center">[왼쪽부터 점원, 유저 화면] 현장 결제 기능 (결제 토큰 만료 상황)</p>
 </p>
 
 <p align="center">
-    <img src="assets/인증기능_회원가입_이미지.gif" width="180px">
-    <img src="assets/인증기능_로그인_이미지.gif" width="180px" >
-    <img src="assets/인증기능_로그아웃_이미지.gif" width="180px">
+    <img src="assets/인증기능_회원가입_이미지.gif" width="180">
+    <img src="assets/인증기능_로그인_이미지.gif" width="180" >
+    <img src="assets/인증기능_로그아웃_이미지.gif" width="180">
     <p align="center">[왼쪽부터 로그인, 회원가입, 로그아웃] 인증 기능</p>
 </p>
 
 <p align="center">
-    <img src="assets/계좌생성기능_이미지.gif" width="400px" >
+    <img src="assets/계좌생성기능_이미지.gif" width="180" >
     <p align="center">계좌 생성 기능</p>
 </p>
 
