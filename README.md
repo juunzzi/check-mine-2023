@@ -189,13 +189,13 @@ git clone https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st.g
 
 -   **`@domains/[data-model]`** : `@domains` 폴더 하위에는 데이터 모델 영역을 기준으로 생성된 폴더들이 존재합니다.
 
--   **`@domains/[data-model]/router.ts`** : `[data-model]` 폴더 하위에는 하나의 `router.ts` 파일이 존재합니다. API의 엔드포인트 별로 선언된 `API Handler` 가 작성, 바인딩 되어있습니다. 사용자의 요청을 최초 받아내는 역할을 수행합니다.
+    -   **`router.ts`** : `[data-model]` 폴더 하위에는 하나의 `router.ts` 파일이 존재합니다. API의 엔드포인트 별로 선언된 `API Handler` 가 작성, 바인딩 되어있습니다. 사용자의 요청을 최초 받아내는 역할을 수행합니다.
 
--   **`@domains/[data-model]/service.ts`** : `[data-model]` 폴더 하위에는 하나의 `service.ts` 파일이 존재합니다. 실제 DB 작업을 트리거하는 등 실제 비즈니스 로직이 선언되어 있는 모듈입니다.
+    -   **`service.ts`** : `[data-model]` 폴더 하위에는 하나의 `service.ts` 파일이 존재합니다. 실제 DB 작업을 트리거하는 등 실제 비즈니스 로직이 선언되어 있는 모듈입니다.
 
--   **`@domains/[data-model]/type.ts`** : `[data-model]` 폴더 하위에는 하나의 `type.ts` 파일이 존재합니다. 데이터 모델 영역에서 작성될 타입들이 선언되어 있는 모듈입니다.
+    -   **`type.ts`** : `[data-model]` 폴더 하위에는 하나의 `type.ts` 파일이 존재합니다. 데이터 모델 영역에서 작성될 타입들이 선언되어 있는 모듈입니다.
 
--   **`@domains/[data-model]/modules`** : 데이터 모델 영역의 `router` 로직, `service` 로직이 작성됨에 있어 부차적으로 필요한 모듈들이 선언되어 있는 폴더입니다. 하위에는 `middleware`, `util func`, `DB query func` 등이 선언되어 있는 모듈들이 존재합니다.
+    -   **`modules`** : 데이터 모델 영역의 `router` 로직, `service` 로직이 작성됨에 있어 부차적으로 필요한 모듈들이 선언되어 있는 폴더입니다. 하위에는 `middleware`, `util func`, `DB query func` 등이 선언되어 있는 모듈들이 존재합니다.
 
 ### 프론트엔드 (payment client project)
 
