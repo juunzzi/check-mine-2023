@@ -26,15 +26,11 @@
 node -v // 14.16.1
 ```
 
-<br>
-
 ### 프로젝트 클론
 
 ```bash
 git clone https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st.git
 ```
-
-<br>
 
 ### 실행 방법 (Backend)
 
@@ -66,8 +62,6 @@ git clone https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st.g
     yarn server start
     ```
 
-<br>
-
 ### 실행 방법 (Frontend)
 
 -   환경 변수
@@ -89,8 +83,6 @@ git clone https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st.g
 
     yarn client start
     ```
-
-<br>
 
 # 2. 결과물
 
@@ -128,8 +120,6 @@ git clone https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st.g
     <p align="center">[왼쪽부터 메인, 계좌 생성] 페이지 별 Loading UI (일부만 첨부)</p>
 </p>
 
-<br>
-
 # 3. 역할 및 수행 기간
 
 총 프로젝트의 수행 시간은 업무일 기준 **23일이 소요**되었으며, **23년 1월 19일 ~ 23년 2월 23일** 기간 동안 프로젝트를 수행하였습니다. 별도의 백엔드 개발자, UI/UX 디자이너, 기획자가 존재하지 않는 프로젝트였기에 모든 영역에서 그 역할을 다하였는데, 내용은 다음과 같습니다.
@@ -150,15 +140,11 @@ git clone https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st.g
 
 **업무일 기준 1일의 시간을 소요하였습니다.** [Figma 툴](https://www.figma.com/file/Ugz9cPI4BV06I1bTQnVt9v/NFP?node-id=0%3A1&t=vnf8GYC4f2msvGsG-0)을 활용해 UI 디자인을 실시하였으며, 완벽한 디자인을 목표로 하기보단 최소 기능 프로덕트 개발이라는 프로젝트 목표에 맞게 빠른 기능 개발을 우선적으로 하기 위해 **와이어 프레임만을 작성**하였습니다.
 
-<br>
-
 # 4. 프로젝트 구조
 
 > <i>🙋 본문에는 **모듈**이라는 용어가 자주 등장합니다. 컴퓨팅 세계에서 **모듈**은 하나의 기능을 수행할 수 있도록 구현된 독립적인 개체라는 의미를 갖습니다. 하지만 **자바스크립트에서 모듈은 그러한 의미에 더하여 하나의 파일이라는 의미**를 갖기도 한다 알고 있습니다. 본문에서는 독립적인 개체 + 하나의 파일이라는 의미를 바탕으로 **모듈**이라는 용어를 사용합니다. 이해에 무리가 없으셨으면 합니다 !</i>
 
 이번 프로젝트는 `Yarn Berry` 패키지 매니저 기반의 모노 레포 환경으로 구성되어 있습니다. 그렇기에 `server` 프로젝트, `client` 프로젝트, `common` 프로젝트 세 개의 프로젝트 하나의 레포에서 관리되고 있습니다. 영역 별 프로젝트 구조 (디렉터리 의미, 모듈 배치 등)은 다음과 같습니다.
-
-<br>
 
 ### 백엔드 (payment server project)
 
@@ -210,8 +196,6 @@ git clone https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st.g
     -   **`type.ts`** : `[data-model]` 폴더 하위에는 하나의 `type.ts` 파일이 존재합니다. **데이터 모델 영역에서 작성될 타입들이 선언**되어 있는 모듈입니다.
 
     -   **`modules`** : 데이터 모델 영역의 `router` 로직, `service` 로직이 작성됨에 있어 **부차적으로 필요한 모듈들이 선언**되어 있는 폴더입니다. 하위에는 `middleware`, `util func`, `DB query func` 등이 선언되어 있는 모듈들이 존재합니다.
-
-<br>
 
 ### 프론트엔드 (payment client project)
 
@@ -298,8 +282,6 @@ git clone https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st.g
 
     -   **`error-fallback.tsx`** : UI에서 사용될 비동기 요청 혹은 컴포넌트의 lazy loading 시 Failure 상태의 UI를 표현하는 컴포넌트 코드가 작성되어 있는 모듈입니다.
 
-<br>
-
 # 5. 프로젝트에서 내가 추구했던 것들
 
 ## A. 같이 일하는 사람을 배려하며
@@ -307,8 +289,6 @@ git clone https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st.g
 함께 일하는 태희님에게 프로젝트 코드를 리뷰 받을 때 가장 신경 쓴 부분은 **같이 일하는 사람을 배려하며**였습니다. 이를 위해 리뷰를 받을 때면 PR 코멘트에 항상 결과물 화면, 공유 사항들을 남기어 제가 무슨 작업을 했는지, 어떤 의도를 가지고 만든 결과물인지를 [다음과 같이](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/pull/78#issue-5574025) 기록하곤 하였습니다. 코드로 말하는 것이 개발자이지만, 읽는 이로 하여금 더 쉽게 이해하는 길은 직접 생각을 표현하는 일일 것이라 생각하여 **PR 코멘트는 항상 자세하게 작성토록 노력**했습니다!
 
 또한, 과거 프로젝트 경험에서 같이 일하는 개발자와 지켰으면 했던 것들을 이번 프로젝트에서 몸소 실천해 보며 **팀원을 배려하고자 하였습니다.** 구체적으로, PR 리뷰 사항을 반영하는 커밋은 [다음과 같이](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/pull/70#discussion_r2622586) 직접 링크로 달아 상대방으로 하여금 **커밋 로그**를 보아야 하는 귀찮음을 경험하지 않도록 하였고, 의도가 명확히 존재할 땐 **왜 혹은 나의 생각, 방안에 대해서** [항상 자세히 표현](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/pull/78#discussion_r2631624)하여 상대방이 한 번 더 질의하지 않아도 되게끔 리뷰에 임했습니다. 같이 일하는 사람이 이해하기 쉽도록 **코드 구조의 일관성**을 항시 지키려고 노력하였습니다. (e.g. 모듈 배치의 일관성)
-
-<br>
 
 ## B. Native 하게 구현할 수 있는 것들은 직접 구현한다
 
@@ -318,8 +298,6 @@ git clone https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st.g
 하지만 저는 개발이 가능한 영역을 직접 개발하지 않고, 여타 기술에게 의존하는 개발 방식이 **기술 적용에 대한 학습 비용**, **문제 해결 비용**, **프로덕트의 책임감** 등의 영역에서 부정적인 영향력을 미칠 것이라고 생각합니다. 결국 **기술을 적용하기 위해 학습**해야하고, **문제가 발생하게 되면 기술의 문제 해결 방식에 의존하여 문제를 해결**해야합니다. 또한, 내가 직접 구현한 것이 아니기 때문에 해당 영역에서 개발자의 **책임감이 다소 떨어질지도 모르는 일**이라 생각합니다. (Build 될 결과물의 사이즈가 불필요하게 커진다는 성능 관점에서의 문제점도 있을 수 있겠군요 !) 따라서 전 사소한 영역까지 여러 기술을 활용하여 개발하기보단 **직접 개발이 가능한 부분에 대해선 손수 개발하며 프로젝트를 진행**해보았습니다.
 
 저는 직접 개발이 가능한 부분들은 손수 개발하며 프로젝트를 진행하였습니다. [`Toast UI`](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/tree/develop/packages/client/src/%40components/common/Toast), [`네트워크 중복 요청 방지`](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/blob/develop/packages/client/src/common/util/func.ts) 등 모든 영역이라 할 순 없지만 손수 개발한 부분들이 다수 존재하며, 이를 통해 **불필요하게 개발 비용이 상승하게 되는 일을 제어**할 수 있었고, **프로덕트에 책임감**을 불어넣을 수 있었습니다.
-
-<br>
 
 ## C. React Query 기술 사용 전략
 
@@ -334,8 +312,6 @@ Query Key는 [다음과 같이](https://oss.navercorp.com/PayFE/2023_Point_Benef
 ### **useMutation Hook API는 사용하지 않는다.**
 
 React Query는 useQuery 외에 useMutation 이라는 **외부 데이터를 조작**할 수 있도록 하는 API를 제공합니다. 저는 이 API가 `React Query` 를 사용했던 목적인 `remote data`의 전역화와는 어긋나고, [충분히 자바스크립트 코드로 구현할 수 있는 영역](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/blob/c1ec09b3e496c60ceaea96ad35a16af23510b738/packages/client/src/%40domain/user/hooks.ts#L101)이라 판단하였기에 사용하지 않았습니다. 불필요하게 기술 의존도를 높여 프로덕트의 부채를 늘리기보단 하나의 기술 속에서도 **목적에 맞아 사용할 기술**, **목적과는 어긋나 사용하지 않을 기술**들을 구분하며 기술을 사용하고자 하였습니다.
-
-<br>
 
 ## D. 각 프로젝트에 포함되는 모듈들은 **기능을 기준으로 응집** 시키기 보단 **데이터 모델 영역을 기준으로 응집**시킨다.
 
@@ -397,15 +373,11 @@ React Query는 useQuery 외에 useMutation 이라는 **외부 데이터를 조�
 │   │    └── module
 ```
 
-<br>
-
 ## E. UI가 갖게되는 사용자 경험
 
 스포츠 스타가 존재할 수 있는 이유는 스포츠를 좋아해 주는 팬이 있기 때문입니다. **마찬가지로 우리가 서비스의 UI를 개발할 수 있는 이유도 서비스를 사용해 주는 사용자가 있기 때문이라고 생각합니다.** 그렇기에 저는 UI가 심미적인 요소를 충족하는 것에 더해 사용자 경험을 갖추도록 디자인하고 개발하였습니다.
 
 암호화된 `Input`에 입력된 값을 확인할 수 있도록 다음과 같은 버튼 UI를 넣어 사용자 경험을 충족하고자 하였으며, 사용자 행동의 결과를 확인할 수 잇도록 `Toast UI`를 개발하고 적용하여 사용자 경험을 충족하고자 하였습니다. 버튼에 마우스가 올라가면 색상이 변화하는 애니메이션을 추가하여 '`Clickable` 한 UI이다' 라는 경험을 만족하게끔 하였고, 네트워크 요청과 같이 오래 걸리는 작업에 보여질 UI들도 개발하여 유휴 시간에 사용자 경험을 떨어뜨리지 않고자 하였습니다. 포인트나 계좌의 원화가 얼마 존재하는지를 쉽게 확인할 수 있도록 `localeString` 을 적용하기도 하는 등 **다양한 곳에서 사용자 경험을 만족시킬 수 있는 UI를 디자인하고 개발**하였습니다
-
-<br>
 
 # 6. 결제 상태에 따른 점원, 유저 화면의 동기화 작업
 
@@ -423,16 +395,11 @@ React Query는 useQuery 외에 useMutation 이라는 **외부 데이터를 조�
 
 Polling 방식으로 구현하게 되면, 조건을 걸지 않는 이상 브라우저 (클라이언트)가 계속해서 외부 서버에 네트워크 요청을 보내야 합니다. 단순 상태 조회였기에 당장 서버 혹은 클라이언트에 부담이 들지는 않으나 **극단적인 상황을 상상하더라면 성능에 이슈가 있다는 점은 분명**합니다. (사용자 디바이스 혹은 네트워크 상태에 따라 이슈가 존재. 트래픽이 과하게 몰리는 경우 서버 단에서의 부하 등) 이러한 이유로 WebSocket으로 어떻게 구현할 수 있을지 [직접 코드로 옮겨보며 문서화](https://www.notion.so/WebSocket-2e71b28fcb464a1b8a50b45533ef617b) 해보았습니다. 코드로 직접 작업하긴 하였으나 최종 버전에는 시간 관계 상 병합하지 않았습니다.
 
-<br>
-<br>
-
 # 7. 인턴 기간 동안의 나
 
 ## 공유는 확실하게
 
 인턴 기간 동안 전 **공유**를 정말 잘했다고 생각합니다. 아침 10시에 출근하면 그날의 투두를 정리하여 매일같이 태희님께 Works 디엠으로 공유드리는 한편, 무슨 일을 하고 있는지 수시로 보고드렸습니다. 과거 프로젝트 당시 팀원이 어떤 일을 하고 있는지, 오늘은 무엇을 할 것인지 명확하게 인지하고 있지 못했을 때 조금은 답답하다고 느꼈기에 **공유 정신**을 몸소 실천하여 팀원이 나에 대해 모든 것을 알고 있게끔 생활하였습니다. 저는 인턴 기간 동안 기술적 성장과는 별개로 공유하며 일하는 사람이 될 준비를 하고자 했고, 이제는 이것들이 익숙해져 그러한 사람이 되어가고 있다 느끼고 있습니다 ㅎㅎ.
-
-<br>
 
 ## 반대되는 의견이 있다면 숨기지 말고 표현하자
 
@@ -457,8 +424,6 @@ Polling 방식으로 구현하게 되면, 조건을 걸지 않는 이상 브라�
 
 -   [구조 분해 할당 문법](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/pull/46#discussion_r2606716)
 
-<br>
-
 ## 구두로 토론을 진행했다면 기록하기
 
 가끔은 태희님과 PR 코멘트에서가 아닌 구두로 토의를 진행하곤 하였습니다. 이때의 토의 내용을 기록하지 않으면 **절대** 휘발될 것이다라고 생각하였기에 언제나 코멘트에 **의사소통 결과**라는 내용으로 정리를 하곤 하였습니다. 지금처럼 프로젝트를 돌아봐야 할 때 **같이 업무를 보았던 사람 모두가 그때의 기억을 되살릴 수 있도록 장치를 고안하여 적용**하였습니다. 이 중 일부를 첨부합니다.
@@ -468,8 +433,6 @@ Polling 방식으로 구현하게 되면, 조건을 걸지 않는 이상 브라�
 -   [고차함수의 콜백함수 축약하기 vs 유지하기](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/pull/46#discussion_r2606966)
 
 -   [decodeAccessToken의 반환문](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/pull/41#discussion_r2602615)
-
-<br>
 
 ## 미래의 나와 현재의 상대방을 배려하며
 
@@ -486,8 +449,6 @@ Polling 방식으로 구현하게 되면, 조건을 걸지 않는 이상 브라�
 -   [작업했다면 이슈,PR 링크도 달자](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/pull/35#discussion_r2603573)
 
 -   [논의 했다면 논의한 곳의 링크를 남기자](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/pull/35#discussion_r2599377)
-
-<br>
 
 # 8. 업무 간 문서화 목록
 
