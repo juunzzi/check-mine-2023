@@ -150,137 +150,139 @@ git clone https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st.g
 
 모듈이 수행하는 기능을 기준으로 응집시키기보단 모듈이 속하게 되는 **데이터 모델 영역을 기준으로 모듈들을 응집**시켜보았습니다. 폴더 구조는 다음 Code Block과 같습니다. (비즈니스 로직이 담긴 @domains 폴더의 내용에 대해서만 첨부합니다.)
 
-```bash
-├── src
-│   ├── @domains
-│   │    ├── account
-│   │    │    ├── router.ts
-│   │    │    ├── service.ts
-│   │    │    ├── type.ts
-│   │    │    └── modules
-│   │    │        ├── query.ts
-│   │    │        └── validation.ts
-│   │    ├── order
-│   │    │    ├── router.ts
-│   │    │    ├── service.ts
-│   │    │    ├── type.ts
-│   │    │    └── modules
-│   │    │        ├── util.ts
-│   │    │        └── validation.ts
-│   │    ├── product
-│   │    │    ├── router.ts
-│   │    │    ├── service.ts
-│   │    │    ├── type.ts
-│   │    │    └── modules
-│   │    │        └── query.ts
-│   │    ├── user
-│   │    │    ├── router.ts
-│   │    │    ├── service.ts
-│   │    │    ├── type.ts
-│   │    │    └── modules
-│   │    │        ├── jwt.ts
-│   │    │        ├── middleware.ts
-│   │    │        ├── payment-token-store.ts
-│   │    │        ├── query.ts
-│   │    │        └── validation.ts
-```
+-   백엔드 프로젝트 구조
 
--   **`@domains`** : **비즈니스 로직이 선언되어 있는 모듈들이 배치되어 있는 폴더**입니다. 서비스의 중추 폴더라고 할 수 있습니다.
+    ```bash
+    ├── src
+    │   ├── @domains
+    │   │    ├── account
+    │   │    │    ├── router.ts
+    │   │    │    ├── service.ts
+    │   │    │    ├── type.ts
+    │   │    │    └── modules
+    │   │    │        ├── query.ts
+    │   │    │        └── validation.ts
+    │   │    ├── order
+    │   │    │    ├── router.ts
+    │   │    │    ├── service.ts
+    │   │    │    ├── type.ts
+    │   │    │    └── modules
+    │   │    │        ├── util.ts
+    │   │    │        └── validation.ts
+    │   │    ├── product
+    │   │    │    ├── router.ts
+    │   │    │    ├── service.ts
+    │   │    │    ├── type.ts
+    │   │    │    └── modules
+    │   │    │        └── query.ts
+    │   │    ├── user
+    │   │    │    ├── router.ts
+    │   │    │    ├── service.ts
+    │   │    │    ├── type.ts
+    │   │    │    └── modules
+    │   │    │        ├── jwt.ts
+    │   │    │        ├── middleware.ts
+    │   │    │        ├── payment-token-store.ts
+    │   │    │        ├── query.ts
+    │   │    │        └── validation.ts
+    ```
 
--   **`@domains/[data-model]`** : `@domains` 폴더 하위에는 데이터 모델 영역을 기준으로 생성된 폴더들이 존재합니다.
+    -   **`@domains`** : **비즈니스 로직이 선언되어 있는 모듈들이 배치되어 있는 폴더**입니다. 서비스의 중추 폴더라고 할 수 있습니다.
 
-    -   **`router.ts`** : `[data-model]` 폴더 하위에는 하나의 `router.ts` 파일이 존재합니다. **API의 엔드포인트 별로 선언된 `API Handler` 가 작성, 바인딩** 되어있습니다. 사용자의 요청을 최초 받아내는 역할을 수행합니다.
+    -   **`@domains/[data-model]`** : `@domains` 폴더 하위에는 데이터 모델 영역을 기준으로 생성된 폴더들이 존재합니다.
 
-    -   **`service.ts`** : `[data-model]` 폴더 하위에는 하나의 `service.ts` 파일이 존재합니다. **실제 DB 작업을 트리거하는 등 비즈니스 로직이 선언되어 있는 모듈**입니다.
+        -   **`router.ts`** : `[data-model]` 폴더 하위에는 하나의 `router.ts` 파일이 존재합니다. **API의 엔드포인트 별로 선언된 `API Handler` 가 작성, 바인딩** 되어있습니다. 사용자의 요청을 최초 받아내는 역할을 수행합니다.
 
-    -   **`type.ts`** : `[data-model]` 폴더 하위에는 하나의 `type.ts` 파일이 존재합니다. **데이터 모델 영역에서 작성될 타입들이 선언**되어 있는 모듈입니다.
+        -   **`service.ts`** : `[data-model]` 폴더 하위에는 하나의 `service.ts` 파일이 존재합니다. **실제 DB 작업을 트리거하는 등 비즈니스 로직이 선언되어 있는 모듈**입니다.
 
-    -   **`modules`** : 데이터 모델 영역의 `router` 로직, `service` 로직이 작성됨에 있어 **부차적으로 필요한 모듈들이 선언**되어 있는 폴더입니다. 하위에는 `middleware`, `util func`, `DB query func` 등이 선언되어 있는 모듈들이 존재합니다.
+        -   **`type.ts`** : `[data-model]` 폴더 하위에는 하나의 `type.ts` 파일이 존재합니다. **데이터 모델 영역에서 작성될 타입들이 선언**되어 있는 모듈입니다.
+
+        -   **`modules`** : 데이터 모델 영역의 `router` 로직, `service` 로직이 작성됨에 있어 **부차적으로 필요한 모듈들이 선언**되어 있는 폴더입니다. 하위에는 `middleware`, `util func`, `DB query func` 등이 선언되어 있는 모듈들이 존재합니다.
 
 ### 프론트엔드 (payment client project)
 
 백엔드 프로젝트와 마찬가지로 모듈의 기능을 기준으로 응집시키기보단, 모듈들이 속하는 **데이터 모델 영역을 기준으로 모듈을 응집**시켰습니다. 프론트엔드 프로젝트의 구조는 다음과 같습니다. (UI 모듈들이 담긴 `@page, @components`, UI가 트리거하는 비즈니스 로직이 담긴 `@domains` 폴더에 대해서만 첨부합니다.)
 
-```bash
-// Business 모듈이 담긴 @domains Code Block
+-   프론트엔드 프로젝트 구조 (@domain)
 
-├── src
-│   ├── @domain
-│   │    ├── account
-│   │    │    │── api.ts
-│   │    │    │── hooks.ts
-│   │    │    └── type.ts
-│   │    ├── order
-│   │    │    │── api.ts
-│   │    │    │── hooks.ts
-│   │    │    └── type.ts
-│   │    ├── product
-│   │    │    │── api.ts
-│   │    │    │── hooks.ts
-│   │    │    └── type.ts
-│   │    ├── user
-│   │    │    │── api.ts
-│   │    │    │── hooks.ts
-│   │    │    └── type.ts
-│   │    └── module
-```
+    ```bash
+    ├── src
+    │   ├── @domain
+    │   │    ├── account
+    │   │    │    │── api.ts
+    │   │    │    │── hooks.ts
+    │   │    │    └── type.ts
+    │   │    ├── order
+    │   │    │    │── api.ts
+    │   │    │    │── hooks.ts
+    │   │    │    └── type.ts
+    │   │    ├── product
+    │   │    │    │── api.ts
+    │   │    │    │── hooks.ts
+    │   │    │    └── type.ts
+    │   │    ├── user
+    │   │    │    │── api.ts
+    │   │    │    │── hooks.ts
+    │   │    │    └── type.ts
+    │   │    └── module
+    ```
 
--   **`@domain`** : **외부 데이터를 조작하거나 불러오는 기능을 수행하는 등 서비스 모듈들이 배치되어 있는 폴더**입니다. 프로젝트의 단일개로 존재하며 하위에는 데이터 모델 영역으로 구분된 폴더들이 존재합니다.
+    -   **`@domain`** : **외부 데이터를 조작하거나 불러오는 기능을 수행하는 등 서비스 모듈들이 배치되어 있는 폴더**입니다. 프로젝트의 단일개로 존재하며 하위에는 데이터 모델 영역으로 구분된 폴더들이 존재합니다.
 
--   **`@domain/[data-model]`** : 각 **데이터 모델에서 작성될 서비스 모듈들이 배치되어 있는 폴더**입니다. 기본적으로 `api.ts`, `hooks.ts`, `type.ts` 모듈들이 선언되어 있습니다.
+    -   **`@domain/[data-model]`** : 각 **데이터 모델에서 작성될 서비스 모듈들이 배치되어 있는 폴더**입니다. 기본적으로 `api.ts`, `hooks.ts`, `type.ts` 모듈들이 선언되어 있습니다.
 
-    -   **`api.ts`** : 실제 **외부 데이터와 관련된 비동기 요청 (Ajax) 함수들이 선언되어 있는 모듈**입니다. 네트워크 요청을 위해 `axios` 라이브러리를 사용하였으므로 `axios` 기술 기반으로 작성된 함수들이 선언되어 있습니다.
+        -   **`api.ts`** : 실제 **외부 데이터와 관련된 비동기 요청 (Ajax) 함수들이 선언되어 있는 모듈**입니다. 네트워크 요청을 위해 `axios` 라이브러리를 사용하였으므로 `axios` 기술 기반으로 작성된 함수들이 선언되어 있습니다.
 
-    -   **`hooks.ts`** : 외부 데이터를 컴포넌트 코드에서 참조하거나 조작할 수 있도록 **`React Hook API` 기반으로 작성된 커스텀 훅**들이 선언되어 있는 모듈입니다.
+        -   **`hooks.ts`** : 외부 데이터를 컴포넌트 코드에서 참조하거나 조작할 수 있도록 **`React Hook API` 기반으로 작성된 커스텀 훅**들이 선언되어 있는 모듈입니다.
 
-        -   외부 데이터의 참조 (`useFetch ~~`): `React Query` 의 `UseQuery API` 를 기반으로 작성된 커스텀 훅
+            -   외부 데이터의 참조 (`useFetch ~~`): `React Query` 의 `UseQuery API` 를 기반으로 작성된 커스텀 훅
 
-        -   외부 데이터의 조작 (`useMutate ~~`) : `api.ts`에 선언된 함수를 기반으로 추상화된 함수가 선언되어 있는 커스텀 훅
+            -   외부 데이터의 조작 (`useMutate ~~`) : `api.ts`에 선언된 함수를 기반으로 추상화된 함수가 선언되어 있는 커스텀 훅
 
-    -   **`type.ts`** : 프론트엔드 서비스 코드에서 사용될 타입들이 선언되어 있습니다. 해당하는 **데이터 모델 영역의 타입들이 선언**되어 있습니다.
+        -   **`type.ts`** : 프론트엔드 서비스 코드에서 사용될 타입들이 선언되어 있습니다. 해당하는 **데이터 모델 영역의 타입들이 선언**되어 있습니다.
 
-```bash
-// UI 모듈이 담긴 @components, @pages Code Block
+-   프론트엔드 프로젝트 구조 (@pages, @components)
 
-├── src
-│   │── @pages
-│   │    └── A Page
-│   │         │── index.tsx
-│   │         │── hooks.ts
-│   │         │── style.tsx
-│   │         │── loading-fallback.tsx
-│   │         └── error-fallback.tsx
-│   ├── @components
-│   │    ├── account
-│   │    │    └── A Component
-│   │    │         │── index.tsx
-│   │    │         │── hooks.ts
-│   │    │         │── style.tsx
-│   │    │         │── loading-fallback.tsx
-│   │    │         └── error-fallback.tsx
-│   │    ├── order
-│   │    ├── product
-│   │    ├── user
-│   │    └── common
-```
+    ```bash
+    ├── src
+    │   │── @pages
+    │   │    └── A Page
+    │   │         │── index.tsx
+    │   │         │── hooks.ts
+    │   │         │── style.tsx
+    │   │         │── loading-fallback.tsx
+    │   │         └── error-fallback.tsx
+    │   ├── @components
+    │   │    ├── account
+    │   │    │    └── A Component
+    │   │    │         │── index.tsx
+    │   │    │         │── hooks.ts
+    │   │    │         │── style.tsx
+    │   │    │         │── loading-fallback.tsx
+    │   │    │         └── error-fallback.tsx
+    │   │    ├── order
+    │   │    ├── product
+    │   │    ├── user
+    │   │    └── common
+    ```
 
--   **`@pages`** : 페이지 컴포넌트가 배치되어 있는 폴더입니다.
+    -   **`@pages`** : 페이지 컴포넌트가 배치되어 있는 폴더입니다.
 
--   **`@components`** : 페이지 컴포넌트에서 사용될 UI 컴포넌트가 배치되어 있는 폴더입니다. 하위에는 데이터 모델 기준으로 작성된 폴더와 `common` 폴더 들이 존재합니다.
+    -   **`@components`** : 페이지 컴포넌트에서 사용될 UI 컴포넌트가 배치되어 있는 폴더입니다. 하위에는 데이터 모델 기준으로 작성된 폴더와 `common` 폴더 들이 존재합니다.
 
--   **`@components/common`** : 도메인에 귀속되지 않은, 프로젝트 전반에서 사용되는 UI 컴포넌트가 배치되어 있는 폴더입니다. (e.g. Toast, Modal, ErrorBoundary, PageTemplate 등)
+    -   **`@components/common`** : 도메인에 귀속되지 않은, 프로젝트 전반에서 사용되는 UI 컴포넌트가 배치되어 있는 폴더입니다. (e.g. Toast, Modal, ErrorBoundary, PageTemplate 등)
 
--   **`@components/[data-model]`** : `@components` 폴더 내부에는 데이터 모델 별로 각각 폴더가 하나씩 존재합니다. 도메인에 귀속된 컴포넌트들은 `@components`의 각자 속하는 데이터 모델 영역 폴더에 배치됩니다.
+    -   **`@components/[data-model]`** : `@components` 폴더 내부에는 데이터 모델 별로 각각 폴더가 하나씩 존재합니다. 도메인에 귀속된 컴포넌트들은 `@components`의 각자 속하는 데이터 모델 영역 폴더에 배치됩니다.
 
-    -   **`index.tsx`** : 페이지 혹은 UI 컴포넌트 폴더에는 Main Resource인 `index.ts` 모듈이 단일개로 존재합니다. 해당 모듈 파일에는 `hooks.ts`, `style.ts`, `loading-fallback.ts`, `error-fallback.ts` 들에 선언된 함수들을 사용하여 작성된 컴포넌트 코드가 선언되어 있습니다.
+        -   **`index.tsx`** : 페이지 혹은 UI 컴포넌트 폴더에는 Main Resource인 `index.ts` 모듈이 단일개로 존재합니다. 해당 모듈 파일에는 `hooks.ts`, `style.ts`, `loading-fallback.ts`, `error-fallback.ts` 들에 선언된 함수들을 사용하여 작성된 컴포넌트 코드가 선언되어 있습니다.
 
-    -   **`hooks.ts`** : 해당 컴포넌트 코드에서 작성될 **기능** 코드가 담겨 있는 모듈입니다. `React Hook API` 기반으로 작성된 커스텀 훅들이 배치되어 있습니다. UI가 갖게 되는 기능이 강하게 결합되지 않도록 하기 위해 별도의 `Hook` 으로 컴포넌트의 기능을 분리하여 관리합니다. (기능의 재사용성 ✅, 관심사의 분리 ✅)
+        -   **`hooks.ts`** : 해당 컴포넌트 코드에서 작성될 **기능** 코드가 담겨 있는 모듈입니다. `React Hook API` 기반으로 작성된 커스텀 훅들이 배치되어 있습니다. UI가 갖게 되는 기능이 강하게 결합되지 않도록 하기 위해 별도의 `Hook` 으로 컴포넌트의 기능을 분리하여 관리합니다. (기능의 재사용성 ✅, 관심사의 분리 ✅)
 
-    -   **`style.tsx`** : UI 컴포넌트에서 사용될 스타일 코드가 작성되어 있는 모듈입니다.
+        -   **`style.tsx`** : UI 컴포넌트에서 사용될 스타일 코드가 작성되어 있는 모듈입니다.
 
-    -   **`loading-fallback.tsx`** : UI 컴포넌트에서 사용될 비동기 요청, 혹은 컴포넌트의 lazy loading 시 Pending 상태의 UI를 표현하는 컴포넌트 코드가 작성되어 있는 모듈입니다.
+        -   **`loading-fallback.tsx`** : UI 컴포넌트에서 사용될 비동기 요청, 혹은 컴포넌트의 lazy loading 시 Pending 상태의 UI를 표현하는 컴포넌트 코드가 작성되어 있는 모듈입니다.
 
-    -   **`error-fallback.tsx`** : UI에서 사용될 비동기 요청 혹은 컴포넌트의 lazy loading 시 Failure 상태의 UI를 표현하는 컴포넌트 코드가 작성되어 있는 모듈입니다.
+        -   **`error-fallback.tsx`** : UI에서 사용될 비동기 요청 혹은 컴포넌트의 lazy loading 시 Failure 상태의 UI를 표현하는 컴포넌트 코드가 작성되어 있는 모듈입니다.
 
 # 5. 프로젝트에서 내가 추구했던 것들
 
@@ -292,12 +294,14 @@ git clone https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st.g
 
 ## B. Native 하게 구현할 수 있는 것들은 직접 구현한다
 
-`Toast UI`, `Modal UI`, `Loading UI`, `Button`, `Input` 등 서비스 도메인에 귀속되지 않는 UI들은 써드 파티 라이브러리를 사용하여 이를 쉽게 구현할 수 있습니다. 굳이 UI 영역으로 한정 짓지
-않더라도 비동기 요청의 중복을 허용하지 않게 하는 로직, 외부 데이터를 조작하기 위해 비동기 요청을 보내는 훅들은 다른 라이브러리의 기술을 활용하여 쉽게 구현할 수 있습니다.
+전 이번 프로젝트에서 직접 개발이 가능한 영역 (모든 영역을 말하는 것은 아닙니다)에 대해 다양한 기술을 활용하여 개발하기 보단 본래 스택내에서 손수 개발을 진행하였습니다.
 
-하지만 저는 이러한 개발 방식이 **기술 적용에 대한 학습 비용**, **문제 해결 비용**, **프로덕트의 책임감** 등의 영역에서 부정적인 영향력을 미칠 수 있다고 생각하기에 **개발이 가능한 영역은 직접 개발하는 방식**을 선호합니다. 개발이 가능한 부분인데도, 다른 기술에 의존하게 되어버리면 **기술을 적용하기 위해 학습**해야하는 비용, **문제가 발생하게 되면 기술의 문제 해결 방식에 의존하여 문제를 해결**하는 트러블 슈팅 플로우를 감수 해야합니다. 또한, 직접 구현한 것이 아니기 때문에 해당 영역에서 개발자의 **책임감이 다소 떨어질지도 모릅니다.** (Build 될 결과물의 사이즈가 불필요하게 커진다는 성능 관점에서의 문제점도 있을 수 있겠군요 !) 따라서 전 사소한 영역까지 여러 기술을 활용하여 개발하기보단 **직접 개발이 가능한 부분에 대해선 손수 개발하며 프로젝트를 진행**해보았습니다.
+프로젝트를 개발 하다 보면 보통의 서비스 프로젝트에서 자주 사용되는 UI들에 대해 개발할 필요성이 생기게 됩니다. `Toast UI`, `Modal UI`, `Loading UI`, `Button`, `Input` 등 서비스 도메인에 귀속되지 않는 UI들이 그러한데 보통이라면 빠르게 개발하고자 이들을 추가적인 써드 파티 라이브러리를 사용하여 구현하게 됩니다. 굳이 UI 영역으로 한정 짓지
+않더라도 '비동기 요청의 중복을 허용하지 않게 하는 로직', '외부 데이터를 조작하기 위해 비동기 요청을 보내는 훅'들은 다른 라이브러리의 기술을 활용하여 보다 쉽게 구현할 수 있기에 추가적인 기술을 적용하여 개발하게 됩니다.
 
-저는 직접 개발이 가능한 부분들은 손수 개발하며 프로젝트를 진행하였습니다. [`Toast UI`](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/tree/develop/packages/client/src/%40components/common/Toast), [`네트워크 중복 요청 방지`](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/blob/develop/packages/client/src/common/util/func.ts) 등 모든 영역이라 할 순 없지만 손수 개발한 부분들이 다수 존재하며, 이를 통해 **불필요하게 개발 비용이 상승하게 되는 일을 제어**할 수 있었고, **프로덕트에 책임감**을 불어넣을 수 있었습니다.
+하지만 이러한 개발 방식은 **기술에 대한 학습**이 필요하다는 점, 문제를 해결할 때 해당 **기술의 문제 해결 방식에 의존해야 한다는 점**, 직접 개발한 것이 아니기에 **프로젝트에서의 책임감이 떨어질 수도 있다는 점** 등 몇 가지 문제점들을 가지고 있기에 이번 프로젝트에서는 **직접 개발이 가능한 영역에 대해 네이티브하게 개발하는 방식**을 택하여 적용하였습니다. (Build 될 결과물의 사이즈가 불필요하게 커진다는 성능 최적화 관점에서의 문제점도 있을 수 있겠군요 !) 
+
+[`Toast UI`](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/tree/develop/packages/client/src/%40components/common/Toast), [`네트워크 중복 요청 방지`](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/blob/develop/packages/client/src/common/util/func.ts) 등 모든 영역이라 할 순 없지만 직접 개발한 부분들이 다수 존재하며, 이를 통해 **불필요하게 개발 비용이 상승하게 되는 일을 제어**할 수 있었고, **프로덕트에 책임감**을 불어넣을 수 있었습니다.
 
 ## C. React Query 기술 사용 전략
 
@@ -305,13 +309,13 @@ git clone https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st.g
 
 ### **Query Key는 은닉화 한다.**
 
-Query Key는 [다음과 같이](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/blob/develop/packages/client/src/%40domain/user/hooks.ts) 하나의 모듈에 은닉화 시켜두었습니다. `React Query` 기술에 따르면, Caching 하게 되는 Cache Data는 코드 전역 어디서든 접근 가능한 `queryClient`와 Cache Data의 index가 되는 `Query Key` 에 의해 코드 어디서든 **재검증**, **무효화**, **삭제** 가 가능합니다. 이러한 React Query의 기능은 전역에서 Cache Data를 쉽게 다루게 하기에 개발자에게 편리함을 줍니다. 하지만, 네트워크 요청을 트리거하는 코드를 전역 어디에나 존재하게 하여 **디버깅을 어렵게** 만들고, **유지 보수를 힘들게** 합니다. 이러한 위험성을 인지하여 `Query Key`를 하나의 모듈에 은닉한 뒤 은닉화한 모듈에서만 **Cache Data에 대해 조작할 수 있도록 기술의 사용처를 제한하여 적용**하였습니다.
+Query Key는 [다음과 같이](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/blob/develop/packages/client/src/%40domain/user/hooks.ts) 하나의 모듈에 은닉화 시켜두었습니다. `React Query` 기술에 따르면, Caching 하게 되는 Cache Data는 코드 전역 어디서든 접근 가능한 `queryClient`와 Cache Data의 index가 되는 `Query Key` 을 통해 코드 어디서든 **재검증**, **무효화**, **삭제** 가 가능합니다. 이러한 React Query의 기능은 전역에서 Cache Data를 쉽게 다루게 하기에 개발자에게 편리함을 줍니다. 하지만, 네트워크 요청을 트리거하는 코드를 전역 어디에나 존재하게 하여 **디버깅을 어렵게** 만들고, **유지 보수를 힘들게** 합니다. 이러한 위험성을 인지하여 `Query Key`를 하나의 모듈에 은닉한 뒤 은닉화한 모듈에서만 **Cache Data에 대해 조작할 수 있도록 기술의 사용처를 제한하여 적용**하였습니다.
 
-결과적으로 네트워크 요청과 같은 비싼 작업이 트리거 될 수 있는 곳들을 제한하였기에 **디버깅과 유지 보수에서의 불리함을 제거**할 수 있었습니다. 기술 사용 규칙을 만들어 지켰기에 **일관성을 유지**할 수도 있었으며, `queryClient` 자체가 갖는 다양한 기능들을 모두 이용하는 것이 아닌 제한적으로 이용하여 **기술 의존도를 낮출 수도 있었습니다.**
+결과적으로 네트워크 요청과 같은 비싼 작업이 트리거 될 수 있는 곳들을 제한할 수 있었고, 이를 통해 **디버깅과 유지 보수에서의 불리함을 감소** 시킬 수 있었습니다. 기술 사용 규칙을 만들어 지켰기에 **일관성을 유지**할 수도 있었으며, `queryClient` 자체가 갖는 다양한 기능들을 모두 이용하는 것이 아닌 제한적으로 이용하여 **기술 의존도를 낮출 수도 있었습니다.**
 
 ### **useMutation Hook API는 사용하지 않는다.**
 
-React Query는 useQuery 외에 useMutation 이라는 **외부 데이터를 조작**할 수 있도록 하는 API를 제공합니다. 저는 이 API가 `React Query` 를 사용했던 목적인 `remote data`의 전역화와는 어긋나고, [충분히 자바스크립트 코드로 구현할 수 있는 영역](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/blob/c1ec09b3e496c60ceaea96ad35a16af23510b738/packages/client/src/%40domain/user/hooks.ts#L101)이라 판단하였기에 사용하지 않았습니다. 불필요하게 기술 의존도를 높여 프로덕트의 부채를 늘리기보단 하나의 기술 속에서도 **목적에 맞아 사용할 기술**, **목적과는 어긋나 사용하지 않을 기술**들을 구분하며 기술을 사용하고자 하였습니다.
+React Query는 useQuery 외에 useMutation 이라는 **외부 데이터를 조작**할 수 있도록 하는 API를 제공합니다. 저는 해당 API가 `React Query` 를 사용했던 목적인 `remote data`의 전역화와는 어긋나고, [충분히 자바스크립트 코드로 구현할 수 있는 영역](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/blob/c1ec09b3e496c60ceaea96ad35a16af23510b738/packages/client/src/%40domain/user/hooks.ts#L101)이라 판단하였기에 사용하지 않았습니다. 불필요하게 기술 의존도를 높여 프로덕트의 부채를 늘리기보단 하나의 기술 속에서도 **목적에 맞아 사용할 기술**, **목적과는 어긋나 사용하지 않을 기술**들을 구분하며 기술을 사용하고자 하였습니다.
 
 ## D. 각 프로젝트에 포함되는 모듈들은 **기능을 기준으로 응집** 시키기 보단 **데이터 모델 영역을 기준으로 응집**시킨다.
 
@@ -341,7 +345,7 @@ React Query는 useQuery 외에 useMutation 이라는 **외부 데이터를 조�
 │   │    └── order.ts
 ```
 
-저는 이렇게 만들어지는 프로젝트 구조는 다음과 같은 문제점을 갖는다고 생각하였습니다.
+이러한 프로젝트 구조의 경우 기능 혹은 의미를 기준으로 응집되어 있기 때문에 **기능 별로 모듈화를 시도**한다거나, **포함되는 모듈들의 코드 방식을 일관되게 맞추고자 할 때** 라면 수월하게 작업할 수 있습니다. 하지만 이러한 장점과는 별개로 **개발 당시에 다음과 같은 문제점**을 갖는다고 생각합니다.
 
 -   **모듈을 찾아 헤매는 시간이 상승** : A 영역을 개발 및 수정할 땐 A 영역과 관련된 모듈들을 확인하게 됩니다. 허나 위 구조대로라면 관련된 모듈들이 한 곳에 응집되어 있지 않기에 이를 찾아다녀야지만 하고자 하는 작업을 완수할 수 있게 됩니다.
 
@@ -377,19 +381,19 @@ React Query는 useQuery 외에 useMutation 이라는 **외부 데이터를 조�
 
 스포츠 스타가 존재할 수 있는 이유는 스포츠를 좋아해 주는 팬이 있기 때문입니다. **마찬가지로 우리가 서비스의 UI를 개발할 수 있는 이유도 서비스를 사용해 주는 사용자가 있기 때문이라고 생각합니다.** 그렇기에 저는 UI가 심미적인 요소를 충족하는 것에 더해 사용자 경험을 갖추도록 디자인하고 개발하였습니다.
 
-암호화된 `Input`에 입력된 값을 확인할 수 있도록 버튼 UI를 넣어 사용자 경험을 충족하고자 하였으며, 사용자 행동의 결과를 확인할 수 있도록 `Toast UI`를 개발하고 적용하여 사용자 경험을 충족하고자 하였습니다. 버튼에 마우스가 올라가면 색상이 변화하는 애니메이션을 추가하여 '`Clickable` 한 UI이다' 라는 경험을 만족하게끔 하였고, 네트워크 요청과 같이 오래 걸리는 작업에 보여질 UI들도 개발하여 보여지게 함으로써 유휴 시간의 사용자 경험을 떨어뜨리지 않고자 하였습니다. 포인트나 계좌의 원화가 얼마 존재하는지를 쉽게 확인할 수 있도록 `localeString` 을 적용하기도 하는 등 **다양한 곳에서 사용자 경험을 만족시킬 수 있는 UI를 디자인하고 개발**하였습니다
+암호화된 `Input`에 입력된 값을 확인할 수 있도록 버튼 UI를 넣거나, 사용자 행동의 결과를 확인할 수 있도록 `Toast UI`를 개발하고 적용함으로써 UI가 사용자 경험을 만족하도록 하였습니다. 부차적으로 버튼에 마우스가 올라가면 색상이 변화하는 애니메이션을 추가하여 '`Clickable` 한 UI이다' 라는 경험을 만족하게끔 하였고, 네트워크 요청과 같이 오래 걸리는 작업에 보여질 UI들도 개발하고 보여지게 함으로써 '유휴 시간에서의 사용자 경험'을 떨어뜨리지 않고자 하였습니다. 포인트나 계좌의 원화가 얼마 존재하는지를 쉽게 확인할 수 있도록 `localeString` 을 적용하기도 하는 등 **다양한 곳에서 사용자 경험을 만족시킬 수 있는 UI를 디자인하고 개발**하였습니다
 
 # 6. 결제 상태에 따른 점원, 유저 화면의 동기화 작업
 
-## 개요
+### 개요
 
-중간발표 시에 점원의 화면과 유저의 화면이 결제 상태에 따라 동기화되면 좋겠다는 제안이 오게 되어 숙고 후 적용하게 되었습니다. 최초에는 서비스를 보았을 때 사용자를 위해 더 필요한 기능은 **계좌 변경, 유저의 정보 변경** 등이라 생각하였지만, 해당 기능들은 메인 `Feature`와는 거리가 멀었기에 현장 결제 기능에서의 편리함을 주는 것이 사용자에게 더 매력적일 것이라 판단하여 **결제 상태에 따른 점원, 유저 화면의 동기화 작업** 을 실시하게 되었습니다. (동기화 작업 이전에는 결제 상황에 **사용자 취소**가 불가능, 제어를 할 수 없다는 불편함이 존재하였습니다.)
+중간발표 시에 점원의 화면과 유저의 화면이 결제 상태에 따라 동기화되면 좋겠다는 제안이 오게 되어 숙고 후 적용하게 되었습니다. 최초에는 서비스를 보았을 때 사용자를 위해 필요한 기능은 **계좌 변경, 유저의 정보 변경** 등이라 생각하였지만, 해당 기능들은 메인 `Feature`와는 거리가 멀었기에 현장 결제 기능에서의 편리함을 주는 것이 사용자에게 더 매력적일 것이라 판단하여 **결제 상태에 따른 점원, 유저 화면의 동기화 작업** 을 실시하게 되었습니다. (뿐만 아니라 동기화 작업 이전에는 결제 상황에 **사용자 취소**가 불가능, 제어를 할 수 없다는 불편함이 존재하였습니다.)
 
-## Polling 방식으로 구현
+### Polling 방식으로 구현
 
 결제 진행 상황에 대한 정보(`getPaymentTokenStatus`)를 클라이언트 단에서 polling 하는 식으로 동기화를 구현하였습니다. 현재 버저닝된 프로덕트는 `Polling` 방식으로 동기화 기능이 구현되어 있으며, 이 과정에서 결제 취소 기능 등을 구현하여 사용자 편의성을 위한 기능들을 추가하기도 하였습니다.
 
-## WebSocket 기술을 활용하여 구현
+### WebSocket 기술을 활용하여 구현
 
 몇 가지 문제점을 판단하게 되어 `WebSocket` 기술로의 기능 개선을 떠올리게 되었습니다.
 
@@ -397,20 +401,20 @@ Polling 방식으로 구현하게 되면, 조건을 걸지 않는 이상 브라�
 
 # 7. 인턴 기간 동안의 나
 
-## 공유는 확실하게
+### 공유는 확실하게
 
-인턴 기간 동안 전 **공유**를 정말 잘했다고 생각합니다. 아침 10시에 출근하면 그날의 투두를 정리하여 매일같이 태희님께 Works 디엠으로 공유드리는 한편, 무슨 일을 하고 있는지 수시로 보고드렸습니다. 과거 프로젝트 당시 팀원이 어떤 일을 하고 있는지, 오늘은 무엇을 할 것인지 명확하게 인지하고 있지 못했을 때 조금은 답답하다고 느꼈기에 **공유 정신**을 몸소 실천하여 팀원이 나에 대해 모든 것을 알고 있게끔 생활하였습니다. 저는 인턴 기간 동안 기술적 성장과는 별개로 공유하며 일하는 사람이 될 준비를 하고자 했고, 이제는 이것들이 익숙해져 그러한 사람이 되어가고 있다 느끼고 있습니다 ㅎㅎ.
+전 인턴 기간 동안 **공유**를 정말 잘했다고 생각합니다. 아침 10시에 출근하면 그날의 투두를 정리하여 매일같이 태희님께 Works 디엠으로 공유드리는 한편, 무슨 일을 하고 있는지 수시로 보고드렸습니다. 과거 프로젝트 당시 팀원이 어떤 일을 하고 있는지, 오늘은 무엇을 할 것인지 명확하게 인지하고 있지 못했을 때 조금은 답답하다고 느꼈기에 **공유 정신**을 몸소 실천하여 팀원이 나에 대해 모든 것을 알고 있게끔 생활하였습니다. 저는 인턴 기간 동안 기술적 성장과는 별개로 공유하며 일하는 사람이 될 준비를 하고자 했고, 이제는 이것들이 익숙해져 그러한 사람이 되어가고 있다 느끼고 있습니다 ㅎㅎ.
 
-## 반대되는 의견이 있다면 숨기지 말고 표현하자
+### 반대되는 의견이 있다면 숨기지 말고 표현하자
 
-저는 반박하는 팔로워를 목표로 하고 있습니다. 코드 리뷰 받더라도 분명히 나의 의도가 분명히 존재하고, 상대방의 오해가 보인다면 언제나 내 의견을 제시해야 한다고 생각합니다. **프로덕트 질의 향상은 건설적인 토론을 통해 온다고 믿고 있기에, 내 의견을 숨기기보단 잘 드러내서 토론으로 이어가고자 하였습니다.**
+저는 반박하는 팔로워를 목표로 하고 있습니다. 코드 리뷰 받더라도 나의 의도가 분명히 존재하고, 상대방의 오해가 보인다면 언제나 내 의견을 제시해야 한다고 생각합니다. **프로덕트 질의 향상은 건설적인 토론을 통해 온다고 믿고 있기에, 내 의견을 숨기기보단 잘 드러내서 토론으로 이어가고자 하였습니다.**
 
 이러한 사고를 바탕으로 이번 인턴 기간 동안의 코드 리뷰에 임하였습니다. 아래 링크들은 저와 리뷰어(태희님)과 진행했던 리뷰들입니다. 저는
 이렇듯 **나 자신의 의견을 피력해 기술에 대한 의사**를 나누고자 하였고, 그 과정에서도 **상대방을 배려하는 의사소통**을 하고자 하였습니다. 이 중 일부를 첨부합니다.
 
 -   [별도의 함수 만들기 vs 그대로 유지하기](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/pull/78#discussion_r2631499)
 
--   [getElementById vs querySelector](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/pull/85#discussion_r2644836)
+-   [타입 좁히기의 관점에서 코드를 현상 유지한다.](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/pull/24#discussion_r2595534)
 
 -   [ErrorBoundary와 Suspense 일관성 맞추기](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/pull/72#discussion_r2625813)
 
@@ -424,7 +428,7 @@ Polling 방식으로 구현하게 되면, 조건을 걸지 않는 이상 브라�
 
 -   [구조 분해 할당 문법](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/pull/46#discussion_r2606716)
 
-## 구두로 토론을 진행했다면 기록하기
+### 구두로 토론을 진행했다면 기록하기
 
 가끔은 태희님과 PR 코멘트에서가 아닌 구두로 토의를 진행하곤 하였습니다. 이때의 토의 내용을 기록하지 않으면 **절대** 휘발될 것이다라고 생각하였기에 언제나 코멘트에 **의사소통 결과**라는 내용으로 정리를 하곤 하였습니다. 지금처럼 프로젝트를 돌아봐야 할 때 **같이 업무를 보았던 사람 모두가 그때의 기억을 되살릴 수 있도록 장치를 고안하여 적용**하였습니다. 이 중 일부를 첨부합니다.
 
@@ -434,7 +438,7 @@ Polling 방식으로 구현하게 되면, 조건을 걸지 않는 이상 브라�
 
 -   [decodeAccessToken의 반환문](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/pull/41#discussion_r2602615)
 
-## 미래의 나와 현재의 상대방을 배려하며
+### 미래의 나와 현재의 상대방을 배려하며
 
 저는 인턴 기간 동안 상대방이 귀찮을 만한 것들은 선수치는 사람이 되고자 하였습니다. 내가 참고한 문서가 있다면 링크를 달고, 반영한 커밋 사항이 있다면 빠르게 접근할 수 있도록 커밋 링크를 달아두어 같이 작업하는 사람이 편하게 작업할 수 있도록 하였습니다. 그중 일부를 링크로 첨부합니다.
 
@@ -453,14 +457,25 @@ Polling 방식으로 구현하게 되면, 조건을 걸지 않는 이상 브라�
 # 8. 업무 간 문서화 목록
 
 -   [오늘의 나 (23.01.19 ~ 23.02.24)](https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st/issues?q=is%3Aissue+label%3A%22daily+report%22+is%3Aopen)
+
 -   [시나리오](https://evanescent-beechnut-9b3.notion.site/f06647045be84581921f2184bed26087)
+
 -   [UI Desgin](https://www.figma.com/file/Ugz9cPI4BV06I1bTQnVt9v/NFP?node-id=0%3A1&t=vnf8GYC4f2msvGsG-0)
+
 -   [API 명세](https://evanescent-beechnut-9b3.notion.site/API-2c767ea6e843420ca6526b14be1cbe45)
+
 -   [Design 시안 및 DB Scheme](https://evanescent-beechnut-9b3.notion.site/DB-Scheme-Design-1f6167f5a9c840c583e5d2c393bdc443)
+
 -   [[User Domain] API 별 클라이언트, 서버 에러 처리 정리 문서 ](https://evanescent-beechnut-9b3.notion.site/User-API-1ec34ef37853418d93bd12e1820b07aa)
+
 -   [[Account Domain] API 별 클라이언트, 서버 에러 처리 정리 문서 ](https://evanescent-beechnut-9b3.notion.site/Account-API-608dad0a3d8e422d9406e09d4dfe230c)
+
 -   [[Order Domain] API 별 클라이언트, 서버 에러 처리 정리 문서 ](https://evanescent-beechnut-9b3.notion.site/Order-API-38d9c6c8895a449b8c9edb73cee84dd4)
+
 -   [[Product Domain] API 별 클라이언트, 서버 에러 처리 정리 문서 ](https://evanescent-beechnut-9b3.notion.site/Product-API-aa0a3aa5dc18459999be048bbed5f22e)
+
 -   [WebSocket 기술로 동시성 구현하기](https://www.notion.so/WebSocket-2e71b28fcb464a1b8a50b45533ef617b)
+
 -   [QA](https://evanescent-beechnut-9b3.notion.site/QA-d75e85d1a81649d99cbc58219e59a563)
+
 -   [트러블 슈팅 및 고민 내역](https://evanescent-beechnut-9b3.notion.site/70e251dd123d41ea9de08435779060b8)
