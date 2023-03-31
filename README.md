@@ -26,11 +26,7 @@
 node -v // 14.16.1
 ```
 
-### 프로젝트 클론
 
-```bash
-git clone https://oss.navercorp.com/PayFE/2023_Point_Benefit_FE_Internship_1st.git
-```
 
 ### 실행 방법 (Backend)
 
